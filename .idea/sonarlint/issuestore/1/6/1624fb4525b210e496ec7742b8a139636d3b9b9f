@@ -1,3 +1,6 @@
 
-`
-java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(ëÉıÿÿÿÿ
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(˜å·Òüÿÿÿÿ8©™Æ¾†/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8©™Æ¾†/
+X
+java:S1751#"6Remove this "return" statement or make it conditional.(àñ¯‘ÿÿÿÿÿ8©™Æ¾†/

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.MainView">
+   <children>
+      <Label layoutX="198.0" layoutY="56.0" text="Categories" />
+      <Label layoutX="535.0" layoutY="56.0" text="Customers" />
+      <Label layoutX="862.0" layoutY="56.0" text="Objects" />
+      <Label layoutX="67.0" layoutY="56.0" text="Tables:" />
+      <TableView fx:id="categoriesTable" layoutX="181.0" layoutY="88.0" prefHeight="150.0" prefWidth="270.0">
+         <columns>
+            <TableColumn fx:id="numberOfcategoriesColumn" prefWidth="75.0" text="№" />
+            <TableColumn fx:id="namesOfCategoriesColumn" prefWidth="194.40001525878904" text="Categories" />
+         </columns>
+      </TableView>
+      <TableView fx:id="customersTable" layoutX="519.0" layoutY="88.0" prefHeight="150.0" prefWidth="270.0">
+         <columns>
+            <TableColumn fx:id="numberOfCustomersColumn" prefWidth="75.0" text="№" />
+            <TableColumn fx:id="nameOfCustomersColumn" prefWidth="194.39999999999998" text="Customers" />
+         </columns>
+      </TableView>
+      <TableView fx:id="objectsTable" layoutX="850.0" layoutY="88.0" prefHeight="150.0" prefWidth="414.0">
+         <columns>
+            <TableColumn fx:id="numberOfObjectsColumn" prefWidth="62.39996337890625" text="№" />
+            <TableColumn fx:id="nameOfObjectsColumn" prefWidth="152.800048828125" text="Name" />
+            <TableColumn fx:id="numberOfObjectCategoriesColumn" prefWidth="99.20001220703125" text="Categories" />
+            <TableColumn fx:id="numberOfCustomersObjectsColumn" prefWidth="100.7999267578125" text="Customers" />
+         </columns>
+      </TableView>
+      <Button fx:id="loadTestDataButton" layoutX="24.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Load test data" />
+      <Button fx:id="loadCategoriesData" layoutX="275.0" layoutY="52.0" mnemonicParsing="false" text="Load data" />
+      <Button fx:id="loadCustomersData" layoutX="619.0" layoutY="52.0" mnemonicParsing="false" text="Load data" />
+      <Button fx:id="loadObjectsDatat" layoutX="934.0" layoutY="52.0" mnemonicParsing="false" text="Load data" />
+      <TextField fx:id="newCategoryField" layoutX="181.0" layoutY="252.0" prefHeight="26.0" prefWidth="174.0" promptText="New category" />
+      <Button fx:id="insertCategoryButton" layoutX="368.0" layoutY="253.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Insert" />
+      <TextField fx:id="categoryNumberForDeleteField" layoutX="181.0" layoutY="292.0" prefHeight="26.0" prefWidth="174.0" promptText="№" />
+      <Button fx:id="deleteCategoryButton" layoutX="368.0" layoutY="292.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Delete" />
+      <TextField fx:id="numberOfCategoryForUpdateField" layoutX="183.0" layoutY="331.0" prefHeight="26.0" prefWidth="40.0" promptText="№" />
+      <TextField fx:id="categoryNameForUpdate" layoutX="228.0" layoutY="331.0" prefHeight="26.0" prefWidth="126.0" promptText="Category" />
+      <Button fx:id="updateCategoriesButton" layoutX="368.0" layoutY="330.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Update" />
+      <TextField fx:id="newCustomerField" layoutX="516.0" layoutY="253.0" prefHeight="26.0" prefWidth="174.0" promptText="New customer" />
+      <Button fx:id="insertCustomerButton" layoutX="706.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Insert" />
+      <TextField fx:id="numberOfCustumerForDeleteField" layoutX="516.0" layoutY="293.0" prefHeight="26.0" prefWidth="174.0" promptText="№" />
+      <Button fx:id="deleteCustomerButton" layoutX="706.0" layoutY="292.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Delete" />
+      <TextField fx:id="numberOfCustomerForUpdateField" layoutX="519.0" layoutY="329.0" prefHeight="26.0" prefWidth="46.0" promptText="№" />
+      <TextField fx:id="customerForUpdateFiled" layoutX="571.0" layoutY="329.0" prefHeight="26.0" prefWidth="118.0" promptText="Customer" />
+      <Button fx:id="updateCustomerButton" layoutX="706.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Update" />
+      <TextField fx:id="nameOfObjectForInsertField" layoutX="850.0" layoutY="254.0" prefHeight="18.0" prefWidth="118.0" promptText="Name" />
+      <TextField fx:id="numberOfCategoryObjectForInsert" layoutX="975.0" layoutY="254.0" prefHeight="26.0" prefWidth="92.0" promptText="№ Category" />
+      <TextField fx:id="numberOfCustomerObjectForInsertFiled" layoutX="1081.0" layoutY="253.0" prefHeight="26.0" prefWidth="92.0" promptText="№ Customer" />
+      <Button fx:id="insertObjectButton" layoutX="1183.0" layoutY="254.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Insert" />
+      <TextField fx:id="numberOfObjectForDeleteFiled" layoutX="850.0" layoutY="293.0" prefHeight="26.0" prefWidth="322.0" promptText="№" />
+      <Button fx:id="deleteObjectButton" layoutX="1183.0" layoutY="293.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Delete" />
+      <TextField fx:id="numberOfObjectForUpdateField" layoutX="847.0" layoutY="331.0" prefHeight="26.0" prefWidth="30.0" promptText="№" />
+      <TextField fx:id="nameOfObjectForUpdateField" layoutX="888.0" layoutY="331.0" prefHeight="26.0" prefWidth="92.0" promptText="Name" />
+      <TextField fx:id="numberOfCategoryObjectForUpdateField" layoutX="983.0" layoutY="331.0" prefHeight="26.0" prefWidth="92.0" promptText="№ Category" />
+      <TextField fx:id="numberOfCustomerObjectForUpdateField" layoutX="1081.0" layoutY="331.0" prefHeight="26.0" prefWidth="92.0" promptText="№ Customer" />
+      <Button fx:id="updateObjectButton" layoutX="1183.0" layoutY="331.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" text="Update" />
+      <Label fx:id="answerLabel" layoutX="385.0" layoutY="381.0" prefHeight="26.0" prefWidth="921.0" />
+   </children>
+</AnchorPane>
