@@ -1,0 +1,10 @@
+
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¨Î±ÿÿÿÿÿ
+
+java:S1130"sRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from constructor's body.(›Ş×ûÿÿÿÿ
+Q
+java:S1751"6Remove this "return" statement or make it conditional.(àñ¯‘ÿÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ
+Q	java:S125,"<This block of commented-out lines of code should be removed.(áô¿ú
+Q	java:S1252"<This block of commented-out lines of code should be removed.(²º˜Œ
