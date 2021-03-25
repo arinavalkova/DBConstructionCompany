@@ -2,14 +2,18 @@ package domain;
 
 import domain.rows.Row;
 
-import java.sql.SQLException;
+import java.util.List;
 
 public interface DataBaseRepository {
-    void insert(Row row) throws SQLException;
+    boolean insertRow(Row row);
 
-    Integer getCountRows() throws SQLException;
+    boolean createTable();
 
-    void createTable() throws SQLException;
+    boolean deleteTable();
 
-    void deleteTable() throws SQLException;
+    boolean updateRow(Row row);
+
+    boolean deleteRow(int id);
+
+    List<Row> getRows();
 }
