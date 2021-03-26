@@ -1,0 +1,19 @@
+
+l
+java:S20956"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Í«½Í†/
+l
+java:S2095Y"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¶ü•Ñ†/
+R
+java:S1128"5Remove this unused import 'domain.rows.CustomersRow'.(›Ì8­åÜÍ†/
+X
+java:S1128"6Remove this unused import 'domain.rows.CategoriesRow'.(Ÿ¸Çøÿÿÿÿ8Øí˜Ñ†/
+H
+java:S1168\"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
+H
+java:S1168h"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
+l
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¹íÍ†/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(…†»üÿÿÿÿ8ú¾Í†/
+l
+java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¾òØÍ†/
