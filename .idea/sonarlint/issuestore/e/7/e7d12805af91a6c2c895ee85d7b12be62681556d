@@ -1,17 +1,21 @@
 
-l
-java:S2095*"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Í¬»Í†/
-H
-java:S1168P"+Return an empty collection instead of null.(¥¹ï8Ùƒ•Ñ†/
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢ÿÌŒ8«œ¸Í†/
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¢ÿÌŒ8«œ¸Í†/
 l
-java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ùƒ•Ñ†/
+java:S2095Y"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ùƒ•Ñ†/
 l
-java:S20956"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8öÏìÍ†/
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ç§ÉÍ†/
 l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ç§ÉÍ†/
+java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Í¬»Í†/
+l
+java:S2095@"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8õ½¿å†/
 H
-java:S1168Y"+Return an empty collection instead of null.(¥¹ï8Ùƒ•Ñ†/
-X
-java:S1128"6Remove this unused import 'domain.rows.CategoriesRow'.(Ÿ¸Çøÿÿÿÿ8™ê—Ñ†/
+java:S1168d"+Return an empty collection instead of null.(¥¹ï8Ùƒ•Ñ†/
+l
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8ĞÇêä†/
+d
+java:S2095v"GUse try-with-resources or close this "Statement" in a "finally" clause.(ãÖŞî8äÓüï†/
+H
+java:S1168\"+Return an empty collection instead of null.(¥¹ï8Ùƒ•Ñ†/
+l
+java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8öÏìÍ†/

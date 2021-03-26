@@ -144,4 +144,15 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
         }
         return true;
     }
+
+    @Override
+    public boolean loadTestData() {
+        if (!insertRow(new ObjectsRow(0, "Esenina 37/1", 0, 0))) {
+            return false;
+        }
+        if (!insertRow(new ObjectsRow(0, "Sverdlovskaia 45", 1, 1))) {
+            return false;
+        }
+        return true;
+    }
 }

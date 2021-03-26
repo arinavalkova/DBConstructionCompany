@@ -143,6 +143,15 @@ public class MainView {
     private TextField categoryNameForUpdate;
 
     @FXML
+    private TextField objectNameForSearchFiled;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Label customerNamelabel;
+
+    @FXML
     void initialize() {
         try {
             mainViewModel = new MainViewModel(userName, password);
@@ -155,6 +164,7 @@ public class MainView {
 
     private void bindControls() {
         answerLabel.textProperty().bind(mainViewModel.getAnswerProperty());
+        customerNamelabel.textProperty().bind(mainViewModel.getCustomerProperty());
 
         numberOfObjectsColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameOfObjectsColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -186,6 +196,14 @@ public class MainView {
         initUpdateCategoryButton();
         initUpdateCustomerButton();
         initUpdateObjectButton();
+        initSearchCustomerButton();
+    }
+
+    private void initSearchCustomerButton() {
+        searchButton.setOnMouseClicked(event -> {
+            mainViewModel.searchCustomerByObjectName(objectNameForSearchFiled.getText());
+            objectNameForSearchFiled.setText("");
+        });
     }
 
     private void initUpdateObjectButton() {

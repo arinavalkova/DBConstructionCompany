@@ -125,4 +125,15 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
         }
         return true;
     }
+
+    @Override
+    public boolean loadTestData() {
+        if (!insertRow(new CategoriesRow(0, "House"))) {
+            return false;
+        }
+        if (!insertRow(new CategoriesRow(0, "Library"))) {
+            return false;
+        }
+        return true;
+    }
 }

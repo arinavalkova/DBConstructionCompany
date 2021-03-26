@@ -18,4 +18,6 @@ public interface DataBaseRepository {
     List<Row> getRows();
 
     boolean createIdAutoIncrementTrigger();
+
+    boolean loadTestData();
 }

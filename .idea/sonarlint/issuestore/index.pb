@@ -49,3 +49,5 @@ Y
 )src/main/java/domain/rows/ObjectsRow.java,f\4\f4800b25584f7f897ace0cf5d0716c24131ded13
 _
 /src/main/java/data/tables/ObjectsTableImpl.java,c\e\ce45fdadaccb85bdd6bdaf927b5980e359a7f38f
+†
+Vsrc/main/java/domain/usecases/parameterized/SearchCustomerNameByObjectNameUseCase.java,8\d\8df1b640b105224be54f947e9ef75ec500d8092e

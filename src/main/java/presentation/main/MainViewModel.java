@@ -11,6 +11,7 @@ import domain.usecases.nonParameterized.GetRowsUseCase;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
+import domain.usecases.parameterized.SearchCustomerNameByObjectNameUseCase;
 import domain.usecases.parameterized.UpdateRowUseCase;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,6 +27,7 @@ import java.util.List;
 public class MainViewModel {
 
     private final StringProperty answerProperty = new SimpleStringProperty();
+    private final StringProperty customerProperty = new SimpleStringProperty();
 
     private final Property<ObservableList<CategoriesRow>> categoriesRowsProperty = new SimpleObjectProperty<>();
     private final Property<ObservableList<CustomersRow>> customersRowsProperty = new SimpleObjectProperty<>();
@@ -33,6 +35,10 @@ public class MainViewModel {
 
     public ObservableValue<String> getAnswerProperty() {
         return answerProperty;
+    }
+
+    public ObservableValue<String> getCustomerProperty() {
+        return customerProperty;
     }
 
     public Property<ObservableList<CategoriesRow>> getCategoryTableProperty() {
@@ -64,6 +70,7 @@ public class MainViewModel {
     private final GetRowsUseCase getObjectsRowsUseCase;
 
     private final LoadTestDataUseCase loadTestDataUseCase;
+    private final SearchCustomerNameByObjectNameUseCase searchCustomerNameByObjectNameUseCase;
 
     public MainViewModel(String userName, String password) throws SQLException {
         JDBCConnection jdbcConnection = new JDBCConnection(userName, password);
@@ -84,11 +91,13 @@ public class MainViewModel {
         updateCustomersUsecase = new UpdateRowUseCase(customersTable);
         deleteFromCustomersUseCase = new DeleteRowUseCase(customersTable);
 
-        loadTestDataUseCase = new LoadTestDataUseCase(objectsTable, categoriesTable, customersTable);
+        loadTestDataUseCase = new LoadTestDataUseCase(objectsTable, categoriesTable, customersTable, jdbcConnection);
 
         getCategoriesRowsUseCase = new GetRowsUseCase(categoriesTable);
         getCustomersRowsUseCase = new GetRowsUseCase(customersTable);
         getObjectsRowsUseCase = new GetRowsUseCase(objectsTable);
+
+        searchCustomerNameByObjectNameUseCase = new SearchCustomerNameByObjectNameUseCase(jdbcConnection);
     }
 
     public void getCategories() {
@@ -114,10 +123,10 @@ public class MainViewModel {
         List<CustomersRow> customersRowList = (List<CustomersRow>) getCustomersRowsUseCase.invoke();
         if (customersRowList == null) {
             customersRowsProperty.setValue(FXCollections.observableArrayList());
-            answerProperty.setValue("Error with loading categories");
+            answerProperty.setValue("Error with loading customers");
         } else {
             customersRowsProperty.setValue(FXCollections.observableArrayList(customersRowList));
-            answerProperty.setValue("Successfully loaded categories");
+            answerProperty.setValue("Successfully loaded customers");
         }
     }
 
@@ -125,10 +134,10 @@ public class MainViewModel {
         List<ObjectsRow> objectsRowList = (List<ObjectsRow>) getObjectsRowsUseCase.invoke();
         if (objectsRowList == null) {
             objectsRowsProperty.setValue(FXCollections.observableArrayList());
-            answerProperty.setValue("Error with loading categories");
+            answerProperty.setValue("Error with loading objects");
         } else {
             objectsRowsProperty.setValue(FXCollections.observableArrayList(objectsRowList));
-            answerProperty.setValue("Successfully loaded categories");
+            answerProperty.setValue("Successfully loaded objects");
         }
     }
 
@@ -201,6 +210,16 @@ public class MainViewModel {
             answerProperty.setValue("Error with updating object");
         } else {
             answerProperty.setValue("Successfully updated object");
+        }
+    }
+
+    public void searchCustomerByObjectName(String objectName) {
+        String answer = (String) searchCustomerNameByObjectNameUseCase.invoke(objectName);
+        if (answer == null) {
+            answerProperty.setValue("Error with searching customer for object");
+        } else {
+            customerProperty.setValue(answer);
+            answerProperty.setValue("Successfully find customer for object");
         }
     }
 }

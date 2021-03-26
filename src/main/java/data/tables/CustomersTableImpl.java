@@ -124,4 +124,15 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
         }
         return true;
     }
+
+    @Override
+    public boolean loadTestData() {
+        if (!insertRow(new CustomersRow(0, "Vasilii"))) {
+            return false;
+        }
+        if (!insertRow(new CustomersRow(0, "Gleb"))) {
+            return false;
+        }
+        return true;
+    }
 }

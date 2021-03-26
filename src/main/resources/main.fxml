@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.MainView">
    <children>
       <Label layoutX="198.0" layoutY="56.0" text="Categories" />
       <Label layoutX="535.0" layoutY="56.0" text="Customers" />
@@ -63,5 +63,10 @@
       <TextField fx:id="numberOfCustomerObjectForUpdateField" layoutX="1081.0" layoutY="331.0" prefHeight="26.0" prefWidth="92.0" promptText="№ Customer" />
       <Button fx:id="updateObjectButton" layoutX="1183.0" layoutY="331.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" text="Update" />
       <Label fx:id="answerLabel" layoutX="385.0" layoutY="381.0" prefHeight="26.0" prefWidth="921.0" />
+      <Label layoutX="24.0" layoutY="145.0" prefHeight="18.0" prefWidth="146.0" text="Get customer name" />
+      <Label layoutX="24.0" layoutY="163.0" prefHeight="18.0" prefWidth="146.0" text="for object name" />
+      <TextField fx:id="objectNameForSearchFiled" layoutX="24.0" layoutY="195.0" prefHeight="26.0" prefWidth="146.0" promptText="Object name" />
+      <Button fx:id="searchButton" layoutX="59.0" layoutY="254.0" mnemonicParsing="false" text="Search" />
+      <Label fx:id="customerNamelabel" layoutX="24.0" layoutY="229.0" prefHeight="18.0" prefWidth="146.0" />
    </children>
 </AnchorPane>

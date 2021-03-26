@@ -1,6 +1,9 @@
 package domain.usecases.nonParameterized;
 
+import data.JDBCConnection;
 import domain.DataBaseRepository;
+
+import java.sql.SQLException;
 
 public class LoadTestDataUseCase implements NonParamUseCase {
 
@@ -8,32 +11,79 @@ public class LoadTestDataUseCase implements NonParamUseCase {
     private final DataBaseRepository categoriesRepository;
     private final DataBaseRepository objectsRepository;
 
+    private final JDBCConnection jdbcConnection;
+
     public LoadTestDataUseCase(DataBaseRepository objectsRepository,
                                DataBaseRepository categoriesRepository,
-                               DataBaseRepository customersRepository) {
+                               DataBaseRepository customersRepository,
+                               JDBCConnection jdbcConnection) {
         this.objectsRepository = objectsRepository;
         this.categoriesRepository = categoriesRepository;
         this.customersRepository = customersRepository;
+        this.jdbcConnection = jdbcConnection;
     }
 
     @Override
     public Boolean invoke() {
-        //move to transaction
+        try {
+            jdbcConnection.getConnection().setAutoCommit(false);
 
-        objectsRepository.deleteTable();
-        customersRepository.deleteTable();
-        categoriesRepository.deleteTable();
+            if (!objectsRepository.deleteTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!customersRepository.deleteTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!categoriesRepository.deleteTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!categoriesRepository.createTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!customersRepository.createTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!objectsRepository.createTable()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!categoriesRepository.createIdAutoIncrementTrigger()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!customersRepository.createIdAutoIncrementTrigger()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+            if (!objectsRepository.createIdAutoIncrementTrigger()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
 
-        categoriesRepository.createTable();
-        customersRepository.createTable();
-        objectsRepository.createTable();
+            if (!categoriesRepository.loadTestData()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
 
-        if (!categoriesRepository.createIdAutoIncrementTrigger()) {
+            if (!customersRepository.loadTestData()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+
+            if (!objectsRepository.loadTestData()) {
+                jdbcConnection.getConnection().rollback();
+                return false;
+            }
+
+            jdbcConnection.getConnection().commit();
+        } catch (SQLException throwables) {
             return false;
         }
-        if (!customersRepository.createIdAutoIncrementTrigger()) {
-            return false;
-        }
-        return objectsRepository.createIdAutoIncrementTrigger();//bad method
+        return true;
     }
 }
