@@ -6,9 +6,7 @@ import domain.DataBaseRepository;
 import domain.rows.Row;
 import domain.rows.CategoriesRow;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +23,7 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
         CategoriesRow categoriesRow = (CategoriesRow) row;
         String sql = "insert into " + TABLE_NAME + " values(" + categoriesRow.getId()
                 + ", '" + categoriesRow.getName() + "')";
+        System.out.println(sql);
         try {
             PreparedStatement preStatement = getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -103,5 +102,27 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
             }
         }
         return rowArrayList;
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        String dropSeq = "DROP SEQUENCE categories_seq";
+        String createSeq = "CREATE SEQUENCE categories_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER categories_autoincrement\n" +
+                "BEFORE INSERT ON categories\n" +
+                "FOR EACH ROW\n" +
+                "BEGIN\n" +
+                "SELECT categories_seq.NextVal INTO :new.ID FROM dual;\n" +
+                "END;";
+
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.executeUpdate(dropSeq);
+            statement.executeUpdate(createSeq);
+            statement.executeUpdate(trigger);
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 }

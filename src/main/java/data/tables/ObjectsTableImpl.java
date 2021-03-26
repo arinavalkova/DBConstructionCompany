@@ -3,13 +3,10 @@ package data.tables;
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
-import domain.rows.CategoriesRow;
 import domain.rows.ObjectsRow;
 import domain.rows.Row;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,15 +37,15 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
     public boolean createTable() {
         String sql =
                 "CREATE TABLE " +
-                TABLE_NAME +
-                " ( id int primary key, name varchar(20), categories_id int," +
-                " customer_id int," +
-                " foreign key (categories_id)" +
-                " references categories (id)" +
-                " on delete cascade," +
-                " foreign key (customer_id)" +
-                " references customer (id)" +
-                " on delete cascade)";
+                        TABLE_NAME +
+                        " ( id int primary key, name varchar(20), categories_id int," +
+                        " customer_id int," +
+                        " foreign key (categories_id)" +
+                        " references categories (id)" +
+                        " on delete cascade," +
+                        " foreign key (customer_id)" +
+                        " references customer (id)" +
+                        " on delete cascade)";
         try {
             PreparedStatement preStatement = getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -123,5 +120,28 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
             }
         }
         return rowArrayList;
+    }
+
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        String dropSeq = "DROP SEQUENCE objects_seq";
+        String createSeq = "CREATE SEQUENCE objects_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER objects_autoincrement\n" +
+                "BEFORE INSERT ON objects\n" +
+                "FOR EACH ROW\n" +
+                "BEGIN\n" +
+                "SELECT objects_seq.NextVal INTO :new.ID FROM dual;" +
+                "END;";
+
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.executeUpdate(dropSeq);
+            statement.executeUpdate(createSeq);
+            statement.executeUpdate(trigger);
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 }

@@ -3,13 +3,10 @@ package data.tables;
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
-import domain.rows.CategoriesRow;
 import domain.rows.CustomersRow;
 import domain.rows.Row;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,5 +101,27 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
             }
         }
         return rowArrayList;
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        String dropSeq = "DROP SEQUENCE customer_seq";
+        String createSeq = "CREATE SEQUENCE customer_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER customer_autoincrement\n" +
+                "BEFORE INSERT ON customer\n" +
+                "FOR EACH ROW\n" +
+                "BEGIN\n" +
+                "SELECT customer_seq.NextVal INTO :new.ID FROM dual;\n" +
+                "END;";
+
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.executeUpdate(dropSeq);
+            statement.executeUpdate(createSeq);
+            statement.executeUpdate(trigger);
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 }

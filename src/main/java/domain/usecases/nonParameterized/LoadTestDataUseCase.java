@@ -28,6 +28,12 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         customersRepository.createTable();
         objectsRepository.createTable();
 
-        return true; //bad method
+        if (!categoriesRepository.createIdAutoIncrementTrigger()) {
+            return false;
+        }
+        if (!customersRepository.createIdAutoIncrementTrigger()) {
+            return false;
+        }
+        return objectsRepository.createIdAutoIncrementTrigger();//bad method
     }
 }

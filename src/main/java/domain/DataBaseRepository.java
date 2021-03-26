@@ -16,4 +16,6 @@ public interface DataBaseRepository {
     boolean deleteRow(int id);
 
     List<Row> getRows();
+
+    boolean createIdAutoIncrementTrigger();
 }
