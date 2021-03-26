@@ -12,7 +12,7 @@ public class UpdateRowUseCase implements ParamUseCase{
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Boolean invoke(Object object) {
         return dataBaseRepository.updateRow((Row) object);
     }
 }

@@ -8,7 +8,9 @@ import domain.rows.CustomersRow;
 import domain.rows.Row;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersTableImpl extends BaseTable implements DataBaseRepository {
@@ -59,16 +61,48 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
 
     @Override
     public boolean updateRow(Row row) {
-        return false;
+        CustomersRow customersRow = (CustomersRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + customersRow.getName() + "' WHERE id = " + customersRow.getId();
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean deleteRow(int id) {
-        return false;
+        String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = " + id;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public List<Row> getRows() {
-        return null;
+        String sql = "SELECT * FROM " + TABLE_NAME;
+        ResultSet resultSet;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            resultSet = preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return null;
+        }
+        ArrayList<Row> rowArrayList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+                rowArrayList.add(new CustomersRow(resultSet.getInt("id"), resultSet.getString("name")));
+            } catch (SQLException throwables) {
+                return null;
+            }
+        }
+        return rowArrayList;
     }
 }

@@ -60,17 +60,48 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean updateRow(Row row) {
-        return false;
+        CategoriesRow categoriesRow = (CategoriesRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + categoriesRow.getName() + "' WHERE id = " + categoriesRow.getId();
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean deleteRow(int id) {
-        return false;
+        String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = " + id;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public List<Row> getRows() {
-        return null;
+        String sql = "SELECT * FROM " + TABLE_NAME;
+        ResultSet resultSet;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            resultSet = preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return null;
+        }
+        ArrayList<Row> rowArrayList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+                rowArrayList.add(new CategoriesRow(resultSet.getInt("id"), resultSet.getString("name")));
+            } catch (SQLException throwables) {
+                return null;
+            }
+        }
+        return rowArrayList;
     }
-
 }

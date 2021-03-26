@@ -11,7 +11,7 @@ public class DeleteRowUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Boolean invoke(Object object) {
         return dataBaseRepository.deleteRow((Integer) object);
     }
 }

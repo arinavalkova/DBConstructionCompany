@@ -1,12 +1,7 @@
 
-j	java:S116"URename this field "TABLE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ú®Ý
-7
-java:S1170"!Make this final field static too.(½ú®Ý
-7
-java:S1170"!Make this final field static too.(Û±ËÇ
-<
-java:S1170"!Make this final field static too.(»¨š–øÿÿÿÿ
-B
-java:S1602?",Remove useless curly braces around statement(Ö‰­Ê
-D
-java:S1068".Remove this unused "TABLE_NAME" private field.(½ú®Ý
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(êÑáùùÿÿÿÿ8¶ƒóÇ†/
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(êÑáùùÿÿÿÿ8¶ƒóÇ†/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ô¬8¶ƒóÇ†/
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ô¬8¶ƒóÇ†/

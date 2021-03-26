@@ -1,6 +1,2 @@
 
-
-java:S1130"sRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from constructor's body.(°Ö›á8¹ÏË¾†/
 Z	java:S106"9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ8¹ÏË¾†/
-X	java:S125""<This block of commented-out lines of code should be removed.(áô¿ú8¹ÏË¾†/
-X	java:S125("<This block of commented-out lines of code should be removed.(²º˜Œ8¹ÏË¾†/

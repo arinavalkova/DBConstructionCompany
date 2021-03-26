@@ -3,12 +3,14 @@ package data.tables;
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
-import domain.rows.CustomersRow;
+import domain.rows.CategoriesRow;
 import domain.rows.ObjectsRow;
 import domain.rows.Row;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
@@ -23,8 +25,8 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
     public boolean insertRow(Row row) {
         ObjectsRow objectsRow = (ObjectsRow) row;
         String sql = "insert into " + TABLE_NAME + " values(" + objectsRow.getId()
-                + ", '" + objectsRow.getName() + ", '" + objectsRow.getCategoryId() + ", '"
-                + objectsRow.getCustomerId() + "')";
+                + ", '" + objectsRow.getName() + "', " + objectsRow.getCategoryId() + ", "
+                + objectsRow.getCustomerId() + ")";
         try {
             PreparedStatement preStatement = getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -70,16 +72,56 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
 
     @Override
     public boolean updateRow(Row row) {
-        return false;
+        ObjectsRow objectsRow = (ObjectsRow) row;
+        String sql = "UPDATE " + TABLE_NAME
+                + " SET name = '" + objectsRow.getName()
+                + "', categories_id = " + objectsRow.getCategoryId()
+                + ", customer_id = " + objectsRow.getCustomerId()
+                + " WHERE id = " + objectsRow.getId();
+        System.out.println(sql);
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean deleteRow(int id) {
-        return false;
+        String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = " + id;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public List<Row> getRows() {
-        return null;
+        String sql = "SELECT * FROM " + TABLE_NAME;
+        ResultSet resultSet;
+        try {
+            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            resultSet = preStatement.executeQuery();
+        } catch (SQLException throwables) {
+            return null;
+        }
+        ArrayList<Row> rowArrayList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+                rowArrayList.add(new ObjectsRow(resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("categories_id"),
+                        resultSet.getInt("customer_id")));
+            } catch (SQLException throwables) {
+                return null;
+            }
+        }
+        return rowArrayList;
     }
 }
