@@ -1,19 +1,12 @@
 package domain.usecases.parameterized;
 
 import data.JDBCConnection;
-import data.tables.CustomersTableImpl;
-import data.tables.ObjectsTableImpl;
-import oracle.jdbc.internal.OracleTypes;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SearchCustomerNameByObjectNameUseCase implements ParamUseCase {
-
-    private final JDBCConnection jdbcConnection;
-
-    public SearchCustomerNameByObjectNameUseCase(JDBCConnection jdbcConnection) {
-        this.jdbcConnection = jdbcConnection;
-    }
 
     @Override
     public Object invoke(Object object) {
@@ -24,7 +17,7 @@ public class SearchCustomerNameByObjectNameUseCase implements ParamUseCase {
         String answer = null;
         PreparedStatement preStatement = null;
         try {
-            preStatement = jdbcConnection.getConnection().prepareStatement(sql);
+            preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             resultSet = preStatement.executeQuery();
 
             while (true) {

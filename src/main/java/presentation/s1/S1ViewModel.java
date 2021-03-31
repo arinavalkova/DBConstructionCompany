@@ -1,4 +1,4 @@
-package presentation.main;
+package presentation.s1;
 
 import data.JDBCConnection;
 import data.tables.CategoriesTableImpl;
@@ -24,7 +24,7 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 import java.util.List;
 
-public class MainViewModel {
+public class S1ViewModel {
 
     private final StringProperty answerProperty = new SimpleStringProperty();
     private final StringProperty customerProperty = new SimpleStringProperty();
@@ -72,12 +72,12 @@ public class MainViewModel {
     private final LoadTestDataUseCase loadTestDataUseCase;
     private final SearchCustomerNameByObjectNameUseCase searchCustomerNameByObjectNameUseCase;
 
-    public MainViewModel(String userName, String password) throws SQLException {
-        JDBCConnection jdbcConnection = new JDBCConnection(userName, password);
+    public S1ViewModel(String userName, String password) throws SQLException {
+        JDBCConnection.establishJDBCConnection(userName, password);
 
-        CategoriesTableImpl categoriesTable = new CategoriesTableImpl(jdbcConnection);
-        CustomersTableImpl customersTable = new CustomersTableImpl(jdbcConnection);
-        ObjectsTableImpl objectsTable = new ObjectsTableImpl(jdbcConnection);
+        CategoriesTableImpl categoriesTable = new CategoriesTableImpl();
+        CustomersTableImpl customersTable = new CustomersTableImpl();
+        ObjectsTableImpl objectsTable = new ObjectsTableImpl();
 
         insertToObjectsUseCase = new InsertRowUseCase(objectsTable);
         updateObjectsUsecase = new UpdateRowUseCase(objectsTable);
@@ -91,13 +91,13 @@ public class MainViewModel {
         updateCustomersUsecase = new UpdateRowUseCase(customersTable);
         deleteFromCustomersUseCase = new DeleteRowUseCase(customersTable);
 
-        loadTestDataUseCase = new LoadTestDataUseCase(objectsTable, categoriesTable, customersTable, jdbcConnection);
+        loadTestDataUseCase = new LoadTestDataUseCase(objectsTable, categoriesTable, customersTable);
 
         getCategoriesRowsUseCase = new GetRowsUseCase(categoriesTable);
         getCustomersRowsUseCase = new GetRowsUseCase(customersTable);
         getObjectsRowsUseCase = new GetRowsUseCase(objectsTable);
 
-        searchCustomerNameByObjectNameUseCase = new SearchCustomerNameByObjectNameUseCase(jdbcConnection);
+        searchCustomerNameByObjectNameUseCase = new SearchCustomerNameByObjectNameUseCase();
     }
 
     public void getCategories() {

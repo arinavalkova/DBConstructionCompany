@@ -8,15 +8,11 @@ import java.util.Properties;
 import java.util.TimeZone;
 
 public class JDBCConnection {
-    private final Connection connection;
+    private static Connection connection;
 
-    public JDBCConnection(String userName, String password) throws SQLException {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    private JDBCConnection() {}
 
+    public static boolean establishJDBCConnection(String userName, String password) {
         String url = "jdbc:oracle:thin:@84.237.50.81:1521:";
         Properties props = new Properties();
         props.setProperty("user", userName);
@@ -26,10 +22,15 @@ public class JDBCConnection {
         TimeZone.setDefault(timeZone);
         Locale.setDefault(Locale.ENGLISH);
 
-        connection = DriverManager.getConnection(url, props);
+        try {
+            connection = DriverManager.getConnection(url, props);
+        } catch (SQLException throwables) {
+            return false;
+        }
+        return true;
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 }

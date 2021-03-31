@@ -14,17 +14,13 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
 
     private final static String TABLE_NAME = "customer";
 
-    public CustomersTableImpl(JDBCConnection jdbcConnection) {
-        super(jdbcConnection);
-    }
-
     @Override
     public boolean insertRow(Row row) {
         CustomersRow customersRow = (CustomersRow) row;
         String sql = "insert into " + TABLE_NAME + " values(" + customersRow.getId()
                 + ", '" + customersRow.getName() + "')";
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
         } catch (SQLException throwables) {
             return false;
@@ -36,7 +32,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, name varchar(20))";
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
         } catch (SQLException throwables) {
             return false;
@@ -48,7 +44,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
     public boolean deleteTable() {
         String sql = "drop table " + TABLE_NAME;
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
         } catch (SQLException throwables) {
             return false;
@@ -61,7 +57,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
         CustomersRow customersRow = (CustomersRow) row;
         String sql = "UPDATE " + TABLE_NAME + " SET name = '" + customersRow.getName() + "' WHERE id = " + customersRow.getId();
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
         } catch (SQLException throwables) {
             return false;
@@ -73,7 +69,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
     public boolean deleteRow(int id) {
         String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = " + id;
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
         } catch (SQLException throwables) {
             return false;
@@ -86,7 +82,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
         String sql = "SELECT * FROM " + TABLE_NAME;
         ResultSet resultSet;
         try {
-            PreparedStatement preStatement = getConnection().prepareStatement(sql);
+            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             resultSet = preStatement.executeQuery();
         } catch (SQLException throwables) {
             return null;
@@ -115,7 +111,7 @@ public class CustomersTableImpl extends BaseTable implements DataBaseRepository 
                 "END;";
 
         try {
-            Statement statement = getConnection().createStatement();
+            Statement statement = JDBCConnection.getConnection().createStatement();
             statement.executeUpdate(dropSeq);
             statement.executeUpdate(createSeq);
             statement.executeUpdate(trigger);

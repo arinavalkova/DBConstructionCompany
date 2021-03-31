@@ -1,22 +1,24 @@
 
-l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¾òØÍ†/
-l
-java:S2095\"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8ÑŸëä†/
-e
-java:S2095Š"GUse try-with-resources or close this "Statement" in a "finally" clause.(ãÖŞî8„¶ ğ†/
-l
-java:S2095i"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¶ü•Ñ†/
-l
-java:S2095>"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8¹íÍ†/
-H
-java:S1168w"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
-H
-java:S1168l"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
+q
+java:S2095:"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ôîÜºˆ/
+q
+java:S2095X"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8À­İºˆ/
+q
+java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8şÕÜºˆ/
+q
+java:S2095e"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ĞÎİºˆ/
+q
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ñİºˆ/
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(…†»üÿÿÿÿ8ú¾Í†/
-l
-java:S20952"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Í«½Í†/
-U	java:S106N"9Replace this use of System.out or System.err by a logger.(Â–‘ö8ñã„æ†/
-l
-java:S2095P"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8ù×Áå†/
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(Â–‘ö8ñã„æ†/
+_
+java:S1126•"AReplace this if-then-else statement by a single return statement.(ç„Ÿš8éì¡ö†/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8÷Üºˆ/
+H
+java:S1168s"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
+H
+java:S1168h"+Return an empty collection instead of null.(¥¹ï8¶ü•Ñ†/
+j
+java:S2095†"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8úğİºˆ/

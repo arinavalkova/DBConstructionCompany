@@ -1,22 +1,24 @@
 
-l
-java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ğşåä†/
-l
-java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8½¾‘å†/
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8çÅŒğ†/
-l
-java:S2095("OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8²¿ëË†/
-l
-java:S2095Z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8 İĞ†/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8òĞÕºˆ/
 d
-java:S2095w"GUse try-with-resources or close this "Statement" in a "finally" clause.(ãÖŞî8œô›ğ†/
+java:S1126‚"AReplace this if-then-else statement by a single return statement.(ì±ñŞıÿÿÿÿ8äµ–ö†/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8çÅŒğ†/
 H
-java:S1168e"+Return an empty collection instead of null.(¥¹ï8õ¼Ğ†/
-l
-java:S20954"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8Ù×¸Ë†/
+java:S1168Y"+Return an empty collection instead of null.(¥¹ï8»ŸŸĞ†/
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(§ƒ¸—ùÿÿÿÿ8©™Æ¾†/
-l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ë¦ß8æº©Ë†/
 H
-java:S1168]"+Return an empty collection instead of null.(¥¹ï8»ŸŸĞ†/
+java:S1168a"+Return an empty collection instead of null.(¥¹ï8õ¼Ğ†/
+q
+java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8õÆÖºˆ/
+q
+java:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ä–Öºˆ/
+q
+java:S2095I"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
+q
+java:S2095="OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
+q
+java:S2095V"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
+i
+java:S2095s"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8æï×ºˆ/

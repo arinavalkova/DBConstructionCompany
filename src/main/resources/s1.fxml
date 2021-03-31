@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.s1.S1View">
    <children>
       <Label layoutX="198.0" layoutY="56.0" text="Categories" />
       <Label layoutX="535.0" layoutY="56.0" text="Customers" />
@@ -68,5 +68,6 @@
       <TextField fx:id="objectNameForSearchFiled" layoutX="24.0" layoutY="195.0" prefHeight="26.0" prefWidth="146.0" promptText="Object name" />
       <Button fx:id="searchButton" layoutX="59.0" layoutY="254.0" mnemonicParsing="false" text="Search" />
       <Label fx:id="customerNamelabel" layoutX="24.0" layoutY="229.0" prefHeight="18.0" prefWidth="146.0" />
+      <Button fx:id="nextButton" layoutX="1114.0" layoutY="407.0" mnemonicParsing="false" text="Next" />
    </children>
 </AnchorPane>

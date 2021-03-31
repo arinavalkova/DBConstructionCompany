@@ -3,6 +3,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import presentation.ClientFXMLLoader;
+import presentation.SceneController;
 
 public class MainApplication extends Application {
 
@@ -13,11 +15,9 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("main.fxml"));
-
-        Parent root = loader.load();
-        primaryStage.setScene(new Scene(root));
+        ClassLoader classLoader = getClass().getClassLoader();
+        SceneController.loadMain(classLoader);
+        primaryStage.setScene(SceneController.getScene());
         primaryStage.setMinWidth(600);
         primaryStage.setMinHeight(500);
         primaryStage.show();

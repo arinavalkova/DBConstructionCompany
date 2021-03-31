@@ -1,23 +1,20 @@
-package presentation.main;
+package presentation.s1;
 
 import domain.rows.CategoriesRow;
 import domain.rows.CustomersRow;
 import domain.rows.ObjectsRow;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.SQLException;
-import java.util.List;
 
-public class MainView {
+public class S1View {
 
     private final static String userName = "18206_VALKOVA";
     private final static String password = "nar&Alex";
 
-    private MainViewModel mainViewModel;
+    private S1ViewModel s1ViewModel;
 
     @FXML
     private TableView<CategoriesRow> categoriesTable;
@@ -154,7 +151,7 @@ public class MainView {
     @FXML
     void initialize() {
         try {
-            mainViewModel = new MainViewModel(userName, password);
+            s1ViewModel = new S1ViewModel(userName, password);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -163,8 +160,8 @@ public class MainView {
     }
 
     private void bindControls() {
-        answerLabel.textProperty().bind(mainViewModel.getAnswerProperty());
-        customerNamelabel.textProperty().bind(mainViewModel.getCustomerProperty());
+        answerLabel.textProperty().bind(s1ViewModel.getAnswerProperty());
+        customerNamelabel.textProperty().bind(s1ViewModel.getCustomerProperty());
 
         numberOfObjectsColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameOfObjectsColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -177,9 +174,9 @@ public class MainView {
         numberOfcategoriesColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         namesOfCategoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        categoriesTable.itemsProperty().bind(mainViewModel.getCategoryTableProperty());
-        customersTable.itemsProperty().bind(mainViewModel.getCustomersTableProperty());
-        objectsTable.itemsProperty().bind(mainViewModel.getObjectsTableProperty());
+        categoriesTable.itemsProperty().bind(s1ViewModel.getCategoryTableProperty());
+        customersTable.itemsProperty().bind(s1ViewModel.getCustomersTableProperty());
+        objectsTable.itemsProperty().bind(s1ViewModel.getObjectsTableProperty());
     }
 
     private void initControls() {
@@ -201,14 +198,14 @@ public class MainView {
 
     private void initSearchCustomerButton() {
         searchButton.setOnMouseClicked(event -> {
-            mainViewModel.searchCustomerByObjectName(objectNameForSearchFiled.getText());
+            s1ViewModel.searchCustomerByObjectName(objectNameForSearchFiled.getText());
             objectNameForSearchFiled.setText("");
         });
     }
 
     private void initUpdateObjectButton() {
         updateObjectButton.setOnMouseClicked(event -> {
-            mainViewModel.updateObject(
+            s1ViewModel.updateObject(
                     Integer.parseInt(numberOfObjectForUpdateField.getText()),
                     nameOfObjectForUpdateField.getText(),
                     Integer.parseInt(numberOfCategoryObjectForUpdateField.getText()),
@@ -223,7 +220,7 @@ public class MainView {
 
     private void initUpdateCustomerButton() {
         updateCustomerButton.setOnMouseClicked(event -> {
-            mainViewModel.updateCustomers(
+            s1ViewModel.updateCustomers(
                     Integer.parseInt(numberOfCustomerForUpdateField.getText()),
                     customerForUpdateFiled.getText()
             );
@@ -234,7 +231,7 @@ public class MainView {
 
     private void initUpdateCategoryButton() {
         updateCategoriesButton.setOnMouseClicked(event -> {
-            mainViewModel.updateCategory(
+            s1ViewModel.updateCategory(
                     Integer.parseInt(numberOfCategoryForUpdateField.getText()),
                     categoryNameForUpdate.getText()
             );
@@ -245,7 +242,7 @@ public class MainView {
 
     private void initDeleteObjectButton() {
         deleteObjectButton.setOnMouseClicked(event -> {
-            mainViewModel.deleteObject(
+            s1ViewModel.deleteObject(
                     Integer.parseInt(numberOfObjectForDeleteFiled.getText()));
             numberOfObjectForDeleteFiled.setText("");
         });
@@ -253,7 +250,7 @@ public class MainView {
 
     private void initDeleteCustomerButton() {
         deleteCustomerButton.setOnMouseClicked(event -> {
-            mainViewModel.deleteCustomer(
+            s1ViewModel.deleteCustomer(
                     Integer.parseInt(numberOfCustumerForDeleteField.getText()));
             numberOfCustumerForDeleteField.setText("");
         });
@@ -261,7 +258,7 @@ public class MainView {
 
     private void initDeleteCategoryButton() {
         deleteCategoryButton.setOnMouseClicked(event -> {
-            mainViewModel.deleteCategory(
+            s1ViewModel.deleteCategory(
                     Integer.parseInt(categoryNumberForDeleteField.getText()));
             categoryNumberForDeleteField.setText("");
         });
@@ -269,7 +266,7 @@ public class MainView {
 
     private void initInsertObjectButton() {
         insertObjectButton.setOnMouseClicked(event -> {
-            mainViewModel.insertObject(
+            s1ViewModel.insertObject(
                     nameOfObjectForInsertField.getText(),
                     Integer.parseInt(numberOfCategoryObjectForInsert.getText()),
                     Integer.parseInt(numberOfCustomerObjectForInsertFiled.getText()));
@@ -281,31 +278,31 @@ public class MainView {
 
     private void initInsertCustomerButton() {
         insertCustomerButton.setOnMouseClicked(event -> {
-            mainViewModel.insertCustomer(newCustomerField.getText());
+            s1ViewModel.insertCustomer(newCustomerField.getText());
             newCustomerField.setText("");
         });
     }
 
     private void initInsertCategoryButton() {
         insertCategoryButton.setOnMouseClicked(event -> {
-            mainViewModel.insertCategory(newCategoryField.getText());
+            s1ViewModel.insertCategory(newCategoryField.getText());
             newCategoryField.setText("");
         });
     }
 
     private void initLoadObjectDataButton() {
-        loadObjectsDatat.setOnMouseClicked(event -> mainViewModel.getObjects());
+        loadObjectsDatat.setOnMouseClicked(event -> s1ViewModel.getObjects());
     }
 
     private void intiLoadCustomersDataButton() {
-        loadCustomersData.setOnMouseClicked(event -> mainViewModel.getCustomers());
+        loadCustomersData.setOnMouseClicked(event -> s1ViewModel.getCustomers());
     }
 
     private void initLoadCategoryDataButton() {
-        loadCategoriesData.setOnMouseClicked(event -> mainViewModel.getCategories());
+        loadCategoriesData.setOnMouseClicked(event -> s1ViewModel.getCategories());
     }
 
     private void initLoadTestDataButton() {
-        loadTestDataButton.setOnMouseClicked(event -> mainViewModel.loadTestData());
+        loadTestDataButton.setOnMouseClicked(event -> s1ViewModel.loadTestData());
     }
 }
