@@ -1,10 +1,10 @@
 package domain.rows;
 
-public class CategoriesRow implements Row {
+public class ProfessionsRow implements Row {
     private final int id;
     private final String name;
 
-    public CategoriesRow(int id, String name) {
+    public ProfessionsRow(int id, String name) {
         this.id = id;
         this.name = name;
     }

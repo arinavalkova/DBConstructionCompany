@@ -20,7 +20,7 @@ public class StartView {
     }
 
     private void initButtons() {
-        dataEditingButton.setOnMouseClicked(event -> startViewModel.startDataEditingWindow());
-        queriesButton.setOnMouseClicked(event -> startViewModel.startQueriesWindow());
+        dataEditingButton.setOnAction(event -> startViewModel.startDataEditingWindow());
+        queriesButton.setOnAction(event -> startViewModel.startQueriesWindow());
     }
 }

@@ -11,13 +11,7 @@ public class DataEditingView {
     private Button backButton;
 
     @FXML
-    private Button characteristicsOfObjectsButton;
-
-    @FXML
-    private Button objectsCategoriesButton;
-
-    @FXML
-    private Button customersButton;
+    private Button peopleEditingButton;
 
     @FXML
     void initialize() {
@@ -25,13 +19,7 @@ public class DataEditingView {
     }
 
     private void initButtons() {
-        backButton.setOnMouseClicked(event ->
-                dataEditingViewModel.loadStartWindow());
-        characteristicsOfObjectsButton.setOnMouseClicked((event ->
-                dataEditingViewModel.loadCharacteristicsOfObjectsWindow()));
-        objectsCategoriesButton.setOnMouseClicked(event ->
-                dataEditingViewModel.loadObjectsCategoriesWindow());
-        customersButton.setOnMouseClicked(event ->
-                dataEditingViewModel.loadCustomersWindow());
+        backButton.setOnAction(event -> dataEditingViewModel.loadStartWindow());
+        peopleEditingButton.setOnAction(event -> dataEditingViewModel.loadPeopleEditingWindow());
     }
 }

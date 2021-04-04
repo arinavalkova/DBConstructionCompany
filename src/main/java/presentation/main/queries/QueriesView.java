@@ -13,7 +13,7 @@ public class QueriesView {
 
     @FXML
     void initialize()  {
-        backButton.setOnMouseClicked(event -> {
+        backButton.setOnAction(event -> {
             try {
                 SceneController.load("start.fxml");
             } catch (IOException e) {

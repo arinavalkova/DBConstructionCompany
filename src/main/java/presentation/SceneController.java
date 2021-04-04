@@ -27,8 +27,4 @@ public class SceneController {
     public static Scene getScene() {
         return scene;
     }
-
-    public static ClientFXMLLoader getGameFxmlLoader() {
-        return gameFxmlLoader;
-    }
 }

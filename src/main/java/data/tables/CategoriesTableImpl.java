@@ -4,7 +4,6 @@ import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
-import domain.rows.CategoriesRow;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,9 +15,9 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean insertRow(Row row) {
-        CategoriesRow categoriesRow = (CategoriesRow) row;
-        String sql = "insert into " + TABLE_NAME + " values(" + categoriesRow.getId()
-                + ", '" + categoriesRow.getName() + "')";
+        CategoriesOfObjectsRow categoriesOfObjectsRow = (CategoriesOfObjectsRow) row;
+        String sql = "insert into " + TABLE_NAME + " values(" + categoriesOfObjectsRow.getId()
+                + ", '" + categoriesOfObjectsRow.getName() + "')";
         System.out.println(sql);
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
@@ -55,8 +54,8 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean updateRow(Row row) {
-        CategoriesRow categoriesRow = (CategoriesRow) row;
-        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + categoriesRow.getName() + "' WHERE id = " + categoriesRow.getId();
+        CategoriesOfObjectsRow categoriesOfObjectsRow = (CategoriesOfObjectsRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + categoriesOfObjectsRow.getName() + "' WHERE id = " + categoriesOfObjectsRow.getId();
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -92,7 +91,7 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
         while (true) {
             try {
                 if (!resultSet.next()) break;
-                rowArrayList.add(new CategoriesRow(resultSet.getInt("id"), resultSet.getString("name")));
+                rowArrayList.add(new CategoriesOfObjectsRow(resultSet.getInt("id"), resultSet.getString("name")));
             } catch (SQLException throwables) {
                 return null;
             }
@@ -124,10 +123,10 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new CategoriesRow(0, "House"))) {
+        if (!insertRow(new CategoriesOfObjectsRow(0, "House"))) {
             return false;
         }
-        if (!insertRow(new CategoriesRow(0, "Library"))) {
+        if (!insertRow(new CategoriesOfObjectsRow(0, "Library"))) {
             return false;
         }
         return true;

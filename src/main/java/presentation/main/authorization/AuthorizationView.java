@@ -25,7 +25,7 @@ public class AuthorizationView {
     @FXML
     void initialize() {
         answerLabel.textProperty().bind(authorizationViewModel.getAnswerProperty());
-        authorizeButton.setOnMouseClicked(event -> authorizationViewModel.authorize(
+        authorizeButton.setOnAction(event -> authorizationViewModel.authorize(
                 userNameField.getText(),
                 passwordField.getText()
         ));

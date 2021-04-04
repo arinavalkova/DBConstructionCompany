@@ -5,13 +5,15 @@ import domain.DataBaseRepository;
 public class GetRowsUseCase implements NonParamUseCase {
 
     private final DataBaseRepository dataBaseRepository;
+    private final DataReceiver dataReceiver;
 
-    public GetRowsUseCase(DataBaseRepository dataBaseRepository) {
+    public GetRowsUseCase(DataBaseRepository dataBaseRepository, DataReceiver dataReceiver) {
         this.dataBaseRepository = dataBaseRepository;
+        this.dataReceiver = dataReceiver;
     }
 
     @Override
-    public Object invoke() {
+    public void invoke() {
         return dataBaseRepository.getRows();
     }
 }

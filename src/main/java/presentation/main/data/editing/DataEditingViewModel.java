@@ -14,25 +14,9 @@ public class DataEditingViewModel {
         }
     }
 
-    public void loadCharacteristicsOfObjectsWindow() {
+    public void loadPeopleEditingWindow() {
         try {
-            SceneController.load("characteristicsOfObjects.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void loadObjectsCategoriesWindow() {
-        try {
-            SceneController.load("objectsCategories.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void loadCustomersWindow() {
-        try {
-            SceneController.load("customers.fxml");
+            SceneController.load("people.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

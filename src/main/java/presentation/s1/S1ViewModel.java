@@ -2,13 +2,8 @@ package presentation.s1;
 
 import data.JDBCConnection;
 import data.tables.CategoriesTableImpl;
-import data.tables.CustomersTableImpl;
-import data.tables.ObjectsTableImpl;
-import domain.rows.CategoriesRow;
-import domain.rows.CustomersRow;
-import domain.rows.ObjectsRow;
 import domain.usecases.nonParameterized.GetRowsUseCase;
-import domain.usecases.nonParameterized.LoadTestDataUseCase;
+import domain.usecases.nonParameterized.LoadTestDataUseCaseS1;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import domain.usecases.parameterized.SearchCustomerNameByObjectNameUseCase;
@@ -29,7 +24,7 @@ public class S1ViewModel {
     private final StringProperty answerProperty = new SimpleStringProperty();
     private final StringProperty customerProperty = new SimpleStringProperty();
 
-    private final Property<ObservableList<CategoriesRow>> categoriesRowsProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<CategoriesOfObjectsRow>> categoriesRowsProperty = new SimpleObjectProperty<>();
     private final Property<ObservableList<CustomersRow>> customersRowsProperty = new SimpleObjectProperty<>();
     private final Property<ObservableList<ObjectsRow>> objectsRowsProperty = new SimpleObjectProperty<>();
 
@@ -41,7 +36,7 @@ public class S1ViewModel {
         return customerProperty;
     }
 
-    public Property<ObservableList<CategoriesRow>> getCategoryTableProperty() {
+    public Property<ObservableList<CategoriesOfObjectsRow>> getCategoryTableProperty() {
         return categoriesRowsProperty;
     }
 
@@ -69,7 +64,7 @@ public class S1ViewModel {
     private final GetRowsUseCase getCustomersRowsUseCase;
     private final GetRowsUseCase getObjectsRowsUseCase;
 
-    private final LoadTestDataUseCase loadTestDataUseCase;
+    private final LoadTestDataUseCaseS1 loadTestDataUseCaseS1;
     private final SearchCustomerNameByObjectNameUseCase searchCustomerNameByObjectNameUseCase;
 
     public S1ViewModel(String userName, String password) throws SQLException {
@@ -91,7 +86,7 @@ public class S1ViewModel {
         updateCustomersUsecase = new UpdateRowUseCase(customersTable);
         deleteFromCustomersUseCase = new DeleteRowUseCase(customersTable);
 
-        loadTestDataUseCase = new LoadTestDataUseCase(objectsTable, categoriesTable, customersTable);
+        loadTestDataUseCaseS1 = new LoadTestDataUseCaseS1(objectsTable, categoriesTable, customersTable);
 
         getCategoriesRowsUseCase = new GetRowsUseCase(categoriesTable);
         getCustomersRowsUseCase = new GetRowsUseCase(customersTable);
@@ -101,18 +96,18 @@ public class S1ViewModel {
     }
 
     public void getCategories() {
-        List<CategoriesRow> categoriesRowList = (List<CategoriesRow>) getCategoriesRowsUseCase.invoke();
-        if (categoriesRowList == null) {
+        List<CategoriesOfObjectsRow> categoriesOfObjectsRowList = (List<CategoriesOfObjectsRow>) getCategoriesRowsUseCase.invoke();
+        if (categoriesOfObjectsRowList == null) {
             categoriesRowsProperty.setValue(FXCollections.observableArrayList());
             answerProperty.setValue("Error with loading categories");
         } else {
-            categoriesRowsProperty.setValue(FXCollections.observableArrayList(categoriesRowList));
+            categoriesRowsProperty.setValue(FXCollections.observableArrayList(categoriesOfObjectsRowList));
             answerProperty.setValue("Successfully loaded categories");
         }
     }
 
     public void loadTestData() {
-        if (!loadTestDataUseCase.invoke()) {
+        if (!loadTestDataUseCaseS1.invoke()) {
             answerProperty.setValue("Error with loading test data");
         } else {
             answerProperty.setValue("Successfully loaded test data");
@@ -142,7 +137,7 @@ public class S1ViewModel {
     }
 
     public void insertCategory(String categoryName) {
-        if (!insertToCategoriesTableUseCase.invoke(new CategoriesRow(0, categoryName))) {
+        if (!insertToCategoriesTableUseCase.invoke(new CategoriesOfObjectsRow(0, categoryName))) {
             answerProperty.setValue("Error with inserting category");
         } else {
             answerProperty.setValue("Successfully inserted category");
@@ -190,7 +185,7 @@ public class S1ViewModel {
     }
 
     public void updateCategory(int id, String categoryName) {
-        if (!updateCategoriesUseCase.invoke(new CategoriesRow(id, categoryName))) {
+        if (!updateCategoriesUseCase.invoke(new CategoriesOfObjectsRow(id, categoryName))) {
             answerProperty.setValue("Error with updating category");
         } else {
             answerProperty.setValue("Successfully updated category");

@@ -1,14 +1,11 @@
 package data.tables;
 
-import data.BaseTable;
-import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
 
 import java.util.List;
 
-public class ObjectCategoriesTableImpl extends BaseTable implements DataBaseRepository {
-
+public class PeopleAndProfessionsTableImpl implements DataBaseRepository {
     @Override
     public boolean insertRow(Row row) {
         return false;

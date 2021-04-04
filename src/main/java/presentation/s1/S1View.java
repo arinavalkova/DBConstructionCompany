@@ -1,8 +1,5 @@
 package presentation.s1;
 
-import domain.rows.CategoriesRow;
-import domain.rows.CustomersRow;
-import domain.rows.ObjectsRow;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,7 +14,7 @@ public class S1View {
     private S1ViewModel s1ViewModel;
 
     @FXML
-    private TableView<CategoriesRow> categoriesTable;
+    private TableView<CategoriesOfObjectsRow> categoriesTable;
 
     @FXML
     private TableView<CustomersRow> customersTable;
@@ -26,10 +23,10 @@ public class S1View {
     private TableView<ObjectsRow> objectsTable;
 
     @FXML
-    private TableColumn<CategoriesRow, Integer> numberOfcategoriesColumn;
+    private TableColumn<CategoriesOfObjectsRow, Integer> numberOfcategoriesColumn;
 
     @FXML
-    private TableColumn<CategoriesRow, String> namesOfCategoriesColumn;
+    private TableColumn<CategoriesOfObjectsRow, String> namesOfCategoriesColumn;
 
     @FXML
     private TableColumn<CustomersRow, Integer> numberOfCustomersColumn;

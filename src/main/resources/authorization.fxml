@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.authorization.AuthorizationView">
+<AnchorPane minHeight="600.0" minWidth="900.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.authorization.AuthorizationView">
     <Label layoutX="218.0" layoutY="188.0" text="Authorization">
         <font>
           <Font size="24.0" />
