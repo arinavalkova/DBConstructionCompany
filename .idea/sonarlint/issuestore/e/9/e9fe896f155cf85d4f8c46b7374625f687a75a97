@@ -1,24 +1,24 @@
 
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8çÅŒğ†/
-_
-java:S1126"AReplace this if-then-else statement by a single return statement.(÷ê÷è8¿ß¿¶‰/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(§ƒ¸—ùÿÿÿÿ8©™Æ¾†/
+i
+java:S2095r"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8æï×ºˆ/
+q
+java:S2095H"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ä–Öºˆ/
+q
+java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
+H
+java:S1168X"+Return an empty collection instead of null.(¥¹ï8õ¼Ğ†/
+q
+java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
 q
 java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8õÆÖºˆ/
 H
 java:S1168`"+Return an empty collection instead of null.(¥¹ï8»ŸŸĞ†/
 q
-java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
-H
-java:S1168X"+Return an empty collection instead of null.(¥¹ï8õ¼Ğ†/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(§ƒ¸—ùÿÿÿÿ8©™Æ¾†/
-q
 java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
-q
-java:S2095H"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ä–Öºˆ/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8çÅŒğ†/
 q
 java:S2095<"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8òĞÕºˆ/
-q
-java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8æï×ºˆ/
-i
-java:S2095r"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8æï×ºˆ/
+_
+java:S1126"AReplace this if-then-else statement by a single return statement.(÷ê÷è8¿ß¿¶‰/

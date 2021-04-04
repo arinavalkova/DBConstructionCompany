@@ -1,4 +1,4 @@
 
-R
-java:S1068	"0Remove this unused "dataReceiver" private field.(Ö‰ÖÌüÿÿÿÿ8íµ¯Ã‰/
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÏ§šúÿÿÿÿ8£øòÌ†/
+R
+java:S1068"0Remove this unused "dataReceiver" private field.(Ö‰ÖÌüÿÿÿÿ8íµ¯Ã‰/

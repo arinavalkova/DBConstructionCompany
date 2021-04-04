@@ -9,26 +9,38 @@ import domain.rows.BossAndEmployeesRow;
 import domain.rows.PeopleAndProfessionRow;
 import domain.rows.ProfessionsRow;
 import domain.rows.SectorAndBossRow;
+import domain.usecases.nonParameterized.GetRowsUseCase;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import domain.usecases.parameterized.UpdateRowUseCase;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import presentation.SceneController;
 
 import java.io.IOException;
+import java.util.List;
 
 public class PeopleViewModel {
 
     private final static String INSERTING = "Inserting...";
     private final static String DELETING = "Deleting...";
     private final static String UPDATING = "Updating...";
+    private final static String LOADING = "Loading...";
 
     private final StringProperty professionAnswerProperty = new SimpleStringProperty();
     private final StringProperty peopleAndProfessionsAnswerProperty = new SimpleStringProperty();
     private final StringProperty bossAndEmployeesAnswerProperty = new SimpleStringProperty();
     private final StringProperty sectorAndBossAnswerProperty = new SimpleStringProperty();
+
+    private final Property<ObservableList<ProfessionsRow>> professionsRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<PeopleAndProfessionRow>> peopleAndProfessionsRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<BossAndEmployeesRow>> bossAndEmployeesRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<SectorAndBossRow>> sectorAndBossRowProperty = new SimpleObjectProperty<>();
 
     private final InsertRowUseCase professionsInsertUseCase;
     private final InsertRowUseCase peopleAndProfessionsInsertUseCase;
@@ -44,6 +56,11 @@ public class PeopleViewModel {
     private final UpdateRowUseCase peopleAndProfessionsUpdateUseCase;
     private final UpdateRowUseCase bossAndEmployeesUpdateUseCase;
     private final UpdateRowUseCase sectorAndBossUpdateUseCase;
+
+    private final GetRowsUseCase professionsGetRowsUseCase;
+    private final GetRowsUseCase peopleAndProfessionsGetRowsUseCase;
+    private final GetRowsUseCase bossAndEmployeesGetRowsUseCase;
+    private final GetRowsUseCase sectorAndBossGetRowsUseCase;
 
     public PeopleViewModel() {
         ProfessionsTableImpl professionsTable = new ProfessionsTableImpl();
@@ -195,7 +212,55 @@ public class PeopleViewModel {
             @Override
             public void onError(Object answer) {
                 sectorAndBossAnswerProperty.setValue((String) answer);
-                updateSectorAndBossTable();
+            }
+        });
+
+        professionsGetRowsUseCase = new GetRowsUseCase(professionsTable, new AnswerReceiver() {
+            @Override
+            public void onSuccess(Object answer) {
+                professionsRowProperty.setValue(FXCollections.observableArrayList((List<ProfessionsRow>) answer));
+            }
+
+            @Override
+            public void onError(Object answer) {
+                professionsRowProperty.setValue(FXCollections.observableArrayList());
+                professionAnswerProperty.setValue((String) answer);
+            }
+        });
+        peopleAndProfessionsGetRowsUseCase = new GetRowsUseCase(peopleAndProfessionsTable, new AnswerReceiver() {
+            @Override
+            public void onSuccess(Object answer) {
+                peopleAndProfessionsRowProperty.setValue(FXCollections.observableArrayList((List<PeopleAndProfessionRow>) answer));
+            }
+
+            @Override
+            public void onError(Object answer) {
+                peopleAndProfessionsRowProperty.setValue(FXCollections.observableArrayList());
+                peopleAndProfessionsAnswerProperty.setValue((String) answer);
+            }
+        });
+        bossAndEmployeesGetRowsUseCase = new GetRowsUseCase(bossAndEmployeesTable, new AnswerReceiver() {
+            @Override
+            public void onSuccess(Object answer) {
+                bossAndEmployeesRowProperty.setValue(FXCollections.observableArrayList((List<BossAndEmployeesRow>) answer));
+            }
+
+            @Override
+            public void onError(Object answer) {
+                bossAndEmployeesRowProperty.setValue(FXCollections.observableArrayList());
+                bossAndEmployeesAnswerProperty.setValue((String) answer);
+            }
+        });
+        sectorAndBossGetRowsUseCase = new GetRowsUseCase(sectorAndBossTable, new AnswerReceiver() {
+            @Override
+            public void onSuccess(Object answer) {
+                sectorAndBossRowProperty.setValue(FXCollections.observableArrayList((List<SectorAndBossRow>) answer));
+            }
+
+            @Override
+            public void onError(Object answer) {
+                sectorAndBossRowProperty.setValue(FXCollections.observableArrayList());
+                sectorAndBossAnswerProperty.setValue((String) answer);
             }
         });
     }
@@ -209,7 +274,7 @@ public class PeopleViewModel {
     }
 
     public void goToAreasEditingWindow() {
-
+        //TODO
     }
 
     public void insertProfession(String professionName) {
@@ -273,23 +338,27 @@ public class PeopleViewModel {
     }
 
     public void loadTestData() {
-
+        //TODO
     }
 
     public void updateProfessionsTable() {
-
+        professionAnswerProperty.setValue(LOADING);
+        professionsGetRowsUseCase.invoke();
     }
 
     public void updatePeopleAndProfessionsTable() {
-
+        peopleAndProfessionsAnswerProperty.setValue(LOADING);
+        peopleAndProfessionsGetRowsUseCase.invoke();
     }
 
     public void updateBossAndEmployeesTable() {
-
+        bossAndEmployeesAnswerProperty.setValue(LOADING);
+        bossAndEmployeesGetRowsUseCase.invoke();
     }
 
     public void updateSectorAndBossTable() {
-
+        sectorAndBossAnswerProperty.setValue(LOADING);
+        sectorAndBossGetRowsUseCase.invoke();
     }
 
     public ObservableValue<String> getProfessionsAnswerProperty() {
@@ -306,5 +375,21 @@ public class PeopleViewModel {
 
     public ObservableValue<String> getSectorAndBossAnswerProperty() {
         return sectorAndBossAnswerProperty;
+    }
+
+    public Property<ObservableList<ProfessionsRow>> getProfessionsRowProperty() {
+        return professionsRowProperty;
+    }
+
+    public Property<ObservableList<PeopleAndProfessionRow>> getPeopleAndProfessionsRowProperty() {
+        return peopleAndProfessionsRowProperty;
+    }
+
+    public Property<ObservableList<BossAndEmployeesRow>> getBossAndEmployeesRowProperty() {
+        return bossAndEmployeesRowProperty;
+    }
+
+    public Property<ObservableList<SectorAndBossRow>> getSectorAndBossRowProperty() {
+        return sectorAndBossRowProperty;
     }
 }

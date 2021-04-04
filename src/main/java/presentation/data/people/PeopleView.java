@@ -2,11 +2,16 @@ package presentation.data.people;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import domain.rows.BossAndEmployeesRow;
+import domain.rows.PeopleAndProfessionRow;
+import domain.rows.ProfessionsRow;
+import domain.rows.SectorAndBossRow;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PeopleView {
 
@@ -15,49 +20,49 @@ public class PeopleView {
     private PeopleViewModel peopleViewModel = new PeopleViewModel();
 
     @FXML
-    private TableView<?> professionsTable;
+    private TableView<ProfessionsRow> professionsTable;
 
     @FXML
-    private TableColumn<?, ?> professionsIdColumn;
+    private TableColumn<ProfessionsRow, Integer> professionsIdColumn;
 
     @FXML
-    private TableColumn<?, ?> professionsNameColumn;
+    private TableColumn<ProfessionsRow, String> professionsNameColumn;
 
     @FXML
-    private TableView<?> bossAndEmployeesTable;
+    private TableView<BossAndEmployeesRow> bossAndEmployeesTable;
 
     @FXML
-    private TableColumn<?, ?> bossAndEmployyesIdColumn;
+    private TableColumn<BossAndEmployeesRow, Integer> bossAndEmployyesIdColumn;
 
     @FXML
-    private TableColumn<?, ?> bossAndEmployeesBossIdColumn;
+    private TableColumn<BossAndEmployeesRow, Integer> bossAndEmployeesBossIdColumn;
 
     @FXML
-    private TableColumn<?, ?> bossAndEmployeesEmployeeIdColumn;
+    private TableColumn<BossAndEmployeesRow, Integer> bossAndEmployeeEmployeeIdColumn;
 
     @FXML
-    private TableView<?> sectorAndBossTable;
+    private TableView<SectorAndBossRow> sectorAndBossTable;
 
     @FXML
-    private TableColumn<?, ?> sectorAndBossIdColumn;
+    private TableColumn<SectorAndBossRow, Integer> sectorAndBossIdColumn;
 
     @FXML
-    private TableColumn<?, ?> sectorAndBossSectorNameColumn;
+    private TableColumn<SectorAndBossRow, String> sectorAndBossSectorNameColumn;
 
     @FXML
-    private TableColumn<?, ?> sectorAndBossBossIdColumn;
+    private TableColumn<SectorAndBossRow, Integer> sectorAndBossBossIdColumn;
 
     @FXML
-    private TableView<?> peopleAndProfessionsTable;
+    private TableView<PeopleAndProfessionRow> peopleAndProfessionsTable;
 
     @FXML
-    private TableColumn<?, ?> peopleAndProfessionsIdColumn;
+    private TableColumn<PeopleAndProfessionRow, Integer> peopleAndProfessionsIdColumn;
 
     @FXML
-    private TableColumn<?, ?> peopleAndProfessionsNameColumn;
+    private TableColumn<PeopleAndProfessionRow, String> peopleAndProfessionsNameColumn;
 
     @FXML
-    private TableColumn<?, ?> peopleAndProfessionsProfessionIdColumn;
+    private TableColumn<PeopleAndProfessionRow, Integer> peopleAndProfessionsProfessionIdColumn;
 
     @FXML
     private JFXButton backButton;
@@ -193,6 +198,26 @@ public class PeopleView {
         peopleAndProfessionAnswerLabel.textProperty().bind(peopleViewModel.getPeopleAndProfessionAnswerProperty());
         bossAndEmployeesAnswerLabel.textProperty().bind(peopleViewModel.getBossAndEmployeesAnswerProperty());
         sectorAndBossAnswerLabel.textProperty().bind(peopleViewModel.getSectorAndBossAnswerProperty());
+
+        professionsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        professionsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        peopleAndProfessionsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        peopleAndProfessionsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        peopleAndProfessionsProfessionIdColumn.setCellValueFactory(new PropertyValueFactory<>("professionId"));
+
+        bossAndEmployyesIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        bossAndEmployeesBossIdColumn.setCellValueFactory(new PropertyValueFactory<>("bossId"));
+        bossAndEmployeeEmployeeIdColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+
+        sectorAndBossIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        sectorAndBossSectorNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        sectorAndBossBossIdColumn.setCellValueFactory(new PropertyValueFactory<>("bossId"));
+
+        professionsTable.itemsProperty().bind(peopleViewModel.getProfessionsRowProperty());
+        peopleAndProfessionsTable.itemsProperty().bind(peopleViewModel.getPeopleAndProfessionsRowProperty());
+        bossAndEmployeesTable.itemsProperty().bind(peopleViewModel.getBossAndEmployeesRowProperty());
+        sectorAndBossTable.itemsProperty().bind(peopleViewModel.getSectorAndBossRowProperty());
     }
 
     private void initButtons() {

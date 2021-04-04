@@ -1,15 +1,16 @@
 package domain.usecases.nonParameterized;
 
+import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 
 public class GetRowsUseCase implements NonParamUseCase {
 
     private final DataBaseRepository dataBaseRepository;
-    private final DataReceiver dataReceiver;
+    private final AnswerReceiver answerReceiver;
 
-    public GetRowsUseCase(DataBaseRepository dataBaseRepository, DataReceiver dataReceiver) {
+    public GetRowsUseCase(DataBaseRepository dataBaseRepository, AnswerReceiver answerReceiver) {
         this.dataBaseRepository = dataBaseRepository;
-        this.dataReceiver = dataReceiver;
+        this.answerReceiver = answerReceiver;
     }
 
     @Override

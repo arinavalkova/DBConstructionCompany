@@ -65,8 +65,6 @@ k
 ;src/main/java/presentation/data/people/PeopleViewModel.java,8\4\8417e6302a9f020dc1e99b2e0345e9933a588eb0
 X
 (src/main/java/domain/AnswerReceiver.java,3\f\3f3567b2d90ea4733bae4dde124c297b824b0485
-V
-&src/main/java/domain/DataReceiver.java,c\5\c5207de8da1aaffbf56fe488c4449993c0bb1bbd
 c
 3src/main/java/data/tables/ProfessionsTableImpl.java,c\8\c802f703e27e1a2384c0629efdb0d135c2cffed4
 l
@@ -77,3 +75,19 @@ e
 5src/main/java/data/tables/SectorAndBossTableImpl.java,b\5\b5babf19613c7f963431835860f2cf26a55130a0
 ]
 -src/main/java/domain/rows/ProfessionsRow.java,5\1\51e7dfa923db96c41709b4ed68e4d9dbc5abfc29
+U
+%src/main/resources/authorization.fxml,6\b\6b15158fc351428637abce6fa2e85646bb0ab54d
+b
+2src/main/java/domain/rows/BossAndEmployeesRow.java,5\a\5ab3be6fb9cd38cb4b8fd4f526b04d7323065387
+S
+#src/main/resources/dataEditing.fxml,2\d\2d7f1e0a39d4b311d289ea841274e2d003a76411
+N
+src/main/resources/people.fxml,1\e\1e9abc2fe82762e8d17b5e1c34ece8c019131599
+e
+5src/main/java/domain/rows/PeopleAndProfessionRow.java,e\d\ed841b808353599301505611552f5d5395891e1a
+O
+src/main/resources/queries.fxml,b\6\b61033c2ae3bb59c9908f1285d536a409eef0b6f
+_
+/src/main/java/domain/rows/SectorAndBossRow.java,e\6\e6c5010a835330bb53c02e766a42e3dbaf3e0d59
+M
+src/main/resources/start.fxml,8\0\80d6c35371e8aedf4ba0174efb7ecee9a4a9b466
