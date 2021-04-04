@@ -2,12 +2,12 @@ package domain.rows;
 
 public class SectorAndBossRow implements Row {
     private final int id;
-    private final String name;
+    private final int sectorId;
     private final int bossId;
 
-    public SectorAndBossRow(int id, String name, int bossId) {
+    public SectorAndBossRow(int id, int sectorId, int bossId) {
         this.id = id;
-        this.name = name;
+        this.sectorId = sectorId;
         this.bossId = bossId;
     }
 
@@ -15,8 +15,8 @@ public class SectorAndBossRow implements Row {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public int getSectorId() {
+        return sectorId;
     }
 
     public int getBossId() {

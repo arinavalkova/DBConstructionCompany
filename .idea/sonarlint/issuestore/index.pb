@@ -31,12 +31,6 @@ q
 Asrc/main/java/domain/usecases/parameterized/UpdateRowUseCase.java,9\1\9142ad658825070f095bf5b7f83f8a06a565a2c4
 b
 2src/main/java/data/tables/CategoriesTableImpl.java,e\9\e9fe896f155cf85d4f8c46b7374625f687a75a97
-†
-Vsrc/main/java/domain/usecases/parameterized/SearchCustomerNameByObjectNameUseCase.java,8\d\8df1b640b105224be54f947e9ef75ec500d8092e
-^
-.src/main/java/presentation/s1/S1ViewModel.java,f\6\f658319e3e13b77375379b01fb4b67632ba5afc3
-Y
-)src/main/java/presentation/s1/S1View.java,d\c\dca1b9f8590b583211ec89db8a7d1f415f7cd32a
 `
 0src/main/java/presentation/ClientFXMLLoader.java,8\f\8f3d1eeb715577b55921b1a9996a504efde62ecc
 _
@@ -57,8 +51,6 @@ t
 Dsrc/main/java/presentation/main/authorization/AuthorizationView.java,1\4\143ea51798cdb2da208aed8798e3e8233c6cc886
 y
 Isrc/main/java/presentation/main/authorization/AuthorizationViewModel.java,e\d\edea67b2c3da8900cb2677e71f4ecc9d21c914fe
-y
-Isrc/main/java/domain/usecases/nonParameterized/LoadTestDataUseCaseS1.java,a\4\a480083b1512122b8cbb38acc89b1eccb6b556b3
 f
 6src/main/java/presentation/data/people/PeopleView.java,e\e\eeb5ad5d3650a6914cfc5a58661f27d0df83d555
 k

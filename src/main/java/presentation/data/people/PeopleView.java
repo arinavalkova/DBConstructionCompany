@@ -2,10 +2,7 @@ package presentation.data.people;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import domain.rows.BossAndEmployeesRow;
-import domain.rows.PeopleAndProfessionRow;
-import domain.rows.ProfessionsRow;
-import domain.rows.SectorAndBossRow;
+import domain.rows.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,7 +44,7 @@ public class PeopleView {
     private TableColumn<SectorAndBossRow, Integer> sectorAndBossIdColumn;
 
     @FXML
-    private TableColumn<SectorAndBossRow, String> sectorAndBossSectorNameColumn;
+    private TableColumn<SectorAndBossRow, String> sectorAndBossSectorIdColumn;
 
     @FXML
     private TableColumn<SectorAndBossRow, Integer> sectorAndBossBossIdColumn;
@@ -155,16 +152,16 @@ public class PeopleView {
     private JFXButton sectorAndBossInsertButton;
 
     @FXML
-    private JFXTextField sectorAndBossIfForDeleteField;
+    private JFXTextField sectorsSectorIdForDeleteField;
 
     @FXML
-    private JFXButton sectorAndBossDeleteButton;
+    private JFXButton sectorsDeleteButton;
 
     @FXML
     private JFXTextField sectorAndBossIdForUpdateField;
 
     @FXML
-    private JFXTextField sectorAndBossSectorNameForUpdateField;
+    private JFXTextField sectorAndBossSectorIdForUpdateField;
 
     @FXML
     private JFXTextField sectorAndBossBossIdForUpdateField;
@@ -191,9 +188,33 @@ public class PeopleView {
     private Label loadingTestDataAnsweringLabel;
 
     @FXML
+    private TableView<SectorsRow> sectorsTable;
+
+    @FXML
+    private TableColumn<SectorsRow, Integer> sectorsIdColumn;
+
+    @FXML
+    private TableColumn<SectorsRow, String> sectorsSectorNameColumn;
+
+    @FXML
+    private JFXTextField sectorsIdForUpdateField;
+
+    @FXML
+    private JFXTextField sectorsSectorNameForUpdateField;
+
+    @FXML
+    private JFXButton sectorsUpdateButton;
+
+
+    @FXML
     void initialize() {
         initButtons();
         bind();
+        loadData();
+    }
+
+    private void loadData() {
+        peopleViewModel.loadData();
     }
 
     private void bind() {
@@ -215,13 +236,17 @@ public class PeopleView {
         bossAndEmployeeEmployeeIdColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
 
         sectorAndBossIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        sectorAndBossSectorNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        sectorAndBossSectorIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         sectorAndBossBossIdColumn.setCellValueFactory(new PropertyValueFactory<>("bossId"));
+
+        sectorsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        sectorsIdColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         professionsTable.itemsProperty().bind(peopleViewModel.getProfessionsRowProperty());
         peopleAndProfessionsTable.itemsProperty().bind(peopleViewModel.getPeopleAndProfessionsRowProperty());
         bossAndEmployeesTable.itemsProperty().bind(peopleViewModel.getBossAndEmployeesRowProperty());
         sectorAndBossTable.itemsProperty().bind(peopleViewModel.getSectorAndBossRowProperty());
+        sectorsTable.itemsProperty().bind(peopleViewModel.getSectorsRowProperty());
     }
 
     private void initButtons() {
@@ -302,28 +327,31 @@ public class PeopleView {
         });
 
         sectorAndBossInsertButton.setOnAction(event -> {
-            peopleViewModel.insertSectorAndBoss(
-                    sectorAndBossSectorNameForInsertField.getText(),
-                    Integer.parseInt(sectorAndBossBossIdForInsertField.getText())
-            );
-            sectorAndBossSectorNameForInsertField.setText(EMPTY_FIELD);
-            sectorAndBossBossIdForInsertField.setText(EMPTY_FIELD);
+//            peopleViewModel.insertSectorAndBoss(
+//                    sectorAndBossSectorNameForInsertField.getText(),
+//                    Integer.parseInt(sectorAndBossBossIdForInsertField.getText())
+//            );
+//            sectorAndBossSectorNameForInsertField.setText(EMPTY_FIELD);
+//            sectorAndBossBossIdForInsertField.setText(EMPTY_FIELD);
         });
-        sectorAndBossDeleteButton.setOnAction(event -> {
-            peopleViewModel.deleteSectorAndBoss(
-                    Integer.parseInt(sectorAndBossIfForDeleteField.getText())
-            );
-            sectorAndBossIfForDeleteField.setText(EMPTY_FIELD);
+        sectorsDeleteButton.setOnAction(event -> {
+//            peopleViewModel.deleteSectorAndBoss(
+//                    Integer.parseInt(sectorAndBossIfForDeleteField.getText())
+//            );
+//            sectorAndBossIfForDeleteField.setText(EMPTY_FIELD);
         });
         sectorAndBossUpdateButton.setOnAction(event -> {
-            peopleViewModel.updateSectorAndBoss(
-                    Integer.parseInt(sectorAndBossIdForUpdateField.getText()),
-                    sectorAndBossSectorNameForUpdateField.getText(),
-                    Integer.parseInt(sectorAndBossBossIdForUpdateField.getText())
-            );
-            sectorAndBossIdForUpdateField.setText(EMPTY_FIELD);
-            sectorAndBossSectorNameForUpdateField.setText(EMPTY_FIELD);
-            sectorAndBossBossIdForUpdateField.setText(EMPTY_FIELD);
+//            peopleViewModel.updateSectorAndBoss(
+//                    Integer.parseInt(sectorAndBossIdForUpdateField.getText()),
+//                    sectorAndBossSectorNameForUpdateField.getText(),
+//                    Integer.parseInt(sectorAndBossBossIdForUpdateField.getText())
+//            );
+//            sectorAndBossIdForUpdateField.setText(EMPTY_FIELD);
+//            sectorAndBossSectorNameForUpdateField.setText(EMPTY_FIELD);
+//            sectorAndBossBossIdForUpdateField.setText(EMPTY_FIELD);
+        });
+        sectorsUpdateButton.setOnAction(event -> {
+
         });
     }
 }

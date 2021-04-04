@@ -19,7 +19,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
     }
 
     @Override
-    public void invoke() {
+    public Object invoke() {
         Thread thread = new Thread(() -> {
             try {
                 JDBCConnection.getConnection().setAutoCommit(false);
@@ -72,5 +72,6 @@ public class LoadTestDataUseCase implements NonParamUseCase {
             }
         });
         thread.start();
+        return null;
     }
 }

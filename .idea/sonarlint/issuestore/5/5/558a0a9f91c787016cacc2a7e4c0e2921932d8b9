@@ -1,4 +1,6 @@
 
-T
-java:S1068	"2Remove this unused "answerReceiver" private field.(ì¿Şÿÿÿÿÿ8ıİ±Ã‰/
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÏ§šúÿÿÿÿ8Ù½¬çˆ/
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ñ±»ã8ööã‰/
+ 
+java:S1319"~The type of the "repositoryArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Ë „ııÿÿÿÿ8ıšââ‰/
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÏ§šúÿÿÿÿ8’ÖóÌ†/

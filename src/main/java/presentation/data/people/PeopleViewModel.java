@@ -1,9 +1,9 @@
 package presentation.data.people;
 
-import data.tables.BossAndEmployeesTableImpl;
-import data.tables.PeopleAndProfessionsTableImpl;
-import data.tables.ProfessionsTableImpl;
-import data.tables.SectorAndBossTableImpl;
+import data.tables.people.BossAndEmployeesTableImpl;
+import data.tables.people.PeopleAndProfessionsTableImpl;
+import data.tables.people.ProfessionsTableImpl;
+import data.tables.people.SectorAndBossTableImpl;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 import domain.rows.BossAndEmployeesRow;
@@ -15,6 +15,7 @@ import domain.usecases.nonParameterized.LoadTestDataUseCase;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import domain.usecases.parameterized.UpdateRowUseCase;
+import domain.usecases.parameterized.queries.people.GetProfessionByNameUseCase;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -67,6 +68,8 @@ public class PeopleViewModel {
     private final GetRowsUseCase sectorAndBossGetRowsUseCase;
 
     private final LoadTestDataUseCase loadTestDataUseCase;
+
+    private final GetProfessionByNameUseCase getProfessionByNameUseCase;
 
     public PeopleViewModel() {
         ProfessionsTableImpl professionsTable = new ProfessionsTableImpl();
@@ -291,6 +294,8 @@ public class PeopleViewModel {
                 loadingTestDataAnswerProperty.setValue((String) answer);
             }
         });
+
+        getProfessionByNameUseCase = new GetProfessionByNameUseCase(peopleAndProfessionsTable);
     }
 
     public void backToEditingMenu() {
@@ -337,7 +342,11 @@ public class PeopleViewModel {
 
     public void insertBossAndEmployees(int bossId, int employeeId) {
         bossAndEmployeesAnswerProperty.setValue(INSERTING);
-        bossAndEmployeesInsertUseCase.invoke(new BossAndEmployeesRow(0, bossId, employeeId));
+        if (getProfessionByNameUseCase.invoke(bossId).equals(getProfessionByNameUseCase.invoke(employeeId))) {
+            bossAndEmployeesInsertUseCase.invoke(new BossAndEmployeesRow(0, bossId, employeeId));
+        } else {
+            bossAndEmployeesAnswerProperty.setValue("The employee's profession does not match the boss's profession");
+        }
     }
 
     public void deleteBossAndEmployees(int id) {
@@ -347,7 +356,11 @@ public class PeopleViewModel {
 
     public void updateBossAndEmployees(int id, int bossId, int employeesId) {
         bossAndEmployeesAnswerProperty.setValue(UPDATING);
-        bossAndEmployeesUpdateUseCase.invoke(new BossAndEmployeesRow(id, bossId, employeesId));
+        if (getProfessionByNameUseCase.invoke(bossId).equals(getProfessionByNameUseCase.invoke(employeesId))) {
+            bossAndEmployeesUpdateUseCase.invoke(new BossAndEmployeesRow(id, bossId, employeesId));
+        } else {
+            bossAndEmployeesAnswerProperty.setValue("The employee's profession does not match the boss's profession");
+        }
     }
 
     public void insertSectorAndBoss(String sectorName, int bossId) {
@@ -423,5 +436,12 @@ public class PeopleViewModel {
 
     public Property<ObservableList<SectorAndBossRow>> getSectorAndBossRowProperty() {
         return sectorAndBossRowProperty;
+    }
+
+    public void loadData() {
+        updateProfessionsTable();
+        updatePeopleAndProfessionsTable();
+        updateBossAndEmployeesTable();
+        updateSectorAndBossTable();
     }
 }

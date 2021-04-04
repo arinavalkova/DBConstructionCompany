@@ -17,7 +17,7 @@ public class GetRowsUseCase implements NonParamUseCase {
     }
 
     @Override
-    public void invoke() {
+    public Object invoke() {
         Thread thread = new Thread(() -> {
             ArrayList<Row> rowArrayList = dataBaseRepository.getRows();
             if (rowArrayList== null) {
@@ -27,5 +27,6 @@ public class GetRowsUseCase implements NonParamUseCase {
             }
         });
         thread.start();
+        return null;
     }
 }

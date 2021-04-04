@@ -15,7 +15,7 @@ public class UpdateRowUseCase implements ParamUseCase{
     }
 
     @Override
-    public void invoke(Object object) {
+    public Object invoke(Object object) {
         Thread thread = new Thread(() -> {
             if (!dataBaseRepository.updateRow((Row) object)) {
                 answerReceiver.onError("Error with updating");
@@ -24,5 +24,6 @@ public class UpdateRowUseCase implements ParamUseCase{
             }
         });
         thread.start();
+        return null;
     }
 }

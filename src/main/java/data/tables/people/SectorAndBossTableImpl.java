@@ -1,24 +1,28 @@
-package data.tables;
+package data.tables.people;
 
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
+import domain.rows.PeopleAndProfessionRow;
 import domain.rows.Row;
+import domain.rows.SectorAndBossRow;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesTableImpl extends BaseTable implements DataBaseRepository {
+public class SectorAndBossTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "categories";
+    private final static String TABLE_NAME = "sector_and_boss";
 
     @Override
     public boolean insertRow(Row row) {
-        CategoriesOfObjectsRow categoriesOfObjectsRow = (CategoriesOfObjectsRow) row;
-        String sql = "insert into " + TABLE_NAME + " values(" + categoriesOfObjectsRow.getId()
-                + ", '" + categoriesOfObjectsRow.getName() + "')";
-        System.out.println(sql);
+        SectorAndBossRow sectorAndBossRow = (SectorAndBossRow) row;
+        String sql = "insert into " + TABLE_NAME + " values(" + sectorAndBossRow.getId()
+                + ", '" + sectorAndBossRow.getName() + "', " + sectorAndBossRow.getBossId() + " )";
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -30,7 +34,9 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean createTable() {
-        String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, name varchar(20))";
+        String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, name varchar(20), boss_id int, " +
+                "foreign key (boss_id)" +
+                " references people_and_profession (id) on delete cascade)";
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -54,8 +60,10 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean updateRow(Row row) {
-        CategoriesOfObjectsRow categoriesOfObjectsRow = (CategoriesOfObjectsRow) row;
-        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + categoriesOfObjectsRow.getName() + "' WHERE id = " + categoriesOfObjectsRow.getId();
+        SectorAndBossRow sectorAndBossRow = (SectorAndBossRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + sectorAndBossRow.getName()
+                + "' , boss_id = " + sectorAndBossRow.getBossId()
+                + " WHERE id = " + sectorAndBossRow.getId();
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -78,7 +86,7 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
     }
 
     @Override
-    public List<Row> getRows() {
+    public ArrayList<Row> getRows() {
         String sql = "SELECT * FROM " + TABLE_NAME;
         ResultSet resultSet;
         try {
@@ -91,7 +99,10 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
         while (true) {
             try {
                 if (!resultSet.next()) break;
-                rowArrayList.add(new CategoriesOfObjectsRow(resultSet.getInt("id"), resultSet.getString("name")));
+                rowArrayList.add(new SectorAndBossRow(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("boss_id")));
             } catch (SQLException throwables) {
                 return null;
             }
@@ -101,13 +112,13 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean createIdAutoIncrementTrigger() {
-        String dropSeq = "DROP SEQUENCE categories_seq";
-        String createSeq = "CREATE SEQUENCE categories_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER categories_autoincrement\n" +
-                "BEFORE INSERT ON categories\n" +
+        String dropSeq = "DROP SEQUENCE sector_and_boss_seq";
+        String createSeq = "CREATE SEQUENCE sector_and_boss_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER sector_and_boss_autoincrement\n" +
+                "BEFORE INSERT ON sector_and_boss\n" +
                 "FOR EACH ROW\n" +
                 "BEGIN\n" +
-                "SELECT categories_seq.NextVal INTO :new.ID FROM dual;\n" +
+                "SELECT sector_and_boss_seq.NextVal INTO :new.ID FROM dual;\n" +
                 "END;";
 
         try {
@@ -123,12 +134,16 @@ public class CategoriesTableImpl extends BaseTable implements DataBaseRepository
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new CategoriesOfObjectsRow(0, "House"))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, 0, 0))) {
             return false;
         }
-        if (!insertRow(new CategoriesOfObjectsRow(0, "Library"))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, 1, 3))) {
             return false;
         }
-        return true;
+    }
+
+    @Override
+    public String getTableName() {
+        return null;
     }
 }
