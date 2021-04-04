@@ -188,6 +188,9 @@ public class PeopleView {
     private Label sectorAndBossAnswerLabel;
 
     @FXML
+    private Label loadingTestDataAnsweringLabel;
+
+    @FXML
     void initialize() {
         initButtons();
         bind();
@@ -198,6 +201,7 @@ public class PeopleView {
         peopleAndProfessionAnswerLabel.textProperty().bind(peopleViewModel.getPeopleAndProfessionAnswerProperty());
         bossAndEmployeesAnswerLabel.textProperty().bind(peopleViewModel.getBossAndEmployeesAnswerProperty());
         sectorAndBossAnswerLabel.textProperty().bind(peopleViewModel.getSectorAndBossAnswerProperty());
+        loadingTestDataAnsweringLabel.textProperty().bind(peopleViewModel.getLoadingTestDataAnswerProperty());
 
         professionsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         professionsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

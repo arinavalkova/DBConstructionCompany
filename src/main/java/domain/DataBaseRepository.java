@@ -2,6 +2,7 @@ package domain;
 
 import domain.rows.Row;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DataBaseRepository {
@@ -15,9 +16,11 @@ public interface DataBaseRepository {
 
     boolean deleteRow(int id);
 
-    List<Row> getRows();
+    ArrayList<Row> getRows();
 
     boolean createIdAutoIncrementTrigger();
 
     boolean loadTestData();
+
+    String getTableName();
 }

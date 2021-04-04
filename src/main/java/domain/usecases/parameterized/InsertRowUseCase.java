@@ -16,6 +16,13 @@ public class InsertRowUseCase implements ParamUseCase{
 
     @Override
     public void invoke(Object object) {
-        return dataBaseRepository.insertRow((Row) object);
+        Thread thread = new Thread(() -> {
+            if (!dataBaseRepository.insertRow((Row) object)) {
+                answerReceiver.onError("Error with inserting");
+            } else {
+                answerReceiver.onSuccess("Successfully inserted");
+            }
+        });
+        thread.start();
     }
 }

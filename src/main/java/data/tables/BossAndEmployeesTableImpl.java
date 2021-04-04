@@ -1,11 +1,16 @@
 package data.tables;
 
+import data.BaseTable;
 import domain.DataBaseRepository;
 import domain.rows.Row;
 
 import java.util.List;
 
 public class BossAndEmployeesTableImpl implements DataBaseRepository {
+
+    private final static String tableName = "bossAndEmployees";
+
+
     @Override
     public boolean insertRow(Row row) {
         return false;
@@ -44,5 +49,10 @@ public class BossAndEmployeesTableImpl implements DataBaseRepository {
     @Override
     public boolean loadTestData() {
         return false;
+    }
+
+    @Override
+    public String getTableName() {
+        return tableName;
     }
 }
