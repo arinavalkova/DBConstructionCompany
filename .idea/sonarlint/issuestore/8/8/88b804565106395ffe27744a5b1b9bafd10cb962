@@ -1,0 +1,12 @@
+
+•
+java:S1319@"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".( ¼íÛûÿÿÿÿ8ãßæß‹/
+•
+java:S1319E"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(À½…øÿÿÿÿ8ãßæß‹/
+]	java:S125X"<This block of commented-out lines of code should be removed.(ç‘çµıÿÿÿÿ8ãßæß‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ñé¼Û‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8øË¼Û‹/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ñé¼Û‹/

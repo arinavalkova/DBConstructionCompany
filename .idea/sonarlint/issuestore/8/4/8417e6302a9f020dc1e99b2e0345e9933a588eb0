@@ -1,29 +1,3 @@
 
-Z
-java:S1068="8Remove this unused "sectorsUpdateUseCase" private field.(Êž„¬ÿÿÿÿÿ8‚ß®‰Š/
-`
-java:S1068<">Remove this unused "sectorAndBossUpdateUseCase" private field.(¼î˜áûÿÿÿÿ8‚ß®‰Š/
-¤
-java:S1186Û"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(À»È¾úÿÿÿÿ8÷› ‰Š/
-Ÿ
-java:S1186Ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(šíéâ8÷› ‰Š/
-¤
-java:S1186Ö"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»ÝÀØüÿÿÿÿ8÷› ‰Š/
-Y	java:S125‡"<This block of commented-out lines of code should be removed.(ÈëÌï8÷› ‰Š/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ž²¤¥þÿÿÿÿ8‰ª½è‰/
-a
-java:S1124 "EReorder the modifiers to comply with the Java Language Specification.(Î†™
-8‰ª½è‰/
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8‰ª½è‰/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8‰ª½è‰/
-P
-java:S1135Ä"2Complete the task associated to this TODO comment.(…ïœ†8÷› ‰Š/
-T
-java:S10687"7Remove this unused "sectorDeleteUseCase" private field.(¢éÁ¦8Í«‰Š/
-Z
-java:S10682"8Remove this unused "sectorsInsertUseCase" private field.(·åížþÿÿÿÿ8©ÔÓ‰Š/
-V
-java:S1068C"9Remove this unused "sectorsGetRowsUseCase" private field.(ÿÃñš8÷› ‰Š/
+m
+java:S1192S"KDefine a constant instead of duplicating this literal "table.fxml" 3 times.( ÞŸÄýÿÿÿÿ8÷®‘â‹/

@@ -79,3 +79,17 @@ Y
 )src/main/java/domain/rows/SectorsRow.java,e\3\e39c8c6ff20df997954a9dce7ce633fd6b74eca9
 f
 6src/main/java/data/tables/people/SectorsTableImpl.java,3\7\37f2339eb82de7c28e76893093a3de9e6c9c63b1
+V
+&src/main/java/domain/DataReceiver.java,c\5\c5207de8da1aaffbf56fe488c4449993c0bb1bbd
+R
+"src/main/java/domain/Receiver.java,a\3\a3ad34c3bbbf0f51a1a74b80177bab715a4f5167
+v
+Fsrc/main/java/presentation/table/edit/simple/SimpleTableViewModel.java,8\8\88b804565106395ffe27744a5b1b9bafd10cb962
+q
+Asrc/main/java/presentation/table/edit/custom/CustomTableView.java,e\3\e3810e6a10cbfbc7b63100455aac5fb524fdccdb
+v
+Fsrc/main/java/presentation/table/edit/custom/CustomTableViewModel.java,c\f\cf74522de09d839d1d522ae05715f5c67815d4ef
+m
+=src/main/java/presentation/table/show/ShowTableViewModel.java,b\3\b3295f37ae2ea9551e7c9eb9da87963ab3ba11c3
+h
+8src/main/java/presentation/table/show/ShowTableView.java,2\1\2140f078f4bb1f3e1e47bd3d2385181eae9a4979

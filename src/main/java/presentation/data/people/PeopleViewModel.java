@@ -13,7 +13,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import presentation.SceneController;
-import presentation.table.simple.SimpleTableView;
+import presentation.table.edit.simple.SimpleTableView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,7 +80,7 @@ public class PeopleViewModel implements AnswerReceiver {
                 "Boss and employees"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
         fxmlLoader.setController(simpleTableController);
 
         AnchorPane pane = null;
@@ -110,7 +110,7 @@ public class PeopleViewModel implements AnswerReceiver {
                 "People and professions"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
         fxmlLoader.setController(simpleTableController);
 
         AnchorPane pane = null;
@@ -138,7 +138,7 @@ public class PeopleViewModel implements AnswerReceiver {
                 "Professions"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
         fxmlLoader.setController(simpleTableController);
 
         AnchorPane pane = null;

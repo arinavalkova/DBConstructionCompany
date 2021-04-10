@@ -1,24 +1,22 @@
-package presentation.table.simple;
+package presentation.table.edit.simple;
 
 import domain.DataBaseRepository;
-import domain.rows.Row;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import presentation.SceneController;
+import presentation.table.show.ShowTableView;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SimpleTableView {
 
     private SimpleTableViewModel simpleTableViewModel;
-
-    @FXML
-    private TableView<Row> table;
-
-    @FXML
-    private Label tableNameLabel;
 
     @FXML
     private HBox insertHBox;
@@ -42,15 +40,15 @@ public class SimpleTableView {
     private Label answerLabel;
 
     @FXML
-    private Button loadDataButton;
+    private AnchorPane showerPane;
 
-    private ArrayList<TableColumn<Row, Type>> columns = new ArrayList<>();
     private ArrayList<TextField> insertFields = new ArrayList<>();
     private ArrayList<TextField> updateFields = new ArrayList<>();
 
-    private ArrayList<String> classFieldNames;
-    private ArrayList<String> columnNames;
-    private String tableName;
+    private final ArrayList<String> classFieldNames;
+    private final ArrayList<String> columnNames;
+    private final String tableName;
+    private final DataBaseRepository repository;
 
     public SimpleTableView(
             DataBaseRepository repository,
@@ -60,37 +58,56 @@ public class SimpleTableView {
         this.classFieldNames = classFieldNames;
         this.columnNames = columnNames;
         this.tableName = tableName;
+        this.repository = repository;
 
         this.simpleTableViewModel = new SimpleTableViewModel(repository);
     }
 
     @FXML
     void initialize() {
+        initShowerPane();
+        initFields();
+        initButtons();
+    }
+
+    private void initFields() {
         answerLabel.textProperty().bind(simpleTableViewModel.getAnswerProperty());
-        tableNameLabel.setText(tableName);
-        table.itemsProperty().bind(simpleTableViewModel.getRowProperty());
 
         int i = 0;
         for (String fieldName : classFieldNames) {
-                TableColumn<Row, Type> tableColumn = new TableColumn<>();
-                tableColumn.setCellValueFactory(new PropertyValueFactory<>(fieldName));
-                columns.add(tableColumn);
-                tableColumn.setText(columnNames.get(i));
-                table.getColumns().add(tableColumn);
-                if (!fieldName.equals("id")) {
-                    TextField insert = new TextField();
-                    insert.setPromptText(columnNames.get(i));
-                    insertFields.add(insert);
-                    insertHBox.getChildren().add(insert);
-                }
-                TextField updateField = new TextField();
-                updateField.setPromptText(columnNames.get(i));
-                updateFields.add(updateField);
-                updateHBox.getChildren().add(updateField);
-                i++;
+            if (!fieldName.equals("id")) {
+                TextField insert = new TextField();
+                insert.setPromptText(columnNames.get(i));
+                insertFields.add(insert);
+                insertHBox.getChildren().add(insert);
+            }
+            TextField updateField = new TextField();
+            updateField.setPromptText(columnNames.get(i));
+            updateFields.add(updateField);
+            updateHBox.getChildren().add(updateField);
+            i++;
         }
+    }
 
-        initButtons();
+    private void initShowerPane() {
+        ShowTableView showTableView = new ShowTableView(
+                repository,
+                classFieldNames,
+                columnNames,
+                tableName,
+                200
+        );
+
+        FXMLLoader fxmlLoader = SceneController.getLoader("showTable.fxml");
+        fxmlLoader.setController(showTableView);
+
+        AnchorPane pane = null;
+        try {
+            pane = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        showerPane.getChildren().add(pane);
     }
 
     private void initButtons() {
@@ -117,7 +134,5 @@ public class SimpleTableView {
             }
             simpleTableViewModel.update(rowLines);
         });
-
-        loadDataButton.setOnAction(event -> simpleTableViewModel.updateTable());
     }
 }
