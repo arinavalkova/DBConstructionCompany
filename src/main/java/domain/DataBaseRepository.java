@@ -23,4 +23,6 @@ public interface DataBaseRepository {
     boolean loadTestData();
 
     String getTableName();
+
+    Row createRow(ArrayList<String> rowLines);
 }

@@ -18,8 +18,8 @@ public class MainApplication extends Application {
         ClassLoader classLoader = getClass().getClassLoader();
         SceneController.loadMain(classLoader);
         primaryStage.setScene(SceneController.getScene());
-        primaryStage.setMinWidth(900);
-        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(1300);
+        primaryStage.setMinHeight(950);
         primaryStage.show();
     }
 }

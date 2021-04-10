@@ -28,7 +28,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.deleteTable()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onError("Error with deleting old table " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError("Error with deleting old table " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     }
@@ -39,7 +39,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.createTable()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onError("Error with creating table " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError("Error with creating table " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     }
@@ -48,7 +48,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.createIdAutoIncrementTrigger()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onError("Error with creating auto increment id trigger for "
+                        answerReceiver.onAnswerError("Error with creating auto increment id trigger for "
                                 + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
@@ -58,7 +58,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.loadTestData()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onError("Error with loading test data to " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError("Error with loading test data to " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     }
@@ -66,9 +66,9 @@ public class LoadTestDataUseCase implements NonParamUseCase {
 
                 JDBCConnection.getConnection().commit();
                 JDBCConnection.getConnection().setAutoCommit(true);
-                answerReceiver.onSuccess("Successfully loaded test data");
+                answerReceiver.onAnswerSuccess("Successfully loaded test data");
             } catch (SQLException throwables) {
-                answerReceiver.onError("Error");
+                answerReceiver.onAnswerError("Error");
             }
         });
         thread.start();

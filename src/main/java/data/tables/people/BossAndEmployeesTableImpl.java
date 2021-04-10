@@ -4,7 +4,6 @@ import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.BossAndEmployeesRow;
-import domain.rows.PeopleAndProfessionRow;
 import domain.rows.Row;
 
 import java.sql.PreparedStatement;
@@ -34,8 +33,8 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, boss_id int, employee_id int, "
-                + " foreign key (boss_id)" + " references people_and_profession (id) on delete cascade, "
-                + " foreign key (employee_id)" + " references people_and_profession (id) on delete cascade)";
+                + " foreign key (boss_id)" + " references people_and_professions (id) on delete cascade, "
+                + " foreign key (employee_id)" + " references people_and_professions (id) on delete cascade)";
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -114,7 +113,7 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     public boolean createIdAutoIncrementTrigger() {
         String dropSeq = "DROP SEQUENCE boss_and_employees_seq";
         String createSeq = "CREATE SEQUENCE boss_and_employees_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER boss_and_employees_autoincrement\n" +
+        String trigger = "CREATE OR REPLACE TRIGGER boss_and_employees_auto\n" +
                 "BEFORE INSERT ON boss_and_employees\n" +
                 "FOR EACH ROW\n" +
                 "BEGIN\n" +
@@ -158,5 +157,10 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     @Override
     public String getTableName() {
         return TABLE_NAME;
+    }
+
+    @Override
+    public Row createRow(ArrayList<String> rowLines) {
+        return new BossAndEmployeesRow(rowLines);
     }
 }

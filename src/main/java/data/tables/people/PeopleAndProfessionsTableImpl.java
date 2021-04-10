@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "people_and_profession";
+    private final static String TABLE_NAME = "people_and_professions";
 
     @Override
     public boolean insertRow(Row row) {
@@ -112,7 +112,7 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     public boolean createIdAutoIncrementTrigger() {
         String dropSeq = "DROP SEQUENCE people_and_professions_seq";
         String createSeq = "CREATE SEQUENCE people_and_professions_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER people_and_professions_autoincrement\n" +
+        String trigger = "CREATE OR REPLACE TRIGGER people_and_professions_auto\n" +
                 "BEFORE INSERT ON people_and_professions\n" +
                 "FOR EACH ROW\n" +
                 "BEGIN\n" +
@@ -156,5 +156,10 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     @Override
     public String getTableName() {
         return TABLE_NAME;
+    }
+
+    @Override
+    public Row createRow(ArrayList<String> rowLines) {
+        return new PeopleAndProfessionRow(rowLines);
     }
 }

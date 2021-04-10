@@ -18,9 +18,9 @@ public class UpdateRowUseCase implements ParamUseCase{
     public Object invoke(Object object) {
         Thread thread = new Thread(() -> {
             if (!dataBaseRepository.updateRow((Row) object)) {
-                answerReceiver.onError("Error with updating");
+                answerReceiver.onAnswerError("Error with updating");
             } else {
-                answerReceiver.onSuccess("Successfully updated");
+                answerReceiver.onAnswerSuccess("Successfully updated");
             }
         });
         thread.start();

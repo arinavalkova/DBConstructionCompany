@@ -17,9 +17,9 @@ public class DeleteRowUseCase implements ParamUseCase {
     public Object invoke(Object object) {
         Thread thread = new Thread(() -> {
             if (!dataBaseRepository.deleteRow((Integer) object)) {
-                answerReceiver.onError("Error with deleting");
+                answerReceiver.onAnswerError("Error with deleting");
             } else {
-                answerReceiver.onSuccess("Successfully deleted");
+                answerReceiver.onAnswerSuccess("Successfully deleted");
             }
         });
         thread.start();

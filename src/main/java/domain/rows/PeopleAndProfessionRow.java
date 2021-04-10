@@ -1,5 +1,7 @@
 package domain.rows;
 
+import java.util.ArrayList;
+
 public class PeopleAndProfessionRow implements Row {
 
     private final int id;
@@ -10,6 +12,12 @@ public class PeopleAndProfessionRow implements Row {
         this.id = id;
         this.name = name;
         this.professionId = professionId;
+    }
+
+    public PeopleAndProfessionRow(ArrayList<String> rowLines) {
+        this.id = Integer.parseInt(rowLines.get(0));
+        this.name =  rowLines.get(1);
+        this.professionId = Integer.parseInt(rowLines.get(2));
     }
 
     public String getName() {

@@ -2,6 +2,7 @@ package domain.usecases.nonParameterized;
 
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
+import domain.DataReceiver;
 import domain.rows.Row;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ import java.util.ArrayList;
 public class GetRowsUseCase implements NonParamUseCase {
 
     private final DataBaseRepository dataBaseRepository;
-    private final AnswerReceiver answerReceiver;
+    private final DataReceiver dataReceiver;
 
-    public GetRowsUseCase(DataBaseRepository dataBaseRepository, AnswerReceiver answerReceiver) {
+    public GetRowsUseCase(DataBaseRepository dataBaseRepository, DataReceiver dataReceiver) {
         this.dataBaseRepository = dataBaseRepository;
-        this.answerReceiver = answerReceiver;
+        this.dataReceiver = dataReceiver;
     }
 
     @Override
@@ -21,9 +22,9 @@ public class GetRowsUseCase implements NonParamUseCase {
         Thread thread = new Thread(() -> {
             ArrayList<Row> rowArrayList = dataBaseRepository.getRows();
             if (rowArrayList== null) {
-                answerReceiver.onError("Error with getting rows");
+                dataReceiver.onDataError("Error with getting rows");
             } else {
-                answerReceiver.onSuccess(rowArrayList);
+                dataReceiver.onDataSuccess(rowArrayList);
             }
         });
         thread.start();

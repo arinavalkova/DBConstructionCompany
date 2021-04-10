@@ -1,5 +1,7 @@
 package domain.rows;
 
+import java.util.ArrayList;
+
 public class SectorAndBossRow implements Row {
     private final int id;
     private final int sectorId;
@@ -9,6 +11,12 @@ public class SectorAndBossRow implements Row {
         this.id = id;
         this.sectorId = sectorId;
         this.bossId = bossId;
+    }
+
+    public SectorAndBossRow(ArrayList<String> rowLines) {
+        this.id = Integer.parseInt(rowLines.get(0));
+        this.sectorId = Integer.parseInt(rowLines.get(1));
+        this.bossId = Integer.parseInt(rowLines.get(2));
     }
 
     public int getId() {

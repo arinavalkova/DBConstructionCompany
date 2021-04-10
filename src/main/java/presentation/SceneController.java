@@ -3,6 +3,7 @@ package presentation;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
@@ -22,6 +23,10 @@ public class SceneController {
         Parent root = loader.load();
         scene.setRoot(root);
         return loader;
+    }
+
+    public static FXMLLoader getLoader(String fxmlName) {
+        return gameFxmlLoader.getFXMLoader(fxmlName);
     }
 
     public static Scene getScene() {

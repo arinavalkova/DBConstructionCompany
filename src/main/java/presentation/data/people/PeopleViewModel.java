@@ -3,302 +3,40 @@ package presentation.data.people;
 import data.tables.people.BossAndEmployeesTableImpl;
 import data.tables.people.PeopleAndProfessionsTableImpl;
 import data.tables.people.ProfessionsTableImpl;
-import data.tables.people.SectorAndBossTableImpl;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
-import domain.rows.BossAndEmployeesRow;
-import domain.rows.PeopleAndProfessionRow;
-import domain.rows.ProfessionsRow;
-import domain.rows.SectorAndBossRow;
-import domain.usecases.nonParameterized.GetRowsUseCase;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
-import domain.usecases.parameterized.DeleteRowUseCase;
-import domain.usecases.parameterized.InsertRowUseCase;
-import domain.usecases.parameterized.UpdateRowUseCase;
-import domain.usecases.parameterized.queries.people.GetProfessionByNameUseCase;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import presentation.SceneController;
+import presentation.table.simple.SimpleTableView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class PeopleViewModel {
+public class PeopleViewModel implements AnswerReceiver {
 
-    private final static String INSERTING = "Inserting...";
-    private final static String DELETING = "Deleting...";
-    private final static String UPDATING = "Updating...";
-    private final static String LOADING = "Loading...";
-
-    private final StringProperty professionAnswerProperty = new SimpleStringProperty();
-    private final StringProperty peopleAndProfessionsAnswerProperty = new SimpleStringProperty();
-    private final StringProperty bossAndEmployeesAnswerProperty = new SimpleStringProperty();
-    private final StringProperty sectorAndBossAnswerProperty = new SimpleStringProperty();
-    private final StringProperty loadingTestDataAnswerProperty = new SimpleStringProperty();
-
-    private final Property<ObservableList<ProfessionsRow>> professionsRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<PeopleAndProfessionRow>> peopleAndProfessionsRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<BossAndEmployeesRow>> bossAndEmployeesRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<SectorAndBossRow>> sectorAndBossRowProperty = new SimpleObjectProperty<>();
-
-    private final InsertRowUseCase professionsInsertUseCase;
-    private final InsertRowUseCase peopleAndProfessionsInsertUseCase;
-    private final InsertRowUseCase bossAndEmployeesInsertUseCase;
-    private final InsertRowUseCase sectorAndBossInsertUseCase;
-
-    private final DeleteRowUseCase professionsDeleteUseCase;
-    private final DeleteRowUseCase peopleAndProfessionsDeleteUseCase;
-    private final DeleteRowUseCase bossAndEmployeesDeleteUseCase;
-    private final DeleteRowUseCase sectorAndBossDeleteUseCase;
-
-    private final UpdateRowUseCase professionsUpdateUseCase;
-    private final UpdateRowUseCase peopleAndProfessionsUpdateUseCase;
-    private final UpdateRowUseCase bossAndEmployeesUpdateUseCase;
-    private final UpdateRowUseCase sectorAndBossUpdateUseCase;
-
-    private final GetRowsUseCase professionsGetRowsUseCase;
-    private final GetRowsUseCase peopleAndProfessionsGetRowsUseCase;
-    private final GetRowsUseCase bossAndEmployeesGetRowsUseCase;
-    private final GetRowsUseCase sectorAndBossGetRowsUseCase;
+    private final StringProperty answerProperty = new SimpleStringProperty();
 
     private final LoadTestDataUseCase loadTestDataUseCase;
 
-    private final GetProfessionByNameUseCase getProfessionByNameUseCase;
+    private final ProfessionsTableImpl professionsTable = new ProfessionsTableImpl();
+    private final PeopleAndProfessionsTableImpl peopleAndProfessionsTable = new PeopleAndProfessionsTableImpl();
+    private final BossAndEmployeesTableImpl bossAndEmployeesTable = new BossAndEmployeesTableImpl();
 
     public PeopleViewModel() {
-        ProfessionsTableImpl professionsTable = new ProfessionsTableImpl();
-        professionsInsertUseCase = new InsertRowUseCase(professionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-                updateProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-            }
-        });
-        professionsDeleteUseCase = new DeleteRowUseCase(professionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-                updateProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-            }
-        });
-        professionsUpdateUseCase = new UpdateRowUseCase(professionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-                updateProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                professionAnswerProperty.setValue((String) answer);
-            }
-        });
-
-        PeopleAndProfessionsTableImpl peopleAndProfessionsTable = new PeopleAndProfessionsTableImpl();
-        peopleAndProfessionsInsertUseCase = new InsertRowUseCase(peopleAndProfessionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-                updatePeopleAndProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-            }
-        });
-        peopleAndProfessionsDeleteUseCase = new DeleteRowUseCase(peopleAndProfessionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-                updatePeopleAndProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-            }
-        });
-        peopleAndProfessionsUpdateUseCase = new UpdateRowUseCase(peopleAndProfessionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-                updatePeopleAndProfessionsTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-            }
-        });
-
-        BossAndEmployeesTableImpl bossAndEmployeesTable = new BossAndEmployeesTableImpl();
-        bossAndEmployeesInsertUseCase = new InsertRowUseCase(bossAndEmployeesTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-                updateBossAndEmployeesTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-            }
-        });
-        bossAndEmployeesDeleteUseCase = new DeleteRowUseCase(bossAndEmployeesTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-                updateBossAndEmployeesTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-            }
-        });
-        bossAndEmployeesUpdateUseCase = new UpdateRowUseCase(bossAndEmployeesTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-                updateBossAndEmployeesTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-            }
-        });
-
-        SectorAndBossTableImpl sectorAndBossTable = new SectorAndBossTableImpl();
-        sectorAndBossInsertUseCase = new InsertRowUseCase(sectorAndBossTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-                updateSectorAndBossTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-            }
-        });
-        sectorAndBossDeleteUseCase = new DeleteRowUseCase(sectorAndBossTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-                updateSectorAndBossTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-            }
-        });
-        sectorAndBossUpdateUseCase = new UpdateRowUseCase(sectorAndBossTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-                updateSectorAndBossTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                sectorAndBossAnswerProperty.setValue((String) answer);
-            }
-        });
-
-        professionsGetRowsUseCase = new GetRowsUseCase(professionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                professionsRowProperty.setValue(FXCollections.observableArrayList((List<ProfessionsRow>) answer));
-            }
-
-            @Override
-            public void onError(Object answer) {
-                professionsRowProperty.setValue(FXCollections.observableArrayList());
-                professionAnswerProperty.setValue((String) answer);
-            }
-        });
-        peopleAndProfessionsGetRowsUseCase = new GetRowsUseCase(peopleAndProfessionsTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                peopleAndProfessionsRowProperty.setValue(FXCollections.observableArrayList((List<PeopleAndProfessionRow>) answer));
-            }
-
-            @Override
-            public void onError(Object answer) {
-                peopleAndProfessionsRowProperty.setValue(FXCollections.observableArrayList());
-                peopleAndProfessionsAnswerProperty.setValue((String) answer);
-            }
-        });
-        bossAndEmployeesGetRowsUseCase = new GetRowsUseCase(bossAndEmployeesTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                bossAndEmployeesRowProperty.setValue(FXCollections.observableArrayList((List<BossAndEmployeesRow>) answer));
-            }
-
-            @Override
-            public void onError(Object answer) {
-                bossAndEmployeesRowProperty.setValue(FXCollections.observableArrayList());
-                bossAndEmployeesAnswerProperty.setValue((String) answer);
-            }
-        });
-        sectorAndBossGetRowsUseCase = new GetRowsUseCase(sectorAndBossTable, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                sectorAndBossRowProperty.setValue(FXCollections.observableArrayList((List<SectorAndBossRow>) answer));
-            }
-
-            @Override
-            public void onError(Object answer) {
-                sectorAndBossRowProperty.setValue(FXCollections.observableArrayList());
-                sectorAndBossAnswerProperty.setValue((String) answer);
-            }
-        });
-
         ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
         dataBaseRepositoryArrayList.add(professionsTable);
         dataBaseRepositoryArrayList.add(peopleAndProfessionsTable);
         dataBaseRepositoryArrayList.add(bossAndEmployeesTable);
-        dataBaseRepositoryArrayList.add(sectorAndBossTable);
-
-        loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, new AnswerReceiver() {
-            @Override
-            public void onSuccess(Object answer) {
-                loadingTestDataAnswerProperty.setValue((String) answer);
-                updateProfessionsTable();
-                updatePeopleAndProfessionsTable();
-                updateBossAndEmployeesTable();
-                updateSectorAndBossTable();
-            }
-
-            @Override
-            public void onError(Object answer) {
-                loadingTestDataAnswerProperty.setValue((String) answer);
-            }
-        });
-
-        getProfessionByNameUseCase = new GetProfessionByNameUseCase(peopleAndProfessionsTable);
+        this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
     }
 
-    public void backToEditingMenu() {
+    public void goBack() {
         try {
             SceneController.load("dataEditing.fxml");
         } catch (IOException e) {
@@ -306,142 +44,109 @@ public class PeopleViewModel {
         }
     }
 
-    public void goToAreasEditingWindow() {
-        //TODO
-    }
-
-    public void insertProfession(String professionName) {
-        professionAnswerProperty.setValue(INSERTING);
-        professionsInsertUseCase.invoke(new ProfessionsRow(0, professionName));
-    }
-
-    public void deleteProfession(int id) {
-        professionAnswerProperty.setValue(DELETING);
-        professionsDeleteUseCase.invoke(id);
-    }
-
-    public void updateProfession(int id, String professionName) {
-        professionAnswerProperty.setValue(UPDATING);
-        professionsUpdateUseCase.invoke(new ProfessionsRow(id, professionName));
-    }
-
-    public void insertPeopleAndProfession(String name, int professionId) {
-        peopleAndProfessionsAnswerProperty.setValue(INSERTING);
-        peopleAndProfessionsInsertUseCase.invoke(new PeopleAndProfessionRow(0, name, professionId));
-    }
-
-    public void deletePeopleAndProfession(int id) {
-        peopleAndProfessionsAnswerProperty.setValue(DELETING);
-        peopleAndProfessionsDeleteUseCase.invoke(id);
-    }
-
-    public void updatePeopleAndProfession(int id, String personName, int professionId) {
-        peopleAndProfessionsAnswerProperty.setValue(UPDATING);
-        peopleAndProfessionsUpdateUseCase.invoke(new PeopleAndProfessionRow(id, personName, professionId));
-    }
-
-    public void insertBossAndEmployees(int bossId, int employeeId) {
-        bossAndEmployeesAnswerProperty.setValue(INSERTING);
-        if (getProfessionByNameUseCase.invoke(bossId).equals(getProfessionByNameUseCase.invoke(employeeId))) {
-            bossAndEmployeesInsertUseCase.invoke(new BossAndEmployeesRow(0, bossId, employeeId));
-        } else {
-            bossAndEmployeesAnswerProperty.setValue("The employee's profession does not match the boss's profession");
-        }
-    }
-
-    public void deleteBossAndEmployees(int id) {
-        bossAndEmployeesAnswerProperty.setValue(DELETING);
-        bossAndEmployeesDeleteUseCase.invoke(id);
-    }
-
-    public void updateBossAndEmployees(int id, int bossId, int employeesId) {
-        bossAndEmployeesAnswerProperty.setValue(UPDATING);
-        if (getProfessionByNameUseCase.invoke(bossId).equals(getProfessionByNameUseCase.invoke(employeesId))) {
-            bossAndEmployeesUpdateUseCase.invoke(new BossAndEmployeesRow(id, bossId, employeesId));
-        } else {
-            bossAndEmployeesAnswerProperty.setValue("The employee's profession does not match the boss's profession");
-        }
-    }
-
-    public void insertSectorAndBoss(String sectorName, int bossId) {
-        sectorAndBossAnswerProperty.setValue(INSERTING);
-        sectorAndBossInsertUseCase.invoke(new SectorAndBossRow(0, sectorName, bossId));
-    }
-
-    public void deleteSectorAndBoss(int id) {
-        sectorAndBossAnswerProperty.setValue(DELETING);
-        sectorAndBossDeleteUseCase.invoke(id);
-    }
-
-    public void updateSectorAndBoss(int id, String sectorName, int bossId) {
-        sectorAndBossUpdateUseCase.invoke(UPDATING);
-        sectorAndBossUpdateUseCase.invoke(new SectorAndBossRow(id, sectorName, bossId));
-    }
-
     public void loadTestData() {
         loadTestDataUseCase.invoke();
     }
 
-    public void updateProfessionsTable() {
-        professionAnswerProperty.setValue(LOADING);
-        professionsGetRowsUseCase.invoke();
+    public ObservableValue<String> getAnswerProperty() {
+        return answerProperty;
     }
 
-    public void updatePeopleAndProfessionsTable() {
-        peopleAndProfessionsAnswerProperty.setValue(LOADING);
-        peopleAndProfessionsGetRowsUseCase.invoke();
+    @Override
+    public void onAnswerSuccess(String answer) {
+        Platform.runLater(() -> answerProperty.setValue(answer));
     }
 
-    public void updateBossAndEmployeesTable() {
-        bossAndEmployeesAnswerProperty.setValue(LOADING);
-        bossAndEmployeesGetRowsUseCase.invoke();
+    @Override
+    public void onAnswerError(String answer) {
+        Platform.runLater(() -> answerProperty.setValue(answer));
     }
 
-    public void updateSectorAndBossTable() {
-        sectorAndBossAnswerProperty.setValue(LOADING);
-        sectorAndBossGetRowsUseCase.invoke();
+    public void loadBossAndEmployeeTable(AnchorPane bossAndEmployeesPane) {
+        ArrayList<String> classFieldsNames = new ArrayList<>();
+        classFieldsNames.add("id");
+        classFieldsNames.add("bossId");
+        classFieldsNames.add("employeeId");
+
+        ArrayList<String> columnsNames = new ArrayList<>();
+        columnsNames.add("Id");
+        columnsNames.add("Boss id");
+        columnsNames.add("Employee id");
+
+        SimpleTableView simpleTableController = new SimpleTableView(
+                bossAndEmployeesTable,
+                classFieldsNames,
+                columnsNames,
+                "Boss and employees"
+        );
+
+        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        fxmlLoader.setController(simpleTableController);
+
+        AnchorPane pane = null;
+        try {
+            pane = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        bossAndEmployeesPane.getChildren().add(pane);
     }
 
-    public ObservableValue<String> getProfessionsAnswerProperty() {
-        return professionAnswerProperty;
+    public void loadPeopleAndProfessionsTable(AnchorPane peopleAndProfessionsPane) {
+        ArrayList<String> classFieldsNames = new ArrayList<>();
+        classFieldsNames.add("id");
+        classFieldsNames.add("name");
+        classFieldsNames.add("professionId");
+
+        ArrayList<String> columnsNames = new ArrayList<>();
+        columnsNames.add("Id");
+        columnsNames.add("Name");
+        columnsNames.add("Profession id");
+
+        SimpleTableView simpleTableController = new SimpleTableView(
+                peopleAndProfessionsTable,
+                classFieldsNames,
+                columnsNames,
+                "People and professions"
+        );
+
+        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        fxmlLoader.setController(simpleTableController);
+
+        AnchorPane pane = null;
+        try {
+            pane = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        peopleAndProfessionsPane.getChildren().add(pane);
     }
 
-    public ObservableValue<String> getPeopleAndProfessionAnswerProperty() {
-        return peopleAndProfessionsAnswerProperty;
-    }
+    public void loadProfessionsTable(AnchorPane professionsPane) {
+        ArrayList<String> classFieldsNames = new ArrayList<>();
+        classFieldsNames.add("id");
+        classFieldsNames.add("name");
 
-    public ObservableValue<String> getBossAndEmployeesAnswerProperty() {
-        return bossAndEmployeesAnswerProperty;
-    }
+        ArrayList<String> columnsNames = new ArrayList<>();
+        columnsNames.add("Id");
+        columnsNames.add("Name");
 
-    public ObservableValue<String> getSectorAndBossAnswerProperty() {
-        return sectorAndBossAnswerProperty;
-    }
+        SimpleTableView simpleTableController = new SimpleTableView(
+                professionsTable,
+                classFieldsNames,
+                columnsNames,
+                "Professions"
+        );
 
-    public Property<ObservableList<ProfessionsRow>> getProfessionsRowProperty() {
-        return professionsRowProperty;
-    }
+        FXMLLoader fxmlLoader = SceneController.getLoader("table.fxml");
+        fxmlLoader.setController(simpleTableController);
 
-    public ObservableValue<String> getLoadingTestDataAnswerProperty() {
-        return loadingTestDataAnswerProperty;
-    }
-
-    public Property<ObservableList<PeopleAndProfessionRow>> getPeopleAndProfessionsRowProperty() {
-        return peopleAndProfessionsRowProperty;
-    }
-
-    public Property<ObservableList<BossAndEmployeesRow>> getBossAndEmployeesRowProperty() {
-        return bossAndEmployeesRowProperty;
-    }
-
-    public Property<ObservableList<SectorAndBossRow>> getSectorAndBossRowProperty() {
-        return sectorAndBossRowProperty;
-    }
-
-    public void loadData() {
-        updateProfessionsTable();
-        updatePeopleAndProfessionsTable();
-        updateBossAndEmployeesTable();
-        updateSectorAndBossTable();
+        AnchorPane pane = null;
+        try {
+            pane = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        professionsPane.getChildren().add(pane);
     }
 }

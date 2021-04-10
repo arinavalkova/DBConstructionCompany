@@ -141,14 +141,16 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
         if (!insertRow(new ProfessionsRow(0, "Concrete worker"))) {
             return false;
         }
-        if (!insertRow(new ProfessionsRow(0, "Concrete worker"))) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String getTableName() {
         return TABLE_NAME;
+    }
+
+    @Override
+    public Row createRow(ArrayList<String> rowLines) {
+        return new ProfessionsRow(rowLines);
     }
 }
