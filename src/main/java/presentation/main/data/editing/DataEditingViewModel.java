@@ -29,4 +29,12 @@ public class DataEditingViewModel {
             e.printStackTrace();
         }
     }
+
+    public void loadBrigadesEditingWindow() {
+        try {
+            SceneController.load("brigadesEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

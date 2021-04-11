@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.281"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.start.StartView">
-   <Button fx:id="dataEditingButton" layoutX="220.0" layoutY="300.0" mnemonicParsing="false" text="Data editing"/>
-   <Button fx:id="queriesButton" layoutX="220.0" layoutY="356.0" mnemonicParsing="false" text="Queries"/>
-   <Label layoutX="220.0" layoutY="227.0" text="Construction company Data Base">
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.start.StartView">
+   <Button fx:id="dataEditingButton" layoutX="217.0" layoutY="402.0" mnemonicParsing="false" text="Data editing" />
+   <Button fx:id="queriesButton" layoutX="217.0" layoutY="458.0" mnemonicParsing="false" text="Queries" />
+   <Label layoutX="217.0" layoutY="329.0" text="Construction company Data Base">
       <font>
-         <Font size="24.0"/>
+         <Font size="24.0" />
       </font>
    </Label>
 </AnchorPane>
