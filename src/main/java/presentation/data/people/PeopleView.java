@@ -4,8 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import presentation.View;
 
-public class PeopleView {
+public class PeopleView implements View {
 
     private final PeopleViewModel peopleViewModel = new PeopleViewModel();
 
@@ -28,7 +29,10 @@ public class PeopleView {
     private AnchorPane peopleAndProfessionsPane;
 
     @FXML
-    Label answerLabel;
+    private Label answerLabel;
+
+    @FXML
+    private AnchorPane sectorsPane;
 
     @FXML
     void initialize() {
@@ -41,6 +45,7 @@ public class PeopleView {
         peopleViewModel.loadProfessionsTable(professionsPane);
         peopleViewModel.loadPeopleAndProfessionsTable(peopleAndProfessionsPane);
         peopleViewModel.loadBossAndEmployeeTable(bossAndEmployeesPane);
+        peopleViewModel.loadSectorsTable(sectorsPane);
     }
 
     private void bind() {

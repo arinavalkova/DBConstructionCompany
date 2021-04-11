@@ -3,8 +3,9 @@ package presentation.main.start;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import presentation.View;
 
-public class StartView {
+public class StartView implements View {
 
     private StartViewModel startViewModel = new StartViewModel();
 

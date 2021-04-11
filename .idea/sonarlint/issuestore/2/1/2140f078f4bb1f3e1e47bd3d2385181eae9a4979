@@ -1,3 +1,5 @@
 
-d
-java:S2094"BRemove this empty class, write its code or make it an "interface".(øã«Üûÿÿÿÿ8íàéâ‹/
+’
+java:S1319#"vThe type of the "columnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(‰Ö«U8îşä‹/
+˜
+java:S1319""{The type of the "classFieldsNames" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñä8É÷ıä‹/

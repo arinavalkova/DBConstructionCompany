@@ -6,15 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import presentation.SceneController;
+import presentation.View;
 import presentation.table.show.ShowTableView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class SimpleTableView {
+public class SimpleTableView implements View {
 
     private SimpleTableViewModel simpleTableViewModel;
 
@@ -40,7 +40,7 @@ public class SimpleTableView {
     private Label answerLabel;
 
     @FXML
-    private AnchorPane showerPane;
+    private FlowPane showerPane;
 
     private ArrayList<TextField> insertFields = new ArrayList<>();
     private ArrayList<TextField> updateFields = new ArrayList<>();
@@ -98,16 +98,7 @@ public class SimpleTableView {
                 200
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("showTable.fxml");
-        fxmlLoader.setController(showTableView);
-
-        AnchorPane pane = null;
-        try {
-            pane = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        showerPane.getChildren().add(pane);
+        SceneController.loadControllerToFXMLAndPane(showTableView, "showTable.fxml", showerPane);
     }
 
     private void initButtons() {

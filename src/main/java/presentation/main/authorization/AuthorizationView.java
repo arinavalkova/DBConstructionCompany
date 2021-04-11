@@ -5,8 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import presentation.View;
 
-public class AuthorizationView {
+public class AuthorizationView implements View {
 
     private AuthorizationViewModel authorizationViewModel = new AuthorizationViewModel();
 

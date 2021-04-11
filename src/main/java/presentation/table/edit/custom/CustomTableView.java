@@ -2,21 +2,28 @@ package presentation.table.edit.custom;
 
 import domain.DataBaseRepository;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import presentation.SceneController;
+import presentation.View;
+import presentation.table.show.ShowTableView;
 
 import java.util.ArrayList;
 
-public class CustomTableView {
+public class CustomTableView implements View {
+
+    private final CustomTableViewModel customTableViewModel;
 
     @FXML
     private HBox insertFirstTableHBox;
 
     @FXML
-    private HBox updateFirstTableField;
+    private HBox updateFirstTableHBox;
 
     @FXML
     private Button insertFirstTableButton;
@@ -31,10 +38,10 @@ public class CustomTableView {
     private Label answerLabel;
 
     @FXML
-    private AnchorPane firstShowerPane;
+    private FlowPane firstShowerPane;
 
     @FXML
-    private AnchorPane secondShowPane;
+    private FlowPane secondShowPane;
 
     @FXML
     private HBox insertSecondTableHBox;
@@ -46,10 +53,24 @@ public class CustomTableView {
     private TextField idForDelete;
 
     @FXML
-    private HBox updateSecondTableField;
+    private HBox updateSecondTableHBox;
 
     @FXML
     private Button updateSecondTableButton;
+
+    private final DataBaseRepository firstRepository;
+    private final DataBaseRepository secondRepository;
+    private final ArrayList<String> firstClassFieldNames;
+    private final ArrayList<String> secondClassFieldNames;
+    private final ArrayList<String> firstColumnNames;
+    private final ArrayList<String> secondColumnNames;
+    private final String firstTableName;
+    private final String secondTableName;
+
+    private final ArrayList<TextField> insertFirstTextFields = new ArrayList<>();
+    private final ArrayList<TextField> insertSecondTextFields = new ArrayList<>();
+    private final ArrayList<TextField> updateFirstTextFields = new ArrayList<>();
+    private final ArrayList<TextField> updateSecondTextFields = new ArrayList<>();
 
     public CustomTableView(DataBaseRepository firstRepository,
                            DataBaseRepository secondRepository,
@@ -59,17 +80,105 @@ public class CustomTableView {
                            ArrayList<String> secondColumnNames,
                            String firstTableName,
                            String secondTableName) {
+        this.firstRepository = firstRepository;
+        this.secondRepository = secondRepository;
+        this.firstClassFieldNames = firstClassFieldNames;
+        this.secondClassFieldNames = secondClassFieldNames;
+        this.firstColumnNames = firstColumnNames;
+        this.secondColumnNames = secondColumnNames;
+        this.firstTableName = firstTableName;
+        this.secondTableName = secondTableName;
 
-
+        this.customTableViewModel = new CustomTableViewModel(firstRepository, secondRepository);
     }
 
     @FXML
     void initialize() {
         initShowerPanes();
+        initFields();
+        //bind();
+        //initButtons();
+    }
+
+    private void bind() {
+        answerLabel.textProperty().bind(customTableViewModel.getAnswerProperty());
+    }
+
+    private void initButtons() {
+        insertFirstTableButton.setOnAction(event -> {
+           // customTableViewModel.insertFirstTable();
+        });
+        insertSecondTableButton.setOnAction(event -> {
+            //customTableViewModel.insertSecondTable();
+        });
+        updateFirstTableButton.setOnAction(event -> {
+            //customTableViewModel.updateFirstTable();
+        });
+        updateSecondTableButton.setOnAction(event -> {
+            //customTableViewModel.updateSecondTable();
+        });
+        deleteButton.setOnAction(event -> {
+            //customTableViewModel.deleteFromSecondTable();
+        });
+    }
+
+    private void initFields() {
+        int i = 0;
+        for (String fieldName : secondClassFieldNames) {
+            if (!fieldName.equals("id")) {
+                TextField insert = new TextField();
+                insert.setPromptText(secondColumnNames.get(i));
+                insertSecondTextFields.add(insert);
+                insertSecondTableHBox.getChildren().add(insert);
+            }
+            TextField updateField = new TextField();
+            updateField.setPromptText(secondColumnNames.get(i));
+            updateSecondTextFields.add(updateField);
+            updateSecondTableHBox.getChildren().add(updateField);
+            i++;
+        }
+
+        i = 0;
+        for (String fieldName : firstClassFieldNames) {
+            if (!fieldName.equals("id")) {
+                if (i != 1) {
+                    TextField insert = new TextField();
+                    insert.setPromptText(firstColumnNames.get(i));
+                    insertSecondTextFields.add(insert);
+                    insertSecondTableHBox.getChildren().add(insert);
+                }
+                TextField insert = new TextField();
+                insert.setPromptText(firstColumnNames.get(i));
+                insertFirstTextFields.add(insert);
+                insertFirstTableHBox.getChildren().add(insert);
+            }
+            TextField updateField = new TextField();
+            updateField.setPromptText(firstColumnNames.get(i));
+            updateFirstTextFields.add(updateField);
+            updateFirstTableHBox.getChildren().add(updateField);
+            i++;
+        }
     }
 
     private void initShowerPanes() {
+        ShowTableView firstTableView = new ShowTableView(
+                firstRepository,
+                firstClassFieldNames,
+                firstColumnNames,
+                firstTableName,
+                100
+        );
 
+        SceneController.loadControllerToFXMLAndPane(firstTableView, "showTable.fxml", firstShowerPane);
+
+        ShowTableView secondTableView = new ShowTableView(
+                secondRepository,
+                secondClassFieldNames,
+                secondColumnNames,
+                secondTableName,
+                100
+        );
+
+        SceneController.loadControllerToFXMLAndPane(secondTableView, "showTable.fxml", secondShowPane);
     }
-
 }

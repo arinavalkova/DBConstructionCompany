@@ -18,4 +18,5 @@
    <AnchorPane fx:id="professionsPane" layoutX="36.0" layoutY="93.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #ffebee#ffebee;" />
    <AnchorPane fx:id="peopleAndProfessionsPane" layoutX="666.0" layoutY="93.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #F3E0E3;" />
    <Label fx:id="answerLabel" layoutX="104.0" layoutY="840.0" prefHeight="21.0" prefWidth="1078.0" />
+   <AnchorPane fx:id="sectorsPane" layoutX="666.0" layoutY="466.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #d1c4e9#d1c4e9;" />
 </AnchorPane>

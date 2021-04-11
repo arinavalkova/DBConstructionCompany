@@ -1,8 +1,6 @@
 package presentation.data.people;
 
-import data.tables.people.BossAndEmployeesTableImpl;
-import data.tables.people.PeopleAndProfessionsTableImpl;
-import data.tables.people.ProfessionsTableImpl;
+import data.tables.people.*;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
@@ -13,6 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import presentation.SceneController;
+import presentation.table.edit.custom.CustomTableView;
 import presentation.table.edit.simple.SimpleTableView;
 
 import java.io.IOException;
@@ -27,12 +26,17 @@ public class PeopleViewModel implements AnswerReceiver {
     private final ProfessionsTableImpl professionsTable = new ProfessionsTableImpl();
     private final PeopleAndProfessionsTableImpl peopleAndProfessionsTable = new PeopleAndProfessionsTableImpl();
     private final BossAndEmployeesTableImpl bossAndEmployeesTable = new BossAndEmployeesTableImpl();
+    private final SectorAndBossTableImpl sectorAndBossTable = new SectorAndBossTableImpl();
+    private final SectorsTableImpl sectorsTable = new SectorsTableImpl();
 
     public PeopleViewModel() {
         ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
         dataBaseRepositoryArrayList.add(professionsTable);
         dataBaseRepositoryArrayList.add(peopleAndProfessionsTable);
         dataBaseRepositoryArrayList.add(bossAndEmployeesTable);
+        dataBaseRepositoryArrayList.add(sectorAndBossTable);
+        dataBaseRepositoryArrayList.add(sectorsTable);
+
         this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
     }
 
@@ -80,16 +84,11 @@ public class PeopleViewModel implements AnswerReceiver {
                 "Boss and employees"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
-        fxmlLoader.setController(simpleTableController);
-
-        AnchorPane pane = null;
-        try {
-            pane = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        bossAndEmployeesPane.getChildren().add(pane);
+        SceneController.loadControllerToFXMLAndPane(
+                simpleTableController,
+                "simpleTableEditor.fxml",
+                bossAndEmployeesPane
+        );
     }
 
     public void loadPeopleAndProfessionsTable(AnchorPane peopleAndProfessionsPane) {
@@ -110,16 +109,11 @@ public class PeopleViewModel implements AnswerReceiver {
                 "People and professions"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
-        fxmlLoader.setController(simpleTableController);
-
-        AnchorPane pane = null;
-        try {
-            pane = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        peopleAndProfessionsPane.getChildren().add(pane);
+        SceneController.loadControllerToFXMLAndPane(
+                simpleTableController,
+                "simpleTableEditor.fxml",
+                peopleAndProfessionsPane
+        );
     }
 
     public void loadProfessionsTable(AnchorPane professionsPane) {
@@ -138,15 +132,43 @@ public class PeopleViewModel implements AnswerReceiver {
                 "Professions"
         );
 
-        FXMLLoader fxmlLoader = SceneController.getLoader("simpleTableEditor.fxml");
-        fxmlLoader.setController(simpleTableController);
+        SceneController.loadControllerToFXMLAndPane(
+               simpleTableController,
+                "simpleTableEditor.fxml",
+                professionsPane
+        );
+    }
 
-        AnchorPane pane = null;
-        try {
-            pane = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        professionsPane.getChildren().add(pane);
+    public void loadSectorsTable(AnchorPane sectorsPane) {
+        ArrayList<String> firstFieldsNames = new ArrayList<>();
+        firstFieldsNames.add("id");
+        firstFieldsNames.add("sectorId");
+        firstFieldsNames.add("bossId");
+
+        ArrayList<String> secondFieldsNames = new ArrayList<>();
+        secondFieldsNames.add("id");
+        secondFieldsNames.add("name");
+
+        ArrayList<String> firstColumnNames = new ArrayList<>();
+        firstColumnNames.add("Id");
+        firstColumnNames.add("Sector id");
+        firstColumnNames.add("Boss id");
+
+        ArrayList<String> secondColumnNames = new ArrayList<>();
+        secondColumnNames.add("Id");
+        secondColumnNames.add("Name");
+
+        CustomTableView customTableView = new CustomTableView(
+                sectorAndBossTable,
+                sectorsTable,
+                firstFieldsNames,
+                secondFieldsNames,
+                firstColumnNames,
+                secondColumnNames,
+                "Sectors and boss",
+                "Sectors"
+        );
+
+        SceneController.loadControllerToFXMLAndPane(customTableView, "customTable.fxml", sectorsPane);
     }
 }

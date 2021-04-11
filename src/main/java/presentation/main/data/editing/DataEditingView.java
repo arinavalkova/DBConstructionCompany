@@ -2,8 +2,9 @@ package presentation.main.data.editing;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import presentation.View;
 
-public class DataEditingView {
+public class DataEditingView implements View {
 
     private DataEditingViewModel dataEditingViewModel = new DataEditingViewModel();
 

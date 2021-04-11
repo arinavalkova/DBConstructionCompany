@@ -5,11 +5,12 @@ import domain.rows.Row;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import presentation.View;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class ShowTableView {
+public class ShowTableView implements View {
 
     private final ShowTableViewModel showTableViewModel;
 

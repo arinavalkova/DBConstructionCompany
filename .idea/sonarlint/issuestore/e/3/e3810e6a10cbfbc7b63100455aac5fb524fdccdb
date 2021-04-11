@@ -1,3 +1,12 @@
 
-_
-java:S2094"BRemove this empty class, write its code or make it an "interface".(—›°Ã8¤Ääâ‹/
+£
+java:S13199"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/
+
+java:S1319:"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
+
+java:S1319;"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆıÿÿÿÿ8ªÖ™æ‹/
+¡
+java:S13198"The type of the "firstClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ğ’İİûÿÿÿÿ8ªÖ™æ‹/
+£
+java:S1186G"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( ’›úşÿÿÿÿ8Œ«æ‹/
+]	java:S1076"AConstructor has 8 parameters, which is greater than 7 authorized.(Šîù·8ªÖ™æ‹/

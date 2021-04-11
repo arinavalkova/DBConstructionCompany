@@ -93,3 +93,7 @@ m
 =src/main/java/presentation/table/show/ShowTableViewModel.java,b\3\b3295f37ae2ea9551e7c9eb9da87963ab3ba11c3
 h
 8src/main/java/presentation/table/show/ShowTableView.java,2\1\2140f078f4bb1f3e1e47bd3d2385181eae9a4979
+N
+src/main/resources/people.fxml,1\e\1e9abc2fe82762e8d17b5e1c34ece8c019131599
+q
+Asrc/main/java/presentation/table/edit/simple/SimpleTableView.java,9\2\922644716fc1eeb6edc911faec78b2d41954efac
