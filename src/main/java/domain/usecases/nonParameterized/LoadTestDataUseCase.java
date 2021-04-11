@@ -30,7 +30,6 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError("Error with deleting old table " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
-                        return;
                     }
                 }
 
