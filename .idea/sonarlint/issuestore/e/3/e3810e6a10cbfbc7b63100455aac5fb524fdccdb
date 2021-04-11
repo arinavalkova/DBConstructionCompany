@@ -1,12 +1,24 @@
 
-£
-java:S13199"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/
-
-java:S1319:"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
+X
+java:S1128	";Remove this unused import 'javafx.scene.layout.AnchorPane'.(Ø µ8ŒÙşú‹/
 
-java:S1319;"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆıÿÿÿÿ8ªÖ™æ‹/
-¡
-java:S13198"The type of the "firstClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ğ’İİûÿÿÿÿ8ªÖ™æ‹/
+java:S1319P"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆıÿÿÿÿ8ªÖ™æ‹/
 £
-java:S1186G"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( ’›úşÿÿÿÿ8Œ«æ‹/
-]	java:S1076"AConstructor has 8 parameters, which is greater than 7 authorized.(Šîù·8ªÖ™æ‹/
+java:S1319N"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/
+]	java:S107K"AConstructor has 8 parameters, which is greater than 7 authorized.(Šîù·8ªÖ™æ‹/
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8–çÀû‹/
+X	java:S125v"<This block of commented-out lines of code should be removed.(´¦–¤8…¼²ù‹/
+]	java:S125y"<This block of commented-out lines of code should be removed.(•ÏÉşÿÿÿÿ8úÎ²ù‹/
+]	java:S125s"<This block of commented-out lines of code should be removed.(†ˆ€Ãúÿÿÿÿ8…¼²ù‹/
+¡
+java:S1319M"The type of the "firstClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ğ’İİûÿÿÿÿ8ªÖ™æ‹/
+X	java:S125c"<This block of commented-out lines of code should be removed.(ÑŸ˜8üƒ¨ú‹/
+K
+java:S1144g")Remove this unused private "bind" method.(úÄÒ²ùÿÿÿÿ8üƒ¨ú‹/
+
+java:S1319O"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
+X	java:S125m"<This block of commented-out lines of code should be removed.(’÷¼8…¼²ù‹/
+X	java:S125p"<This block of commented-out lines of code should be removed.(©ÇËé8…¼²ù‹/
+R
+java:S1144k"0Remove this unused private "initButtons" method.(Ç¤‚÷üÿÿÿÿ8üƒ¨ú‹/

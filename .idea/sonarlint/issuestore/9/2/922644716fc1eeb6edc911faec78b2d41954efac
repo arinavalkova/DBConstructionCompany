@@ -1,0 +1,7 @@
+
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8¦Áû‹/
+•
+java:S13197"zThe type of the "classFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(íé´øÿÿÿÿ
+’
+java:S13198"vThe type of the "columnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(‰Ö«U8¼á˜å‹/

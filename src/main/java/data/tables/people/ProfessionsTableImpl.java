@@ -3,7 +3,7 @@ package data.tables.people;
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
-import domain.rows.ProfessionsRow;
+import domain.rows.people.ProfessionsRow;
 import domain.rows.Row;
 
 import java.sql.PreparedStatement;

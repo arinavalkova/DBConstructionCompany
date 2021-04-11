@@ -1,4 +1,19 @@
 
-7
-java:S1220""Move this file to a named package.8î´‰Ý‹/
-X	java:S125"<This block of commented-out lines of code should be removed.(ç×Õ8î´‰Ý‹/
+q
+java:S2095)"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+Y	java:S125Š"<This block of commented-out lines of code should be removed.(Šæÿò8Ïñ¬ù‹/
+q
+java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+H
+java:S1168o"+Return an empty collection instead of null.(¥¹ï8Ïé«ù‹/
+X	java:S125"<This block of commented-out lines of code should be removed.(•Í Ë8ƒÚªù‹/
+i
+java:S2095~"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8¥Òø‹/
+X	java:S125?"<This block of commented-out lines of code should be removed.(•Í Ë8óç®ù‹/
+q
+java:S2095P"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+]	java:S125Z"<This block of commented-out lines of code should be removed.(¤‡¥¢ùÿÿÿÿ8¬ž«ù‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(áèÅ¦ûÿÿÿÿ8¥Òø‹/
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¥Òø‹/

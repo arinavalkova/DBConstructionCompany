@@ -2,11 +2,9 @@ package presentation.table.edit.custom;
 
 import domain.DataBaseRepository;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import presentation.SceneController;
@@ -169,7 +167,7 @@ public class CustomTableView implements View {
                 100
         );
 
-        SceneController.loadControllerToFXMLAndPane(firstTableView, "showTable.fxml", firstShowerPane);
+        SceneController.loadControllerToFXMLAndPane(firstTableView, "tableShower.fxml", firstShowerPane);
 
         ShowTableView secondTableView = new ShowTableView(
                 secondRepository,
@@ -179,6 +177,6 @@ public class CustomTableView implements View {
                 100
         );
 
-        SceneController.loadControllerToFXMLAndPane(secondTableView, "showTable.fxml", secondShowPane);
+        SceneController.loadControllerToFXMLAndPane(secondTableView, "tableShower.fxml", secondShowPane);
     }
 }

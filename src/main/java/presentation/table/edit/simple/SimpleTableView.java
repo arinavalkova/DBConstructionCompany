@@ -2,7 +2,6 @@ package presentation.table.edit.simple;
 
 import domain.DataBaseRepository;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -98,7 +97,7 @@ public class SimpleTableView implements View {
                 200
         );
 
-        SceneController.loadControllerToFXMLAndPane(showTableView, "showTable.fxml", showerPane);
+        SceneController.loadControllerToFXMLAndPane(showTableView, "tableShower.fxml", showerPane);
     }
 
     private void initButtons() {

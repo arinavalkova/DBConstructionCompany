@@ -16,7 +16,15 @@ public class DataEditingViewModel {
 
     public void loadPeopleEditingWindow() {
         try {
-            SceneController.load("people.fxml");
+            SceneController.load("peopleEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadOrganizationsEditingWindow() {
+        try {
+            SceneController.load("organizationsEditor.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

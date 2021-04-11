@@ -15,6 +15,9 @@ public class DataEditingView implements View {
     private Button peopleEditingButton;
 
     @FXML
+    private Button organizationsEditingButton;
+
+    @FXML
     void initialize() {
         initButtons();
     }
@@ -22,5 +25,6 @@ public class DataEditingView implements View {
     private void initButtons() {
         backButton.setOnAction(event -> dataEditingViewModel.loadStartWindow());
         peopleEditingButton.setOnAction(event -> dataEditingViewModel.loadPeopleEditingWindow());
+        organizationsEditingButton.setOnAction(event -> dataEditingViewModel.loadOrganizationsEditingWindow());
     }
 }

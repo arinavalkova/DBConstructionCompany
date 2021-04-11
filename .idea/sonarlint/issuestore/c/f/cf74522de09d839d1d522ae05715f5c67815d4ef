@@ -1,3 +1,27 @@
 
-_
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Ò‘¬è8òÇåâ‹/
+P
+java:S1068"3Remove this unused "firstRepository" private field.(Éªİ¾8Î˜¡ø‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ÿ›´ø‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8Ÿ›´ø‹/
+I
+java:S1068",Remove this unused "DELETING" private field.(°Ö°8Ÿ›´ø‹/
+N
+java:S1068",Remove this unused "UPDATING" private field.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
+X
+java:S1068";Remove this unused "insertFirstTableUseCase" private field.(ñÁé½8Ö“¤ø‹/
+Q
+java:S1068"4Remove this unused "deleteRowUseCase" private field.(ØÚœ„8«È¦ø‹/
+O
+java:S1068"-Remove this unused "INSERTING" private field.(éÏõ¯üÿÿÿÿ8Ÿ›´ø‹/
+Q
+java:S1068"4Remove this unused "secondRepository" private field.(¤õ‰8Î˜¡ø‹/
+Y
+java:S1068"<Remove this unused "updateSecondTableUseCase" private field.(…¤¯£8Û³©ø‹/
+^
+java:S1068"<Remove this unused "insertSecondTableUseCase" private field.(Î«¿şÿÿÿÿ8«È¦ø‹/
+]
+java:S1068";Remove this unused "updateFirstTableUseCase" private field.(æ“ÿõüÿÿÿÿ8Û³©ø‹/

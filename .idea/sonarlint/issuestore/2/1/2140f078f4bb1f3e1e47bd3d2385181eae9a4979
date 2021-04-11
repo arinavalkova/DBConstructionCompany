@@ -1,5 +1,5 @@
 
 ’
-java:S1319#"vThe type of the "columnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(‰Ö«U8îşä‹/
+java:S1319$"vThe type of the "columnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(‰Ö«U8îşä‹/
 ˜
-java:S1319""{The type of the "classFieldsNames" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñä8É÷ıä‹/
+java:S1319#"{The type of the "classFieldsNames" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñä8É÷ıä‹/

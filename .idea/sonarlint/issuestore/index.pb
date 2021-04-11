@@ -81,8 +81,6 @@ f
 6src/main/java/data/tables/people/SectorsTableImpl.java,3\7\37f2339eb82de7c28e76893093a3de9e6c9c63b1
 V
 &src/main/java/domain/DataReceiver.java,c\5\c5207de8da1aaffbf56fe488c4449993c0bb1bbd
-R
-"src/main/java/domain/Receiver.java,a\3\a3ad34c3bbbf0f51a1a74b80177bab715a4f5167
 v
 Fsrc/main/java/presentation/table/edit/simple/SimpleTableViewModel.java,8\8\88b804565106395ffe27744a5b1b9bafd10cb962
 q
@@ -97,3 +95,7 @@ N
 src/main/resources/people.fxml,1\e\1e9abc2fe82762e8d17b5e1c34ece8c019131599
 q
 Asrc/main/java/presentation/table/edit/simple/SimpleTableView.java,9\2\922644716fc1eeb6edc911faec78b2d41954efac
+S
+#src/main/resources/customTable.fxml,5\9\594efe5d03d9adb0b84736e67777705b7d717966
+T
+$src/main/java/presentation/View.java,3\e\3ea84f6110533a4d74ab1db9745510cc5feaaeb9

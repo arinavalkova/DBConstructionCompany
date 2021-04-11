@@ -3,16 +3,13 @@ package data.tables.people;
 import data.BaseTable;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
-import domain.rows.PeopleAndProfessionRow;
 import domain.rows.Row;
-import domain.rows.SectorAndBossRow;
+import domain.rows.people.SectorAndBossRow;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SectorAndBossTableImpl extends BaseTable implements DataBaseRepository {
 

@@ -54,10 +54,7 @@ public class PeopleView implements View {
 
     private void initButtons() {
         backButton.setOnAction(event -> peopleViewModel.goBack());
-        nextButton.setOnAction(event -> {
-            //TODO
-        });
-
+        nextButton.setOnAction(event -> peopleViewModel.goNext());
         loadTestDataButton.setOnAction(event -> peopleViewModel.loadTestData());
     }
 }

@@ -8,7 +8,6 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import presentation.SceneController;
 import presentation.table.edit.custom.CustomTableView;
@@ -46,6 +45,10 @@ public class PeopleViewModel implements AnswerReceiver {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void goNext() {
+        //TODO
     }
 
     public void loadTestData() {
@@ -169,6 +172,6 @@ public class PeopleViewModel implements AnswerReceiver {
                 "Sectors"
         );
 
-        SceneController.loadControllerToFXMLAndPane(customTableView, "customTable.fxml", sectorsPane);
+        SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", sectorsPane);
     }
 }

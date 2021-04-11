@@ -1,4 +1,6 @@
-package domain.rows;
+package domain.rows.people;
+
+import domain.rows.Row;
 
 public class SectorsRow implements Row {
     private final int id;
