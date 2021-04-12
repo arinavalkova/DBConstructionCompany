@@ -34,10 +34,10 @@ public class OrganizationsViewModel implements AnswerReceiver {
 
     public OrganizationsViewModel() {
         ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
-        dataBaseRepositoryArrayList.add(managementsAndSectorsTable);
         dataBaseRepositoryArrayList.add(managementsTable);
-        dataBaseRepositoryArrayList.add(organizationsAndManagementTable);
         dataBaseRepositoryArrayList.add(organizationsTable);
+        dataBaseRepositoryArrayList.add(managementsAndSectorsTable);
+        dataBaseRepositoryArrayList.add(organizationsAndManagementTable);
 
         this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
     }

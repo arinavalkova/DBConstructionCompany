@@ -1,23 +1,23 @@
 
-q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8 ÚŞç‰/
-q
-java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Øùéç‰/
-q
-java:S2095["OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÿúç‰/
-q
-java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8 ÚŞç‰/
-q
-java:S2095N"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8­ñùç‰/
-q
-java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8â”ëç‰/
 i
 java:S2095{"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8Ãßè‰/
 H
 java:S1168i"+Return an empty collection instead of null.(¥¹ï8ÿúç‰/
-H
-java:S1168^"+Return an empty collection instead of null.(¥¹ï8ÿúç‰/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(·¨Ì‘øÿÿÿÿ8 ÚŞç‰/
 _
 java:S1126–"AReplace this if-then-else statement by a single return statement.(ÔãöŠ8ü‚’è‰/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8 ÚŞç‰/
+q
+java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8 ÚŞç‰/
+q
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8â”ëç‰/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(·¨Ì‘øÿÿÿÿ8 ÚŞç‰/
+q
+java:S2095N"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8­ñùç‰/
+q
+java:S2095["OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÿúç‰/
+q
+java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Øùéç‰/
+H
+java:S1168^"+Return an empty collection instead of null.(¥¹ï8ÿúç‰/

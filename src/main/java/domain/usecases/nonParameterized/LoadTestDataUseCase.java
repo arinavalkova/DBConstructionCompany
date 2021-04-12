@@ -29,8 +29,12 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                     if (!currentRepository.deleteTable()) {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError("Error with deleting old table " + currentRepository.getTableName());
+                        System.out.println("Error with deleting old table " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
-                    }
+                        Collections.reverse(repositoryArrayList);
+                        //return;
+                    } else
+                    System.out.println("Deleted old table " + currentRepository.getTableName());
                 }
 
                 Collections.reverse(repositoryArrayList);
@@ -39,9 +43,11 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                     if (!currentRepository.createTable()) {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError("Error with creating table " + currentRepository.getTableName());
+                        System.out.println("Error with creating table " + currentRepository.getTableName());
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
-                    }
+                    } else
+                    System.out.println("Created old table " + currentRepository.getTableName());
                 }
 
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
@@ -52,6 +58,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     }
+                    System.out.println("Created trigger old table " + currentRepository.getTableName());
                 }
 
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
@@ -61,6 +68,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     }
+                    System.out.println("Loaded data of " + currentRepository.getTableName());
                 }
 
                 JDBCConnection.getConnection().commit();

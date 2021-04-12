@@ -1,5 +1,5 @@
 
-Z
-java:S1068"=Remove this unused "peopleAndProfessionsTable" private field.(›³Ö×8Î³îè‰/
 q
 java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Ñµæè‰/
+Z
+java:S1068"=Remove this unused "peopleAndProfessionsTable" private field.(›³Ö×8Î³îè‰/

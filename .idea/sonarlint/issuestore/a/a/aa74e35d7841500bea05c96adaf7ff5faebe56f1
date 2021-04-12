@@ -1,19 +1,23 @@
 
-q
-java:S2095)"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
-Y	java:S125Š"<This block of commented-out lines of code should be removed.(Šæÿò8Ïñ¬ù‹/
-q
-java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
-H
-java:S1168o"+Return an empty collection instead of null.(¥¹ï8Ïé«ù‹/
-X	java:S125"<This block of commented-out lines of code should be removed.(•Í Ë8ƒÚªù‹/
-i
-java:S2095~"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8¥Òø‹/
-X	java:S125?"<This block of commented-out lines of code should be removed.(•Í Ë8óç®ù‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(áèÅ¦ûÿÿÿÿ8¥Òø‹/
 q
 java:S2095P"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
-]	java:S125Z"<This block of commented-out lines of code should be removed.(¤‡¥¢ùÿÿÿÿ8¬«ù‹/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(áèÅ¦ûÿÿÿÿ8¥Òø‹/
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¥Òø‹/
+q
+java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8›ß‚Œ/
+i
+java:S2095}"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8¥Òø‹/
+q
+java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8šßÚ‚Œ/
+H
+java:S1168k"+Return an empty collection instead of null.(¥¹ï8ïó×‚Œ/
+_
+java:S1126‰"AReplace this if-then-else statement by a single return statement.(…£ÍÒ8·ŸäƒŒ/
+q
+java:S2095)"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+q
+java:S2095]"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ïó×‚Œ/
+H
+java:S1168`"+Return an empty collection instead of null.(¥¹ï8ïó×‚Œ/

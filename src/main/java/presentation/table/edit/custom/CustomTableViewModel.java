@@ -10,6 +10,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 
+import java.util.ArrayList;
+
 public class CustomTableViewModel implements AnswerReceiver {
 
     private final static String INSERTING = "Inserting...";
@@ -50,5 +52,25 @@ public class CustomTableViewModel implements AnswerReceiver {
     @Override
     public void onAnswerError(String answer) {
         Platform.runLater(() -> answerProperty.setValue(answer));
+    }
+
+    public void deleteFromSecondTable(int id) {
+        answerProperty.setValue(DELETING);
+        deleteRowUseCase.invoke(id);
+    }
+
+    public void updateSecondTable(ArrayList<String> rowLines) {
+        answerProperty.setValue(UPDATING);
+        updateSecondTableUseCase.invoke(secondRepository.createRow(rowLines));
+    }
+
+    public void updateFirstTable(ArrayList<String> rowLines) {
+        answerProperty.setValue(UPDATING);
+        updateFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
+    }
+
+    public void insertFirstTable(ArrayList<String> rowLines) {
+        answerProperty.setValue(INSERTING);
+        insertFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
     }
 }

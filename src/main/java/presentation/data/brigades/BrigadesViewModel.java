@@ -30,8 +30,8 @@ public class BrigadesViewModel implements AnswerReceiver {
 
     public BrigadesViewModel() {
         ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
-        dataBaseRepositoryArrayList.add(brigadeAndEmployeesTable);
         dataBaseRepositoryArrayList.add(brigadeAndForemanTable);
+        dataBaseRepositoryArrayList.add(brigadeAndEmployeesTable);
 
         this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
     }

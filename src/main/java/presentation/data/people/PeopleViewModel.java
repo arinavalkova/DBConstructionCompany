@@ -33,8 +33,8 @@ public class PeopleViewModel implements AnswerReceiver {
         dataBaseRepositoryArrayList.add(professionsTable);
         dataBaseRepositoryArrayList.add(peopleAndProfessionsTable);
         dataBaseRepositoryArrayList.add(bossAndEmployeesTable);
-        dataBaseRepositoryArrayList.add(sectorAndBossTable);
         dataBaseRepositoryArrayList.add(sectorsTable);
+        dataBaseRepositoryArrayList.add(sectorAndBossTable);
 
         this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
     }

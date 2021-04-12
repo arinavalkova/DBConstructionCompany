@@ -94,8 +94,8 @@ public class CustomTableView implements View {
     void initialize() {
         initShowerPanes();
         initFields();
-        //bind();
-        //initButtons();
+        bind();
+        initButtons();
     }
 
     private void bind() {
@@ -104,19 +104,38 @@ public class CustomTableView implements View {
 
     private void initButtons() {
         insertFirstTableButton.setOnAction(event -> {
-           // customTableViewModel.insertFirstTable();
+            ArrayList<String> rowLines = new ArrayList<>();
+            rowLines.add("0");
+            for (TextField textField : insertFirstTextFields) {
+                rowLines.add(textField.getText());
+                textField.setText("");
+            }
+           customTableViewModel.insertFirstTable(rowLines);
         });
         insertSecondTableButton.setOnAction(event -> {
+            ArrayList<String> rowLines = new ArrayList<>();
+            rowLines.add("0");
             //customTableViewModel.insertSecondTable();
         });
         updateFirstTableButton.setOnAction(event -> {
-            //customTableViewModel.updateFirstTable();
+            ArrayList<String> rowLines = new ArrayList<>();
+            for (TextField textField : updateFirstTextFields) {
+                rowLines.add(textField.getText());
+                textField.setText("");
+            }
+            customTableViewModel.updateFirstTable(rowLines);
         });
         updateSecondTableButton.setOnAction(event -> {
-            //customTableViewModel.updateSecondTable();
+            ArrayList<String> rowLines = new ArrayList<>();
+            for (TextField textField : updateSecondTextFields) {
+                rowLines.add(textField.getText());
+                textField.setText("");
+            }
+            customTableViewModel.updateSecondTable(rowLines);
         });
         deleteButton.setOnAction(event -> {
-            //customTableViewModel.deleteFromSecondTable();
+            customTableViewModel.deleteFromSecondTable(Integer.parseInt(idForDelete.getText()));
+            idForDelete.setText("");
         });
     }
 
