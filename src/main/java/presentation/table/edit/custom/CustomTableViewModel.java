@@ -2,6 +2,7 @@ package presentation.table.edit.custom;
 
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
+import domain.usecases.parameterized.CustomInsertRowUseCase;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import domain.usecases.parameterized.UpdateRowUseCase;
@@ -22,7 +23,7 @@ public class CustomTableViewModel implements AnswerReceiver {
     private final DataBaseRepository secondRepository;
 
     private final InsertRowUseCase insertFirstTableUseCase;
-    private final InsertRowUseCase insertSecondTableUseCase;
+    private final CustomInsertRowUseCase insertSecondTableUseCase;
     private final DeleteRowUseCase deleteRowUseCase;
     private final UpdateRowUseCase updateFirstTableUseCase;
     private final UpdateRowUseCase updateSecondTableUseCase;
@@ -34,7 +35,7 @@ public class CustomTableViewModel implements AnswerReceiver {
         this.secondRepository = secondRepository;
 
         this.insertFirstTableUseCase = new InsertRowUseCase(firstRepository, this);
-        this.insertSecondTableUseCase = new InsertRowUseCase(secondRepository, this);
+        this.insertSecondTableUseCase = new CustomInsertRowUseCase(firstRepository, secondRepository, this);
         this.deleteRowUseCase = new DeleteRowUseCase(secondRepository, this);
         this.updateFirstTableUseCase = new UpdateRowUseCase(firstRepository, this);
         this.updateSecondTableUseCase = new UpdateRowUseCase(secondRepository, this);
@@ -72,5 +73,9 @@ public class CustomTableViewModel implements AnswerReceiver {
     public void insertFirstTable(ArrayList<String> rowLines) {
         answerProperty.setValue(INSERTING);
         insertFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
+    }
+
+    public void insertSecondTable(ArrayList<String> rowLines) {
+        insertSecondTableUseCase.invoke(rowLines);
     }
 }

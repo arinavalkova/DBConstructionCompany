@@ -1,20 +1,11 @@
 
-
-java:S1319M"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
-X	java:S125t"<This block of commented-out lines of code should be removed.(´¦–¤8…¼²ù‹/
-£
-java:S1319L"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/
-X	java:S125k"<This block of commented-out lines of code should be removed.(’÷¼8…¼²ù‹/
 ¡
 java:S1319K"The type of the "firstClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ğ’İİûÿÿÿÿ8ªÖ™æ‹/
+X	java:S125v"<This block of commented-out lines of code should be removed.(©ÇËé8…¼²ù‹/
 
 java:S1319N"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆıÿÿÿÿ8ªÖ™æ‹/
-K
-java:S1144e")Remove this unused private "bind" method.(úÄÒ²ùÿÿÿÿ8üƒ¨ú‹/
-X	java:S125a"<This block of commented-out lines of code should be removed.(ÑŸ˜8üƒ¨ú‹/
-R
-java:S1144i"0Remove this unused private "initButtons" method.(Ç¤‚÷üÿÿÿÿ8üƒ¨ú‹/
+
+java:S1319M"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
 ]	java:S107I"AConstructor has 8 parameters, which is greater than 7 authorized.(Šîù·8ªÖ™æ‹/
-X	java:S125n"<This block of commented-out lines of code should be removed.(©ÇËé8…¼²ù‹/
-]	java:S125w"<This block of commented-out lines of code should be removed.(•ÏÉşÿÿÿÿ8úÎ²ù‹/
-]	java:S125q"<This block of commented-out lines of code should be removed.(†ˆ€Ãúÿÿÿÿ8…¼²ù‹/
+£
+java:S1319L"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/

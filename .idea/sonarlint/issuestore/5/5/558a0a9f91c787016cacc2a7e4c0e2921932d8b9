@@ -1,6 +1,17 @@
 
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(îÄ£ùÿÿÿÿ8ööã‰/
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(úŒ·üÿÿÿÿ8‚õ·Œ/
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÏ§šúÿÿÿÿ8’ÖóÌ†/
+f
+java:S39731"IUse indentation to denote the code conditionally executed by this "else".(ÔÍØ8È¹¶·Œ/
+Z	java:S106 "9Replace this use of System.out or System.err by a logger.(„¦Ÿ¢øÿÿÿÿ8áÇ³·Œ/
+X	java:S125#"<This block of commented-out lines of code should be removed.(Êşÿò8‹Ú­·Œ/
+Z	java:S106."9Replace this use of System.out or System.err by a logger.(Ò–ú†ıÿÿÿÿ8ùûµ·Œ/
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(¹şŒŠıÿÿÿÿ8üÎ·Œ/
  
 java:S1319"~The type of the "repositoryArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Ë „ııÿÿÿÿ8ıšââ‰/
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(³–¼Áùÿÿÿÿ8ŒÈ·Œ/
+f
+java:S3973$"IUse indentation to denote the code conditionally executed by this "else".(ÔÍØ8Ÿõ³·Œ/
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(„ıĞÛüÿÿÿÿ8š÷‘·Œ/
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(îÄ£ùÿÿÿÿ8ööã‰/

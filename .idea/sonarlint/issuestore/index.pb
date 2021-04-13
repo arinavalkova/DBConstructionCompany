@@ -147,3 +147,5 @@ Csrc/main/java/data/tables/organizations/OrganizationsTableImpl.java,e\d\ed13bf
 0src/main/java/domain/rows/people/SectorsRow.java,b\1\b112b0832eceeb5bf0543aaeb11af12ab47fc031
 t
 Dsrc/main/java/data/tables/brigades/BrigadeAndEmployeesTableImpl.java,d\c\dc742269cf059b2f4a57c35bcab7c93cdb0ece51
+|
+Lsrc/main/java/domain/usecases/parameterized/queries/GetIdByFiledUseCase.java,3\4\345662d716e825a0ce193f2be1b17b1f04f8faa1

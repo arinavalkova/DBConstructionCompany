@@ -114,8 +114,11 @@ public class CustomTableView implements View {
         });
         insertSecondTableButton.setOnAction(event -> {
             ArrayList<String> rowLines = new ArrayList<>();
-            rowLines.add("0");
-            //customTableViewModel.insertSecondTable();
+            for (TextField textField : insertSecondTextFields) {
+                rowLines.add(textField.getText());
+                textField.setText("");
+            }
+            customTableViewModel.insertSecondTable(rowLines);
         });
         updateFirstTableButton.setOnAction(event -> {
             ArrayList<String> rowLines = new ArrayList<>();

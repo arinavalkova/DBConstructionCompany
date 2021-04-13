@@ -1,23 +1,23 @@
 
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(áèÅ¦ûÿÿÿÿ8¥Òø‹/
-q
-java:S2095P"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
-q
-java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
-q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8›ß‚Œ/
-i
-java:S2095}"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8¥Òø‹/
-q
-java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8šßÚ‚Œ/
 H
 java:S1168k"+Return an empty collection instead of null.(¥¹ï8ïó×‚Œ/
+q
+java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8šßÚ‚Œ/
 _
 java:S1126‰"AReplace this if-then-else statement by a single return statement.(…£ÍÒ8·ŸäƒŒ/
 q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8›ß‚Œ/
+q
 java:S2095)"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
 q
+java:S2095P"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(áèÅ¦ûÿÿÿÿ8¥Òø‹/
+q
+java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8¥Òø‹/
+q
 java:S2095]"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ïó×‚Œ/
+i
+java:S2095}"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8¥Òø‹/
 H
 java:S1168`"+Return an empty collection instead of null.(¥¹ï8ïó×‚Œ/
