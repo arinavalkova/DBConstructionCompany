@@ -149,4 +149,9 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
     public Row createRow(ArrayList<String> rowLines) {
         return new OrganizationsAndManagementRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

@@ -149,4 +149,11 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
     public Row createRow(ArrayList<String> rowLines) {
         return new SectorAndBossRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("ENGINEER");
+        return list;
+    }
 }

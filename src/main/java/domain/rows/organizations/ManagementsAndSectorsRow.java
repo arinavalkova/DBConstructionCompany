@@ -33,4 +33,14 @@ public class ManagementsAndSectorsRow implements Row {
     public int getSectorId() {
         return sectorId;
     }
+
+    @Override
+    public String toString() {
+        return "management_id=" + managementId + "and sector_id=" + sectorId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "manag_and_sectors";
+    }
 }

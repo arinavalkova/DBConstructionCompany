@@ -141,4 +141,9 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
     public Row createRow(ArrayList<String> rowLines) {
         return new ManagementsRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

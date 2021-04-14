@@ -163,4 +163,9 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     public Row createRow(ArrayList<String> rowLines) {
         return new BossAndEmployeesRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

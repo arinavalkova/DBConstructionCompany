@@ -155,4 +155,11 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
     public Row createRow(ArrayList<String> rowLines) {
         return new BrigadeAndEmployeesRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("BRIGADE_PROF");
+        return list;
+    }
 }

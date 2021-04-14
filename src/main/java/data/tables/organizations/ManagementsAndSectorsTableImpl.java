@@ -149,4 +149,9 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
     public Row createRow(ArrayList<String> rowLines) {
         return new ManagementsAndSectorsRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

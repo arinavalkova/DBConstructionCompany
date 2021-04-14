@@ -32,4 +32,14 @@ public class SectorAndBossRow implements Row {
     public int getBossId() {
         return bossId;
     }
+
+    @Override
+    public String toString() {
+        return "sector_id=" + sectorId + "and boss_id=" + bossId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "sector_and_boss";
+    }
 }

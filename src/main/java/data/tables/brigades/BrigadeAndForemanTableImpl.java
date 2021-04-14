@@ -147,4 +147,12 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
     public Row createRow(ArrayList<String> rowLines) {
         return new BrigadeAndForemanRow(rowLines);
     }
+
+    @Override
+    public ArrayList getCheckName() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("NOT_ENGINEER");
+        list.add("BRIGADE_PROF");
+        return list;
+    }
 }

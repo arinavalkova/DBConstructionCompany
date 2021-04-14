@@ -77,7 +77,8 @@ public class CustomTableView implements View {
                            ArrayList<String> firstColumnNames,
                            ArrayList<String> secondColumnNames,
                            String firstTableName,
-                           String secondTableName) {
+                           String secondTableName,
+                           String checkName) {
         this.firstRepository = firstRepository;
         this.secondRepository = secondRepository;
         this.firstClassFieldNames = firstClassFieldNames;

@@ -29,11 +29,7 @@ public class BrigadesViewModel implements AnswerReceiver {
     private final PeopleAndProfessionsTableImpl peopleAndProfessionsTable = new PeopleAndProfessionsTableImpl();
 
     public BrigadesViewModel() {
-        ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
-        dataBaseRepositoryArrayList.add(brigadeAndForemanTable);
-        dataBaseRepositoryArrayList.add(brigadeAndEmployeesTable);
-
-        this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
+        this.loadTestDataUseCase = new LoadTestDataUseCase(this);
     }
 
     public void goBack() {
@@ -117,7 +113,8 @@ public class BrigadesViewModel implements AnswerReceiver {
                 firstColumnNames,
                 secondColumnNames,
                 "Brigades and employees",
-                "Brigades and foreman"
+                "Brigades and foreman",
+                null
         );
 
         SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);

@@ -33,4 +33,14 @@ public class BrigadeAndForemanRow implements Row {
     public int getForemanId() {
         return foremanId;
     }
+
+    @Override
+    public String toString() {
+        return "name='" + name + "' and foreman_id=" + foremanId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "brigade_and_man";
+    }
 }

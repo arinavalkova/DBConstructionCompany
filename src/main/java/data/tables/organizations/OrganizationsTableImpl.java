@@ -141,4 +141,9 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
     public Row createRow(ArrayList<String> rowLines) {
         return new OrganizationsRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

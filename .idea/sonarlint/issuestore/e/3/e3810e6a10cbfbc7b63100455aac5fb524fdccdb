@@ -1,11 +1,10 @@
 
 ¡
 java:S1319K"The type of the "firstClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ð’ÝÝûÿÿÿÿ8ªÖ™æ‹/
-X	java:S125v"<This block of commented-out lines of code should be removed.(©ÇËé8…¼²ù‹/
-ž
-java:S1319N"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆýÿÿÿÿ8ªÖ™æ‹/
-
-java:S1319M"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
 ]	java:S107I"AConstructor has 8 parameters, which is greater than 7 authorized.(Šîù·8ªÖ™æ‹/
 £
 java:S1319L"€The type of the "secondClassFieldNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ª¦ì–øÿÿÿÿ8ªÖ™æ‹/
+
+java:S1319M"{The type of the "firstColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(¡¶†Æÿÿÿÿÿ8ªÖ™æ‹/
+ž
+java:S1319N"|The type of the "secondColumnNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÿäºˆýÿÿÿÿ8ªÖ™æ‹/

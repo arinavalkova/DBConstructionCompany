@@ -29,14 +29,7 @@ public class PeopleViewModel implements AnswerReceiver {
     private final SectorsTableImpl sectorsTable = new SectorsTableImpl();
 
     public PeopleViewModel() {
-        ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
-        dataBaseRepositoryArrayList.add(professionsTable);
-        dataBaseRepositoryArrayList.add(peopleAndProfessionsTable);
-        dataBaseRepositoryArrayList.add(bossAndEmployeesTable);
-        dataBaseRepositoryArrayList.add(sectorsTable);
-        dataBaseRepositoryArrayList.add(sectorAndBossTable);
-
-        this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
+        this.loadTestDataUseCase = new LoadTestDataUseCase(this);
     }
 
     public void goBack() {
@@ -169,7 +162,8 @@ public class PeopleViewModel implements AnswerReceiver {
                 firstColumnNames,
                 secondColumnNames,
                 "Sectors and boss",
-                "Sectors"
+                "Sectors",
+                "ENGINEER"
         );
 
         SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", sectorsPane);

@@ -33,13 +33,7 @@ public class OrganizationsViewModel implements AnswerReceiver {
     private final SectorsTableImpl sectorsTable = new SectorsTableImpl();
 
     public OrganizationsViewModel() {
-        ArrayList<DataBaseRepository> dataBaseRepositoryArrayList = new ArrayList<>();
-        dataBaseRepositoryArrayList.add(managementsTable);
-        dataBaseRepositoryArrayList.add(organizationsTable);
-        dataBaseRepositoryArrayList.add(managementsAndSectorsTable);
-        dataBaseRepositoryArrayList.add(organizationsAndManagementTable);
-
-        this.loadTestDataUseCase = new LoadTestDataUseCase(dataBaseRepositoryArrayList, this);
+        this.loadTestDataUseCase = new LoadTestDataUseCase(this);
     }
 
     public void loadTestData() {
@@ -85,7 +79,8 @@ public class OrganizationsViewModel implements AnswerReceiver {
                firstColumnNames,
                secondColumnNames,
                "Managements and sectors",
-               "Sectors"
+               "Sectors",
+                null
         );
 
         SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);
@@ -118,7 +113,8 @@ public class OrganizationsViewModel implements AnswerReceiver {
                 firstColumnNames,
                 secondColumnNames,
                 "Organizat and management",
-                "Organizations"
+                "Organizations",
+                null
         );
 
         SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);

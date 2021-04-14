@@ -33,4 +33,14 @@ public class OrganizationsAndManagementRow implements Row {
     public int getManagementId() {
         return managementId;
     }
+
+    @Override
+    public String toString() {
+        return "organization_id=" + organizationId + "and management_id=" + managementId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "organizat_and_managments";
+    }
 }

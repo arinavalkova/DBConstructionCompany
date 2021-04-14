@@ -153,4 +153,9 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
     public Row createRow(ArrayList<String> rowLines) {
         return new ProfessionsRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

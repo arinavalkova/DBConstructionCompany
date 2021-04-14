@@ -33,4 +33,14 @@ public class BrigadeAndEmployeesRow implements Row {
     public int getEmployeeId() {
         return employeeId;
     }
+
+    @Override
+    public String toString() {
+        return "brigade_id=" + brigadeId + "and employee_id=" + employeeId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "brigade_and_empl";
+    }
 }

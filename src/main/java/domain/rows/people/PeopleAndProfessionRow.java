@@ -33,4 +33,14 @@ public class PeopleAndProfessionRow implements Row {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "name='" + name + "'and profession_id=" + professionId;
+    }
+
+    @Override
+    public String getTableName() {
+        return "people_and_professions";
+    }
 }

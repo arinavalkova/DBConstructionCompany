@@ -143,4 +143,11 @@ public class SectorsTableImpl extends BaseTable implements DataBaseRepository {
     public Row createRow(ArrayList<String> rowLines) {
         return new SectorsRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("ENGINEER");
+        return list;
+    }
 }

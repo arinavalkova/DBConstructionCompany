@@ -162,4 +162,9 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     public Row createRow(ArrayList<String> rowLines) {
         return new PeopleAndProfessionRow(rowLines);
     }
+
+    @Override
+    public ArrayList<String> getCheckName() {
+        return null;
+    }
 }

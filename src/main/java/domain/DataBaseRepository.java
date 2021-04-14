@@ -25,4 +25,6 @@ public interface DataBaseRepository {
     String getTableName();
 
     Row createRow(ArrayList<String> rowLines);
+
+    ArrayList<String> getCheckName();
 }

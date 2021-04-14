@@ -25,4 +25,14 @@ public class SectorsRow implements Row {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "name='" + name + "'";
+    }
+
+    @Override
+    public String getTableName() {
+        return "sectors";
+    }
 }

@@ -6,6 +6,7 @@ import domain.usecases.parameterized.CustomInsertRowUseCase;
 import domain.usecases.parameterized.DeleteRowUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import domain.usecases.parameterized.UpdateRowUseCase;
+import domain.usecases.parameterized.queries.people.GetProfessionByNameUseCase;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -28,6 +29,8 @@ public class CustomTableViewModel implements AnswerReceiver {
     private final UpdateRowUseCase updateFirstTableUseCase;
     private final UpdateRowUseCase updateSecondTableUseCase;
 
+    private final GetProfessionByNameUseCase getProfessionByNameUseCase;
+
     private final StringProperty answerProperty = new SimpleStringProperty();
 
     public CustomTableViewModel(DataBaseRepository firstRepository, DataBaseRepository secondRepository) {
@@ -35,10 +38,15 @@ public class CustomTableViewModel implements AnswerReceiver {
         this.secondRepository = secondRepository;
 
         this.insertFirstTableUseCase = new InsertRowUseCase(firstRepository, this);
-        this.insertSecondTableUseCase = new CustomInsertRowUseCase(firstRepository, secondRepository, this);
+        this.insertSecondTableUseCase = new CustomInsertRowUseCase(
+                firstRepository,
+                secondRepository,
+                this
+        );
         this.deleteRowUseCase = new DeleteRowUseCase(secondRepository, this);
         this.updateFirstTableUseCase = new UpdateRowUseCase(firstRepository, this);
         this.updateSecondTableUseCase = new UpdateRowUseCase(secondRepository, this);
+        this.getProfessionByNameUseCase = new GetProfessionByNameUseCase();
     }
 
     public ObservableValue<String> getAnswerProperty() {
@@ -72,10 +80,57 @@ public class CustomTableViewModel implements AnswerReceiver {
 
     public void insertFirstTable(ArrayList<String> rowLines) {
         answerProperty.setValue(INSERTING);
+        if (!startCheck(firstRepository, rowLines)) {
+            return;
+        }
         insertFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
     }
 
     public void insertSecondTable(ArrayList<String> rowLines) {
+        if (!startCheck(secondRepository, rowLines)) {
+            return;
+        }
         insertSecondTableUseCase.invoke(rowLines);
+    }
+
+    public boolean startCheck(DataBaseRepository dataBaseRepository, ArrayList<String> rowList) {
+        ArrayList<String> list = dataBaseRepository.getCheckName();
+        for (String check : list) {
+            System.out.println(check);
+            if (check.equals("ENGINEER")) {
+                if (!engineerCheck(Integer.parseInt(String.valueOf(rowList.get(rowList.size() - 1))))) {
+                    answerProperty.setValue("Error: boss should be with engineer professions");
+                    return false;
+                }
+            } else if (check.equals("NOT_ENGINEER")) {
+                if (engineerCheck(Integer.parseInt(String.valueOf(rowList.get(1))))) {
+                    answerProperty.setValue("Error: foreman shouldn't be with engineer profession");
+                    return false;
+                }
+            } else if (check.equals("BRIGADE_PROF")) {
+                if (!brigadeProfessionCheck(
+                        Integer.parseInt(String.valueOf(rowList.get(rowList.size() - 2))),
+                        Integer.parseInt(String.valueOf(rowList.get(rowList.size() - 1))))) {
+                    answerProperty.setValue("Error: employee and foreman should have the same profession");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean engineerCheck(int bossId) {
+        int professionName = (int) getProfessionByNameUseCase.invoke(bossId);
+        System.out.println(professionName);
+        return professionName == 0 ||
+                professionName == 1 ||
+                professionName == 2;
+    }
+    
+    private boolean brigadeProfessionCheck(int foremanId, int employeeId) {
+        int foremanProfessionId = (int) getProfessionByNameUseCase.invoke(foremanId);
+        int employeeProfessionId = (int) getProfessionByNameUseCase.invoke(employeeId);
+
+        return foremanProfessionId == employeeProfessionId;
     }
 }
