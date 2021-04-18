@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.data.booker.BookerView">
+   <children>
+      <Button fx:id="backButton" layoutX="36.0" layoutY="835.0" text="Назад" textFill="#ac47c6" />
+      <Button fx:id="nextButton" layoutX="1205.0" layoutY="835.0" text="Вперед" textFill="#ac47c6" />
+      <Button fx:id="loadTestDataButton" layoutX="847.0" layoutY="37.0" text="Обновить базу тестовыми данными" textFill="#ac47c6" />
+      <Label layoutX="1142.0" layoutY="37.0" text="Бухгалтер" textFill="#161717">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="materialsPane" layoutX="660.0" layoutY="110.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #bbdefb;" />
+      <Label fx:id="answerLabel" layoutX="104.0" layoutY="840.0" prefHeight="21.0" prefWidth="1078.0" />
+      <AnchorPane fx:id="professionsPane" layoutX="43.0" layoutY="110.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #b3e5fc;" />
+      <AnchorPane fx:id="typesOfJobsPane" layoutX="43.0" layoutY="475.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #e0f7fa;" />
+      <AnchorPane fx:id="techiquesPane" layoutX="660.0" layoutY="475.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #e3f2fd;" />
+   </children>
+</AnchorPane>

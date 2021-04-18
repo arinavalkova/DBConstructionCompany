@@ -8,10 +8,10 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.data.brigades.BrigadesView">
    <children>
-      <Button fx:id="backButton" layoutX="36.0" layoutY="835.0" text="Back" textFill="#ac47c6" />
-      <Button fx:id="nextButton" layoutX="1214.0" layoutY="835.0" text="Next" textFill="#ac47c6" />
-      <Button fx:id="loadTestDataButton" layoutX="966.0" layoutY="34.0" text="Load test data" textFill="#ac47c6" />
-      <Label layoutX="1109.0" layoutY="35.0" text="Editing brigades" textFill="#161717">
+      <Button fx:id="backButton" layoutX="36.0" layoutY="835.0" text="Назад" textFill="#ac47c6" />
+      <Button fx:id="nextButton" layoutX="1194.0" layoutY="835.0" text="Вперед" textFill="#ac47c6" />
+      <Button fx:id="loadTestDataButton" layoutX="695.0" layoutY="37.0" text="Обновить базу тестовыми данными" textFill="#ac47c6" />
+      <Label layoutX="989.0" layoutY="37.0" text="Менеджер по найму персонала" textFill="#161717">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>

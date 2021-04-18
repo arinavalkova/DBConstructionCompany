@@ -1,6 +1,7 @@
 package data.tables.people;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.people.PeopleAndProfessionRow;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -132,22 +134,22 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new PeopleAndProfessionRow(0, "Vasilii", 0))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Василий"), 0))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, "Gleb", 3))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Глеб"), 3))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, "Vlad", 0))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Влад"), 0))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, "Igor", 3))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Игорь"), 3))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, "Sergei", 0))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Сергей"), 0))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, "Nikita", 3))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Никита"), 3))) {
             return false;
         }
         return true;
@@ -155,7 +157,7 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Работники и профессии");
     }
 
     @Override
@@ -166,5 +168,23 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("ФИО"),
+                        Coder.encodingRUS("Id профессии")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name", "professionId")
+        );
     }
 }

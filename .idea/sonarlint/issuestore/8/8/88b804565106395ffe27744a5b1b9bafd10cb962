@@ -1,11 +1,11 @@
 
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ñé¼Û‹/
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ñé¼Û‹/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8øË¼Û‹/
 •
 java:S1319."sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".( ¼íÛûÿÿÿÿ8ãßæß‹/
 •
 java:S13193"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(À½…øÿÿÿÿ8ãßæß‹/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ñé¼Û‹/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8øË¼Û‹/

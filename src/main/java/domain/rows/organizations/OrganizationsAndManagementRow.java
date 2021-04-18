@@ -3,6 +3,7 @@ package domain.rows.organizations;
 import domain.rows.Row;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class OrganizationsAndManagementRow implements Row {
 

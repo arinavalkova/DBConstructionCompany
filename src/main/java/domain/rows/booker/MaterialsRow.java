@@ -1,20 +1,20 @@
-package domain.rows.people;
+package domain.rows.booker;
 
 import domain.rows.Row;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ProfessionsRow implements Row {
+public class MaterialsRow implements Row {
+
     private final int id;
     private final String name;
 
-    public ProfessionsRow(int id, String name) {
+    public MaterialsRow(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public ProfessionsRow(ArrayList<String> rowLines) {
+    public MaterialsRow(ArrayList<String> rowLines) {
         this.id = Integer.parseInt(rowLines.get(0));
         this.name = rowLines.get(1);
     }
@@ -28,12 +28,12 @@ public class ProfessionsRow implements Row {
     }
 
     @Override
-    public String toString() {
-        return "name='" + name + "'";
+    public String getTableName() {
+        return "materials";
     }
 
     @Override
-    public String getTableName() {
-        return "professions";
+    public String toString() {
+        return "id=" + id + "and name=" + name;
     }
 }

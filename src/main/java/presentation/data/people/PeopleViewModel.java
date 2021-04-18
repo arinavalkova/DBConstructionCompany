@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import presentation.SceneController;
 import presentation.table.edit.custom.CustomTableView;
 import presentation.table.edit.simple.SimpleTableView;
+import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,109 +64,34 @@ public class PeopleViewModel implements AnswerReceiver {
     }
 
     public void loadBossAndEmployeeTable(AnchorPane bossAndEmployeesPane) {
-        ArrayList<String> classFieldsNames = new ArrayList<>();
-        classFieldsNames.add("id");
-        classFieldsNames.add("bossId");
-        classFieldsNames.add("employeeId");
-
-        ArrayList<String> columnsNames = new ArrayList<>();
-        columnsNames.add("Id");
-        columnsNames.add("Boss id");
-        columnsNames.add("Employee id");
-
-        SimpleTableView simpleTableController = new SimpleTableView(
-                bossAndEmployeesTable,
-                classFieldsNames,
-                columnsNames,
-                "Boss and employees"
-        );
-
         SceneController.loadControllerToFXMLAndPane(
-                simpleTableController,
+                new SimpleTableView(bossAndEmployeesTable),
                 "simpleTableEditor.fxml",
                 bossAndEmployeesPane
         );
     }
 
     public void loadPeopleAndProfessionsTable(AnchorPane peopleAndProfessionsPane) {
-        ArrayList<String> classFieldsNames = new ArrayList<>();
-        classFieldsNames.add("id");
-        classFieldsNames.add("name");
-        classFieldsNames.add("professionId");
-
-        ArrayList<String> columnsNames = new ArrayList<>();
-        columnsNames.add("Id");
-        columnsNames.add("Name");
-        columnsNames.add("Profession id");
-
-        SimpleTableView simpleTableController = new SimpleTableView(
-                peopleAndProfessionsTable,
-                classFieldsNames,
-                columnsNames,
-                "People and professions"
-        );
-
         SceneController.loadControllerToFXMLAndPane(
-                simpleTableController,
+                new SimpleTableView(peopleAndProfessionsTable),
                 "simpleTableEditor.fxml",
                 peopleAndProfessionsPane
         );
     }
 
     public void loadProfessionsTable(AnchorPane professionsPane) {
-        ArrayList<String> classFieldsNames = new ArrayList<>();
-        classFieldsNames.add("id");
-        classFieldsNames.add("name");
-
-        ArrayList<String> columnsNames = new ArrayList<>();
-        columnsNames.add("Id");
-        columnsNames.add("Name");
-
-        SimpleTableView simpleTableController = new SimpleTableView(
-                professionsTable,
-                classFieldsNames,
-                columnsNames,
-                "Professions"
-        );
-
         SceneController.loadControllerToFXMLAndPane(
-               simpleTableController,
-                "simpleTableEditor.fxml",
+                new ShowTableView(professionsTable, 200),
+                "tableShower.fxml",
                 professionsPane
         );
     }
 
     public void loadSectorsTable(AnchorPane sectorsPane) {
-        ArrayList<String> firstFieldsNames = new ArrayList<>();
-        firstFieldsNames.add("id");
-        firstFieldsNames.add("sectorId");
-        firstFieldsNames.add("bossId");
-
-        ArrayList<String> secondFieldsNames = new ArrayList<>();
-        secondFieldsNames.add("id");
-        secondFieldsNames.add("name");
-
-        ArrayList<String> firstColumnNames = new ArrayList<>();
-        firstColumnNames.add("Id");
-        firstColumnNames.add("Sector id");
-        firstColumnNames.add("Boss id");
-
-        ArrayList<String> secondColumnNames = new ArrayList<>();
-        secondColumnNames.add("Id");
-        secondColumnNames.add("Name");
-
-        CustomTableView customTableView = new CustomTableView(
-                sectorAndBossTable,
-                sectorsTable,
-                firstFieldsNames,
-                secondFieldsNames,
-                firstColumnNames,
-                secondColumnNames,
-                "Sectors and boss",
-                "Sectors",
-                "ENGINEER"
+        SceneController.loadControllerToFXMLAndPane(
+                new CustomTableView(sectorAndBossTable, sectorsTable),
+                "customTableEditor.fxml",
+                sectorsPane
         );
-
-        SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", sectorsPane);
     }
 }

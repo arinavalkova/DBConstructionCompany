@@ -62,8 +62,6 @@ public class CustomTableView implements View {
     private final ArrayList<String> secondClassFieldNames;
     private final ArrayList<String> firstColumnNames;
     private final ArrayList<String> secondColumnNames;
-    private final String firstTableName;
-    private final String secondTableName;
 
     private final ArrayList<TextField> insertFirstTextFields = new ArrayList<>();
     private final ArrayList<TextField> insertSecondTextFields = new ArrayList<>();
@@ -71,22 +69,13 @@ public class CustomTableView implements View {
     private final ArrayList<TextField> updateSecondTextFields = new ArrayList<>();
 
     public CustomTableView(DataBaseRepository firstRepository,
-                           DataBaseRepository secondRepository,
-                           ArrayList<String> firstClassFieldNames,
-                           ArrayList<String> secondClassFieldNames,
-                           ArrayList<String> firstColumnNames,
-                           ArrayList<String> secondColumnNames,
-                           String firstTableName,
-                           String secondTableName,
-                           String checkName) {
+                           DataBaseRepository secondRepository) {
         this.firstRepository = firstRepository;
         this.secondRepository = secondRepository;
-        this.firstClassFieldNames = firstClassFieldNames;
-        this.secondClassFieldNames = secondClassFieldNames;
-        this.firstColumnNames = firstColumnNames;
-        this.secondColumnNames = secondColumnNames;
-        this.firstTableName = firstTableName;
-        this.secondTableName = secondTableName;
+        this.firstClassFieldNames = firstRepository.getFieldNames();
+        this.secondClassFieldNames = secondRepository.getFieldNames();
+        this.firstColumnNames = firstRepository.getColumnNames();
+        this.secondColumnNames = secondRepository.getColumnNames();
 
         this.customTableViewModel = new CustomTableViewModel(firstRepository, secondRepository);
     }
@@ -111,7 +100,7 @@ public class CustomTableView implements View {
                 rowLines.add(textField.getText());
                 textField.setText("");
             }
-           customTableViewModel.insertFirstTable(rowLines);
+            customTableViewModel.insertFirstTable(rowLines);
         });
         insertSecondTableButton.setOnAction(event -> {
             ArrayList<String> rowLines = new ArrayList<>();
@@ -182,24 +171,16 @@ public class CustomTableView implements View {
     }
 
     private void initShowerPanes() {
-        ShowTableView firstTableView = new ShowTableView(
-                firstRepository,
-                firstClassFieldNames,
-                firstColumnNames,
-                firstTableName,
-                100
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(firstRepository, 100),
+                "tableShower.fxml",
+                firstShowerPane
         );
 
-        SceneController.loadControllerToFXMLAndPane(firstTableView, "tableShower.fxml", firstShowerPane);
-
-        ShowTableView secondTableView = new ShowTableView(
-                secondRepository,
-                secondClassFieldNames,
-                secondColumnNames,
-                secondTableName,
-                100
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(secondRepository, 100),
+                "tableShower.fxml",
+                secondShowPane
         );
-
-        SceneController.loadControllerToFXMLAndPane(secondTableView, "tableShower.fxml", secondShowPane);
     }
 }

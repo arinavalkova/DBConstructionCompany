@@ -1,6 +1,7 @@
 package data.tables.brigades;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -132,7 +134,7 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new BrigadeAndForemanRow(0, "Fasters", 1))) {
+        if (!insertRow(new BrigadeAndForemanRow(0, Coder.encodingRUS("Быстрые"), 1))) {
             return false;
         }
         return true;
@@ -140,7 +142,7 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Бригада и бригадир");
     }
 
     @Override
@@ -154,5 +156,23 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
         list.add("NOT_ENGINEER");
         list.add("BRIGADE_PROF");
         return list;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Название"),
+                        Coder.encodingRUS("id бригадира")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name", "foremanId")
+        );
     }
 }

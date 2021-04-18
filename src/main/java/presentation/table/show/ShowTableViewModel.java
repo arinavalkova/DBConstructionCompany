@@ -33,11 +33,11 @@ public class ShowTableViewModel implements DataReceiver {
 
     @Override
     public void onDataSuccess(Object object) {
-        rowProperty.setValue(FXCollections.observableArrayList((List<Row>) object));
+        Platform.runLater(() -> rowProperty.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
     public void onDataError(String answer) {
-        rowProperty.setValue(FXCollections.observableArrayList());
+        Platform.runLater(() -> rowProperty.setValue(FXCollections.observableArrayList()));
     }
 }

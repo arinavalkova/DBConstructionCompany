@@ -1,6 +1,7 @@
 package data.tables.people;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.people.BossAndEmployeesRow;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -156,7 +158,7 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Начальники и работники");
     }
 
     @Override
@@ -167,5 +169,23 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Id начальника"),
+                        Coder.encodingRUS("Id работника")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "bossId", "employeeId")
+        );
     }
 }

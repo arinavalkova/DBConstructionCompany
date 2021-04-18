@@ -1,6 +1,7 @@
 package data.tables.organizations;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class OrganizationsTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -126,7 +128,7 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new OrganizationsRow(0, "Vector"))) {
+        if (!insertRow(new OrganizationsRow(0, Coder.encodingRUS("Вектор")))) {
             return false;
         }
         return true;
@@ -134,7 +136,7 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Организации");
     }
 
     @Override
@@ -145,5 +147,20 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList("Id", Coder.encodingRUS("Название")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name")
+        );
     }
 }

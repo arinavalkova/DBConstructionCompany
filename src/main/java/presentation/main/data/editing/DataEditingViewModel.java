@@ -37,4 +37,12 @@ public class DataEditingViewModel {
             e.printStackTrace();
         }
     }
+
+    public void loadBookerEditingWindow() {
+        try {
+            SceneController.load("bookerEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -3,6 +3,7 @@ package domain.rows.people;
 import domain.rows.Row;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SectorAndBossRow implements Row {
     private final int id;

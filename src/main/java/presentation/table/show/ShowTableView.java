@@ -32,13 +32,10 @@ public class ShowTableView implements View {
 
     public ShowTableView(
             DataBaseRepository repository,
-            ArrayList<String> classFieldsNames,
-            ArrayList<String> columnNames,
-            String tableName,
             int tableHeight) {
-        this.classFieldsNames = classFieldsNames;
-        this.columnNames = columnNames;
-        this.tableName = tableName;
+        this.classFieldsNames = repository.getFieldNames();
+        this.columnNames = repository.getColumnNames();
+        this.tableName = repository.getTableName();
         this.tableHeight = tableHeight;
 
         this.showTableViewModel = new ShowTableViewModel(repository);

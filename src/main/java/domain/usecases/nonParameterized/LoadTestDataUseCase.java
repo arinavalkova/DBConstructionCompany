@@ -1,6 +1,10 @@
 package domain.usecases.nonParameterized;
 
+import data.Coder;
 import data.JDBCConnection;
+import data.tables.booker.MaterialsTableImpl;
+import data.tables.booker.TechniquesTableImpl;
+import data.tables.booker.TypesOfJobsTableImpl;
 import data.tables.brigades.BrigadeAndEmployeesTableImpl;
 import data.tables.brigades.BrigadeAndForemanTableImpl;
 import data.tables.organizations.ManagementsAndSectorsTableImpl;
@@ -41,6 +45,10 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         this.repositoryArrayList.add(new BrigadeAndForemanTableImpl());
         this.repositoryArrayList.add(new BrigadeAndEmployeesTableImpl());
 
+        this.repositoryArrayList.add(new MaterialsTableImpl());
+        this.repositoryArrayList.add(new TechniquesTableImpl());
+        this.repositoryArrayList.add(new TypesOfJobsTableImpl());
+
         this.answerReceiver = answerReceiver;
     }
 
@@ -52,16 +60,19 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 Collections.reverse(repositoryArrayList);
 
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
-                    System.out.println("***" + currentRepository.getTableName() + "***");
                     if (!currentRepository.deleteTable()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onAnswerError("Error with deleting old table " + currentRepository.getTableName());
-                        System.out.println("Error with deleting old table " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Не удалось удалить старую таблицу ") +
+                                        currentRepository.getTableName()
+                        );
                         JDBCConnection.getConnection().setAutoCommit(true);
-                        Collections.reverse(repositoryArrayList);
-                        //return;
-                    } else
-                    System.out.println("Deleted old table " + currentRepository.getTableName());
+                    } else {
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Удалена старая таблица ") +
+                                        currentRepository.getTableName()
+                        );
+                    }
                 }
 
                 Collections.reverse(repositoryArrayList);
@@ -69,40 +80,59 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.createTable()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onAnswerError("Error with creating table " + currentRepository.getTableName());
-                        System.out.println("Error with creating table " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Не удалось создать новую таблицу ")
+                                + currentRepository.getTableName()
+                        );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
-                    } else
-                    System.out.println("Created old table " + currentRepository.getTableName());
+                    } else {
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Создана новая таблица ")
+                                        + currentRepository.getTableName()
+                        );
+                    }
                 }
 
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.createIdAutoIncrementTrigger()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onAnswerError("Error with creating auto increment id trigger for "
-                                + currentRepository.getTableName());
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Не удалось создать триггер автоинкрементации id для ")
+                                + currentRepository.getTableName()
+                        );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
+                    } else {
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Создан триггер автоинкрементации id для ")
+                                        + currentRepository.getTableName()
+                        );
                     }
-                    System.out.println("Created trigger old table " + currentRepository.getTableName());
                 }
 
                 for (DataBaseRepository currentRepository : repositoryArrayList) {
                     if (!currentRepository.loadTestData()) {
                         JDBCConnection.getConnection().rollback();
-                        answerReceiver.onAnswerError("Error with loading test data to " + currentRepository.getTableName());
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Не удалось загрузить тестовые данные для ") +
+                                        currentRepository.getTableName()
+                        );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
+                    } else {
+                        answerReceiver.onAnswerError(
+                                Coder.encodingRUS("Загружены тестовые данные для ") +
+                                        currentRepository.getTableName()
+                        );
                     }
-                    System.out.println("Loaded data of " + currentRepository.getTableName());
                 }
 
                 JDBCConnection.getConnection().commit();
                 JDBCConnection.getConnection().setAutoCommit(true);
-                answerReceiver.onAnswerSuccess("Successfully loaded test data");
+                answerReceiver.onAnswerSuccess(Coder.encodingRUS("Все данные успешно загружены"));
             } catch (SQLException throwables) {
-                answerReceiver.onAnswerError("Error");
+                answerReceiver.onAnswerError(Coder.encodingRUS("Ошибка"));
             }
         });
         thread.start();

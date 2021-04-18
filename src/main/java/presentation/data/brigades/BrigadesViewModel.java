@@ -63,60 +63,18 @@ public class BrigadesViewModel implements AnswerReceiver {
     }
 
     public void loadEmployeesPane(Pane pane) {
-        ArrayList<String> fieldNames = new ArrayList<>();
-        fieldNames.add("id");
-        fieldNames.add("name");
-        fieldNames.add("professionId");
-
-        ArrayList<String> columnsNames = new ArrayList<>();
-        columnsNames.add("Id");
-        columnsNames.add("Name");
-        columnsNames.add("Profession id");
-
-        ShowTableView showTableView = new ShowTableView(
-                peopleAndProfessionsTable,
-                fieldNames,
-                columnsNames,
-                "People and professions",
-                200
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(peopleAndProfessionsTable, 200),
+                "tableShower.fxml",
+                pane
         );
-
-        SceneController.loadControllerToFXMLAndPane(showTableView, "tableShower.fxml", pane);
     }
 
     public void loadBrigadesPane(Pane pane) {
-        ArrayList<String> firstFieldsNames = new ArrayList<>();
-        firstFieldsNames.add("id");
-        firstFieldsNames.add("brigadeId");
-        firstFieldsNames.add("employeeId");
-
-        ArrayList<String> firstColumnNames = new ArrayList<>();
-        firstColumnNames.add("Id");
-        firstColumnNames.add("Brigade id");
-        firstColumnNames.add("Employee id");
-
-        ArrayList<String> secondFieldsNames = new ArrayList<>();
-        secondFieldsNames.add("id");
-        secondFieldsNames.add("name");
-        secondFieldsNames.add("foremanId");
-
-        ArrayList<String> secondColumnNames = new ArrayList<>();
-        secondColumnNames.add("Id");
-        secondColumnNames.add("Name");
-        secondColumnNames.add("Foreman id");
-
-        CustomTableView customTableView = new CustomTableView(
-                brigadeAndEmployeesTable,
-                brigadeAndForemanTable,
-                firstFieldsNames,
-                secondFieldsNames,
-                firstColumnNames,
-                secondColumnNames,
-                "Brigades and employees",
-                "Brigades and foreman",
-                null
+        SceneController.loadControllerToFXMLAndPane(
+                new CustomTableView(brigadeAndEmployeesTable, brigadeAndForemanTable),
+                "customTableEditor.fxml",
+                pane
         );
-
-        SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);
     }
 }

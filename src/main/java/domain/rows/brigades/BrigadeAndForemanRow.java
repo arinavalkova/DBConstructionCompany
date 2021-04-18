@@ -1,8 +1,10 @@
 package domain.rows.brigades;
 
+import data.tables.brigades.BrigadeAndForemanTableImpl;
 import domain.rows.Row;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BrigadeAndForemanRow implements Row {
 

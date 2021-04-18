@@ -4,18 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<?import javafx.scene.layout.FlowPane?>
 <AnchorPane prefHeight="329.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <HBox fx:id="insertHBox" layoutX="226.0" layoutY="76.0" prefHeight="34.0" prefWidth="284.0" />
-   <HBox layoutX="226.0" layoutY="133.0" prefHeight="34.0" prefWidth="284.0" style="-fx-background-color: pink;">
-      <TextField fx:id="idForDelete" prefHeight="38.0" prefWidth="284.0" promptText="Id" />
+   <HBox fx:id="insertHBox" layoutX="226.0" layoutY="76.0" prefHeight="34.0" prefWidth="272.0" />
+   <HBox layoutX="226.0" layoutY="133.0" prefHeight="34.0" prefWidth="272.0" style="-fx-background-color: pink;">
+      <TextField fx:id="idForDelete" prefHeight="34.0" prefWidth="271.0" promptText="Id" />
    </HBox>
-   <HBox fx:id="updateHBox" layoutX="226.0" layoutY="190.0" prefHeight="34.0" prefWidth="284.0" />
-   <Button fx:id="insertButton" layoutX="517.0" layoutY="77.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Insert" />
-   <Button fx:id="deleteButton" layoutX="517.0" layoutY="135.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Delete" />
-   <Button fx:id="updateButton" layoutX="516.0" layoutY="192.0" mnemonicParsing="false" text="Update" />
+   <HBox fx:id="updateHBox" layoutX="226.0" layoutY="190.0" prefHeight="34.0" prefWidth="272.0" />
+   <Button fx:id="insertButton" layoutX="504.0" layoutY="77.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Вставить" />
+   <Button fx:id="deleteButton" layoutX="504.0" layoutY="135.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="91.0" text="Удалить" />
+   <Button fx:id="updateButton" layoutX="504.0" layoutY="192.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="91.0" text="Обновить" />
    <Label fx:id="answerLabel" layoutX="226.0" layoutY="250.0" prefHeight="21.0" prefWidth="356.0" text="Answer" />
    <FlowPane fx:id="showerPane" layoutY="1.0" prefHeight="329.0" prefWidth="204.0" />
 </AnchorPane>

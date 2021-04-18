@@ -1,22 +1,22 @@
-package domain.rows.people;
+package domain.rows.booker;
 
 import domain.rows.Row;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ProfessionsRow implements Row {
+public class TechniquesRow implements Row {
+
     private final int id;
     private final String name;
 
-    public ProfessionsRow(int id, String name) {
+    public TechniquesRow(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public ProfessionsRow(ArrayList<String> rowLines) {
-        this.id = Integer.parseInt(rowLines.get(0));
-        this.name = rowLines.get(1);
+    public TechniquesRow(ArrayList<String> list) {
+        this.id = Integer.parseInt(list.get(0));
+        this.name = list.get(1);
     }
 
     public int getId() {
@@ -29,11 +29,11 @@ public class ProfessionsRow implements Row {
 
     @Override
     public String toString() {
-        return "name='" + name + "'";
+        return "id=" + id + "and name=" + name;
     }
 
     @Override
     public String getTableName() {
-        return "professions";
+        return "techniques";
     }
 }

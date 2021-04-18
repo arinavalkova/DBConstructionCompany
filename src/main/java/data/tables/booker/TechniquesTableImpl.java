@@ -1,11 +1,13 @@
-package data.tables.organizations;
+package data.tables.booker;
 
 import data.BaseTable;
 import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
-import domain.rows.organizations.ManagementsRow;
+import domain.rows.booker.MaterialsRow;
+import domain.rows.booker.TechniquesRow;
+import domain.rows.people.SectorsRow;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,15 +16,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ManagementsTableImpl extends BaseTable implements DataBaseRepository {
+public class TechniquesTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "managements";
+    private final static String TABLE_NAME = "techniques";
 
     @Override
     public boolean insertRow(Row row) {
-        ManagementsRow managementsRow = (ManagementsRow) row;
-        String sql = "insert into " + TABLE_NAME + " values(" + managementsRow.getId()
-                + ", '" + managementsRow.getName() + "')";
+        TechniquesRow techniquesRow = (TechniquesRow) row;
+        String sql = "insert into " + TABLE_NAME + " values(" + techniquesRow.getId()
+                + ", '" + techniquesRow.getName() + "')";
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -58,9 +60,9 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean updateRow(Row row) {
-        ManagementsRow managementsRow = (ManagementsRow) row;
-        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + managementsRow.getName()
-                + "' WHERE id = " + managementsRow.getId();
+        TechniquesRow techniquesRow = (TechniquesRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + techniquesRow.getName()
+                + "' WHERE id = " + techniquesRow.getId();
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -96,7 +98,7 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
         while (true) {
             try {
                 if (!resultSet.next()) break;
-                rowArrayList.add(new ManagementsRow(resultSet.getInt("id"), resultSet.getString("name")));
+                rowArrayList.add(new SectorsRow(resultSet.getInt("id"), resultSet.getString("name")));
             } catch (SQLException throwables) {
                 return null;
             }
@@ -106,13 +108,13 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean createIdAutoIncrementTrigger() {
-        String dropSeq = "DROP SEQUENCE managements_seq";
-        String createSeq = "CREATE SEQUENCE managements_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER managements_autoincrement\n" +
-                "BEFORE INSERT ON managements\n" +
+        String dropSeq = "DROP SEQUENCE techniques_seq";
+        String createSeq = "CREATE SEQUENCE techniques_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER techniques_autoincrement\n" +
+                "BEFORE INSERT ON techniques\n" +
                 "FOR EACH ROW\n" +
                 "BEGIN\n" +
-                "SELECT managements_seq.NextVal INTO :new.ID FROM dual;\n" +
+                "SELECT techniques_seq.NextVal INTO :new.ID FROM dual;\n" +
                 "END;";
 
         try {
@@ -128,7 +130,10 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new ManagementsRow(0, Coder.encodingRUS("Управление")))) {
+        if (!insertRow(new TechniquesRow(0, Coder.encodingRUS("Кран")))) {
+            return false;
+        }
+        if (!insertRow(new TechniquesRow(0, Coder.encodingRUS("Бульдозер")))) {
             return false;
         }
         return true;
@@ -136,12 +141,12 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public String getTableName() {
-        return Coder.encodingRUS("Управления");
+        return Coder.encodingRUS("Техника");
     }
 
     @Override
     public Row createRow(ArrayList<String> rowLines) {
-        return new ManagementsRow(rowLines);
+        return new TechniquesRow(rowLines);
     }
 
     @Override
@@ -152,7 +157,9 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
     @Override
     public ArrayList<String> getColumnNames() {
         return new ArrayList<>(
-                Arrays.asList("Id", Coder.encodingRUS("Название")
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Название")
                 )
         );
     }

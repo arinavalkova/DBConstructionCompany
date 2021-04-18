@@ -1,5 +1,6 @@
 package domain.usecases.parameterized;
 
+import data.Coder;
 import data.JDBCConnection;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
@@ -46,11 +47,19 @@ public class CustomInsertRowUseCase implements ParamUseCase {
                 String id = (String) getIdByFiledUseCase.invoke(secondRepository.createRow(firstList));
                 if (id == null) {
                     JDBCConnection.getConnection().rollback();
-                    answerReceiver.onAnswerError("Error with inserting to " + secondRepository.getTableName());
+                    answerReceiver.onAnswerError(
+                            Coder.encodingRUS("Не удалось добавить строку в  ")
+                                    + secondRepository.getTableName()
+                    );
                     JDBCConnection.getConnection().setAutoCommit(true);
                     return;
                 } else {
-                    System.out.println("Inserted to " + secondRepository.getTableName() + "with id=" + id);
+                    answerReceiver.onAnswerSuccess(
+                            Coder.encodingRUS("Добавлена строка в ")
+                                    + secondRepository.getTableName()
+                                    + Coder.encodingRUS("с id=")
+                                    + id
+                    );
                 }
 
                 ArrayList<String> secondList = new ArrayList<>();
@@ -63,15 +72,22 @@ public class CustomInsertRowUseCase implements ParamUseCase {
 
                 if (id == null) {
                     JDBCConnection.getConnection().rollback();
-                    answerReceiver.onAnswerError("Error with inserting to " + firstRepository.getTableName());
-                    System.out.println("Error with inserting to " + firstRepository.getTableName());
+                    answerReceiver.onAnswerError(
+                            Coder.encodingRUS("Не удалось добавить строку в ")
+                                    + firstRepository.getTableName()
+                    );
                     JDBCConnection.getConnection().setAutoCommit(true);
                     return;
                 } else {
-                    System.out.println("Inserted to " + firstRepository.getTableName() + "with id=" + id);
+                    answerReceiver.onAnswerError(
+                            Coder.encodingRUS("Строка добавлена в ")
+                                    + firstRepository.getTableName()
+                                    + Coder.encodingRUS("с id=")
+                                    + id
+                    );
                     JDBCConnection.getConnection().commit();
                     JDBCConnection.getConnection().setAutoCommit(true);
-                    answerReceiver.onAnswerSuccess("Successfully inserted");
+                    answerReceiver.onAnswerSuccess(Coder.encodingRUS("Успешно"));
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

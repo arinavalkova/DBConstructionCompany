@@ -3,6 +3,7 @@ package domain.rows.organizations;
 import domain.rows.Row;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class OrganizationsRow implements Row {
 
@@ -35,6 +36,5 @@ public class OrganizationsRow implements Row {
     @Override
     public String getTableName() {
         return "organizations";
-
     }
 }

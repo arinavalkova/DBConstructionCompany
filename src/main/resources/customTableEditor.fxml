@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="329.0" minHeight="329.0" prefHeight="329.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="329.0" minHeight="329.0" prefHeight="329.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <HBox fx:id="insertFirstTableHBox" layoutX="226.0" layoutY="50.0" prefHeight="34.0" prefWidth="284.0" />
    <HBox fx:id="updateFirstTableHBox" layoutX="226.0" layoutY="183.0" prefHeight="34.0" prefWidth="284.0" />
-   <Button fx:id="insertFirstTableButton" layoutX="517.0" layoutY="52.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Insert" />
-   <Button fx:id="deleteButton" layoutX="517.0" layoutY="139.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Delete" />
-   <Button fx:id="updateFirstTableButton" layoutX="517.0" layoutY="185.0" mnemonicParsing="false" text="Update" />
+   <Button fx:id="insertFirstTableButton" layoutX="517.0" layoutY="52.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Вставить" />
+   <Button fx:id="deleteButton" layoutX="517.0" layoutY="139.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Удалить" />
+   <Button fx:id="updateFirstTableButton" layoutX="517.0" layoutY="185.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Обновить" />
    <Label fx:id="answerLabel" layoutX="226.0" layoutY="282.0" prefHeight="21.0" prefWidth="356.0" />
    <FlowPane fx:id="firstShowerPane" layoutY="1.0" maxHeight="164.0" minHeight="164.0" prefHeight="164.0" prefWidth="204.0" />
    <FlowPane fx:id="secondShowPane" layoutY="163.0" maxHeight="164.0" minHeight="164.0" prefHeight="164.0" prefWidth="204.0" />
    <HBox fx:id="insertSecondTableHBox" layoutX="226.0" layoutY="91.0" prefHeight="34.0" prefWidth="284.0" />
-   <Button fx:id="insertSecondTableButton" layoutX="517.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Insert" />
+   <Button fx:id="insertSecondTableButton" layoutX="517.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Вставить" />
    <TextField fx:id="idForDelete" layoutX="226.0" layoutY="135.0" prefHeight="38.0" prefWidth="284.0" promptText="Id" />
    <HBox fx:id="updateSecondTableHBox" layoutX="226.0" layoutY="227.0" prefHeight="34.0" prefWidth="284.0" />
-   <Button fx:id="updateSecondTableButton" layoutX="517.0" layoutY="229.0" mnemonicParsing="false" text="Update" />
+   <Button fx:id="updateSecondTableButton" layoutX="517.0" layoutY="229.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Обновить" />
 </AnchorPane>

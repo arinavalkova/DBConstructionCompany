@@ -1,6 +1,7 @@
 package data.tables.organizations;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -142,7 +144,7 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Управления и участки");
     }
 
     @Override
@@ -153,5 +155,23 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Id управления"),
+                        Coder.encodingRUS("Id участка")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "managementId", "sectorId")
+        );
     }
 }

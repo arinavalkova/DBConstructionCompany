@@ -1,12 +1,16 @@
-package data.tables.organizations;
+package data.tables.booker;
 
 import data.BaseTable;
 import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
-import domain.rows.organizations.ManagementsRow;
+import domain.rows.booker.MaterialsRow;
+import domain.rows.booker.TechniquesRow;
+import domain.rows.booker.TypesOfJobsRow;
+import domain.rows.people.SectorsRow;
 
+import java.lang.reflect.Type;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,15 +18,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ManagementsTableImpl extends BaseTable implements DataBaseRepository {
+public class TypesOfJobsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "managements";
+    private final static String TABLE_NAME = "types_of_jobs";
 
     @Override
     public boolean insertRow(Row row) {
-        ManagementsRow managementsRow = (ManagementsRow) row;
-        String sql = "insert into " + TABLE_NAME + " values(" + managementsRow.getId()
-                + ", '" + managementsRow.getName() + "')";
+        TypesOfJobsRow typesOfJobsRow = (TypesOfJobsRow) row;
+        String sql = "insert into " + TABLE_NAME + " values(" + typesOfJobsRow.getId()
+                + ", '" + typesOfJobsRow.getName() + "')";
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -58,9 +62,9 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean updateRow(Row row) {
-        ManagementsRow managementsRow = (ManagementsRow) row;
-        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + managementsRow.getName()
-                + "' WHERE id = " + managementsRow.getId();
+        TypesOfJobsRow typesOfJobsRow = (TypesOfJobsRow) row;
+        String sql = "UPDATE " + TABLE_NAME + " SET name = '" + typesOfJobsRow.getName()
+                + "' WHERE id = " + typesOfJobsRow.getId();
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             preStatement.executeQuery();
@@ -96,7 +100,7 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
         while (true) {
             try {
                 if (!resultSet.next()) break;
-                rowArrayList.add(new ManagementsRow(resultSet.getInt("id"), resultSet.getString("name")));
+                rowArrayList.add(new SectorsRow(resultSet.getInt("id"), resultSet.getString("name")));
             } catch (SQLException throwables) {
                 return null;
             }
@@ -106,13 +110,13 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean createIdAutoIncrementTrigger() {
-        String dropSeq = "DROP SEQUENCE managements_seq";
-        String createSeq = "CREATE SEQUENCE managements_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER managements_autoincrement\n" +
-                "BEFORE INSERT ON managements\n" +
+        String dropSeq = "DROP SEQUENCE types_of_jobs_seq";
+        String createSeq = "CREATE SEQUENCE types_of_jobs_seq minvalue 0";
+        String trigger = "CREATE OR REPLACE TRIGGER types_of_jobs_autoincrement\n" +
+                "BEFORE INSERT ON types_of_jobs\n" +
                 "FOR EACH ROW\n" +
                 "BEGIN\n" +
-                "SELECT managements_seq.NextVal INTO :new.ID FROM dual;\n" +
+                "SELECT types_of_jobs_seq.NextVal INTO :new.ID FROM dual;\n" +
                 "END;";
 
         try {
@@ -128,7 +132,10 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new ManagementsRow(0, Coder.encodingRUS("Управление")))) {
+        if (!insertRow(new TypesOfJobsRow(0, Coder.encodingRUS("Кирпич")))) {
+            return false;
+        }
+        if (!insertRow(new TypesOfJobsRow(0, Coder.encodingRUS("Краска")))) {
             return false;
         }
         return true;
@@ -136,12 +143,12 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public String getTableName() {
-        return Coder.encodingRUS("Управления");
+        return Coder.encodingRUS("Тип работы");
     }
 
     @Override
     public Row createRow(ArrayList<String> rowLines) {
-        return new ManagementsRow(rowLines);
+        return new TypesOfJobsRow(rowLines);
     }
 
     @Override
@@ -152,7 +159,9 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
     @Override
     public ArrayList<String> getColumnNames() {
         return new ArrayList<>(
-                Arrays.asList("Id", Coder.encodingRUS("Название")
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Название")
                 )
         );
     }

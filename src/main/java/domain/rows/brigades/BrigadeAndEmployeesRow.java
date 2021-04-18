@@ -1,5 +1,6 @@
 package domain.rows.brigades;
 
+import data.tables.brigades.BrigadeAndEmployeesTableImpl;
 import domain.rows.Row;
 
 import java.util.ArrayList;

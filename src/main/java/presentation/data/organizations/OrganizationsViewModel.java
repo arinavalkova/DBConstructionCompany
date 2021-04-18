@@ -53,91 +53,27 @@ public class OrganizationsViewModel implements AnswerReceiver {
     }
 
     public void loadManagementsTable(Pane pane) {
-        ArrayList<String> firstFieldsNames = new ArrayList<>();
-        firstFieldsNames.add("id");
-        firstFieldsNames.add("managementId");
-        firstFieldsNames.add("sectorId");
-
-        ArrayList<String> firstColumnNames = new ArrayList<>();
-        firstColumnNames.add("Id");
-        firstColumnNames.add("Management id");
-        firstColumnNames.add("Sector id");
-
-        ArrayList<String> secondFieldsNames = new ArrayList<>();
-        secondFieldsNames.add("id");
-        secondFieldsNames.add("name");
-
-        ArrayList<String> secondColumnNames = new ArrayList<>();
-        secondColumnNames.add("Id");
-        secondColumnNames.add("Name");
-
-        CustomTableView customTableView = new CustomTableView(
-               managementsAndSectorsTable,
-               managementsTable,
-               firstFieldsNames,
-               secondFieldsNames,
-               firstColumnNames,
-               secondColumnNames,
-               "Managements and sectors",
-               "Sectors",
-                null
+        SceneController.loadControllerToFXMLAndPane(
+                new CustomTableView(managementsAndSectorsTable, managementsTable),
+                "customTableEditor.fxml",
+                pane
         );
-
-        SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);
     }
 
     public void loadOrganizationsTable(Pane pane) {
-        ArrayList<String> firstFieldsNames = new ArrayList<>();
-        firstFieldsNames.add("id");
-        firstFieldsNames.add("organizationId");
-        firstFieldsNames.add("managementId");
-
-        ArrayList<String> firstColumnNames = new ArrayList<>();
-        firstColumnNames.add("Id");
-        firstColumnNames.add("Organization id");
-        firstColumnNames.add("Management id");
-
-        ArrayList<String> secondFieldsNames = new ArrayList<>();
-        secondFieldsNames.add("id");
-        secondFieldsNames.add("name");
-
-        ArrayList<String> secondColumnNames = new ArrayList<>();
-        secondColumnNames.add("Id");
-        secondColumnNames.add("Name");
-
-        CustomTableView customTableView = new CustomTableView(
-                organizationsAndManagementTable,
-                organizationsTable,
-                firstFieldsNames,
-                secondFieldsNames,
-                firstColumnNames,
-                secondColumnNames,
-                "Organizat and management",
-                "Organizations",
-                null
+        SceneController.loadControllerToFXMLAndPane(
+                new CustomTableView(organizationsAndManagementTable, organizationsTable),
+                "customTableEditor.fxml",
+                pane
         );
-
-        SceneController.loadControllerToFXMLAndPane(customTableView, "customTableEditor.fxml", pane);
     }
 
     public void loadSectorsTable(Pane pane) {
-        ArrayList<String> fieldsNames = new ArrayList<>();
-        fieldsNames.add("id");
-        fieldsNames.add("name");
-
-        ArrayList<String> columnsNames = new ArrayList<>();
-        columnsNames.add("Id");
-        columnsNames.add("Name");
-
-        ShowTableView showTableView = new ShowTableView(
-                sectorsTable,
-                fieldsNames,
-                columnsNames,
-                "Sectors",
-                200
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(sectorsTable, 200),
+                "tableShower.fxml",
+                pane
         );
-
-        SceneController.loadControllerToFXMLAndPane(showTableView, "tableShower.fxml", pane);
     }
 
     @Override

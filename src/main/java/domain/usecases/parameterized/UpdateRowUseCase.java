@@ -1,5 +1,6 @@
 package domain.usecases.parameterized;
 
+import data.Coder;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -18,9 +19,9 @@ public class UpdateRowUseCase implements ParamUseCase{
     public Object invoke(Object object) {
         Thread thread = new Thread(() -> {
             if (!dataBaseRepository.updateRow((Row) object)) {
-                answerReceiver.onAnswerError("Error with updating");
+                answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось обновить"));
             } else {
-                answerReceiver.onAnswerSuccess("Successfully updated");
+                answerReceiver.onAnswerSuccess(Coder.encodingRUS("Успешно обновлено"));
             }
         });
         thread.start();

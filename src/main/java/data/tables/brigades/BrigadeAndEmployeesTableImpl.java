@@ -1,6 +1,7 @@
 package data.tables.brigades;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -148,7 +150,7 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Бригада и работники");
     }
 
     @Override
@@ -161,5 +163,23 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
         ArrayList<String> list = new ArrayList<>();
         list.add("BRIGADE_PROF");
         return list;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Id бригады"),
+                        Coder.encodingRUS("Id работника")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "brigadeId", "employeeId")
+        );
     }
 }

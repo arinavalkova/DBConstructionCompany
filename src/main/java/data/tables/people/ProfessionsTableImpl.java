@@ -1,6 +1,7 @@
 package data.tables.people;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.people.ProfessionsRow;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ProfessionsTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -126,19 +128,19 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new ProfessionsRow(0, "Engineer"))) {
+        if (!insertRow(new ProfessionsRow(0, Coder.encodingRUS("Инженер")))) {
             return false;
         }
-        if (!insertRow(new ProfessionsRow(0, "Technologist"))) {
+        if (!insertRow(new ProfessionsRow(0, Coder.encodingRUS("Технолог")))) {
             return false;
         }
-        if (!insertRow(new ProfessionsRow(0, "Technician"))) {
+        if (!insertRow(new ProfessionsRow(0, Coder.encodingRUS("Техник")))) {
             return false;
         }
-        if (!insertRow(new ProfessionsRow(0, "Bricklayer"))) {
+        if (!insertRow(new ProfessionsRow(0, Coder.encodingRUS("Каменщик")))) {
             return false;
         }
-        if (!insertRow(new ProfessionsRow(0, "Concrete worker"))) {
+        if (!insertRow(new ProfessionsRow(0, Coder.encodingRUS("Бетонщик")))) {
             return false;
         }
         return true;
@@ -146,7 +148,7 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Профессии");
     }
 
     @Override
@@ -157,5 +159,19 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList("Id", Coder.encodingRUS("Название"))
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name")
+        );
     }
 }

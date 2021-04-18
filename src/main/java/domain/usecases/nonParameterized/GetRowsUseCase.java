@@ -1,5 +1,6 @@
 package domain.usecases.nonParameterized;
 
+import data.Coder;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 import domain.DataReceiver;
@@ -22,7 +23,7 @@ public class GetRowsUseCase implements NonParamUseCase {
         Thread thread = new Thread(() -> {
             ArrayList<Row> rowArrayList = dataBaseRepository.getRows();
             if (rowArrayList== null) {
-                dataReceiver.onDataError("Error with getting rows");
+                dataReceiver.onDataError(Coder.encodingRUS("Не удалось получить строки таблицы"));
             } else {
                 dataReceiver.onDataSuccess(rowArrayList);
             }

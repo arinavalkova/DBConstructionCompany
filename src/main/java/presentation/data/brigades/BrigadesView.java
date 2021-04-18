@@ -50,5 +50,4 @@ public class BrigadesView implements View {
         nextButton.setOnAction(event -> brigadesViewModel.goNext());
         loadTestDataButton.setOnAction(event -> brigadesViewModel.loadTestData());
     }
-
 }

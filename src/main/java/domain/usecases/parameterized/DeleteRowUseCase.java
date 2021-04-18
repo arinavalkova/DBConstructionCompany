@@ -1,5 +1,6 @@
 package domain.usecases.parameterized;
 
+import data.Coder;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 
@@ -17,9 +18,9 @@ public class DeleteRowUseCase implements ParamUseCase {
     public Object invoke(Object object) {
         Thread thread = new Thread(() -> {
             if (!dataBaseRepository.deleteRow((Integer) object)) {
-                answerReceiver.onAnswerError("Error with deleting");
+                answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось удалить"));
             } else {
-                answerReceiver.onAnswerSuccess("Successfully deleted");
+                answerReceiver.onAnswerSuccess(Coder.encodingRUS("Успешно удалено"));
             }
         });
         thread.start();

@@ -3,8 +3,10 @@ package domain.rows.people;
 import domain.rows.Row;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SectorsRow implements Row {
+
     private final int id;
     private final String name;
 

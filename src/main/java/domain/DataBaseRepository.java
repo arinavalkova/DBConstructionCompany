@@ -27,4 +27,8 @@ public interface DataBaseRepository {
     Row createRow(ArrayList<String> rowLines);
 
     ArrayList<String> getCheckName();
+
+    ArrayList<String> getColumnNames();
+
+    ArrayList<String> getFieldNames();
 }

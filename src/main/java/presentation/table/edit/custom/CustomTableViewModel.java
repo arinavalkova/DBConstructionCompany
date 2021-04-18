@@ -108,7 +108,8 @@ public class CustomTableViewModel implements AnswerReceiver {
                     return false;
                 }
             } else if (check.equals("BRIGADE_PROF")) {
-                if (!brigadeProfessionCheck(
+                if (!brigadeProfessionCheck
+                        (
                         Integer.parseInt(String.valueOf(rowList.get(rowList.size() - 2))),
                         Integer.parseInt(String.valueOf(rowList.get(rowList.size() - 1))))) {
                     answerProperty.setValue("Error: employee and foreman should have the same profession");

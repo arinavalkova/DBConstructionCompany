@@ -1,6 +1,7 @@
 package data.tables.people;
 
 import data.BaseTable;
+import data.Coder;
 import data.JDBCConnection;
 import domain.DataBaseRepository;
 import domain.rows.Row;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SectorAndBossTableImpl extends BaseTable implements DataBaseRepository {
 
@@ -142,7 +144,7 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
 
     @Override
     public String getTableName() {
-        return TABLE_NAME;
+        return Coder.encodingRUS("Участки и начальники");
     }
 
     @Override
@@ -155,5 +157,23 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
         ArrayList<String> list = new ArrayList<>();
         list.add("ENGINEER");
         return list;
+    }
+
+    @Override
+    public ArrayList<String> getColumnNames() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Id",
+                        Coder.encodingRUS("Id участка"),
+                        Coder.encodingRUS("Id начальника")
+                )
+        );
+    }
+
+    @Override
+    public ArrayList<String> getFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "sectorId", "bossId")
+        );
     }
 }
