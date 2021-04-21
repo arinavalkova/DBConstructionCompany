@@ -1,2 +1,15 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ8¹ÏË¾†/
+Œ
+java:S13197"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ïÚİ98û—×/
+W
+java:S1128":Remove this unused import 'domain.rows.people.SectorsRow'.(•ÏªÏ8û—×/
+U	java:S106("9Replace this use of System.out or System.err by a logger.(­Ï©8û—×/
+Z	java:S106)"9Replace this use of System.out or System.err by a logger.(”î¢øüÿÿÿÿ8û—×/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8û—×/
+H
+java:S1168="+Return an empty collection instead of null.(¥¹ï8û—×/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ8û—×/
+U	java:S106*"9Replace this use of System.out or System.err by a logger.(á¸››8û—×/
+H
+java:S1168J"+Return an empty collection instead of null.(¥¹ï8û—×/

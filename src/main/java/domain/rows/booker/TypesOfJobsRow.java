@@ -19,6 +19,8 @@ public class TypesOfJobsRow implements Row {
         this.name = list.get(1);
     }
 
+
+
     public int getId() {
         return id;
     }

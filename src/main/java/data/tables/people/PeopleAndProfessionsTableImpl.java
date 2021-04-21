@@ -18,6 +18,10 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
 
     private final static String TABLE_NAME = "people_and_professions";
 
+    public PeopleAndProfessionsTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         PeopleAndProfessionRow peopleAndProfessionRow = (PeopleAndProfessionRow) row;
@@ -143,7 +147,7 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
         if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Влад"), 0))) {
             return false;
         }
-        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Игорь"), 3))) {
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Артем"), 3))) {
             return false;
         }
         if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Сергей"), 0))) {
@@ -156,8 +160,13 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Работники и профессии");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override
@@ -175,7 +184,7 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
         return new ArrayList<>(
                 Arrays.asList(
                         "Id",
-                        Coder.encodingRUS("ФИО"),
+                        Coder.encodingRUS("ФoО"),
                         Coder.encodingRUS("Id профессии")
                 )
         );

@@ -18,6 +18,10 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
 
     private final static String TABLE_NAME = "boss_and_employees";
 
+    public BossAndEmployeesTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         BossAndEmployeesRow bossAndEmployeesRow = (BossAndEmployeesRow) row;
@@ -157,8 +161,13 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Начальники и работники");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override

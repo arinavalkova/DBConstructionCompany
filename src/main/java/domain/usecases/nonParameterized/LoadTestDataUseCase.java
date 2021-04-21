@@ -49,6 +49,9 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         this.repositoryArrayList.add(new TechniquesTableImpl());
         this.repositoryArrayList.add(new TypesOfJobsTableImpl());
 
+        //this.repositoryArrayList.add(new ObjectsTableImpl());
+        //this.repositoryArrayList.add(new ObjectsAndTechnicsTableImpl());
+
         this.answerReceiver = answerReceiver;
     }
 
@@ -64,13 +67,13 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось удалить старую таблицу ") +
-                                        currentRepository.getTableName()
+                                        currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                     } else {
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Удалена старая таблица ") +
-                                        currentRepository.getTableName()
+                                        currentRepository.getUITableName()
                         );
                     }
                 }
@@ -82,14 +85,14 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось создать новую таблицу ")
-                                + currentRepository.getTableName()
+                                + currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     } else {
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Создана новая таблица ")
-                                        + currentRepository.getTableName()
+                                        + currentRepository.getUITableName()
                         );
                     }
                 }
@@ -99,14 +102,14 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось создать триггер автоинкрементации id для ")
-                                + currentRepository.getTableName()
+                                + currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     } else {
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Создан триггер автоинкрементации id для ")
-                                        + currentRepository.getTableName()
+                                        + currentRepository.getUITableName()
                         );
                     }
                 }
@@ -116,14 +119,14 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось загрузить тестовые данные для ") +
-                                        currentRepository.getTableName()
+                                        currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
                     } else {
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Загружены тестовые данные для ") +
-                                        currentRepository.getTableName()
+                                        currentRepository.getUITableName()
                         );
                     }
                 }

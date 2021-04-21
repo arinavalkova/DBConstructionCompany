@@ -18,6 +18,10 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
 
     private final static String TABLE_NAME = "organizat_and_managments";
 
+    public OrganizationsAndManagementTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         OrganizationsAndManagementRow organizationsAndManagementRow = (OrganizationsAndManagementRow) row;
@@ -143,8 +147,13 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Организации и управления");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override

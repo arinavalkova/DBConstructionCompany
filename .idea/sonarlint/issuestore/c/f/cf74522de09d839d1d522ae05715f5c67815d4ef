@@ -1,21 +1,21 @@
 
-
-java:S1319Q"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(œü÷¤8Ê‚é·Œ/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8Ÿ›´ø‹/
-L
-java:S1066o"/Merge this if statement with the enclosing one.(à”ï8‰ëúŒ/
-”
-java:S1319`"rThe type of the "rowList" object should be an interface such as "List" rather than the implementation "ArrayList".(ø×îîşÿÿÿÿ8ñˆ›úŒ/
-•
-java:S1319L"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(‰ã¾šıÿÿÿÿ8¼³ç¶Œ/
 b
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ÿ›´ø‹/
-Z	java:S106c"9Replace this use of System.out or System.err by a logger.(‰œ¼ãşÿÿÿÿ8Œ›ÂûŒ/
-•
-java:S1319G"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒàÿÜúÿÿÿÿ8èßŞ¶Œ/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
+
+java:S1319Q"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(œü÷¤8Ê‚é·Œ/
 •
 java:S1319Y"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(öÀ’×şÿÿÿÿ8©Å¥ÉŒ/
+”
+java:S1319`"rThe type of the "rowList" object should be an interface such as "List" rather than the implementation "ArrayList".(ø×îîşÿÿÿÿ8ñˆ›úŒ/
 U	java:S106}"9Replace this use of System.out or System.err by a logger.(Ô£Â€8Ó˜½ûŒ/
+•
+java:S1319G"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒàÿÜúÿÿÿÿ8èßŞ¶Œ/
+Z	java:S106c"9Replace this use of System.out or System.err by a logger.(‰œ¼ãşÿÿÿÿ8Œ›ÂûŒ/
+•
+java:S1319L"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(‰ã¾šıÿÿÿÿ8¼³ç¶Œ/
+L
+java:S1066o"/Merge this if statement with the enclosing one.(à”ï8‰ëúŒ/

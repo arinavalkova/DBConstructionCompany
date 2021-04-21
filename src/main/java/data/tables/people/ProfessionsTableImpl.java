@@ -18,6 +18,10 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
 
     private final static String TABLE_NAME = "professions";
 
+    public ProfessionsTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         ProfessionsRow professionsRow = (ProfessionsRow) row;
@@ -147,8 +151,13 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Профессии");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override

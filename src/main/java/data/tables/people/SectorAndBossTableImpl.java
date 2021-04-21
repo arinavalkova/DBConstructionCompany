@@ -18,6 +18,10 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
 
     private final static String TABLE_NAME = "sector_and_boss";
 
+    public SectorAndBossTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         SectorAndBossRow sectorAndBossRow = (SectorAndBossRow) row;
@@ -143,8 +147,13 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Участки и начальники");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override

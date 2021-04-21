@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class ShowTableView implements View {
 
+
     private final ShowTableViewModel showTableViewModel;
 
     private final ArrayList<String> classFieldsNames;
@@ -35,7 +36,7 @@ public class ShowTableView implements View {
             int tableHeight) {
         this.classFieldsNames = repository.getFieldNames();
         this.columnNames = repository.getColumnNames();
-        this.tableName = repository.getTableName();
+        this.tableName = repository.getUITableName();
         this.tableHeight = tableHeight;
 
         this.showTableViewModel = new ShowTableViewModel(repository);

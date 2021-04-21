@@ -18,6 +18,10 @@ public class SectorsTableImpl extends BaseTable implements DataBaseRepository {
 
     private final static String TABLE_NAME = "sectors";
 
+    public SectorsTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         SectorsRow sectorsRow = (SectorsRow) row;
@@ -138,8 +142,13 @@ public class SectorsTableImpl extends BaseTable implements DataBaseRepository {
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Участки");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override

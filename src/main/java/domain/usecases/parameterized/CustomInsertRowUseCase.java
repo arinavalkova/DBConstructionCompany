@@ -5,7 +5,6 @@ import data.JDBCConnection;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 import domain.usecases.parameterized.queries.GetIdByFiledUseCase;
-import domain.usecases.parameterized.queries.people.GetProfessionByNameUseCase;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -49,14 +48,14 @@ public class CustomInsertRowUseCase implements ParamUseCase {
                     JDBCConnection.getConnection().rollback();
                     answerReceiver.onAnswerError(
                             Coder.encodingRUS("Не удалось добавить строку в  ")
-                                    + secondRepository.getTableName()
+                                    + secondRepository.getUITableName()
                     );
                     JDBCConnection.getConnection().setAutoCommit(true);
                     return;
                 } else {
                     answerReceiver.onAnswerSuccess(
                             Coder.encodingRUS("Добавлена строка в ")
-                                    + secondRepository.getTableName()
+                                    + secondRepository.getUITableName()
                                     + Coder.encodingRUS("с id=")
                                     + id
                     );
@@ -74,14 +73,14 @@ public class CustomInsertRowUseCase implements ParamUseCase {
                     JDBCConnection.getConnection().rollback();
                     answerReceiver.onAnswerError(
                             Coder.encodingRUS("Не удалось добавить строку в ")
-                                    + firstRepository.getTableName()
+                                    + firstRepository.getUITableName()
                     );
                     JDBCConnection.getConnection().setAutoCommit(true);
                     return;
                 } else {
                     answerReceiver.onAnswerError(
                             Coder.encodingRUS("Строка добавлена в ")
-                                    + firstRepository.getTableName()
+                                    + firstRepository.getUITableName()
                                     + Coder.encodingRUS("с id=")
                                     + id
                     );

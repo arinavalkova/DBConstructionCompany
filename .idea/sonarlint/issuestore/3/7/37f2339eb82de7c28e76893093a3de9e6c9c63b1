@@ -1,23 +1,23 @@
 
-H
-java:S1168]"+Return an empty collection instead of null.(¥¹ï8ÒÍã‚Œ/
-q
-java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
 q
 java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
 q
-java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
-H
-java:S1168e"+Return an empty collection instead of null.(¥¹ï8ÒÍã‚Œ/
-d
-java:S1126†"AReplace this if-then-else statement by a single return statement.(Â÷º¾úÿÿÿÿ8Ş¦õ‚Œ/
-i
-java:S2095w"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8ÒÍã‚Œ/
+java:S2095Z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
 b
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(®ãŸÁ8ÒÍã‚Œ/
-q
-java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
-q
-java:S2095Z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
+d
+java:S1126†"AReplace this if-then-else statement by a single return statement.(Â÷º¾úÿÿÿÿ8Ş¦õ‚Œ/
 q
 java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
+q
+java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
+H
+java:S1168]"+Return an empty collection instead of null.(¥¹ï8ÒÍã‚Œ/
+H
+java:S1168e"+Return an empty collection instead of null.(¥¹ï8ÒÍã‚Œ/
+q
+java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/
+i
+java:S2095w"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8ÒÍã‚Œ/
+q
+java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8ÒÍã‚Œ/

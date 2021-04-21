@@ -6,23 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DataBaseRepository {
+
     boolean insertRow(Row row);
 
     boolean createTable();
 
-    boolean deleteTable();
-
     boolean updateRow(Row row);
-
-    boolean deleteRow(int id);
 
     ArrayList<Row> getRows();
 
-    boolean createIdAutoIncrementTrigger();
-
     boolean loadTestData();
 
-    String getTableName();
+    String getUITableName();
 
     Row createRow(ArrayList<String> rowLines);
 

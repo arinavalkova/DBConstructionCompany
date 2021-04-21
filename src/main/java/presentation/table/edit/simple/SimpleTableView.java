@@ -52,7 +52,7 @@ public class SimpleTableView implements View {
     public SimpleTableView(DataBaseRepository repository) {
         this.classFieldNames = repository.getFieldNames();
         this.columnNames = repository.getColumnNames();
-        this.tableName = repository.getTableName();
+        this.tableName = repository.getUITableName();
         this.repository = repository;
 
         this.simpleTableViewModel = new SimpleTableViewModel(repository);

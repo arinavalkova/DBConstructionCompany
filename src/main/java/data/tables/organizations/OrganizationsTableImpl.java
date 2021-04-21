@@ -18,6 +18,10 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
 
     private final static String TABLE_NAME = "organizations";
 
+    public OrganizationsTableImpl(String TABLE_NAME) {
+        super(TABLE_NAME);
+    }
+
     @Override
     public boolean insertRow(Row row) {
         OrganizationsRow organizationsRow = (OrganizationsRow) row;
@@ -135,8 +139,13 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
     }
 
     @Override
-    public String getTableName() {
+    public String getUITableName() {
         return Coder.encodingRUS("Организации");
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
     }
 
     @Override
