@@ -16,11 +16,7 @@ import java.util.Arrays;
 
 public class OrganizationsAndManagementTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "organizat_and_managments";
-
-    public OrganizationsAndManagementTableImpl(String TABLE_NAME) {
-        super(TABLE_NAME);
-    }
+    private final static String TABLE_NAME = "organ_and_manag";
 
     @Override
     public boolean insertRow(Row row) {
@@ -29,12 +25,10 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
                 + ", " + organizationsAndManagementRow.getOrganizationId() +
                 ", " + organizationsAndManagementRow.getManagementId() + ")";
         try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            preStatement.executeQuery();
+            return executeQuery(sql) != null;
         } catch (SQLException throwables) {
             return false;
         }
-        return true;
     }
 
     @Override
@@ -43,24 +37,10 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
                 + " foreign key (organization_id)" + " references organizations (id) on delete cascade, "
                 + " foreign key (management_id)" + " references managements (id) on delete cascade)";
         try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            preStatement.executeQuery();
+            return executeQuery(sql) != null;
         } catch (SQLException throwables) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public boolean deleteTable() {
-        String sql = "drop table " + TABLE_NAME;
-        try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            preStatement.executeQuery();
-        } catch (SQLException throwables) {
-            return false;
-        }
-        return true;
     }
 
     @Override
@@ -70,72 +50,15 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
                 + " , management_id = " + organizationsAndManagementRow.getManagementId()
                 + " WHERE id = " + organizationsAndManagementRow.getId();
         try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            preStatement.executeQuery();
+            return executeQuery(sql) != null;
         } catch (SQLException throwables) {
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public boolean deleteRow(int id) {
-        String sql = "DELETE FROM " + TABLE_NAME + " WHERE id = " + id;
-        try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            preStatement.executeQuery();
-        } catch (SQLException throwables) {
-            return false;
-        }
-        return true;
     }
 
     @Override
     public ArrayList<Row> getRows() {
-        String sql = "SELECT * FROM " + TABLE_NAME;
-        ResultSet resultSet;
-        try {
-            PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
-            resultSet = preStatement.executeQuery();
-        } catch (SQLException throwables) {
-            return null;
-        }
-        ArrayList<Row> rowArrayList = new ArrayList<>();
-        while (true) {
-            try {
-                if (!resultSet.next()) break;
-                rowArrayList.add(new OrganizationsAndManagementRow(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("organization_id"),
-                        resultSet.getInt("management_id")
-                ));
-            } catch (SQLException throwables) {
-                return null;
-            }
-        }
-        return rowArrayList;
-    }
-
-    @Override
-    public boolean createIdAutoIncrementTrigger() {
-        String dropSeq = "DROP SEQUENCE organ_and_managment_seq";
-        String createSeq = "CREATE SEQUENCE organ_and_managment_seq minvalue 0";
-        String trigger = "CREATE OR REPLACE TRIGGER organ_and_managment_auto\n" +
-                "BEFORE INSERT ON organizat_and_managments\n" +
-                "FOR EACH ROW\n" +
-                "BEGIN\n" +
-                "SELECT organ_and_managment_seq.NextVal INTO :new.ID FROM dual;\n" +
-                "END;";
-
-        try {
-            Statement statement = JDBCConnection.getConnection().createStatement();
-            statement.executeUpdate(dropSeq);
-            statement.executeUpdate(createSeq);
-            statement.executeUpdate(trigger);
-        } catch (SQLException throwables) {
-            return false;
-        }
-        return true;
+        return getArrayOfRows(this);
     }
 
     @Override
@@ -144,6 +67,31 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean deleteTable() {
+        String sql = "drop table " + getSQLTableName();
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRow(int id) {
+        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        return createTrigger(getSQLTableName());
     }
 
     @Override

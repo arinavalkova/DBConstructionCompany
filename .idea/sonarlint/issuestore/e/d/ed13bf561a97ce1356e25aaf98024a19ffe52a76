@@ -1,25 +1,12 @@
 
-q
-java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
 H
-java:S1168]"+Return an empty collection instead of null.(¥¹ï8¢éÏúŒ/
-H
-java:S1168e"+Return an empty collection instead of null.(¥¹ï8Í§‰ƒŒ/
-I
-java:S1168•"+Return an empty collection instead of null.(¥¹ï8Í§‰ƒŒ/
+java:S1168i"+Return an empty collection instead of null.(¥¹ï8Í§‰ƒŒ/
 _
-java:S1126ƒ"AReplace this if-then-else statement by a single return statement.(ı…‚š8°İ‘ƒŒ/
-i
-java:S2095w"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8Í§‰ƒŒ/
+java:S1126‡"AReplace this if-then-else statement by a single return statement.(ı…‚š8°İ‘ƒŒ/
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÔßÎëşÿÿÿÿ8Í§‰ƒŒ/
-q
-java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
-q
-java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
-q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
-q
-java:S2095'"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
-q
-java:S2095Z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8Í§‰ƒŒ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óû¶ùÿÿÿÿ8ŒÅ¦¨/
+H
+java:S1168a"+Return an empty collection instead of null.(¥¹ï8¢éÏúŒ/
+I
+java:S1168"+Return an empty collection instead of null.(¥¹ï8Í§‰ƒŒ/

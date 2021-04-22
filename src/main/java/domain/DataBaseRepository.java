@@ -26,4 +26,12 @@ public interface DataBaseRepository {
     ArrayList<String> getColumnNames();
 
     ArrayList<String> getFieldNames();
+
+    String getSQLTableName();
+
+    boolean deleteTable();
+
+    boolean deleteRow(int id);
+
+    boolean createIdAutoIncrementTrigger();
 }

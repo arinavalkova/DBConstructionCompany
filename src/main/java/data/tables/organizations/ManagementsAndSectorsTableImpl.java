@@ -16,9 +16,7 @@ import java.util.Arrays;
 
 public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBaseRepository {
 
-    public ManagementsAndSectorsTableImpl() {
-        super("manag_and_sectors");
-    }
+    private final static String TABLE_NAME = "manag_and_sect";
 
     @Override
     public boolean insertRow(Row row) {
@@ -69,6 +67,36 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
+    }
+
+    @Override
+    public boolean deleteTable() {
+        String sql = "drop table " + getSQLTableName();
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRow(int id) {
+        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        return createTrigger(getSQLTableName());
     }
 
     @Override

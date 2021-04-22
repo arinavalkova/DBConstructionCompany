@@ -16,9 +16,7 @@ import java.util.Arrays;
 
 public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseRepository {
 
-    public BrigadeAndEmployeesTableImpl() {
-        super("brigade_and_empl");
-    }
+    private final static String TABLE_NAME = "brigade_and_empl";
 
     @Override
     public boolean insertRow(Row row) {
@@ -38,7 +36,7 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
                 "foreign key (brigade_id)" +
                 " references brigade_and_man (id) on delete cascade, " +
                 "foreign key (employee_id)" +
-                " references people_and_professions (id) on delete cascade )";
+                " references people_and_prof (id) on delete cascade )";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {
@@ -76,6 +74,36 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
+    }
+
+    @Override
+    public boolean deleteTable() {
+        String sql = "drop table " + getSQLTableName();
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRow(int id) {
+        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        return createTrigger(getSQLTableName());
     }
 
     @Override

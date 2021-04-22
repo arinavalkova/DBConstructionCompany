@@ -12,9 +12,7 @@ import java.util.Arrays;
 
 public class TechniquesTableImpl extends BaseTable implements DataBaseRepository {
 
-    public TechniquesTableImpl() {
-        super("techniques");
-    }
+    private final static String TABLE_NAME = "techniques";
 
     @Override
     public boolean insertRow(Row row) {
@@ -79,6 +77,36 @@ public class TechniquesTableImpl extends BaseTable implements DataBaseRepository
     @Override
     public ArrayList<String> getCheckName() {
         return null;
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
+    }
+
+    @Override
+    public boolean deleteTable() {
+        String sql = "drop table " + getSQLTableName();
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRow(int id) {
+        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        return createTrigger(getSQLTableName());
     }
 
     @Override

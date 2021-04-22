@@ -12,12 +12,6 @@ import java.util.ArrayList;
 
 public class BaseTable implements Closeable {
 
-    private final String TABLE_NAME;
-
-    public BaseTable(String TABLE_NAME) {
-        this.TABLE_NAME = TABLE_NAME;
-    }
-
     public void close() {
         try {
             if (JDBCConnection.getConnection() != null && !JDBCConnection.getConnection().isClosed())
@@ -81,31 +75,5 @@ public class BaseTable implements Closeable {
             }
         }
         return rowArrayList;
-    }
-
-    public String getSQLTableName() {
-        return TABLE_NAME;
-    }
-
-    public boolean deleteTable() {
-        String sql = "drop table " + getSQLTableName();
-        try {
-            return executeQuery(sql) != null;
-        } catch (SQLException throwables) {
-            return false;
-        }
-    }
-
-    public boolean deleteRow(int id) {
-        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
-        try {
-            return executeQuery(sql) != null;
-        } catch (SQLException throwables) {
-            return false;
-        }
-    }
-
-    public boolean createIdAutoIncrementTrigger() {
-        return createTrigger(getSQLTableName());
     }
 }

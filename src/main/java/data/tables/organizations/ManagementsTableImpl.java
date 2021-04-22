@@ -12,9 +12,7 @@ import java.util.Arrays;
 
 public class ManagementsTableImpl extends BaseTable implements DataBaseRepository {
 
-    public ManagementsTableImpl() {
-        super("managements");
-    }
+    private final static String TABLE_NAME = "managements";
 
     @Override
     public boolean insertRow(Row row) {
@@ -61,6 +59,36 @@ public class ManagementsTableImpl extends BaseTable implements DataBaseRepositor
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getSQLTableName() {
+        return TABLE_NAME;
+    }
+
+    @Override
+    public boolean deleteTable() {
+        String sql = "drop table " + getSQLTableName();
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRow(int id) {
+        String sql = "DELETE FROM " + getSQLTableName() + " WHERE id = " + id;
+        try {
+            return executeQuery(sql) != null;
+        } catch (SQLException throwables) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createIdAutoIncrementTrigger() {
+        return createTrigger(getSQLTableName());
     }
 
     @Override
