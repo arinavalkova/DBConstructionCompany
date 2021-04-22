@@ -45,4 +45,12 @@ public class DataEditingViewModel {
             e.printStackTrace();
         }
     }
+
+    public void loadEstimateEditingWindow() {
+        try {
+            SceneController.load("estimateEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

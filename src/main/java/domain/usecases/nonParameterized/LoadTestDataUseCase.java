@@ -7,6 +7,8 @@ import data.tables.booker.TechniquesTableImpl;
 import data.tables.booker.TypesOfJobsTableImpl;
 import data.tables.brigades.BrigadeAndEmployeesTableImpl;
 import data.tables.brigades.BrigadeAndForemanTableImpl;
+import data.tables.estimate.ObjectsAndTechnicsTableImpl;
+import data.tables.estimate.ObjectsTableImpl;
 import data.tables.organizations.ManagementsAndSectorsTableImpl;
 import data.tables.organizations.ManagementsTableImpl;
 import data.tables.organizations.OrganizationsAndManagementTableImpl;
@@ -49,8 +51,8 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         this.repositoryArrayList.add(new TechniquesTableImpl());
         this.repositoryArrayList.add(new TypesOfJobsTableImpl());
 
-        //this.repositoryArrayList.add(new ObjectsTableImpl());
-        //this.repositoryArrayList.add(new ObjectsAndTechnicsTableImpl());
+        this.repositoryArrayList.add(new ObjectsTableImpl());
+        this.repositoryArrayList.add(new ObjectsAndTechnicsTableImpl());
 
         this.answerReceiver = answerReceiver;
     }

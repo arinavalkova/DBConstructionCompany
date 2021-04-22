@@ -133,4 +133,11 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
                 Arrays.asList("id", "name", "foremanId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name", "foreman_id")
+        );
+    }
 }

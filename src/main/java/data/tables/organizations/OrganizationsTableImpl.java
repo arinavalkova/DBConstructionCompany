@@ -124,4 +124,11 @@ public class OrganizationsTableImpl extends BaseTable implements DataBaseReposit
                 Arrays.asList("id", "name")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name")
+        );
+    }
 }

@@ -125,4 +125,11 @@ public class TechniquesTableImpl extends BaseTable implements DataBaseRepository
                 Arrays.asList("id", "name")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name")
+        );
+    }
 }

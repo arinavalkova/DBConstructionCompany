@@ -145,4 +145,11 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
                 Arrays.asList("id", "bossId", "employeeId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "boss_id", "employee_id")
+        );
+    }
 }

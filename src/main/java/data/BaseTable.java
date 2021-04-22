@@ -61,7 +61,7 @@ public class BaseTable implements Closeable {
             return null;
         }
         ArrayList<Row> rowArrayList = new ArrayList<>();
-        ArrayList<String> fieldsNames = dataBaseRepository.getFieldNames();
+        ArrayList<String> fieldsNames = dataBaseRepository.getSQLFieldNames();
         while (true) {
             try {
                 if (!resultSet.next()) break;

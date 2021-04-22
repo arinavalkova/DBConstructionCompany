@@ -134,4 +134,11 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
                 Arrays.asList("id", "sectorId", "bossId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "sector_id", "boss_id")
+        );
+    }
 }

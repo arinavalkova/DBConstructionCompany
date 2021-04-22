@@ -131,4 +131,11 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
                 Arrays.asList("id", "managementId", "sectorId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "management_id", "sector_id")
+        );
+    }
 }

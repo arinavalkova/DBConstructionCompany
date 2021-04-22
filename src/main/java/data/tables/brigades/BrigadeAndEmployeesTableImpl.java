@@ -140,4 +140,11 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
                 Arrays.asList("id", "brigadeId", "employeeId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "brigade_id", "employee_id")
+        );
+    }
 }

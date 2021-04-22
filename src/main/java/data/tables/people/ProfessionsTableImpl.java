@@ -135,4 +135,11 @@ public class ProfessionsTableImpl extends BaseTable implements DataBaseRepositor
                 Arrays.asList("id", "name")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name")
+        );
+    }
 }

@@ -34,4 +34,6 @@ public interface DataBaseRepository {
     boolean deleteRow(int id);
 
     boolean createIdAutoIncrementTrigger();
+
+    ArrayList<String> getSQLFieldNames();
 }

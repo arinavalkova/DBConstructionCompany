@@ -131,4 +131,11 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
                 Arrays.asList("id", "organizationId", "managementId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "organization_id", "management_id")
+        );
+    }
 }

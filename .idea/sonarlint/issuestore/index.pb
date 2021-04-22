@@ -185,5 +185,3 @@ s
 Csrc/main/java/data/tables/estimate/ObjectsAndTechnicsTableImpl.java,d\c\dc561da43dd83f2534013c8c8094b79f5575a4e7
 b
 2src/main/java/domain/rows/estimate/ObjectsRow.java,4\2\42956a1a107b4abf6bfd5e0958b9beeed6833bea
-V
-&src/main/resources/estimateEditor.fxml,0\f\0fc2e9f492ee2bfb4a2ea36e2ad1633c68b81969

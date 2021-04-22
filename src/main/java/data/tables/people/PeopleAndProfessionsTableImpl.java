@@ -141,4 +141,11 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
                 Arrays.asList("id", "name", "professionId")
         );
     }
+
+    @Override
+    public ArrayList<String> getSQLFieldNames() {
+        return new ArrayList<>(
+                Arrays.asList("id", "name", "profession_id")
+        );
+    }
 }
