@@ -71,13 +71,13 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
         if (!insertRow(new BossAndEmployeesRow(0, 0, 4))) {
             return false;
         }
-        if (!insertRow(new BossAndEmployeesRow(0, 1, 3))) {
+        if (!insertRow(new BossAndEmployeesRow(0, 6, 6))) {
             return false;
         }
-        if (!insertRow(new BossAndEmployeesRow(0, 1, 5))) {
+        if (!insertRow(new BossAndEmployeesRow(0, 6, 7))) {
             return false;
         }
-        if (!insertRow(new BossAndEmployeesRow(0, 1, 1))) {
+        if (!insertRow(new BossAndEmployeesRow(0, 6, 8))) {
             return false;
         }
         return true;

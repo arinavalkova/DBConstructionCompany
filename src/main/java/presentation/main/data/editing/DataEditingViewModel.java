@@ -16,7 +16,7 @@ public class DataEditingViewModel {
 
     public void loadPeopleEditingWindow() {
         try {
-            SceneController.load("peopleEditor.fxml");
+            SceneController.load("editors/peopleEditor.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -24,7 +24,7 @@ public class DataEditingViewModel {
 
     public void loadOrganizationsEditingWindow() {
         try {
-            SceneController.load("organizationsEditor.fxml");
+            SceneController.load("editors/organizationsEditor.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,7 +32,7 @@ public class DataEditingViewModel {
 
     public void loadBrigadesEditingWindow() {
         try {
-            SceneController.load("brigadesEditor.fxml");
+            SceneController.load("editors/brigadesEditor.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class DataEditingViewModel {
 
     public void loadBookerEditingWindow() {
         try {
-            SceneController.load("bookerEditor.fxml");
+            SceneController.load("editors/bookerEditor.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +48,23 @@ public class DataEditingViewModel {
 
     public void loadEstimateEditingWindow() {
         try {
-            SceneController.load("estimateEditor.fxml");
+            SceneController.load("editors/estimateEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAdminPeopleEditorButton() {
+        try {
+            SceneController.load("admin/peopleAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAdminWorkEditorButton() {
+        try {
+            SceneController.load("admin/workAdmin.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

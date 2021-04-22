@@ -17,19 +17,7 @@ import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
 
-public class EstimateViewModel implements AnswerReceiver {
-
-    private final StringProperty answerProperty = new SimpleStringProperty();
-
-    private final LoadTestDataUseCase loadTestDataUseCase;
-
-    public EstimateViewModel() {
-        this.loadTestDataUseCase = new LoadTestDataUseCase(this);
-    }
-
-    public ObservableValue<String> getAnswerProperty() {
-        return answerProperty;
-    }
+public class EstimateViewModel {
 
     public void goBack() {
         try {
@@ -37,14 +25,6 @@ public class EstimateViewModel implements AnswerReceiver {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void goNext() {
-        //TODO
-    }
-
-    public void loadTestData() {
-        loadTestDataUseCase.invoke();
     }
 
     public void loadAreasPane(Pane pane) {
@@ -71,14 +51,11 @@ public class EstimateViewModel implements AnswerReceiver {
         );
     }
 
-    @Override
-    public void onAnswerSuccess(String answer) {
-        Platform.runLater(() -> answerProperty.setValue(answer));
+    public void goToWorkAdminWindow() {
+        try {
+            SceneController.load("admin/workAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    @Override
-    public void onAnswerError(String answer) {
-        Platform.runLater(() -> answerProperty.setValue(answer));
-    }
-
 }

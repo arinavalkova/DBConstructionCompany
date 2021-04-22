@@ -14,16 +14,7 @@ public class EstimateView implements View {
     private Button backButton;
 
     @FXML
-    private Button nextButton;
-
-    @FXML
-    private Button loadTestDataButton;
-
-    @FXML
     private AnchorPane technicsPane;
-
-    @FXML
-    private Label answerLabel;
 
     @FXML
     private AnchorPane areasPane;
@@ -32,8 +23,10 @@ public class EstimateView implements View {
     private AnchorPane estimatePane;
 
     @FXML
+    private Button gotToWorkAdminButton;
+
+    @FXML
     void initialize() {
-        bind();
         initButtons();
         initPanes();
     }
@@ -44,13 +37,8 @@ public class EstimateView implements View {
         estimateViewModel.loadEstimatePane(estimatePane);
     }
 
-    private void bind() {
-        answerLabel.textProperty().bind(estimateViewModel.getAnswerProperty());
-    }
-
     private void initButtons() {
         backButton.setOnAction(event -> estimateViewModel.goBack());
-        nextButton.setOnAction(event -> estimateViewModel.goNext());
-        loadTestDataButton.setOnAction(event -> estimateViewModel.loadTestData());
+        gotToWorkAdminButton.setOnAction(event -> estimateViewModel.goToWorkAdminWindow());
     }
 }

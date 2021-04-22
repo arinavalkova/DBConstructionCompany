@@ -66,6 +66,9 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
         if (!insertRow(new ManagementsAndSectorsRow(0, 0, 0))) {
             return false;
         }
+        if (!insertRow(new ManagementsAndSectorsRow(0, 0, 1))) {
+            return false;
+        }
         return true;
     }
 

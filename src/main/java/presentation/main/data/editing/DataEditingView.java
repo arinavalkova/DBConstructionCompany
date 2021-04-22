@@ -21,10 +21,13 @@ public class DataEditingView implements View {
     private Button brigadesEditingButton;
 
     @FXML
-    private Button bookerEditingButton;
+    private Button estimateEditingButton;
 
     @FXML
-    private Button estimateEditingButton;
+    private Button adminPeopleEditorButton;
+
+    @FXML
+    private Button adminWorkEditorButton;
 
     @FXML
     void initialize() {
@@ -36,7 +39,8 @@ public class DataEditingView implements View {
         peopleEditingButton.setOnAction(event -> dataEditingViewModel.loadPeopleEditingWindow());
         organizationsEditingButton.setOnAction(event -> dataEditingViewModel.loadOrganizationsEditingWindow());
         brigadesEditingButton.setOnAction(event -> dataEditingViewModel.loadBrigadesEditingWindow());
-        bookerEditingButton.setOnAction(event -> dataEditingViewModel.loadBookerEditingWindow());
+        adminPeopleEditorButton.setOnAction(event -> dataEditingViewModel.loadAdminPeopleEditorButton());
+        adminWorkEditorButton.setOnAction(event -> dataEditingViewModel.loadAdminWorkEditorButton());
         estimateEditingButton.setOnAction(event -> dataEditingViewModel.loadEstimateEditingWindow());
     }
 }

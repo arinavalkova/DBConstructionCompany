@@ -9,15 +9,17 @@
 <AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.data.brigades.BrigadesView">
    <children>
       <Button fx:id="backButton" layoutX="36.0" layoutY="835.0" text="Назад" textFill="#ac47c6" />
-      <Button fx:id="nextButton" layoutX="1194.0" layoutY="835.0" text="Вперед" textFill="#ac47c6" />
-      <Button fx:id="loadTestDataButton" layoutX="695.0" layoutY="37.0" text="Обновить базу тестовыми данными" textFill="#ac47c6" />
-      <Label layoutX="989.0" layoutY="37.0" text="Менеджер по найму персонала" textFill="#161717">
+      <Label layoutX="527.0" layoutY="53.0" text="Менеджер по сбору бригад" textFill="#c6197e">
          <font>
-            <Font name="System Italic" size="20.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
       <AnchorPane fx:id="brigadesPane" layoutX="474.0" layoutY="286.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: #c8e6c9;" />
       <Label fx:id="answerLabel" layoutX="104.0" layoutY="840.0" prefHeight="21.0" prefWidth="1078.0" />
       <FlowPane fx:id="employeesPane" layoutX="226.0" layoutY="286.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #e8f5e9;" />
+      <Label layoutX="596.0" layoutY="241.0" text="Добавление новой бригады, бригадира и ее участников" />
+      <Label layoutX="427.0" layoutY="678.0" text="Вызовите менеджера персонала, если появился неизвестный человек" />
+      <Button fx:id="goToPeopleEditorButton" layoutX="427.0" layoutY="716.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="257.0" text="Вызвать менеджера персонала" />
+      <Label layoutX="29.0" layoutY="32.0" text="Чтобы просмотреть данные таблицы нажмите &quot;Обновить таблицу&quot;" />
    </children>
 </AnchorPane>

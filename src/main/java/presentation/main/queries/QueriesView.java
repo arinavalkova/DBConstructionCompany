@@ -13,10 +13,21 @@ public class QueriesView implements View {
     private Button backButton;
 
     @FXML
+    private Button getBossForSectorWindowButton;
+
+    @FXML
     void initialize()  {
         backButton.setOnAction(event -> {
             try {
                 SceneController.load("start.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        getBossForSectorWindowButton.setOnAction(event -> {
+            try {
+                SceneController.load("queries/getBossOfArea.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }

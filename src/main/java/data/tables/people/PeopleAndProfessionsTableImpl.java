@@ -76,6 +76,16 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
         if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Никита"), 3))) {
             return false;
         }
+
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Степан"), 1))) {
+            return false;
+        }
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Андрей"), 1))) {
+            return false;
+        }
+        if (!insertRow(new PeopleAndProfessionRow(0, Coder.encodingRUS("Владимир"), 1))) {
+            return false;
+        }
         return true;
     }
 

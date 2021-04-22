@@ -67,6 +67,9 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
         if (!insertRow(new SectorAndBossRow(0, 0, 0))) {
             return false;
         }
+        if (!insertRow(new SectorAndBossRow(0, 1, 6))) {
+            return false;
+        }
         return true;
     }
 

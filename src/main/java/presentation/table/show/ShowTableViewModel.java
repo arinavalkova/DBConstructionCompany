@@ -20,7 +20,7 @@ public class ShowTableViewModel implements DataReceiver {
     private final GetRowsUseCase getRowsUseCase;
 
     public ShowTableViewModel(DataBaseRepository dataBaseRepository) {
-        this.getRowsUseCase = new GetRowsUseCase(dataBaseRepository, this);
+        this.getRowsUseCase = new GetRowsUseCase(dataBaseRepository, this, rowProperty);
     }
 
     public Property<ObservableList<Row>> getRowProperty() {
@@ -32,12 +32,12 @@ public class ShowTableViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object) {
-        Platform.runLater(() -> rowProperty.setValue(FXCollections.observableArrayList((List<Row>) object)));
+    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+        Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer) {
-        Platform.runLater(() -> rowProperty.setValue(FXCollections.observableArrayList()));
+    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+        Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class ShowTableView implements View {
 
-
     private final ShowTableViewModel showTableViewModel;
 
     private final ArrayList<String> classFieldsNames;

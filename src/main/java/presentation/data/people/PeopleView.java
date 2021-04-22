@@ -14,12 +14,6 @@ public class PeopleView implements View {
     private Button backButton;
 
     @FXML
-    private Button nextButton;
-
-    @FXML
-    private Button loadTestDataButton;
-
-    @FXML
     private AnchorPane bossAndEmployeesPane;
 
     @FXML
@@ -29,14 +23,16 @@ public class PeopleView implements View {
     private AnchorPane peopleAndProfessionsPane;
 
     @FXML
-    private Label answerLabel;
+    private AnchorPane sectorsAndBossPane;
 
     @FXML
     private AnchorPane sectorsPane;
 
     @FXML
+    private Button goToAdminButton;
+
+    @FXML
     void initialize() {
-        bind();
         initButtons();
         loadTables();
     }
@@ -45,16 +41,12 @@ public class PeopleView implements View {
         peopleViewModel.loadProfessionsTable(professionsPane);
         peopleViewModel.loadPeopleAndProfessionsTable(peopleAndProfessionsPane);
         peopleViewModel.loadBossAndEmployeeTable(bossAndEmployeesPane);
+        peopleViewModel.loadSectorsAndBossTable(sectorsAndBossPane);
         peopleViewModel.loadSectorsTable(sectorsPane);
-    }
-
-    private void bind() {
-        answerLabel.textProperty().bind(peopleViewModel.getAnswerProperty());
     }
 
     private void initButtons() {
         backButton.setOnAction(event -> peopleViewModel.goBack());
-        nextButton.setOnAction(event -> peopleViewModel.goNext());
-        loadTestDataButton.setOnAction(event -> peopleViewModel.loadTestData());
+        goToAdminButton.setOnAction(event -> peopleViewModel.goToAdmin());
     }
 }

@@ -4,7 +4,6 @@ import data.tables.brigades.BrigadeAndEmployeesTableImpl;
 import data.tables.brigades.BrigadeAndForemanTableImpl;
 import data.tables.people.PeopleAndProfessionsTableImpl;
 import domain.AnswerReceiver;
-import domain.DataBaseRepository;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,21 +15,12 @@ import presentation.table.edit.custom.CustomTableView;
 import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class BrigadesViewModel implements AnswerReceiver {
-
-    private final StringProperty answerProperty = new SimpleStringProperty();
-
-    private final LoadTestDataUseCase loadTestDataUseCase;
+public class BrigadesViewModel {
 
     private final BrigadeAndEmployeesTableImpl brigadeAndEmployeesTable = new BrigadeAndEmployeesTableImpl();
     private final BrigadeAndForemanTableImpl brigadeAndForemanTable = new BrigadeAndForemanTableImpl();
     private final PeopleAndProfessionsTableImpl peopleAndProfessionsTable = new PeopleAndProfessionsTableImpl();
-
-    public BrigadesViewModel() {
-        this.loadTestDataUseCase = new LoadTestDataUseCase(this);
-    }
 
     public void goBack() {
         try {
@@ -38,28 +28,6 @@ public class BrigadesViewModel implements AnswerReceiver {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void goNext() {
-        //TODO
-    }
-
-    @Override
-    public void onAnswerSuccess(String answer) {
-        Platform.runLater(() -> answerProperty.setValue(answer));
-    }
-
-    @Override
-    public void onAnswerError(String answer) {
-        Platform.runLater(() -> answerProperty.setValue(answer));
-    }
-
-    public ObservableValue<String> getAnswerProperty() {
-        return answerProperty;
-    }
-
-    public void loadTestData() {
-        loadTestDataUseCase.invoke();
     }
 
     public void loadEmployeesPane(Pane pane) {
@@ -76,5 +44,13 @@ public class BrigadesViewModel implements AnswerReceiver {
                 "customTableEditor.fxml",
                 pane
         );
+    }
+
+    public void goToPeopleEditorWindow() {
+        try {
+            SceneController.load("editors/peopleEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

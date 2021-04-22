@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.queries.querie1.GetBossOfAreaView">
+   <children>
+      <Label layoutX="57.0" layoutY="62.0" text="Получение списка специалистов инженерно-технического состава обозначенного участка или строительного управления с указанием их должностей." textFill="#a844a6" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TableView fx:id="managementTable" layoutX="117.0" layoutY="207.0" prefHeight="200.0" prefWidth="386.0">
+        <columns>
+          <TableColumn fx:id="managementsIdColumn" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="nameOfManagementColumn" prefWidth="309.9999694824219" text="Название управления" />
+        </columns>
+      </TableView>
+      <Label layoutX="219.0" layoutY="168.0" text="Строительные управления" />
+      <TableView fx:id="sectorsTable" layoutX="118.0" layoutY="483.0" prefHeight="200.0" prefWidth="386.0">
+         <columns>
+            <TableColumn fx:id="sectorsIdColumn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="sectorsNameColumn" prefWidth="310.0" text="Название участка" />
+         </columns>
+      </TableView>
+      <Label layoutX="283.0" layoutY="440.0" text="Участки" />
+      <TableView fx:id="resultTable" layoutX="712.0" layoutY="207.0" prefHeight="475.0" prefWidth="481.0">
+        <columns>
+          <TableColumn fx:id="nameOfResultColumn" prefWidth="205.0" text="ФИО" />
+          <TableColumn fx:id="professionOfResultColumn" prefWidth="275.0" text="Должность" />
+        </columns>
+      </TableView>
+      <Label layoutX="120.0" layoutY="796.0" text="Кликните на нужное управление или участок в таблицах выше" textFill="#eb0707" />
+      <Button fx:id="backButton" layoutX="41.0" layoutY="831.0" mnemonicParsing="false" text="Назад" />
+   </children>
+</AnchorPane>

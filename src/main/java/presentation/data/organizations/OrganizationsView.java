@@ -15,38 +15,30 @@ public class OrganizationsView implements View {
     private Button backButton;
 
     @FXML
-    private Button nextButton;
-
-    @FXML
-    private Button loadTestDataButton;
-
-    @FXML
     private AnchorPane organizationsPane;
 
     @FXML
     private AnchorPane managementsPane;
 
     @FXML
-    private Label answerLabel;
-
-    @FXML
     private FlowPane sectorsShowerPane;
 
     @FXML
+    private Button peopleAdminButton;
+
+    @FXML
+    private Button peopleEditorButton;
+
+    @FXML
     void initialize() {
-        bind();
         initButtons();
         initPanes();
     }
 
-    private void bind() {
-        answerLabel.textProperty().bind(organizationsViewModel.getAnswerProperty());
-    }
-
     private void initButtons() {
         backButton.setOnAction(event -> organizationsViewModel.goBack());
-        nextButton.setOnAction(event -> organizationsViewModel.goNext());
-        loadTestDataButton.setOnAction(event -> organizationsViewModel.loadTestData());
+        peopleAdminButton.setOnAction(event -> organizationsViewModel.goToPeopleAdminWindow());
+        peopleEditorButton.setOnAction(event -> organizationsViewModel.goToPeopleEditorWindow());
     }
 
     private void initPanes() {

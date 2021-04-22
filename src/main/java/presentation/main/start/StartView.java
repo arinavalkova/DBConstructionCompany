@@ -16,12 +16,24 @@ public class StartView implements View {
     private Button queriesButton;
 
     @FXML
+    private Button loadTestDataButton;
+
+    @FXML
+    private Label answerLabel;
+
+    @FXML
     void initialize() {
+        bind();
         initButtons();
+    }
+
+    private void bind() {
+        answerLabel.textProperty().bind(startViewModel.getAnswerProperty());
     }
 
     private void initButtons() {
         dataEditingButton.setOnAction(event -> startViewModel.startDataEditingWindow());
         queriesButton.setOnAction(event -> startViewModel.startQueriesWindow());
+        loadTestDataButton.setOnAction(event -> startViewModel.loadTestData());
     }
 }
