@@ -1,10 +1,13 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ8û—×/
-H
-java:S1168P"+Return an empty collection instead of null.(¥¹ï8û—×/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ª¿ƒùÿÿÿÿ8¦Êí§/
-H
-java:S1168C"+Return an empty collection instead of null.(¥¹ï8û—×/
-v	java:S116"URename this field "TABLE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ìëõÿÿÿÿÿ8¯³í§/
 Œ
-java:S1319="pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ïÚİ98û—×/
+java:S13199"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ïÚİ98û—×/
+H
+java:S1168L"+Return an empty collection instead of null.(¥¹ï8û—×/
+i
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÀõòÊÿÿÿÿÿ8±€¿Å/
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ô×Š®ûÿÿÿÿ8±€¿Å/
+H
+java:S1168?"+Return an empty collection instead of null.(¥¹ï8û—×/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Â–‘ö8øéÎæ/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(äÆÍÓùÿÿÿÿ8û—×/

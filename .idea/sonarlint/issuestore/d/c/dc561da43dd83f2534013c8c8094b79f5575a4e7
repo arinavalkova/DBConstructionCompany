@@ -1,5 +1,7 @@
 
-I
-java:S1128",Remove this unused import 'domain.rows.Row'.(—õ×«8Ì÷—¨/
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ì÷—¨/
+H
+java:S1168|"+Return an empty collection instead of null.(¥¹ï8Ã”‹Ç/
+c
+java:S1126L"AReplace this if-then-else statement by a single return statement.(ÎıØşÿÿÿÿ8ü—àÆ/
+a
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(›ÚÅ8Ã³äÆ/

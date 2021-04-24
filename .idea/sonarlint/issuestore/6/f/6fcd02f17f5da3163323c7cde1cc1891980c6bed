@@ -1,12 +1,7 @@
 
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ş¸£8öı¤¨/
-H
-java:S1168o"+Return an empty collection instead of null.(¥¹ï8ÿúç‰/
-d
-java:S1126œ"AReplace this if-then-else statement by a single return statement.(Ãš¡ºüÿÿÿÿ8ü‚’è‰/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(·¨Ì‘øÿÿÿÿ8 ÚŞç‰/
-H
-java:S1168d"+Return an empty collection instead of null.(¥¹ï8ÿúç‰/
+^
+java:S1126V"AReplace this if-then-else statement by a single return statement.(‡–àÚ8ü‚’è‰/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(“Ä¬ª8 ÚŞç‰/
 I
-java:S1168³"+Return an empty collection instead of null.(¥¹ï8‰ÅĞúŒ/
+java:S1168†"+Return an empty collection instead of null.(¥¹ï8‰ÅĞúŒ/

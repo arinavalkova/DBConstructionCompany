@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.data.estimate.EstimateView">
    <children>
       <Button fx:id="backButton" layoutX="36.0" layoutY="835.0" text="Назад" textFill="#ac47c6" />
-      <Label layoutX="561.0" layoutY="170.0" text="Составление смет" textFill="#c42fc9">
+      <Label layoutX="561.0" layoutY="170.0" text="Заведующий сметами" textFill="#c42fc9">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

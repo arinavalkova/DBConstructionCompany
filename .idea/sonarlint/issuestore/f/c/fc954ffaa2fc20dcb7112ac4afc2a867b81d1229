@@ -1,7 +1,14 @@
 
-S
-java:S1128	"6Remove this unused import 'domain.DataBaseRepository'.(©–ª¦8ÿÜıôŒ/
-O
-java:S11354"2Complete the task associated to this TODO comment.(…ïœ†8ºïÛ²Œ/
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8„Ê /
+s
+java:S1128	"QRemove this unused import 'domain.usecases.nonParameterized.LoadTestDataUseCase'.(¨Ÿ¿ùÿÿÿÿ8íËÎ/
+Z
+java:S1128
+"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8ÃâÆÏ/
+\
+java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8ÃâÆÏ/
+T
+java:S1128"2Remove this unused import 'domain.AnswerReceiver'.(·®Ÿıÿÿÿÿ8û€ÇÏ/
+^
+java:S1128"ARemove this unused import 'javafx.beans.property.StringProperty'.(Å‘ï±8ÛµÆÏ/
+d
+java:S1128"GRemove this unused import 'javafx.beans.property.SimpleStringProperty'.(ûĞùÑ8ÛµÆÏ/

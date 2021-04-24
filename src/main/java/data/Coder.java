@@ -15,7 +15,7 @@ public class Coder {
         byte[] bytes = null;
         try
         {
-            bytes = line.getBytes("Windows-1251");
+            bytes = line.getBytes("Cp1251");
             int bytesLength = bytes.length;
 
             for (int i = 0; i < bytesLength; i++)

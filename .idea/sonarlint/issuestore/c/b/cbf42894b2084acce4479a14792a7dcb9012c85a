@@ -1,5 +1,7 @@
 
-c
-java:S1126<"AReplace this if-then-else statement by a single return statement.(‹Ğ¬úûÿÿÿÿ8Á‚¢¨/
 H
-java:S1168N"+Return an empty collection instead of null.(¥¹ï8Á‚¢¨/
+java:S1168j"+Return an empty collection instead of null.(¥¹ï8Á‚¢¨/
+c
+java:S1126:"AReplace this if-then-else statement by a single return statement.(‹Ğ¬úûÿÿÿÿ8ˆ°¿Ì/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ğ£©±8¶¦Å/

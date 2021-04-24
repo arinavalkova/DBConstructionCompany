@@ -1,12 +1,16 @@
 
-I
-java:S1168¦"+Return an empty collection instead of null.(¥¹ï8…±¢ƒŒ/
+H
+java:S1168r"+Return an empty collection instead of null.(¥¹ï8…±¢ƒŒ/
+K
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8Ò¶ªÅ/
+Y
+java:S1128
+"7Remove this unused import 'java.sql.PreparedStatement'.(òÄ™ƒÿÿÿÿÿ8Ò¶ªÅ/
+L
+java:S1128"/Remove this unused import 'java.sql.Statement'.(ÏÖÔø8ÁèªÅ/
+R
+java:S1128"0Remove this unused import 'data.JDBCConnection'.(ˆÿ€Ğıÿÿÿÿ8ÁèªÅ/
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ƒç×Ú8…±¢ƒŒ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½·Éûüÿÿÿÿ8Íè¦¨/
-_
-java:S1126"AReplace this if-then-else statement by a single return statement.(µ±÷8ØÕ·ƒŒ/
-H
-java:S1168e"+Return an empty collection instead of null.(¥¹ï8…±¢ƒŒ/
-H
-java:S1168q"+Return an empty collection instead of null.(¥¹ï8€ÀÏúŒ/
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ú¯Ó²8…±¢ƒŒ/
+^
+java:S1126B"AReplace this if-then-else statement by a single return statement.(µ±÷8ØÕ·ƒŒ/

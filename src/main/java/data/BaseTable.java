@@ -22,6 +22,7 @@ public class BaseTable implements Closeable {
     }
 
     public ResultSet executeQuery(String sql) throws SQLException {
+        System.out.println(sql);
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             return preStatement.executeQuery();
     }
@@ -41,6 +42,7 @@ public class BaseTable implements Closeable {
                 "BEGIN\n" +
                 "    SELECT " + tableName + "_seq.NextVal INTO :new.ID FROM dual;\n" +
                 "END;";
+
         try {
             executeUpdate(dropSeq);
             executeUpdate(createSeq);
