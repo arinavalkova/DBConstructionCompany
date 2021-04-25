@@ -69,4 +69,20 @@ public class DataEditingViewModel {
             e.printStackTrace();
         }
     }
+
+    public void loadReportsEditingWindow() {
+        try {
+            SceneController.load("editors/reportEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadSchedulesEditingWindow() {
+        try {
+            SceneController.load("editors/scheduleEditor.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

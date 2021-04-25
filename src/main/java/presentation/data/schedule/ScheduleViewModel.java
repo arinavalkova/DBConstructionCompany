@@ -4,16 +4,16 @@ import data.tables.booker.MaterialsTableImpl;
 import data.tables.booker.TypesOfJobsTableImpl;
 import data.tables.brigades.BrigadeAndForemanTableImpl;
 import data.tables.estimate.ObjectsTableImpl;
-import javafx.scene.layout.AnchorPane;
+import data.tables.schedule.SchedulesTableImpl;
+import data.tables.schedule.TheoreticMaterialsTableImpl;
 import javafx.scene.layout.Pane;
 import presentation.SceneController;
+import presentation.table.edit.simple.SimpleTableView;
 import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
 
 public class ScheduleViewModel {
-
-
 
     public void goBack() {
         try {
@@ -24,11 +24,19 @@ public class ScheduleViewModel {
     }
 
     public void loadSchedulePane(Pane schedulePane) {
-
+        SceneController.loadControllerToFXMLAndPane(
+                new SimpleTableView(new SchedulesTableImpl()),
+                "simpleTableEditor.fxml",
+                schedulePane
+        );
     }
 
-    public void loadTeopeticMaterialsPane(Pane teoreticMaterialsPane) {
-
+    public void loadTheoreticMaterialsPane(Pane theoreticMaterialsPane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new SimpleTableView(new TheoreticMaterialsTableImpl()),
+                "simpleTableEditor.fxml",
+                theoreticMaterialsPane
+        );
     }
 
     public void loadMaterialsShowerPane(Pane materialsPane) {

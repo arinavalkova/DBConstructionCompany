@@ -41,7 +41,7 @@ public class ScheduleView implements View {
         scheduleViewModel.loadObjectsShowerPane(objectsPane);
         scheduleViewModel.loadTypesOfWorkShowerPane(typesOfWorkPane);
         scheduleViewModel.loadMaterialsShowerPane(materialsPane);
-        scheduleViewModel.loadTeopeticMaterialsPane(teoreticMaterialsPane);
+        scheduleViewModel.loadTheoreticMaterialsPane(teoreticMaterialsPane);
         scheduleViewModel.loadSchedulePane(schedulePane);
     }
 

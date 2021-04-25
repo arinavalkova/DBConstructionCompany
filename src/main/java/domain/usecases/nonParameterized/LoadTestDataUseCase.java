@@ -14,6 +14,11 @@ import data.tables.organizations.ManagementsTableImpl;
 import data.tables.organizations.OrganizationsAndManagementTableImpl;
 import data.tables.organizations.OrganizationsTableImpl;
 import data.tables.people.*;
+import data.tables.report.FactMaterialsTableImpl;
+import data.tables.report.FactTechnicsTableImpl;
+import data.tables.report.FactWorksTableImpl;
+import data.tables.schedule.SchedulesTableImpl;
+import data.tables.schedule.TheoreticMaterialsTableImpl;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 
@@ -53,6 +58,13 @@ public class LoadTestDataUseCase implements NonParamUseCase {
 
         this.repositoryArrayList.add(new ObjectsTableImpl());
         this.repositoryArrayList.add(new ObjectsAndTechnicsTableImpl());
+
+        this.repositoryArrayList.add(new SchedulesTableImpl());
+        this.repositoryArrayList.add(new TheoreticMaterialsTableImpl());
+
+        this.repositoryArrayList.add(new FactWorksTableImpl());
+        this.repositoryArrayList.add(new FactMaterialsTableImpl());
+        this.repositoryArrayList.add(new FactTechnicsTableImpl());
 
         this.answerReceiver = answerReceiver;
     }

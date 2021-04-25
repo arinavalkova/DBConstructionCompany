@@ -73,6 +73,7 @@ public class BaseTable implements Closeable {
                 }
                 rowArrayList.add(dataBaseRepository.createRow(resultList));
             } catch (SQLException throwables) {
+                throwables.printStackTrace();
                 return null;
             }
         }

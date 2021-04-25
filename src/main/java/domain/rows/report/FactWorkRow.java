@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Locale;
 
 public class FactWorkRow implements Row {
@@ -15,21 +14,21 @@ public class FactWorkRow implements Row {
 
     private final int id;
     private final int workId;
-    private final Date startDate;
-    private final Date endDate;
+    private final String startDate;
+    private final String endDate;
 
-    public FactWorkRow(int id, int workId, String startDate, String endDate) throws ParseException {
+    public FactWorkRow(int id, int workId, String startDate, String endDate) {
         this.id = id;
         this.workId = workId;
-        this.startDate = format.parse(startDate);
-        this.endDate = format.parse(endDate);
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
-    public FactWorkRow(ArrayList<String> list) throws ParseException {
+    public FactWorkRow(ArrayList<String> list) {
         this.id = Integer.parseInt(list.get(0));
         this.workId = Integer.parseInt(list.get(1));
-        this.startDate = format.parse(list.get(2));
-        this.endDate = format.parse(list.get(3));
+        this.startDate = list.get(2);
+        this.endDate = list.get(3);
     }
 
     public DateFormat getFormat() {
@@ -44,11 +43,11 @@ public class FactWorkRow implements Row {
         return workId;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 

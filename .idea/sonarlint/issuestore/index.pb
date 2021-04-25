@@ -155,8 +155,6 @@ U
 %src/main/resources/authorization.fxml,6\b\6b15158fc351428637abce6fa2e85646bb0ab54d
 Y
 )src/main/resources/customTableEditor.fxml,f\5\f54ef19ab97f292c83a933f4c1a159b0f9d7100e
-Y
-)src/main/resources/simpleTableEditor.fxml,9\7\97c3d0bd40ed0a5b246ee04cf4326fe19091ffaa
 M
 src/main/resources/start.fxml,8\0\80d6c35371e8aedf4ba0174efb7ecee9a4a9b466
 m
@@ -219,3 +217,17 @@ a
 1src/main/java/domain/rows/report/FactWorkRow.java,8\8\88b3c18a7c0d98d5f6508d7d759430fd07f0cb41
 e
 5src/main/java/domain/rows/report/FactTechnicsRow.java,0\6\064c9c09b53b12fd123d7e6f012b9827bcce77ea
+S
+#src/main/resources/dataEditing.fxml,2\d\2d7f1e0a39d4b311d289ea841274e2d003a76411
+^
+.src/main/resources/editors/estimateEditor.fxml,2\1\21f4cd31652331733ea7da496a0a179d16780cd7
+l
+<src/main/java/data/tables/report/FactMaterialsTableImpl.java,7\2\725e1d014de386ed0e8acda37182305f4969f2cf
+k
+;src/main/java/data/tables/report/FactTechnicsTableImpl.java,b\b\bb77391fc76e7e74fd8c1cf6778843d13c9e77fc
+h
+8src/main/java/data/tables/report/FactWorksTableImpl.java,7\8\78cab976e86bd85cf62c331deb1863f9b5e0e36a
+S
+#src/main/resources/querySender.fxml,6\8\6829d735cbbd4af87007cedc7ac0d1b7b11a0ec0
+N
+src/main/java/Yubileyiniy.java,e\9\e9a582ab7cf741b72cffdebec20d3f0ef72a6b36

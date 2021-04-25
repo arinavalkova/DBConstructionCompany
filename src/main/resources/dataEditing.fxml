@@ -11,4 +11,6 @@
    <Button fx:id="estimateEditingButton" layoutX="211.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Заведующий сметами" />
    <Button fx:id="adminPeopleEditorButton" layoutX="518.0" layoutY="97.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="404.0" text="Администратор по найму персонала и участкам" />
    <Button fx:id="adminWorkEditorButton" layoutX="518.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="311.0" text="Администратор по рабочему процессу" />
+   <Button fx:id="schedulesEditorButton" layoutX="518.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Заведующий графиками работ" />
+   <Button fx:id="reportsEditorButton" layoutX="818.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Заведующий отчетами" />
 </AnchorPane>

@@ -14,29 +14,27 @@ public class SchedulesRow implements Row {
     private final int id;
     private final int typesOfWorkId;
     private final int objectId;
-    private final Date startDate;
-    private final Date endDate;
+    private final String startDate;
+    private final String endDate;
     private final int brigadeId;
 
     private final DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
-    public SchedulesRow(int id, int typesOfWorkId, int objectId, String startDate, String endDate, int brigadeId) throws ParseException {
+    public SchedulesRow(int id, int typesOfWorkId, int objectId, String startDate, String endDate, int brigadeId) {
         this.id = id;
         this.typesOfWorkId = typesOfWorkId;
         this.objectId = objectId;
-
-        this.startDate = format.parse(startDate);
-        this.endDate = format.parse(endDate);
-
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.brigadeId = brigadeId;
     }
 
-    public SchedulesRow(ArrayList<String> list) throws ParseException {
+    public SchedulesRow(ArrayList<String> list) {
         this.id = Integer.parseInt(list.get(0));
         this.typesOfWorkId = Integer.parseInt(list.get(1));
         this.objectId = Integer.parseInt(list.get(2));
-        this.startDate = format.parse(list.get(3));
-        this.endDate = format.parse(list.get(4));
+        this.startDate = list.get(3);
+        this.endDate = list.get(4);
         this.brigadeId = Integer.parseInt(list.get(5));
     }
 
@@ -52,11 +50,11 @@ public class SchedulesRow implements Row {
         return objectId;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
@@ -71,7 +69,7 @@ public class SchedulesRow implements Row {
 
     @Override
     public String toString() {
-        return "types_of_work_id=" + typesOfWorkId +
+        return "type_of_work_id=" + typesOfWorkId +
                 "and object_id=" + objectId +
                 "and start_date=" + startDate +
                 "and end_date=" + endDate +

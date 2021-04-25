@@ -137,7 +137,7 @@ public class FactMaterialsTableImpl extends BaseTable implements DataBaseReposit
     @Override
     public ArrayList<String> getFieldNames() {
         return new ArrayList<>(
-                Arrays.asList("id", "workId", "materialId", "count")
+                Arrays.asList("id", "workId", "materialsId", "count")
         );
     }
 
