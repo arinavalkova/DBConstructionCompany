@@ -14,6 +14,7 @@ import data.tables.organizations.ManagementsTableImpl;
 import data.tables.organizations.OrganizationsAndManagementTableImpl;
 import data.tables.organizations.OrganizationsTableImpl;
 import data.tables.people.*;
+import data.tables.query.*;
 import data.tables.report.FactMaterialsTableImpl;
 import data.tables.report.FactTechnicsTableImpl;
 import data.tables.report.FactWorksTableImpl;
@@ -65,6 +66,12 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         this.repositoryArrayList.add(new FactWorksTableImpl());
         this.repositoryArrayList.add(new FactMaterialsTableImpl());
         this.repositoryArrayList.add(new FactTechnicsTableImpl());
+
+        this.repositoryArrayList.add(new QueryMaterialsTableImpl());
+        this.repositoryArrayList.add(new QueryProfessionsTableImpl());
+        this.repositoryArrayList.add(new QuerySectorsTableImpl());
+        this.repositoryArrayList.add(new QueryTechnicsTableImpl());
+        this.repositoryArrayList.add(new QueryTypesOfWorkTableImpl());
 
         this.answerReceiver = answerReceiver;
     }
