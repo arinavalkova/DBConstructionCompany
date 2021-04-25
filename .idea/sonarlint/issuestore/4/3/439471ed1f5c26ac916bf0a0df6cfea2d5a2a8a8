@@ -1,7 +1,7 @@
 
-H
-java:S1168m"+Return an empty collection instead of null.(¥¹ï8®ÚŸ/
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(³Ûñø8ó‚”Å/
 c
 java:S1126="AReplace this if-then-else statement by a single return statement.(¼ç„üøÿÿÿÿ8®ÚŸ/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(³Ûñø8ó‚”Å/
+H
+java:S1168m"+Return an empty collection instead of null.(¥¹ï8®ÚŸ/

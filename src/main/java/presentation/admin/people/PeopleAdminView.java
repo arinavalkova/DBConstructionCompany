@@ -19,6 +19,12 @@ public class PeopleAdminView {
     private AnchorPane professionsPane;
 
     @FXML
+    private AnchorPane profQueryPane;
+
+    @FXML
+    private AnchorPane sectorsQueryPane;
+
+    @FXML
     void initialize() {
         initButtons();
         loadTables();
@@ -27,6 +33,8 @@ public class PeopleAdminView {
     private void loadTables() {
         peopleAdminViewModel.loadProfessionsTable(professionsPane);
         peopleAdminViewModel.loadSectorsTable(sectorsPane);
+        peopleAdminViewModel.loadProfQueryPane(profQueryPane);
+        peopleAdminViewModel.loadSectorsQueryPane(sectorsQueryPane);
     }
 
     private void initButtons() {

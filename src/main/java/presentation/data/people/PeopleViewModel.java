@@ -1,10 +1,13 @@
 package presentation.data.people;
 
 import data.tables.people.*;
+import data.tables.query.QueryProfessionsTableImpl;
+import data.tables.query.QuerySectorsTableImpl;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import presentation.SceneController;
 import presentation.table.edit.simple.SimpleTableView;
+import presentation.table.sender.SenderQueryView;
 import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
@@ -70,6 +73,22 @@ public class PeopleViewModel {
                 new SimpleTableView(sectorAndBossTable),
                 "simpleTableEditor.fxml",
                 sectorsAndBossPane
+        );
+    }
+
+    public void loadProfQueryPane(Pane proffQueryPane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new SenderQueryView(new QueryProfessionsTableImpl(), "Запрос на профессию"),
+                "querySender.fxml",
+                proffQueryPane
+        );
+    }
+
+    public void loadSectorsQueryPane(Pane sectorsPane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new SenderQueryView(new QuerySectorsTableImpl(), "Запрос на участок"),
+                "querySender.fxml",
+                sectorsPane
         );
     }
 }

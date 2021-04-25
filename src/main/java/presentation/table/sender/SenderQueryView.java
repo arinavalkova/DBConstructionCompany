@@ -1,5 +1,6 @@
 package presentation.table.sender;
 
+import data.Coder;
 import domain.DataBaseRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,7 +37,7 @@ public class SenderQueryView implements View {
     }
 
     private void initLabel() {
-        label.setText(descriptionName);
+        label.setText(Coder.encodingRUS(descriptionName));
     }
 
     private void initButton() {

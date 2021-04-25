@@ -23,13 +23,19 @@ public class PeopleView implements View {
     private AnchorPane peopleAndProfessionsPane;
 
     @FXML
+    private Label answerLabel;
+
+    @FXML
     private AnchorPane sectorsAndBossPane;
 
     @FXML
     private AnchorPane sectorsPane;
 
     @FXML
-    private Button goToAdminButton;
+    private AnchorPane proffQueryPane;
+
+    @FXML
+    private AnchorPane sectorsQueryPane;
 
     @FXML
     void initialize() {
@@ -47,6 +53,7 @@ public class PeopleView implements View {
 
     private void initButtons() {
         backButton.setOnAction(event -> peopleViewModel.goBack());
-        goToAdminButton.setOnAction(event -> peopleViewModel.goToAdmin());
+        peopleViewModel.loadProfQueryPane(proffQueryPane);
+        peopleViewModel.loadSectorsQueryPane(sectorsQueryPane);
     }
 }

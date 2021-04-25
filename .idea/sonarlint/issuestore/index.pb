@@ -231,3 +231,23 @@ S
 #src/main/resources/querySender.fxml,6\8\6829d735cbbd4af87007cedc7ac0d1b7b11a0ec0
 N
 src/main/java/Yubileyiniy.java,e\9\e9a582ab7cf741b72cffdebec20d3f0ef72a6b36
+\
+,src/main/resources/editors/reportEditor.fxml,2\8\2844a3b8dbb9b5a3c3be8d346c638b90fb0b7d4f
+f
+6src/main/java/presentation/data/report/ReportView.java,a\6\a617795cde78203a9c7757088fb767681646dfcd
+k
+;src/main/java/presentation/data/report/ReportViewModel.java,8\e\8e87b96a7c3d98c2a7595472175f049c4bf1247a
+l
+<src/main/java/data/tables/query/QueryMaterialsTableImpl.java,0\5\05127dc7e090b8ba62c23389c8d6dd683c6d27c8
+n
+>src/main/java/data/tables/query/QueryProfessionsTableImpl.java,f\9\f9493e4c6f385dbefcb875e7a9da0bc91f2b2cf0
+j
+:src/main/java/data/tables/query/QuerySectorsTableImpl.java,d\6\d6006745a8bf26cb5860374d4b6d188fdbed0cfc
+k
+;src/main/java/data/tables/query/QueryTechnicsTableImpl.java,0\a\0a4954c425dda3d5e5f13a3a4f720967fce660b2
+n
+>src/main/java/data/tables/query/QueryTypesOfWorkTableImpl.java,a\f\afdc8af5dd4748c82c062570cd82dc21f1d488a1
+x
+Hsrc/main/java/presentation/table/receiver/insert/ReceiverInsertView.java,b\3\b310df83453cc714611d5769af61b6b58e9e69dc
+}
+Msrc/main/java/presentation/table/receiver/insert/ReceiverInsertViewModel.java,2\1\21393db69202a5dba445955a0df7c24e449bb63e
