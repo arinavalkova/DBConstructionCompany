@@ -23,7 +23,7 @@ public class EstimateView implements View {
     private AnchorPane estimatePane;
 
     @FXML
-    private Button gotToWorkAdminButton;
+    private AnchorPane queryTechnicsPane;
 
     @FXML
     void initialize() {
@@ -35,10 +35,10 @@ public class EstimateView implements View {
         estimateViewModel.loadAreasPane(areasPane);
         estimateViewModel.loadTechnicsPane(technicsPane);
         estimateViewModel.loadEstimatePane(estimatePane);
+        estimateViewModel.loadQueryTechnicsPane(queryTechnicsPane);
     }
 
     private void initButtons() {
         backButton.setOnAction(event -> estimateViewModel.goBack());
-        gotToWorkAdminButton.setOnAction(event -> estimateViewModel.goToWorkAdminWindow());
     }
 }

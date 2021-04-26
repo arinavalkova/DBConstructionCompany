@@ -31,6 +31,12 @@ public class ScheduleView implements View {
     private AnchorPane brigadesPane;
 
     @FXML
+    private AnchorPane queryMaterialsPane;
+
+    @FXML
+    private AnchorPane queryTypesOfWorkPane;
+
+    @FXML
     void initialize() {
         initButtons();
         loadTables();
@@ -43,6 +49,8 @@ public class ScheduleView implements View {
         scheduleViewModel.loadMaterialsShowerPane(materialsPane);
         scheduleViewModel.loadTheoreticMaterialsPane(teoreticMaterialsPane);
         scheduleViewModel.loadSchedulePane(schedulePane);
+        scheduleViewModel.loadQueryMaterialsPane(queryMaterialsPane);
+        scheduleViewModel.loadQueryTypesOfWorkPane(queryTypesOfWorkPane);
     }
 
     private void initButtons() {

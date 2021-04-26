@@ -189,8 +189,6 @@ l
 <src/main/java/presentation/admin/people/PeopleAdminView.java,b\b\bbff439e47535ee8b55bba5c4974d1ac31ceda6f
 q
 Asrc/main/java/presentation/admin/people/PeopleAdminViewModel.java,8\9\89474c13a0b74dcfd8d830715dd6093ca1867b06
-\
-,src/main/resources/editors/peopleEditor.fxml,0\f\0f945da15653eb8fa68681fd814757cc7b683c89
 h
 8src/main/java/presentation/admin/work/WorkAdminView.java,3\7\37e432e051535a003a9edbbe88f44b437d51b819
 m

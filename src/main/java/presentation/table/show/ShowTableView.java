@@ -43,6 +43,7 @@ public class ShowTableView implements View {
 
     @FXML
     void initialize() {
+        showTableViewModel.updateTable();
         tableNameLabel.setText(tableName);
         table.itemsProperty().bind(showTableViewModel.getRowProperty());
         table.setMaxHeight(tableHeight);
@@ -58,5 +59,9 @@ public class ShowTableView implements View {
         }
 
         loadDataButton.setOnAction(event -> showTableViewModel.updateTable());
+    }
+
+    public ShowTableViewModel getModel() {
+        return showTableViewModel;
     }
 }

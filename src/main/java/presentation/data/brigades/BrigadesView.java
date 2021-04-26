@@ -21,9 +21,6 @@ public class BrigadesView implements View {
     private FlowPane employeesPane;
 
     @FXML
-    private Button goToPeopleEditorButton;
-
-    @FXML
     void initialize() {
         initButtons();
         initPanes();
@@ -36,6 +33,5 @@ public class BrigadesView implements View {
 
     private void initButtons() {
         backButton.setOnAction(event -> brigadesViewModel.goBack());
-        goToPeopleEditorButton.setOnAction(event -> brigadesViewModel.goToPeopleEditorWindow());
     }
 }

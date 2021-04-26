@@ -1,18 +1,23 @@
 package presentation.data.estimate;
 
+import data.Coder;
 import data.tables.booker.TechniquesTableImpl;
 import data.tables.estimate.ObjectsAndTechnicsTableImpl;
 import data.tables.estimate.ObjectsTableImpl;
 import data.tables.people.SectorsTableImpl;
+import data.tables.query.QueryTechnicsTableImpl;
 import domain.AnswerReceiver;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import presentation.SceneController;
 import presentation.table.edit.custom.CustomTableView;
+import presentation.table.sender.SenderQueryView;
 import presentation.table.show.ShowTableView;
 
 import java.io.IOException;
@@ -57,5 +62,16 @@ public class EstimateViewModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void loadQueryTechnicsPane(Pane queryTechnicsPane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new SenderQueryView(
+                        new QueryTechnicsTableImpl(),
+                        "Запрос на технику"
+                ),
+                "querySender.fxml",
+                queryTechnicsPane
+        );
     }
 }

@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
+import presentation.table.show.ShowTableView;
 
 import java.util.ArrayList;
 
@@ -31,11 +32,21 @@ public class CustomTableViewModel implements AnswerReceiver {
 
     private final GetProfessionByNameUseCase getProfessionByNameUseCase;
 
+    private final ShowTableView firstShowTable;
+    private final ShowTableView secondShowTable;
+
     private final StringProperty answerProperty = new SimpleStringProperty();
 
-    public CustomTableViewModel(DataBaseRepository firstRepository, DataBaseRepository secondRepository) {
+    public CustomTableViewModel(
+            DataBaseRepository firstRepository,
+            DataBaseRepository secondRepository,
+            ShowTableView firstShowTable,
+            ShowTableView secondShowTable) {
         this.firstRepository = firstRepository;
         this.secondRepository = secondRepository;
+
+        this.firstShowTable = firstShowTable;
+        this.secondShowTable = secondShowTable;
 
         this.insertFirstTableUseCase = new InsertRowUseCase(firstRepository, this);
         this.insertSecondTableUseCase = new CustomInsertRowUseCase(
@@ -66,16 +77,19 @@ public class CustomTableViewModel implements AnswerReceiver {
     public void deleteFromSecondTable(int id) {
         answerProperty.setValue(DELETING);
         deleteRowUseCase.invoke(id);
+        secondShowTable.getModel().updateTable();
     }
 
     public void updateSecondTable(ArrayList<String> rowLines) {
         answerProperty.setValue(UPDATING);
         updateSecondTableUseCase.invoke(secondRepository.createRow(rowLines));
+        secondShowTable.getModel().updateTable();
     }
 
     public void updateFirstTable(ArrayList<String> rowLines) {
         answerProperty.setValue(UPDATING);
         updateFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
+        firstShowTable.getModel().updateTable();
     }
 
     public void insertFirstTable(ArrayList<String> rowLines) {
@@ -84,6 +98,7 @@ public class CustomTableViewModel implements AnswerReceiver {
             return;
         }
         insertFirstTableUseCase.invoke(firstRepository.createRow(rowLines));
+        firstShowTable.getModel().updateTable();
     }
 
     public void insertSecondTable(ArrayList<String> rowLines) {
@@ -91,6 +106,7 @@ public class CustomTableViewModel implements AnswerReceiver {
             return;
         }
         insertSecondTableUseCase.invoke(rowLines);
+        secondShowTable.getModel().updateTable();
     }
 
     public boolean startCheck(DataBaseRepository dataBaseRepository, ArrayList<String> rowList) {

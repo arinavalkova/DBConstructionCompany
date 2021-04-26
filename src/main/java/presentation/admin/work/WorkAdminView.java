@@ -22,6 +22,12 @@ public class WorkAdminView {
     private AnchorPane techiquesPane;
 
     @FXML
+    private AnchorPane queryMaterialsPane;
+
+    @FXML
+    private AnchorPane queryTechnicsPane;
+
+    @FXML
     void initialize() {
         initButtons();
         loadTables();
@@ -31,6 +37,8 @@ public class WorkAdminView {
         workAdminViewModel.loadTechniquesPane(techiquesPane);
         workAdminViewModel.loadTypesOfJobsPane(typesOfJobsPane);
         workAdminViewModel.loadMaterialsPane(materialsPane);
+        workAdminViewModel.loadQueryMaterialsPane(queryMaterialsPane);
+        workAdminViewModel.loadQueryTechnicsPane(queryTechnicsPane);
     }
 
     private void initButtons() {

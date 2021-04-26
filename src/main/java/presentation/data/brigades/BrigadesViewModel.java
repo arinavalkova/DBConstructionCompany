@@ -45,12 +45,4 @@ public class BrigadesViewModel {
                 pane
         );
     }
-
-    public void goToPeopleEditorWindow() {
-        try {
-            SceneController.load("editors/peopleEditor.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

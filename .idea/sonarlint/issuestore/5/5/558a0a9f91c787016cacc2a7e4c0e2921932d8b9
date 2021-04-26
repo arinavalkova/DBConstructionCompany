@@ -1,6 +1,6 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÏ§šúÿÿÿÿ8’ÖóÌ†/
- 
-java:S1319#"~The type of the "repositoryArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Ë „ııÿÿÿÿ8àŞÇ/
 t
 java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(îÄ£ùÿÿÿÿ8àŞÇ/
+ 
+java:S1319#"~The type of the "repositoryArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(Ë „ııÿÿÿÿ8àŞÇ/

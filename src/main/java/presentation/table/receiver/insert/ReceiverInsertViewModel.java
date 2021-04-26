@@ -53,10 +53,12 @@ public class ReceiverInsertViewModel implements DataReceiver, AnswerReceiver {
     public void acceptAction(Row row) {
         insertRowUseCase.invoke(row);
         deleteRowUseCase.invoke(row.getId());
+        getRowsUseCase.invoke();
     }
 
     public void rejectAction(Row row) {
         deleteRowUseCase.invoke(row.getId());
+        getRowsUseCase.invoke();
     }
 
     @Override

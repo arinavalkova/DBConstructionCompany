@@ -68,6 +68,9 @@ public class CustomTableView implements View {
     private final ArrayList<TextField> updateFirstTextFields = new ArrayList<>();
     private final ArrayList<TextField> updateSecondTextFields = new ArrayList<>();
 
+    private final ShowTableView firstShowTable;
+    private final ShowTableView secondShowTable;
+
     public CustomTableView(DataBaseRepository firstRepository,
                            DataBaseRepository secondRepository) {
         this.firstRepository = firstRepository;
@@ -77,7 +80,14 @@ public class CustomTableView implements View {
         this.firstColumnNames = firstRepository.getColumnNames();
         this.secondColumnNames = secondRepository.getColumnNames();
 
-        this.customTableViewModel = new CustomTableViewModel(firstRepository, secondRepository);
+        this.firstShowTable = new ShowTableView(firstRepository, 100);
+        this.secondShowTable = new ShowTableView(secondRepository, 100);
+        this.customTableViewModel = new CustomTableViewModel(
+                firstRepository,
+                secondRepository,
+                firstShowTable,
+                secondShowTable
+        );
     }
 
     @FXML
@@ -172,13 +182,13 @@ public class CustomTableView implements View {
 
     private void initShowerPanes() {
         SceneController.loadControllerToFXMLAndPane(
-                new ShowTableView(firstRepository, 100),
+                firstShowTable,
                 "tableShower.fxml",
                 firstShowerPane
         );
 
         SceneController.loadControllerToFXMLAndPane(
-                new ShowTableView(secondRepository, 100),
+                secondShowTable,
                 "tableShower.fxml",
                 secondShowPane
         );

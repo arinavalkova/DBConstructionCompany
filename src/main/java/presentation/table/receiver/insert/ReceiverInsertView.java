@@ -68,5 +68,6 @@ public class ReceiverInsertView implements View {
             Row row = table.getSelectionModel().selectedItemProperty().get();
             receiverInsertViewModel.rejectAction(row);
         });
+        receiverInsertViewModel.loadData();
     }
 }

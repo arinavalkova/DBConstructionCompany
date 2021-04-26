@@ -46,16 +46,15 @@ public class SimpleTableView implements View {
 
     private final ArrayList<String> classFieldNames;
     private final ArrayList<String> columnNames;
-    private final String tableName;
-    private final DataBaseRepository repository;
+
+    private final ShowTableView showTableView;
 
     public SimpleTableView(DataBaseRepository repository) {
         this.classFieldNames = repository.getFieldNames();
         this.columnNames = repository.getColumnNames();
-        this.tableName = repository.getUITableName();
-        this.repository = repository;
+        this.showTableView = new ShowTableView(repository, 200);
 
-        this.simpleTableViewModel = new SimpleTableViewModel(repository);
+        this.simpleTableViewModel = new SimpleTableViewModel(repository, showTableView);
     }
 
     @FXML
@@ -86,8 +85,7 @@ public class SimpleTableView implements View {
 
     private void initShowerPane() {
         SceneController.loadControllerToFXMLAndPane(
-                new ShowTableView(
-                repository, 200),
+                showTableView,
                 "tableShower.fxml",
                 showerPane
         );

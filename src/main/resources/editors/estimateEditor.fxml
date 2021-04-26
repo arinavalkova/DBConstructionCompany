@@ -17,8 +17,7 @@
       <Label fx:id="answerLabel" layoutX="104.0" layoutY="840.0" prefHeight="21.0" prefWidth="1078.0" />
       <AnchorPane fx:id="areasPane" layoutX="108.0" layoutY="286.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: Tomato;" />
       <AnchorPane fx:id="estimatePane" layoutX="578.0" layoutY="286.0" prefHeight="329.0" prefWidth="600.0" style="-fx-background-color: LightBlue;" />
-      <Label layoutX="400.0" layoutY="699.0" text="Обратитесь к администратору по работе, если появилась неизвестная техника" />
-      <Button fx:id="gotToWorkAdminButton" layoutX="400.0" layoutY="733.0" mnemonicParsing="false" text="Вызов администратора по работе" />
       <Label layoutX="36.0" layoutY="27.0" text="Чтобы просмотреть данные таблицы нажмите &quot;Обновить таблицу&quot;" />
+      <AnchorPane fx:id="queryTechnicsPane" layoutX="589.0" layoutY="648.0" prefHeight="90.0" prefWidth="170.0" />
    </children>
 </AnchorPane>

@@ -57,20 +57,4 @@ public class OrganizationsViewModel {
                 pane
         );
     }
-
-    public void goToPeopleAdminWindow() {
-        try {
-            SceneController.load("admin/peopleAdmin.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void goToPeopleEditorWindow() {
-        try {
-            SceneController.load("editors/peopleEditor.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

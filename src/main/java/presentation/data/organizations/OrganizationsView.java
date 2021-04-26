@@ -24,12 +24,6 @@ public class OrganizationsView implements View {
     private FlowPane sectorsShowerPane;
 
     @FXML
-    private Button peopleAdminButton;
-
-    @FXML
-    private Button peopleEditorButton;
-
-    @FXML
     void initialize() {
         initButtons();
         initPanes();
@@ -37,8 +31,6 @@ public class OrganizationsView implements View {
 
     private void initButtons() {
         backButton.setOnAction(event -> organizationsViewModel.goBack());
-        peopleAdminButton.setOnAction(event -> organizationsViewModel.goToPeopleAdminWindow());
-        peopleEditorButton.setOnAction(event -> organizationsViewModel.goToPeopleEditorWindow());
     }
 
     private void initPanes() {

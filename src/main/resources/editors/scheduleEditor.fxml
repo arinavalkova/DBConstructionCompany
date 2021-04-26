@@ -19,9 +19,11 @@
       <Label layoutX="230.0" layoutY="440.0" text="Графики работ на объекте" />
       <Label layoutX="824.0" layoutY="440.0" text="Теоретические материалы для работ" />
       <Label layoutX="19.0" layoutY="29.0" text="Чтобы просмотреть данные таблицы нажмите &quot;Обновить таблицу&quot;" />
-      <AnchorPane fx:id="materialsPane" layoutX="202.0" layoutY="91.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #ffebee#ffebee;" />
-      <AnchorPane fx:id="typesOfWorkPane" layoutX="434.0" layoutY="91.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #ffebee#ffebee;" />
-      <AnchorPane fx:id="objectsPane" layoutX="665.0" layoutY="91.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #F3E0E3;" />
-      <AnchorPane fx:id="brigadesPane" layoutX="901.0" layoutY="91.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #F3E0E3;" />
+      <AnchorPane fx:id="materialsPane" layoutX="33.0" layoutY="100.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #ffebee#ffebee;" />
+      <AnchorPane fx:id="typesOfWorkPane" layoutX="265.0" layoutY="100.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #ffebee#ffebee;" />
+      <AnchorPane fx:id="objectsPane" layoutX="496.0" layoutY="100.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #F3E0E3;" />
+      <AnchorPane fx:id="brigadesPane" layoutX="732.0" layoutY="100.0" prefHeight="329.0" prefWidth="201.0" style="-fx-background-color: #F3E0E3;" />
+      <AnchorPane fx:id="queryMaterialsPane" layoutX="1017.0" layoutY="139.0" prefHeight="90.0" prefWidth="170.0" />
+      <AnchorPane fx:id="queryTypesOfWorkPane" layoutX="1026.0" layoutY="271.0" prefHeight="90.0" prefWidth="170.0" />
    </children>
 </AnchorPane>
