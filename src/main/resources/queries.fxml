@@ -9,5 +9,6 @@
       <Button fx:id="getBossForSectorWindowButton" layoutX="113.0" layoutY="134.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получение списка специалистов инженерно-технического состава обозначенного участка или строительного управления с указанием их должностей." />
       <Button fx:id="getManagementBossQueryButton" layoutX="113.0" layoutY="182.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить перечень строительных управлений и их руководителей" />
       <Button fx:id="getObjectsAndSchedulesButton" layoutX="113.0" layoutY="234.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить перечень объектов, возводимых указанным строительным управлением, и графики их возведения" />
+      <Button fx:id="getBrigadeAndEmployeeButton" layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить состав бригад, работавших (работающих) на строительстве указанного объекта" />
    </children>
 </AnchorPane>
