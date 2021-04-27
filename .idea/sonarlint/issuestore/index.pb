@@ -249,3 +249,9 @@ x
 Hsrc/main/java/presentation/table/receiver/insert/ReceiverInsertView.java,b\3\b310df83453cc714611d5769af61b6b58e9e69dc
 }
 Msrc/main/java/presentation/table/receiver/insert/ReceiverInsertViewModel.java,2\1\21393db69202a5dba445955a0df7c24e449bb63e
+^
+.src/main/resources/editors/brigadesEditor.fxml,d\8\d833a2be2f6d0f36eaf53a74fa1b58f8f6f1ebd2
+^
+.src/main/resources/editors/scheduleEditor.fxml,4\9\49a634328892ae374cc2bc49c735b926c2aa53e5
+W
+'src/main/resources/admin/workAdmin.fxml,7\3\734f7a0c9cfd358ef30cc0396f22c183759ca23e

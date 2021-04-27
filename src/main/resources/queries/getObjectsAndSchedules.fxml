@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.queries.query3.GetObjectsAndSchedulesView">
+   <children>
+      <Label layoutX="222.0" layoutY="62.0" text="Получить перечень объектов, возводимых указанным строительным управлением, и графики их возведения" textFill="#a844a6" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TableView fx:id="managementTable" layoutX="53.0" layoutY="207.0" prefHeight="200.0" prefWidth="327.0">
+         <columns>
+            <TableColumn fx:id="managementsIdColumn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="nameOfManagementColumn" prefWidth="251.0" text="Название управления" />
+         </columns>
+      </TableView>
+      <Label layoutX="130.0" layoutY="163.0" text="Строительные управления" />
+      <TableView fx:id="resultTable" layoutX="463.0" layoutY="207.0" prefHeight="475.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="nameOfObjectColumn" prefWidth="199.0" text="Объект" />
+            <TableColumn fx:id="nameOfTypeOfWorkColumn" prefWidth="199.0" text="Тип работы" />
+            <TableColumn fx:id="startDateColumn" prefWidth="199.0" text="Дата начала" />
+            <TableColumn fx:id="endDateColumn" prefWidth="199.0" text="Дата конца" />
+         </columns>
+      </TableView>
+      <Label layoutX="51.0" layoutY="440.0" text="Кликните на нужное управление в таблице выше" textFill="#eb0707" />
+      <Button fx:id="backButton" layoutX="41.0" layoutY="831.0" mnemonicParsing="false" text="Назад" />
+   </children>
+</AnchorPane>

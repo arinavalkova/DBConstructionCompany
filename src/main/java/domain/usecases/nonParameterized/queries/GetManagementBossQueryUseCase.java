@@ -1,11 +1,12 @@
-package domain.usecases.parameterized.queries;
+package domain.usecases.nonParameterized.queries;
 
 import data.Coder;
 import data.JDBCConnection;
 import domain.DataReceiver;
 import domain.rows.Row;
+import domain.rows.queries.ManagementAndBossRow;
 import domain.rows.queries.NameAndProfessionRow;
-import domain.usecases.parameterized.ParamUseCase;
+import domain.usecases.nonParameterized.NonParamUseCase;
 import javafx.beans.property.Property;
 import javafx.collections.ObservableList;
 
@@ -14,22 +15,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GetBossOfManagementQuery implements ParamUseCase {
+public class GetManagementBossQueryUseCase implements NonParamUseCase {
 
     private final DataReceiver dataReceiver;
     private final Property<ObservableList<Row>> property;
 
-    public GetBossOfManagementQuery(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetManagementBossQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
         this.dataReceiver = dataReceiver;
         this.property = property;
     }
 
     @Override
-    public Object invoke(Object object) {
-        String sql = "select PAP.NAME as NAME, P.NAME as PROFESSION FROM\n" +
-                "MANAG_AND_SECT inner join SECTOR_AND_BOSS SAB on MANAG_AND_SECT.SECTOR_ID = SAB.SECTOR_ID\n" +
-                "inner join PEOPLE_AND_PROF PAP on PAP.ID = SAB.BOSS_ID inner join PROFESSIONS P on P.ID = PAP.PROFESSION_ID\n" +
-                "WHERE MANAGEMENT_ID=" + object.toString();
+    public Object invoke() {
+        String sql = "select M.NAME as MANAGEMENT_NAME, PAP.NAME AS BOSS_NAME FROM MANAG_AND_SECT " +
+                "inner join SECTOR_AND_BOSS SAB on MANAG_AND_SECT.SECTOR_ID = SAB.SECTOR_ID\n" +
+                "    inner join MANAGEMENTS M on M.ID = MANAG_AND_SECT.MANAGEMENT_ID\n" +
+                "inner join PEOPLE_AND_PROF PAP on PAP.ID = SAB.BOSS_ID";
         ResultSet resultSet;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
@@ -37,13 +38,13 @@ public class GetBossOfManagementQuery implements ParamUseCase {
         } catch (SQLException throwables) {
             return null;
         }
-        ArrayList<NameAndProfessionRow> rowArrayList = new ArrayList<>();
+        ArrayList<ManagementAndBossRow> rowArrayList = new ArrayList<>();
         while (true) {
             try {
                 if (!resultSet.next()) break;
-                rowArrayList.add(new NameAndProfessionRow(
-                        resultSet.getString("name"),
-                        resultSet.getString("profession"))
+                rowArrayList.add(new ManagementAndBossRow(
+                        resultSet.getString("management_name"),
+                        resultSet.getString("boss_name"))
                 );
             } catch (SQLException throwables) {
                 dataReceiver.onDataError(Coder.encodingRUS("Нет результата"), property);

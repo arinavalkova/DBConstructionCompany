@@ -1,4 +1,4 @@
-package presentation.queries.querie1;
+package presentation.queries.query3;
 
 import domain.rows.Row;
 import domain.rows.organizations.ManagementsRow;
@@ -14,9 +14,9 @@ import presentation.View;
 
 import java.io.IOException;
 
-public class GetBossOfAreaView implements View {
+public class GetObjectsAndSchedulesView implements View {
 
-    private final GetBossOfAreaViewModel getBossOfAreaViewModel = new GetBossOfAreaViewModel();
+    private final GetObjectsAndSchedulesViewModel getObjectsAndSchedulesViewModel = new GetObjectsAndSchedulesViewModel();
 
     @FXML
     private TableView<Row> managementTable;
@@ -28,22 +28,19 @@ public class GetBossOfAreaView implements View {
     private TableColumn<Row, String> nameOfManagementColumn;
 
     @FXML
-    private TableView<Row> sectorsTable;
-
-    @FXML
-    private TableColumn<Row, Integer> sectorsIdColumn;
-
-    @FXML
-    private TableColumn<Row, String> sectorsNameColumn;
-
-    @FXML
     private TableView<Row> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfResultColumn;
+    private TableColumn<Row, String> nameOfObjectColumn;
 
     @FXML
-    private TableColumn<Row, String> professionOfResultColumn;
+    private TableColumn<Row, String> nameOfTypeOfWorkColumn;
+
+    @FXML
+    private TableColumn<Row, String> startDateColumn;
+
+    @FXML
+    private TableColumn<Row, String> endDateColumn;
 
     @FXML
     private Button backButton;
@@ -67,8 +64,7 @@ public class GetBossOfAreaView implements View {
     }
 
     private void loadData() {
-        getBossOfAreaViewModel.loadSectors();
-        getBossOfAreaViewModel.loadManagements();
+        getObjectsAndSchedulesViewModel.loadManagements();
     }
 
     private void initActions() {
@@ -77,18 +73,7 @@ public class GetBossOfAreaView implements View {
             row.setOnMouseClicked(event -> {
                 ManagementsRow managementsRow = (ManagementsRow) row.getItem();
                 if (managementsRow != null) {
-                    getBossOfAreaViewModel.loadResultForManagementQuery(managementsRow.getId());
-                }
-            });
-            return row ;
-        });
-
-        sectorsTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                SectorsRow sectorsRow = (SectorsRow) row.getItem();
-                if (sectorsRow != null) {
-                    getBossOfAreaViewModel.loadResultForSectorQuery(sectorsRow.getId());
+                    getObjectsAndSchedulesViewModel.loadResultForManagementQuery(managementsRow.getId());
                 }
             });
             return row ;
@@ -96,17 +81,15 @@ public class GetBossOfAreaView implements View {
     }
 
     private void bind() {
-        managementTable.itemsProperty().bind(getBossOfAreaViewModel.getManagementsRowProperty());
-        sectorsTable.itemsProperty().bind(getBossOfAreaViewModel.getSectorsRowProperty());
-        resultTable.itemsProperty().bind(getBossOfAreaViewModel.getResultRowProperty());
+        managementTable.itemsProperty().bind(getObjectsAndSchedulesViewModel.getManagementsRowProperty());
+        resultTable.itemsProperty().bind(getObjectsAndSchedulesViewModel.getResultRowProperty());
 
         managementsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameOfManagementColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        sectorsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        sectorsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        nameOfResultColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        professionOfResultColumn.setCellValueFactory(new PropertyValueFactory<>("profession"));
+        nameOfObjectColumn.setCellValueFactory(new PropertyValueFactory<>("objectName"));
+        nameOfTypeOfWorkColumn.setCellValueFactory(new PropertyValueFactory<>("typeOfWorkName"));
+        startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        endDateColumn.setCellValueFactory(new PropertyValueFactory<>("endDate"));
     }
 }

@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import presentation.SceneController;
 import presentation.View;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 public class QueriesView implements View {
@@ -14,6 +15,12 @@ public class QueriesView implements View {
 
     @FXML
     private Button getBossForSectorWindowButton;
+
+    @FXML
+    private Button getManagementBossQueryButton;
+
+    @FXML
+    private Button getObjectsAndSchedulesButton;
 
     @FXML
     void initialize()  {
@@ -28,6 +35,22 @@ public class QueriesView implements View {
         getBossForSectorWindowButton.setOnAction(event -> {
             try {
                 SceneController.load("queries/getBossOfArea.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        getManagementBossQueryButton.setOnAction(event -> {
+            try {
+                SceneController.load("queries/getManagementBoss.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        getObjectsAndSchedulesButton.setOnAction(event -> {
+            try {
+                SceneController.load("queries/getObjectsAndSchedules.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
