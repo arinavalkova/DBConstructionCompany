@@ -26,6 +26,9 @@ public class QueriesView implements View {
     private Button getBrigadeAndEmployeeButton;
 
     @FXML
+    private Button getManagementTechnicsButton;
+
+    @FXML
     void initialize()  {
         backButton.setOnAction(event -> {
             try {
@@ -62,6 +65,14 @@ public class QueriesView implements View {
         getBrigadeAndEmployeeButton.setOnAction(event -> {
             try {
                 SceneController.load("queries/getBrigadeAndEmployee.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        getManagementTechnicsButton.setOnAction(event -> {
+            try {
+                SceneController.load("queries/getManagementTechnics.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }
