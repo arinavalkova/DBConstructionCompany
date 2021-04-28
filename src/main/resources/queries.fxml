@@ -11,5 +11,7 @@
       <Button fx:id="getObjectsAndSchedulesButton" layoutX="113.0" layoutY="234.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить перечень объектов, возводимых указанным строительным управлением, и графики их возведения" />
       <Button fx:id="getBrigadeAndEmployeeButton" layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить состав бригад, работавших (работающих) на строительстве указанного объекта" />
       <Button fx:id="getManagementTechnicsButton" layoutX="113.0" layoutY="337.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить перечень строительной техники, приданной указанному строительному управлению" />
+      <Button fx:id="getObjectTechnicsButton" layoutX="113.0" layoutY="389.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="1087.0" text="Получить перечень строительной техники работавшей на объекте в течение указанного периода времени." />
+
    </children>
 </AnchorPane>

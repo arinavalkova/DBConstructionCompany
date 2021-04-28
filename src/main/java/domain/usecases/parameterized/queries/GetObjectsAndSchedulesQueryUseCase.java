@@ -26,14 +26,14 @@ public class GetObjectsAndSchedulesQueryUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
         String sql = "SELECT O.NAME as OBJECT_NAME, TOJ.NAME AS TOJ_NAME, S.START_DATE AS START_DATE, S.END_DATE AS END_DATE\n" +
                 "FROM MANAGEMENTS\n" +
                 "         inner join MANAG_AND_SECT on MANAGEMENTS.ID = MANAG_AND_SECT.MANAGEMENT_ID\n" +
                 "         inner join OBJECTS O on MANAG_AND_SECT.SECTOR_ID = O.SECTOR_ID\n" +
                 "         inner join SCHEDULES S on O.ID = S.OBJECT_ID\n" +
                 "         inner join TYPES_OF_JOBS TOJ on S.TYPE_OF_WORK_ID = TOJ.ID\n" +
-                "WHERE MANAGEMENT_ID=" + object.toString();
+                "WHERE MANAGEMENT_ID=" + object[0].toString();
         ResultSet resultSet;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);

@@ -28,9 +28,9 @@ public class CustomInsertRowUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
         Thread thread = new Thread(() -> {
-            ArrayList<String> rowLines = (ArrayList<String>) object;
+            ArrayList<String> rowLines = (ArrayList<String>) object[0];
 
             ArrayList<String> firstList = new ArrayList<>();
             firstList.add("0");

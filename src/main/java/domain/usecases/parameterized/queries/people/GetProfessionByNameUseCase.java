@@ -14,12 +14,11 @@ public class GetProfessionByNameUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
-        int id = (int) object;
+    public Object invoke(Object... object) {
+        int id = (int) object[0];
         ResultSet resultSet;
         String sql = "SELECT profession_id FROM " +
-                "people_and_professions WHERE people_and_professions.id = " + id;
-        System.out.println(sql);
+                "PEOPLE_AND_PROF WHERE PEOPLE_AND_PROF.id = " + id;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             resultSet = preStatement.executeQuery();

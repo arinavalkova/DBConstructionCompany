@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.queries.query6.GetObjectTechnicsView">
+   <children>
+      <Label layoutX="228.0" layoutY="62.0" text="Получить перечень строительной техники работавшей на объекте в течение указанного периода времени." textFill="#a844a6" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TableView fx:id="objectsTable" layoutX="218.0" layoutY="213.0" prefHeight="200.0" prefWidth="327.0">
+         <columns>
+            <TableColumn fx:id="objectIdColumn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="nameOfObjectColumn" prefWidth="251.0" text="Объект" />
+         </columns>
+      </TableView>
+      <Label layoutX="346.0" layoutY="171.0" text="Объекты" />
+      <TableView fx:id="resultTable" layoutX="628.0" layoutY="213.0" prefHeight="475.0" prefWidth="455.0">
+         <columns>
+            <TableColumn fx:id="nameOfTechnicsColumn" prefWidth="260.0" text="Техника" />
+            <TableColumn fx:id="countOfTechnicsColumn" prefWidth="194.0" text="Количество" />
+         </columns>
+      </TableView>
+      <Label layoutX="218.0" layoutY="597.0" prefHeight="64.0" prefWidth="317.0" text="Кликните на нужный объект в таблице выше и выберите дату начала и конца" textFill="#eb0707" wrapText="true" />
+      <Button fx:id="backButton" layoutX="41.0" layoutY="831.0" mnemonicParsing="false" text="Назад" />
+      <DatePicker fx:id="firstDatePicker" layoutX="325.0" layoutY="437.0" />
+      <DatePicker fx:id="secondDatePicker" layoutX="325.0" layoutY="483.0" />
+      <Label layoutX="220.0" layoutY="442.0" text="Дата начала" />
+      <Label layoutX="223.0" layoutY="488.0" text="Дата конца" />
+      <Button fx:id="queryButton" layoutX="218.0" layoutY="554.0" mnemonicParsing="false" text="Запросить" />
+   </children>
+</AnchorPane>

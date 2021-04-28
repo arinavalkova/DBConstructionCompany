@@ -1,5 +1,5 @@
 package domain.usecases.parameterized;
 
 public interface ParamUseCase {
-    Object invoke(Object object);
+    Object invoke(Object... object);
 }

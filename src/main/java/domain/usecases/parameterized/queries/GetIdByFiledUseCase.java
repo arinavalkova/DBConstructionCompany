@@ -17,9 +17,9 @@ public class GetIdByFiledUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
 
-        Row row = (Row) object;
+        Row row = (Row) object[0];
 
         ResultSet resultSet;
         String sql = "SELECT id FROM " + row.getTableName() + " WHERE " + row;

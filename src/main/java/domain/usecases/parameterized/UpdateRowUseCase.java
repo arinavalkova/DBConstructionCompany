@@ -16,9 +16,9 @@ public class UpdateRowUseCase implements ParamUseCase{
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
         Thread thread = new Thread(() -> {
-            if (!dataBaseRepository.updateRow((Row) object)) {
+            if (!dataBaseRepository.updateRow((Row) object[0])) {
                 answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось обновить"));
             } else {
                 answerReceiver.onAnswerSuccess(Coder.encodingRUS("Успешно обновлено"));

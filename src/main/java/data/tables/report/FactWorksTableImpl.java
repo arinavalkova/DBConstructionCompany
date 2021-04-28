@@ -19,9 +19,9 @@ public class FactWorksTableImpl extends BaseTable implements DataBaseRepository 
         FactWorkRow factWorkRow = (FactWorkRow) row;
         String sql = "insert into " + getSQLTableName() + " values(" + factWorkRow.getId()
                 + ", " + factWorkRow.getWorkId()
-                + ", '" + factWorkRow.getStartDate()
-                + "', '" + factWorkRow.getEndDate()
-                + "')";
+                + ", TO_DATE ('" + factWorkRow.getStartDate() + "','YYYY-MM-DD')"
+                + ", TO_DATE ('" + factWorkRow.getEndDate() + "','YYYY-MM-DD')"
+                + ")";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {
@@ -32,8 +32,8 @@ public class FactWorksTableImpl extends BaseTable implements DataBaseRepository 
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() +
-                " ( id int primary key, work_id int, start_date varchar(20)," +
-                "end_date varchar(20)," +
+                " ( id int primary key, work_id int, start_date date," +
+                "end_date date," +
                 "foreign key (work_id)" +
                 " references schedules (id) on delete cascade" +
                 ")";
@@ -67,19 +67,19 @@ public class FactWorksTableImpl extends BaseTable implements DataBaseRepository 
     @Override
     public boolean loadTestData() {
         if (!insertRow(new FactWorkRow(
-                0, 0, "11.01.2020", "16.04.2020"))) {
+                0, 0, "2020-01-11", "2020-04-16"))) {
             return false;
         }
         if (!insertRow(new FactWorkRow(
-                0, 1, "15.03.2020", "18.11.2020"))) {
+                0, 1, "2020-03-15", "2020-11-18"))) {
             return false;
         }
         if (!insertRow(new FactWorkRow(
-                0, 2, "27.09.2021", "06.12.2021"))) {
+                0, 2, "2021-09-27", "2021-12-06"))) {
             return false;
         }
         if (!insertRow(new FactWorkRow(
-                0, 3, "20.12.2021", "06.02.2022"))) {
+                0, 3, "2021-12-20", "2022-02-06"))) {
             return false;
         }
         return true;

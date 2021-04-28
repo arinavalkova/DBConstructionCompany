@@ -26,11 +26,11 @@ public class GetBossOfSectorQueryUseCase implements ParamUseCase {
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
         String sql = "select PAP.NAME as NAME, P.NAME as PROFESSION FROM\n" +
                 "SECTOR_AND_BOSS inner join PEOPLE_AND_PROF PAP on PAP.ID = SECTOR_AND_BOSS.BOSS_ID\n" +
                 "    inner join PROFESSIONS P on P.ID = PAP.PROFESSION_ID\n" +
-                "WHERE SECTOR_ID=" + object.toString();
+                "WHERE SECTOR_ID=" + object[0].toString();
         ResultSet resultSet;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);

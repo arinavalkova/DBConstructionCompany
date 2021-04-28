@@ -70,7 +70,7 @@ public class GetBrigadeAndEmployeeView implements View {
                     getBrigadeAndEmployeeViewModel.loadResultQuery(objectsRow.getId());
                 }
             });
-            return row ;
+            return row;
         });
     }
 

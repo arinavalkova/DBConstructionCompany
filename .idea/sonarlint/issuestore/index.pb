@@ -55,8 +55,6 @@ k
 ;src/main/java/presentation/data/people/PeopleViewModel.java,8\4\8417e6302a9f020dc1e99b2e0345e9933a588eb0
 X
 (src/main/java/domain/AnswerReceiver.java,3\f\3f3567b2d90ea4733bae4dde124c297b824b0485
-O
-src/main/resources/queries.fxml,b\6\b61033c2ae3bb59c9908f1285d536a409eef0b6f
 o
 ?src/main/java/data/tables/people/BossAndEmployeesTableImpl.java,7\f\7f75839280427d3c0d9101c797804110af748d13
 Š
@@ -283,3 +281,15 @@ Hsrc/main/java/presentation/queries/query4/GetBrigadeAndEmployeeView.java,1\e\1
 Msrc/main/java/presentation/queries/query4/GetBrigadeAndEmployeeViewModel.java,6\c\6c6790ba42bd90e99a2b924ff9bfade0aeaaaf63
 ‹
 [src/main/java/domain/usecases/parameterized/queries/GetObjectBrigadePeopleQueryUseCase.java,6\9\69074933bda1a5604dcf6ecc07d01d75f43ec895
+Š
+Zsrc/main/java/domain/usecases/parameterized/queries/GetManagementTechnicsQueryUseCase.java,a\4\a466cc69e16342b6b14ca4048d9f9b3bc54123a8
+x
+Hsrc/main/java/presentation/queries/query5/GetManagementTechnicsView.java,8\1\817470058017a9c16f9ef0e8387b4cc71c9e9334
+}
+Msrc/main/java/presentation/queries/query5/GetManagementTechnicsViewModel.java,7\7\7788c344ec9918db4754edabff4d1239e5178dd4
+p
+@src/main/java/domain/rows/queries/ManagementsAndTechnicsRow.java,f\8\f8aeefe698c19013fcd6fd2713047688f672ae26
+t
+Dsrc/main/java/presentation/queries/query6/GetObjectTechnicsView.java,3\2\3225e757c4ce5ab48e4da196a5116d8057ca74cd
+y
+Isrc/main/java/presentation/queries/query6/GetObjectTechnicsViewModel.java,a\2\a2a03faaa54ab1045091b76d1784311a7a63ad9f

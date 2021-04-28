@@ -16,9 +16,9 @@ public class InsertRowUseCase implements ParamUseCase{
     }
 
     @Override
-    public Object invoke(Object object) {
+    public Object invoke(Object... object) {
         Thread thread = new Thread(() -> {
-            if (!dataBaseRepository.insertRow((Row) object)) {
+            if (!dataBaseRepository.insertRow((Row) object[0])) {
                 answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось добавить строку"));
             } else {
                 answerReceiver.onAnswerSuccess(Coder.encodingRUS("Успешно добавлена строка"));

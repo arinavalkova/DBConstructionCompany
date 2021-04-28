@@ -20,9 +20,9 @@ public class SchedulesTableImpl extends BaseTable implements DataBaseRepository 
         String sql = "insert into " + getSQLTableName() + " values(" + schedulesRow.getId()
                 + ", " + schedulesRow.getTypesOfWorkId()
                 + ", " + schedulesRow.getObjectId()
-                + ", '" + schedulesRow.getStartDate()
-                + "', '" + schedulesRow.getEndDate()
-                + "', " + schedulesRow.getBrigadeId() + ")";
+                + ", TO_DATE ('" + schedulesRow.getStartDate() + "','YYYY-MM-DD')"
+                + ", TO_DATE ('" + schedulesRow.getEndDate() + "','YYYY-MM-DD')"
+                + ", " + schedulesRow.getBrigadeId() + ")";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {
@@ -33,8 +33,8 @@ public class SchedulesTableImpl extends BaseTable implements DataBaseRepository 
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() +
-                " ( id int primary key, type_of_work_id int, object_id int, start_date varchar(20)," +
-                "end_date varchar(20), brigade_id int," +
+                " ( id int primary key, type_of_work_id int, object_id int, start_date date," +
+                "end_date date, brigade_id int," +
                 "foreign key (type_of_work_id)" +
                 " references types_of_jobs (id) on delete cascade, " +
                 "foreign key (object_id)" +
@@ -74,19 +74,19 @@ public class SchedulesTableImpl extends BaseTable implements DataBaseRepository 
     @Override
     public boolean loadTestData() {
         if (!insertRow(new SchedulesRow(
-                0, 0, 0, "10.01.2020", "15.04.2020", 0))) {
+                0, 0, 0, "2020-01-10", "2020-04-15", 0))) {
             return false;
         }
         if (!insertRow(new SchedulesRow(
-                0, 1, 0, "15.02.2020", "18.09.2020", 0))) {
+                0, 1, 0, "2020-02-15", "2020-09-18", 0))) {
             return false;
         }
         if (!insertRow(new SchedulesRow(
-                0, 0, 1, "27.09.2021", "06.12.2021", 0))) {
+                0, 0, 1, "2021-09-27", "2021-12-06", 0))) {
             return false;
         }
         if (!insertRow(new SchedulesRow(
-                0, 1, 1, "11.01.2021", "06.02.2022", 0))) {
+                0, 1, 1, "2021-01-11", "2022-02-06", 0))) {
             return false;
         }
         return true;
