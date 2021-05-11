@@ -16,7 +16,7 @@ public class StartView implements View {
     private Button queriesButton;
 
     @FXML
-    private Button loadTestDataButton;
+    private Button adminWindowButton;
 
     @FXML
     private Label answerLabel;
@@ -34,6 +34,6 @@ public class StartView implements View {
     private void initButtons() {
         dataEditingButton.setOnAction(event -> startViewModel.startDataEditingWindow());
         queriesButton.setOnAction(event -> startViewModel.startQueriesWindow());
-        loadTestDataButton.setOnAction(event -> startViewModel.loadTestData());
+        adminWindowButton.setOnAction(event -> startViewModel.loadAdminWindow());
     }
 }

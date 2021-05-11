@@ -13,6 +13,6 @@
          <Font size="24.0" />
       </font>
    </Label>
-   <Button fx:id="loadTestDataButton" layoutX="217.0" layoutY="517.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="413.0" text="Сбросить данные строительной компании до тестовых" />
+   <Button fx:id="adminWindowButton" layoutX="217.0" layoutY="517.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="154.0" text="Администратор" />
    <Label fx:id="answerLabel" layoutX="211.0" layoutY="826.0" prefHeight="8.0" prefWidth="974.0" />
 </AnchorPane>

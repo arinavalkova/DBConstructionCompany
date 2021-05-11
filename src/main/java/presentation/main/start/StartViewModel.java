@@ -14,8 +14,6 @@ public class StartViewModel implements AnswerReceiver {
 
     private final StringProperty answerProperty = new SimpleStringProperty();
 
-    private final LoadTestDataUseCase loadTestDataUseCase = new LoadTestDataUseCase(this);
-
     public void startDataEditingWindow() {
         try {
             SceneController.load("dataEditing.fxml");
@@ -36,10 +34,6 @@ public class StartViewModel implements AnswerReceiver {
         return answerProperty;
     }
 
-    public void loadTestData() {
-        loadTestDataUseCase.invoke();
-    }
-
     @Override
     public void onAnswerSuccess(String answer) {
         Platform.runLater(() -> answerProperty.setValue(answer));
@@ -48,5 +42,13 @@ public class StartViewModel implements AnswerReceiver {
     @Override
     public void onAnswerError(String answer) {
         Platform.runLater(() -> answerProperty.setValue(answer));
+    }
+
+    public void loadAdminWindow() {
+        try {
+            SceneController.load("admin/allAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

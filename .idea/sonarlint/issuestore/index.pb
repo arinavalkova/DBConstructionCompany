@@ -153,8 +153,6 @@ U
 %src/main/resources/authorization.fxml,6\b\6b15158fc351428637abce6fa2e85646bb0ab54d
 Y
 )src/main/resources/customTableEditor.fxml,f\5\f54ef19ab97f292c83a933f4c1a159b0f9d7100e
-M
-src/main/resources/start.fxml,8\0\80d6c35371e8aedf4ba0174efb7ecee9a4a9b466
 m
 =src/main/java/domain/rows/estimate/ObjectsAndTechnicsRow.java,6\1\6196c2b724a5cf9387831d17ebb649b25356c542
 j
@@ -215,8 +213,6 @@ k
 ;src/main/java/data/tables/report/FactTechnicsTableImpl.java,b\b\bb77391fc76e7e74fd8c1cf6778843d13c9e77fc
 h
 8src/main/java/data/tables/report/FactWorksTableImpl.java,7\8\78cab976e86bd85cf62c331deb1863f9b5e0e36a
-S
-#src/main/resources/querySender.fxml,6\8\6829d735cbbd4af87007cedc7ac0d1b7b11a0ec0
 N
 src/main/java/Yubileyiniy.java,e\9\e9a582ab7cf741b72cffdebec20d3f0ef72a6b36
 \
@@ -293,3 +289,13 @@ t
 Dsrc/main/java/presentation/queries/query6/GetObjectTechnicsView.java,3\2\3225e757c4ce5ab48e4da196a5116d8057ca74cd
 y
 Isrc/main/java/presentation/queries/query6/GetObjectTechnicsViewModel.java,a\2\a2a03faaa54ab1045091b76d1784311a7a63ad9f
+†
+Vsrc/main/java/domain/usecases/parameterized/queries/GetObjectTechnicsQueryUseCase.java,f\7\f7bf5c8e0a2972f2936ce65a0e304a2989741341
+„
+Tsrc/main/java/presentation/queries/query7/GetObjectScheduleAndEstimateViewModel.java,1\c\1c3db1ffc8e4c83358a2c99694ecc657ae68eedb
+w
+Gsrc/main/java/presentation/queries/query8/GetObjectReportViewModel.java,5\1\518f7d6fdbfc686ff8c160b3709fdc8da0f00c3e
+
+Osrc/main/java/presentation/queries/query7/GetObjectScheduleAndEstimateView.java,0\6\06bd4f16a8224f4d7521a1456d957b17cb711505
+r
+Bsrc/main/java/presentation/queries/query8/GetObjectReportView.java,2\0\2071b6993e800be49a87aae7dabb8a2c04808da4

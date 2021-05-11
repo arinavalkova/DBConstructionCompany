@@ -1,0 +1,68 @@
+package presentation.admin.all;
+
+import data.tables.authorize.RolesTableImpl;
+import data.tables.authorize.UsersAndRolesTableImpl;
+import domain.AnswerReceiver;
+import domain.rows.admin.UsersAndRolesRow;
+import domain.usecases.nonParameterized.LoadTestDataUseCase;
+import domain.usecases.parameterized.InsertRowUseCase;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import presentation.SceneController;
+import presentation.table.show.ShowTableView;
+
+import java.util.ArrayList;
+
+public class AllAdminViewModel implements AnswerReceiver{
+    
+    private final InsertRowUseCase insertRowUseCase = new InsertRowUseCase(new UsersAndRolesTableImpl(), this);
+    private final StringProperty answerProperty = new SimpleStringProperty();
+
+    private final LoadTestDataUseCase loadTestDataUseCase = new LoadTestDataUseCase(this);
+
+    public void addNewUser(String userName, int roleId) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("0");
+        list.add(userName);
+        list.add(String.valueOf(roleId));
+        insertRowUseCase.invoke(new UsersAndRolesRow(list));
+    }
+
+    public void loadRolesPane(Pane rolePane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(new RolesTableImpl(), 200),
+                "tableShower.fxml",
+                rolePane
+        );
+    }
+
+    public void loadUsersAndRolesPane(FlowPane usersAndRolesPane) {
+        SceneController.loadControllerToFXMLAndPane(
+                new ShowTableView(new UsersAndRolesTableImpl(), 200),
+                "tableShower.fxml",
+                usersAndRolesPane
+        );
+    }
+
+    public ObservableValue<String> getAnswerProperty() {
+        return answerProperty;
+    }
+
+    @Override
+    public void onAnswerSuccess(String answer) {
+        Platform.runLater(() -> answerProperty.setValue(answer));
+    }
+
+    @Override
+    public void onAnswerError(String answer) {
+        Platform.runLater(() -> answerProperty.setValue(answer));
+    }
+
+    public void loadTestData() {
+        loadTestDataUseCase.invoke();
+    }
+}

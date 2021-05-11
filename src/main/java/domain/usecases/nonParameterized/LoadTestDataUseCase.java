@@ -2,6 +2,8 @@ package domain.usecases.nonParameterized;
 
 import data.Coder;
 import data.JDBCConnection;
+import data.tables.authorize.RolesTableImpl;
+import data.tables.authorize.UsersAndRolesTableImpl;
 import data.tables.booker.MaterialsTableImpl;
 import data.tables.booker.TechniquesTableImpl;
 import data.tables.booker.TypesOfJobsTableImpl;
@@ -72,6 +74,9 @@ public class LoadTestDataUseCase implements NonParamUseCase {
         this.repositoryArrayList.add(new QuerySectorsTableImpl());
         this.repositoryArrayList.add(new QueryTechnicsTableImpl());
         this.repositoryArrayList.add(new QueryTypesOfWorkTableImpl());
+
+        this.repositoryArrayList.add(new RolesTableImpl());
+        this.repositoryArrayList.add(new UsersAndRolesTableImpl());
 
         this.answerReceiver = answerReceiver;
     }
