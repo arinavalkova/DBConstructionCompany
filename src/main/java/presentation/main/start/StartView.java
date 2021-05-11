@@ -9,11 +9,12 @@ public class StartView implements View {
 
     private StartViewModel startViewModel = new StartViewModel();
 
-    @FXML
-    private Button dataEditingButton;
 
     @FXML
-    private Button queriesButton;
+    private Button managerWindowButton;
+
+    @FXML
+    private Button chiefWindowButton;
 
     @FXML
     private Button adminWindowButton;
@@ -32,8 +33,8 @@ public class StartView implements View {
     }
 
     private void initButtons() {
-        dataEditingButton.setOnAction(event -> startViewModel.startDataEditingWindow());
-        queriesButton.setOnAction(event -> startViewModel.startQueriesWindow());
+        managerWindowButton.setOnAction(event -> startViewModel.startManagerWindow());
+        chiefWindowButton.setOnAction(event -> startViewModel.startChiefWindow());
         adminWindowButton.setOnAction(event -> startViewModel.loadAdminWindow());
     }
 }

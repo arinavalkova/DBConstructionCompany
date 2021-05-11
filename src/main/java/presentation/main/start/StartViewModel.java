@@ -14,22 +14,6 @@ public class StartViewModel implements AnswerReceiver {
 
     private final StringProperty answerProperty = new SimpleStringProperty();
 
-    public void startDataEditingWindow() {
-        try {
-            SceneController.load("dataEditing.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void startQueriesWindow() {
-        try {
-            SceneController.load("queries.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public ObservableValue<String> getAnswerProperty() {
         return answerProperty;
     }
@@ -47,6 +31,22 @@ public class StartViewModel implements AnswerReceiver {
     public void loadAdminWindow() {
         try {
             SceneController.load("admin/allAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void startManagerWindow() {
+        try {
+            SceneController.load("manager.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void startChiefWindow() {
+        try {
+            SceneController.load("chief.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

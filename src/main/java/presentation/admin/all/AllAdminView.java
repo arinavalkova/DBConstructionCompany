@@ -21,9 +21,6 @@ public class AllAdminView implements View {
     private FlowPane rolesPane;
 
     @FXML
-    private FlowPane usersPane;
-
-    @FXML
     private FlowPane usersAndRolesPane;
 
     @FXML
@@ -37,6 +34,12 @@ public class AllAdminView implements View {
 
     @FXML
     private Label label;
+
+    @FXML
+    private Button adminPeopleEditorButton;
+
+    @FXML
+    private Button adminWorkEditorButton;
 
     @FXML
     void initialize() {
@@ -59,6 +62,8 @@ public class AllAdminView implements View {
         });
 
         loadTestDataButton.setOnAction(event -> allAdminViewModel.loadTestData());
+        adminPeopleEditorButton.setOnAction(event -> allAdminViewModel.loadAdminPeopleEditorButton());
+        adminWorkEditorButton.setOnAction(event -> allAdminViewModel.loadAdminWorkEditorButton());
     }
 
     private void initPanes() {

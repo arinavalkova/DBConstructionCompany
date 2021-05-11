@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import presentation.SceneController;
 import presentation.table.show.ShowTableView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AllAdminViewModel implements AnswerReceiver{
@@ -64,5 +65,21 @@ public class AllAdminViewModel implements AnswerReceiver{
 
     public void loadTestData() {
         loadTestDataUseCase.invoke();
+    }
+
+    public void loadAdminPeopleEditorButton() {
+        try {
+            SceneController.load("admin/peopleAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAdminWorkEditorButton() {
+        try {
+            SceneController.load("admin/workAdmin.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
