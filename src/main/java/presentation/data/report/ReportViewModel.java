@@ -65,7 +65,7 @@ public class ReportViewModel {
 
     public void goBack() {
         try {
-            SceneController.load("dataEditing.fxml");
+            SceneController.load("chief.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

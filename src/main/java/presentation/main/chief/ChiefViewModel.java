@@ -37,4 +37,12 @@ public class ChiefViewModel {
             e.printStackTrace();
         }
     }
+
+    public void loadQueriesWindow() {
+        try {
+            SceneController.load("queries.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

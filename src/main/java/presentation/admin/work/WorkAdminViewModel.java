@@ -44,7 +44,7 @@ public class WorkAdminViewModel {
 
     public void goBack() {
         try {
-            SceneController.load("dataEditing.fxml");
+            SceneController.load("admin/allAdmin.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

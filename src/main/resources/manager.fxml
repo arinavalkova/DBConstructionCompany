@@ -6,8 +6,8 @@
 <AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.main.manager.ManagerView">
    <children>
       <Button fx:id="backButton" layoutX="52.0" layoutY="827.0" mnemonicParsing="false" text="Back" />
-      <Button fx:id="peopleEditingButton" layoutX="211.0" layoutY="97.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Менеджер по найму персонала" />
-      <Button fx:id="organizationsEditingButton" layoutX="211.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Менеджер по найму организаций" />
-      <Button fx:id="brigadesEditingButton" layoutX="211.0" layoutY="220.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Менеджер по сборке бригад" />
+      <Button fx:id="peopleEditingButton" layoutX="211.0" layoutY="97.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Найм персонала" />
+      <Button fx:id="organizationsEditingButton" layoutX="211.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Найму организаций" />
+      <Button fx:id="brigadesEditingButton" layoutX="211.0" layoutY="220.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Сборка бригад" />
    </children>
 </AnchorPane>

@@ -1,14 +1,14 @@
 
+T
+java:S1128"2Remove this unused import 'domain.AnswerReceiver'.(·®Ÿıÿÿÿÿ8íØÂÏ/
+\
+java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8ìşÂÏ/
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8ìşÂÏ/
 ^
 java:S1128
 "ARemove this unused import 'javafx.beans.property.StringProperty'.(Å‘ï±8À™ÃÏ/
-Z
-java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8ìşÂÏ/
-s
-java:S1128"QRemove this unused import 'domain.usecases.nonParameterized.LoadTestDataUseCase'.(¨Ÿ¿ùÿÿÿÿ8İåÚÎ/
-\
-java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8ìşÂÏ/
-T
-java:S1128"2Remove this unused import 'domain.AnswerReceiver'.(·®Ÿıÿÿÿÿ8íØÂÏ/
 d
 java:S1128	"GRemove this unused import 'javafx.beans.property.SimpleStringProperty'.(ûĞùÑ8À™ÃÏ/
+s
+java:S1128"QRemove this unused import 'domain.usecases.nonParameterized.LoadTestDataUseCase'.(¨Ÿ¿ùÿÿÿÿ8İåÚÎ/
