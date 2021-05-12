@@ -62,6 +62,12 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
         if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Василий"), 0))) {
             return false;
         }
+        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Дмитрий"), 1))) {
+            return false;
+        }
+        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Екатерина"), 2))) {
+            return false;
+        }
         return true;
     }
 

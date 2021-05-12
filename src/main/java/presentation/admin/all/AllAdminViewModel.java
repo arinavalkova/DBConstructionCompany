@@ -82,4 +82,12 @@ public class AllAdminViewModel implements AnswerReceiver{
             e.printStackTrace();
         }
     }
+
+    public void goBack() {
+        try {
+            SceneController.load("sqlAuthorization.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

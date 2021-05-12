@@ -315,8 +315,6 @@ h
 8src/main/java/presentation/main/manager/ManagerView.java,f\0\f09c69aa68179a2ef64094791e7126f745dc586d
 m
 =src/main/java/presentation/main/manager/ManagerViewModel.java,5\d\5d849840b9232becefd3eccabff4dbae5becf0f9
-V
-&src/main/resources/admin/allAdmin.fxml,0\8\08e14eb86fcfeebf8cb3c515d7be699fa8b2a7e2
 M
 src/main/resources/chief.fxml,2\f\2f19ce50ab8da791d8e7691235738249f5e70a2d
 O

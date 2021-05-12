@@ -78,6 +78,8 @@ public class SqlAuthorizationViewModel implements DataReceiver, AnswerReceiver {
     }
 
     Map<Integer, String> rolesWindowMap = Stream.of(new Object[][] {
-            { 0, "admin/allAdmin.fxml" }
+            { 0, "admin/allAdmin.fxml" },
+            { 1, "manager.fxml" },
+            { 2, "chief.fxml" }
     }).collect(Collectors.toMap(data -> (Integer) data[0], data -> (String) data[1]));
 }

@@ -42,6 +42,9 @@ public class AllAdminView implements View {
     private Button adminWorkEditorButton;
 
     @FXML
+    private Button backButton;
+
+    @FXML
     void initialize() {
         bind();
         initPanes();
@@ -60,6 +63,8 @@ public class AllAdminView implements View {
             );
             userNameField.setText("");
         });
+
+        backButton.setOnAction(event -> allAdminViewModel.goBack());
 
         loadTestDataButton.setOnAction(event -> allAdminViewModel.loadTestData());
         adminPeopleEditorButton.setOnAction(event -> allAdminViewModel.loadAdminPeopleEditorButton());
