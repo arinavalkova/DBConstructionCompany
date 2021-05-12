@@ -20,7 +20,7 @@ public class AuthorizationViewModel {
             if (JDBCConnection.establishJDBCConnection(userName, password)) {
                 Platform.runLater(() -> answerProperty.setValue(Coder.encodingRUS("Авторизация успешна...")));
                 try {
-                    SceneController.load("start.fxml");
+                    SceneController.load("sqlAuthorization.fxml");
                 } catch (IOException e) {
                     Platform.runLater(() -> answerProperty.setValue(
                             Coder.encodingRUS("Непредвиденная ошибка. Попробуйте еще раз в другое время...")));

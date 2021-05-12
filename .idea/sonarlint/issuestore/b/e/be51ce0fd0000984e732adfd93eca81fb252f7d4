@@ -1,20 +1,20 @@
 
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8Åøşè/
+d
+java:S1128"GRemove this unused import 'javafx.beans.property.SimpleStringProperty'.(ûĞùÑ8×ÁÅÏ/
+T
+java:S1128	"2Remove this unused import 'domain.AnswerReceiver'.(·®Ÿıÿÿÿÿ8§ÅÏ/
+^
+java:S1128"ARemove this unused import 'javafx.beans.property.StringProperty'.(Å‘ï±8×ÁÅÏ/
+X
+java:S1128";Remove this unused import 'javafx.scene.layout.AnchorPane'.(Ø µ8–‰şè/
+\
+java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8íåÅÏ/
 s
 java:S1128
 "QRemove this unused import 'domain.usecases.nonParameterized.LoadTestDataUseCase'.(¨Ÿ¿ùÿÿÿÿ8ø€ñÎ/
-^
-java:S1128"ARemove this unused import 'javafx.beans.property.StringProperty'.(Å‘ï±8×ÁÅÏ/
-L
-java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8Åøşè/
 Z
 java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8ì‡ÅÏ/
-\
-java:S1128"?Remove this unused import 'javafx.beans.value.ObservableValue'.(´œ«Å8íåÅÏ/
-d
-java:S1128"GRemove this unused import 'javafx.beans.property.SimpleStringProperty'.(ûĞùÑ8×ÁÅÏ/
-X
-java:S1128";Remove this unused import 'javafx.scene.layout.AnchorPane'.(Ø µ8–‰şè/
 D
 java:S1128"'Remove this unused import 'data.Coder'.(‚¾ªô8Ó´ùé/
-T
-java:S1128	"2Remove this unused import 'domain.AnswerReceiver'.(·®Ÿıÿÿÿÿ8§ÅÏ/
