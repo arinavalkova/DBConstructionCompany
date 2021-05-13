@@ -18,7 +18,7 @@ public class GetProfessionByNameUseCase implements ParamUseCase {
         int id = (int) object[0];
         ResultSet resultSet;
         String sql = "SELECT profession_id FROM " +
-                "PEOPLE_AND_PROF WHERE PEOPLE_AND_PROF.id = " + id;
+                "\"18206_VALKOVA\".PEOPLE_AND_PROF WHERE \"18206_VALKOVA\".PEOPLE_AND_PROF.id = " + id;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
             resultSet = preStatement.executeQuery();

@@ -29,11 +29,12 @@ public class GetManagementTechnicsQueryUseCase implements ParamUseCase {
     @Override
     public Object invoke(Object... object) {
         String sql = "SELECT T.NAME as NAME, SUM(E.COUNT) as COUNT\n" +
-                "FROM MANAGEMENTS\n" +
-                "         inner join MANAG_AND_SECT MAS on MANAGEMENTS.ID = MAS.MANAGEMENT_ID\n" +
-                "         inner join OBJECTS O on MAS.SECTOR_ID = O.SECTOR_ID\n" +
-                "         inner join ESTIMATE E on O.ID = E.OBJECT_ID\n" +
-                "         inner join TECHNIQUES T on T.ID = E.TECHNICS_ID\n" +
+                "FROM \"18206_VALKOVA\".MANAGEMENTS\n" +
+                "         inner join \"18206_VALKOVA\".MANAG_AND_SECT MAS on \"18206_VALKOVA\".MANAGEMENTS.ID " +
+                "= MAS.MANAGEMENT_ID\n" +
+                "         inner join \"18206_VALKOVA\".OBJECTS O on MAS.SECTOR_ID = O.SECTOR_ID\n" +
+                "         inner join \"18206_VALKOVA\".ESTIMATE E on O.ID = E.OBJECT_ID\n" +
+                "         inner join \"18206_VALKOVA\".TECHNIQUES T on T.ID = E.TECHNICS_ID\n" +
                 "WHERE MANAGEMENT_ID=\n" + object[0].toString() +
                 " GROUP BY T.NAME";
         ResultSet resultSet;

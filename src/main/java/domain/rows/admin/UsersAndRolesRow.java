@@ -31,7 +31,7 @@ public class UsersAndRolesRow implements Row {
 
     @Override
     public String getTableName() {
-        return "us_and_rol";
+        return "\"18206_VALKOVA\".us_and_rol";
     }
 
     @Override

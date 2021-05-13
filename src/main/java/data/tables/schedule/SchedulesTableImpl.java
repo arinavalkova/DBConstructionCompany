@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class SchedulesTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "schedules";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".schedules";
 
     @Override
     public boolean insertRow(Row row) {

@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class QueryTechnicsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "q_technic";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".q_technic";
 
     @Override
     public boolean insertRow(Row row) {

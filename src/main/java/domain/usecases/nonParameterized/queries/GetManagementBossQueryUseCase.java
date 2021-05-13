@@ -27,10 +27,11 @@ public class GetManagementBossQueryUseCase implements NonParamUseCase {
 
     @Override
     public Object invoke() {
-        String sql = "select M.NAME as MANAGEMENT_NAME, PAP.NAME AS BOSS_NAME FROM MANAG_AND_SECT " +
-                "inner join SECTOR_AND_BOSS SAB on MANAG_AND_SECT.SECTOR_ID = SAB.SECTOR_ID\n" +
-                "    inner join MANAGEMENTS M on M.ID = MANAG_AND_SECT.MANAGEMENT_ID\n" +
-                "inner join PEOPLE_AND_PROF PAP on PAP.ID = SAB.BOSS_ID";
+        String sql = "select M.NAME as MANAGEMENT_NAME, PAP.NAME AS BOSS_NAME FROM \"18206_VALKOVA\".MANAG_AND_SECT " +
+                "inner join \"18206_VALKOVA\".SECTOR_AND_BOSS SAB on \"18206_VALKOVA\".MANAG_AND_SECT.SECTOR_ID " +
+                "= SAB.SECTOR_ID\n" +
+                "    inner join \"18206_VALKOVA\".MANAGEMENTS M on M.ID = \"18206_VALKOVA\".MANAG_AND_SECT.MANAGEMENT_ID\n" +
+                "inner join \"18206_VALKOVA\".PEOPLE_AND_PROF PAP on PAP.ID = SAB.BOSS_ID";
         ResultSet resultSet;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);

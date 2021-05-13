@@ -43,7 +43,7 @@ public class FactMaterialsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "fact_mater";
+        return "\"18206_VALKOVA\".fact_mater";
     }
 
     @Override

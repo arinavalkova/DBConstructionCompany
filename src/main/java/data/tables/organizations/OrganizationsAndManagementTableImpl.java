@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class OrganizationsAndManagementTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "organ_and_manag";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".organ_and_manag";
 
     @Override
     public boolean insertRow(Row row) {

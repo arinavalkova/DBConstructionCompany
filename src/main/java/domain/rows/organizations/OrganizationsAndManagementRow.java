@@ -42,6 +42,6 @@ public class OrganizationsAndManagementRow implements Row {
 
     @Override
     public String getTableName() {
-        return "organizat_and_managments";
+        return "\"18206_VALKOVA\".organizat_and_managments";
     }
 }

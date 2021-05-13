@@ -43,7 +43,7 @@ public class TheoreticMaterialsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "theor_mater";
+        return "\"18206_VALKOVA\".theor_mater";
     }
 
     @Override

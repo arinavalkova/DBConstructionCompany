@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class QueryTypesOfWorkTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "q_t_of_jobs";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".q_t_of_jobs";
 
     @Override
     public boolean insertRow(Row row) {

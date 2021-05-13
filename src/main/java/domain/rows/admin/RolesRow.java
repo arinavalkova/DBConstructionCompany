@@ -25,7 +25,7 @@ public class RolesRow implements Row {
 
     @Override
     public String getTableName() {
-        return "roles";
+        return "\"18206_VALKOVA\".roles";
     }
 
     @Override

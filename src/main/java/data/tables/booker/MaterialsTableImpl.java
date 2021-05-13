@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class MaterialsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "materials";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".materials";
 
     @Override
     public boolean insertRow(Row row) {

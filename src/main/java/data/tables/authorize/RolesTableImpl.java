@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class RolesTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "roles";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".roles";
 
     @Override
     public boolean insertRow(Row row) {

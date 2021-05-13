@@ -14,7 +14,7 @@ public class GetRoleIdByUserNameUseCase implements ParamUseCase{
         String userName = (String) object[0];
 
         ResultSet resultSet;
-        String sql = "SELECT role_id FROM US_AND_ROL WHERE user_name='" + userName + "'";
+        String sql = "SELECT role_id FROM \"18206_VALKOVA\".US_AND_ROL WHERE user_name='" + userName + "'";
 
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);
@@ -27,6 +27,7 @@ public class GetRoleIdByUserNameUseCase implements ParamUseCase{
                 }
             }
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
             return null;
         }
     }

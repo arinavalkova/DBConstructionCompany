@@ -5,6 +5,7 @@ import data.tables.authorize.UsersAndRolesTableImpl;
 import domain.AnswerReceiver;
 import domain.rows.admin.UsersAndRolesRow;
 import domain.usecases.nonParameterized.LoadTestDataUseCase;
+import domain.usecases.parameterized.CreateNewUserByRoleUseCase;
 import domain.usecases.parameterized.InsertRowUseCase;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -23,14 +24,20 @@ public class AllAdminViewModel implements AnswerReceiver{
     private final InsertRowUseCase insertRowUseCase = new InsertRowUseCase(new UsersAndRolesTableImpl(), this);
     private final StringProperty answerProperty = new SimpleStringProperty();
 
+    private final CreateNewUserByRoleUseCase createNewUserByRoleUseCase = new CreateNewUserByRoleUseCase(this);
+
     private final LoadTestDataUseCase loadTestDataUseCase = new LoadTestDataUseCase(this);
 
-    public void addNewUser(String userName, int roleId) {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("0");
-        list.add(userName);
-        list.add(String.valueOf(roleId));
-        insertRowUseCase.invoke(new UsersAndRolesRow(list));
+    public void addNewUser(String userName, String password, int roleId) {
+        Thread thread = new Thread(() -> {
+            createNewUserByRoleUseCase.invoke(userName, password, roleId);
+            ArrayList<String> list = new ArrayList<>();
+            list.add("0");
+            list.add(userName);
+            list.add(String.valueOf(roleId));
+            insertRowUseCase.invoke(new UsersAndRolesRow(list));
+        });
+        thread.start();
     }
 
     public void loadRolesPane(Pane rolePane) {
@@ -85,7 +92,7 @@ public class AllAdminViewModel implements AnswerReceiver{
 
     public void goBack() {
         try {
-            SceneController.load("sqlAuthorization.fxml");
+            SceneController.load("authorization.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

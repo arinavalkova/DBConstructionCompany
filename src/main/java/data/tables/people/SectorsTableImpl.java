@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class SectorsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "sectors";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".sectors";
 
     @Override
     public boolean insertRow(Row row) {

@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class UsersAndRolesTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "us_and_rol";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".us_and_rol";
 
     @Override
     public boolean insertRow(Row row) {
@@ -30,7 +30,7 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, " +
-                "user_name varchar(20), password varchar(20), role_id int, " +
+                "user_name varchar(40), password varchar(40), role_id int, " +
                 "foreign key (role_id)" +
                 " references roles (id) on delete cascade)";
         try {
@@ -61,6 +61,9 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
     @Override
     public boolean loadTestData() {
         if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA"), "nar&Alex", 0))) {
+            return false;
+        }
+        if (!insertRow((new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA_MANAGER"), "manager", 1)))) {
             return false;
         }
         return true;

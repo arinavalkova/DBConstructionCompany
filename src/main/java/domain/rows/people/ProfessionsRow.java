@@ -34,6 +34,6 @@ public class ProfessionsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "professions";
+        return "\"18206_VALKOVA\".professions";
     }
 }

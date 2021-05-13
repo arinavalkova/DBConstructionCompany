@@ -64,7 +64,7 @@ public class SchedulesRow implements Row {
 
     @Override
     public String getTableName() {
-        return "schedules";
+        return "\"18206_VALKOVA\".schedules";
     }
 
     @Override

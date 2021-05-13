@@ -41,6 +41,6 @@ public class SectorAndBossRow implements Row {
 
     @Override
     public String getTableName() {
-        return "sector_and_boss";
+        return "\"18206_VALKOVA\".sector_and_boss";
     }
 }

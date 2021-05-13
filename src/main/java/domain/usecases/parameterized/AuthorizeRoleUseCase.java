@@ -25,6 +25,7 @@ public class AuthorizeRoleUseCase implements ParamUseCase {
         String password = (String) object[1];
         Integer roleId = null;
         answerReceiver.onAnswerSuccess(Coder.encodingRUS("Авторизация..."));
+        System.out.println(userName + " " + password);
             if (JDBCConnection.establishJDBCConnection(userName, password)) {
                 roleId = (Integer) getRoleIdByUserNameUseCase.invoke(userName);
                 if (roleId == null) {
@@ -32,11 +33,6 @@ public class AuthorizeRoleUseCase implements ParamUseCase {
                     return null;
                 }
                 answerReceiver.onAnswerSuccess(Coder.encodingRUS("Авторизация успешна..."));
-//                try {
-//                    SceneController.load("sqlAuthorization.fxml");
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
             } else {
                 answerReceiver.onAnswerError(Coder.encodingRUS("Проблемы с подключением. Проверьте VPN подключение..."));
             }

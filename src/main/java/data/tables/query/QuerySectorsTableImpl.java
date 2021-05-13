@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class QuerySectorsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "q_sectors";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".q_sectors";
 
     @Override
     public boolean insertRow(Row row) {

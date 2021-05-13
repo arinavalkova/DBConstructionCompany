@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class TheoreticMaterialsTableImpl extends BaseTable implements DataBaseRepository {
 
-    private final static String TABLE_NAME = "theor_mater";
+    private final static String TABLE_NAME = "\"18206_VALKOVA\".theor_mater";
 
     @Override
     public boolean insertRow(Row row) {

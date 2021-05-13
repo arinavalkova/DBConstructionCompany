@@ -29,7 +29,7 @@ public class MaterialsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "materials";
+        return "\"18206_VALKOVA\".materials";
     }
 
     @Override

@@ -27,8 +27,10 @@ public class GetBossOfManagementQueryUseCase implements ParamUseCase {
     @Override
     public Object invoke(Object... object) {
         String sql = "select PAP.NAME as NAME, P.NAME as PROFESSION FROM\n" +
-                "MANAG_AND_SECT inner join SECTOR_AND_BOSS SAB on MANAG_AND_SECT.SECTOR_ID = SAB.SECTOR_ID\n" +
-                "inner join PEOPLE_AND_PROF PAP on PAP.ID = SAB.BOSS_ID inner join PROFESSIONS P on P.ID = PAP.PROFESSION_ID\n" +
+                "\"18206_VALKOVA\".MANAG_AND_SECT inner join \"18206_VALKOVA\".SECTOR_AND_BOSS SAB " +
+                "on \"18206_VALKOVA\".MANAG_AND_SECT.SECTOR_ID = SAB.SECTOR_ID\n" +
+                "inner join \"18206_VALKOVA\".PEOPLE_AND_PROF PAP on PAP.ID = " +
+                "SAB.BOSS_ID inner join \"18206_VALKOVA\".PROFESSIONS P on P.ID = PAP.PROFESSION_ID\n" +
                 "WHERE MANAGEMENT_ID=" + object[0].toString();
         ResultSet resultSet;
         try {

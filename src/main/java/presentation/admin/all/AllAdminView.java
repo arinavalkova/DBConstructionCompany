@@ -33,9 +33,6 @@ public class AllAdminView implements View {
     private Button addButton;
 
     @FXML
-    private Label label;
-
-    @FXML
     private Button adminPeopleEditorButton;
 
     @FXML
@@ -59,6 +56,7 @@ public class AllAdminView implements View {
         addButton.setOnAction(event -> {
             allAdminViewModel.addNewUser(
                     userNameField.getText(),
+
                     Integer.parseInt(roleIdField.getText())
             );
             userNameField.setText("");

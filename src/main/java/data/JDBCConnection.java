@@ -25,6 +25,7 @@ public class JDBCConnection {
         try {
             connection = DriverManager.getConnection(url, props);
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
             return false;
         }
         return true;

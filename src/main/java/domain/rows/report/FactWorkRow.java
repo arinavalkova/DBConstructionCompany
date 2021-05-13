@@ -53,7 +53,7 @@ public class FactWorkRow implements Row {
 
     @Override
     public String getTableName() {
-        return "fact_work";
+        return "\"18206_VALKOVA\".fact_work";
     }
 
     @Override

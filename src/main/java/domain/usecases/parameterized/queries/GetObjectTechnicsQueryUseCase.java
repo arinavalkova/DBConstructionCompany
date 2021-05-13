@@ -32,10 +32,10 @@ public class GetObjectTechnicsQueryUseCase implements ParamUseCase {
         String secondDate = (String) object[2];
 
         String sql = "SELECT T.NAME as NAME, SUM(FT.COUNT) as COUNT\n" +
-                "FROM OBJECTS\n" +
-                "         inner join SCHEDULES S on OBJECTS.ID = S.OBJECT_ID\n" +
-                "         inner join FACT_TECHN FT on S.ID = FT.WORK_ID\n" +
-                "         inner join TECHNIQUES T on T.ID = FT.TECHNICS_ID\n" +
+                "FROM \"18206_VALKOVA\".OBJECTS\n" +
+                "         inner join \"18206_VALKOVA\".SCHEDULES S on \"18206_VALKOVA\".OBJECTS.ID = S.OBJECT_ID\n" +
+                "         inner join \"18206_VALKOVA\".FACT_TECHN FT on S.ID = FT.WORK_ID\n" +
+                "         inner join \"18206_VALKOVA\".TECHNIQUES T on T.ID = FT.TECHNICS_ID\n" +
                 "WHERE S.START_DATE >= TO_DATE('" + firstDate + "', 'YYYY-MM-DD')\n" +
                 "  and S.END_DATE <= TO_DATE('" + secondDate + "', 'YYYY-MM-DD')\n" +
                 "  and OBJECT_ID =" + objectId + "\n" +

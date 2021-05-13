@@ -28,8 +28,8 @@ public class GetUsersAndRolesUseCase implements NonParamUseCase {
     @Override
     public Object invoke() {
         String sql = "SELECT USER_NAME,PASSWORD, ROLE_ID, NAME AS ROLE_NAME\n" +
-                "FROM US_AND_ROL\n" +
-                "         inner join ROLES R on US_AND_ROL.ROLE_ID = R.ID";
+                "FROM \"18206_VALKOVA\".US_AND_ROL\n" +
+                "         inner join \"18206_VALKOVA\".ROLES R on \"18206_VALKOVA\".US_AND_ROL.ROLE_ID = R.ID";
         ResultSet resultSet;
         try {
             PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(sql);

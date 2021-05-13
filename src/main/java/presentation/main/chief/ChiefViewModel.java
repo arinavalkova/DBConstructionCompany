@@ -32,7 +32,7 @@ public class ChiefViewModel {
 
     public void loadStartWindow() {
         try {
-            SceneController.load("sqlAuthorization.fxml");
+            SceneController.load("authorization.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

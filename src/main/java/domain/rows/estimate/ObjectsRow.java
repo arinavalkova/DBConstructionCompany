@@ -41,6 +41,6 @@ public class ObjectsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "objects";
+        return "\"18206_VALKOVA\".objects";
     }
 }

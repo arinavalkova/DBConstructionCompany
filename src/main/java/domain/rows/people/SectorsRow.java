@@ -35,6 +35,6 @@ public class SectorsRow implements Row {
 
     @Override
     public String getTableName() {
-        return "sectors";
+        return "\"18206_VALKOVA\".sectors";
     }
 }

@@ -42,6 +42,6 @@ public class BrigadeAndEmployeesRow implements Row {
 
     @Override
     public String getTableName() {
-        return "brigade_and_empl";
+        return "\"18206_VALKOVA\".brigade_and_empl";
     }
 }
