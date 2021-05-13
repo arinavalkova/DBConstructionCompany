@@ -9,6 +9,5 @@
       <Button fx:id="estimateEditingButton" layoutX="211.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Сметамы" />
       <Button fx:id="schedulesEditorButton" layoutX="211.0" layoutY="290.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Графики работ" />
       <Button fx:id="reportsEditorButton" layoutX="211.0" layoutY="236.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Отчеты" />
-      <Button fx:id="queriesButton" layoutX="211.0" layoutY="395.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" text="Запросы" />
    </children>
 </AnchorPane>

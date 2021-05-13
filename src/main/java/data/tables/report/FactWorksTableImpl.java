@@ -35,7 +35,7 @@ public class FactWorksTableImpl extends BaseTable implements DataBaseRepository 
                 " ( id int primary key, work_id int, start_date date," +
                 "end_date date," +
                 "foreign key (work_id)" +
-                " references schedules (id) on delete cascade" +
+                " references \"18206_VALKOVA\".schedules (id) on delete cascade" +
                 ")";
         try {
             return executeQuery(sql) != null;

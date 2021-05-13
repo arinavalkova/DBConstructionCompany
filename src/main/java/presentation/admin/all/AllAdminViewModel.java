@@ -34,6 +34,7 @@ public class AllAdminViewModel implements AnswerReceiver{
             ArrayList<String> list = new ArrayList<>();
             list.add("0");
             list.add(userName);
+            list.add(password);
             list.add(String.valueOf(roleId));
             insertRowUseCase.invoke(new UsersAndRolesRow(list));
         });
@@ -42,7 +43,7 @@ public class AllAdminViewModel implements AnswerReceiver{
 
     public void loadRolesPane(Pane rolePane) {
         SceneController.loadControllerToFXMLAndPane(
-                new ShowTableView(new RolesTableImpl(), 200),
+                new ShowTableView(new RolesTableImpl(), 200, 250),
                 "tableShower.fxml",
                 rolePane
         );
@@ -50,7 +51,7 @@ public class AllAdminViewModel implements AnswerReceiver{
 
     public void loadUsersAndRolesPane(FlowPane usersAndRolesPane) {
         SceneController.loadControllerToFXMLAndPane(
-                new ShowTableView(new UsersAndRolesTableImpl(), 200),
+                new ShowTableView(new UsersAndRolesTableImpl(), 200, 400),
                 "tableShower.fxml",
                 usersAndRolesPane
         );

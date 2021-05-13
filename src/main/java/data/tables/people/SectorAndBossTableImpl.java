@@ -34,9 +34,9 @@ public class SectorAndBossTableImpl extends BaseTable implements DataBaseReposit
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, sector_id int, boss_id int, " +
                 "foreign key (boss_id)" +
-                " references people_and_prof (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".people_and_prof (id) on delete cascade, " +
                 "foreign key (sector_id)" +
-                " references sectors (id) on delete cascade )";
+                " references \"18206_VALKOVA\".sectors (id) on delete cascade )";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

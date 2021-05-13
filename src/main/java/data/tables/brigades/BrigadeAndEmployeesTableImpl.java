@@ -34,9 +34,9 @@ public class BrigadeAndEmployeesTableImpl extends BaseTable implements DataBaseR
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, brigade_id int, employee_id int, " +
                 "foreign key (brigade_id)" +
-                " references brigade_and_man (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".brigade_and_man (id) on delete cascade, " +
                 "foreign key (employee_id)" +
-                " references people_and_prof (id) on delete cascade )";
+                " references \"18206_VALKOVA\".people_and_prof (id) on delete cascade )";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

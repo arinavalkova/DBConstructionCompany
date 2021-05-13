@@ -34,9 +34,9 @@ public class FactTechnicsTableImpl extends BaseTable implements DataBaseReposito
         String sql = "CREATE TABLE " + getSQLTableName() +
                 " ( id int primary key, work_id int, technics_id int, count int," +
                 "foreign key (work_id)" +
-                " references schedules (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".schedules (id) on delete cascade, " +
                 "foreign key (technics_id)" +
-                " references techniques (id) on delete cascade" +
+                " references \"18206_VALKOVA\".techniques (id) on delete cascade" +
                 ")";
         try {
             return executeQuery(sql) != null;

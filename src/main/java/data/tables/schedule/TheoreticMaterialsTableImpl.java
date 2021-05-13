@@ -34,9 +34,9 @@ public class TheoreticMaterialsTableImpl extends BaseTable implements DataBaseRe
         String sql = "CREATE TABLE " + getSQLTableName() +
                 " ( id int primary key, work_id int, material_id int, count int," +
                 "foreign key (work_id)" +
-                " references schedules (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".schedules (id) on delete cascade, " +
                 "foreign key (material_id)" +
-                " references materials (id) on delete cascade" +
+                " references \"18206_VALKOVA\".materials (id) on delete cascade" +
                 ")";
         try {
             return executeQuery(sql) != null;

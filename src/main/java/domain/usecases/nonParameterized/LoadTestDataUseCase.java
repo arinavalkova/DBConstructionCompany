@@ -25,14 +25,84 @@ import data.tables.schedule.TheoreticMaterialsTableImpl;
 import domain.AnswerReceiver;
 import domain.DataBaseRepository;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class LoadTestDataUseCase implements NonParamUseCase {
 
     private final ArrayList<DataBaseRepository> repositoryArrayList;
     private final AnswerReceiver answerReceiver;
+
+    private final ArrayList<String> managerGrants = new ArrayList<>(
+            Arrays.asList(
+                    "GRANT SELECT ON \"US_AND_ROL\" TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT ON \"ROLES\" TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON BOSS_AND_EMPL TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON SECTOR_AND_BOSS TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON PEOPLE_AND_PROF TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON MANAGEMENTS TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON MANAG_AND_SECT TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON ORGANIZATIONS TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON ORGAN_AND_MANAG TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON BRIGADE_AND_EMPL TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON BRIGADE_AND_MAN TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT ON SECTORS TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT SELECT ON PROFESSIONS TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT INSERT ON Q_PROF TO \"18206_VALKOVA_MANAGER_ROLE\"",
+                    "GRANT INSERT ON Q_SECTORS TO \"18206_VALKOVA_MANAGER_ROLE\""
+
+            )
+    );
+
+    private final ArrayList<String> chiefGrants = new ArrayList<>(
+            Arrays.asList(
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON FACT_MATER TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON FACT_TECHN TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON FACT_WORK TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEDULES TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON THEOR_MATER TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECTS TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT, INSERT, UPDATE, DELETE ON ESTIMATE TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON MATERIALS TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON TECHNIQUES TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON TYPES_OF_JOBS TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON BRIGADE_AND_MAN TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON SECTORS TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON US_AND_ROL TO \"18206_VALKOVA_CHIEF_ROLE\"",
+                    "GRANT SELECT ON ROLES TO \"18206_VALKOVA_CHIEF_ROLE\""
+            )
+    );
+
+    private final ArrayList<String> directorGrants = new ArrayList<>(
+            Arrays.asList(
+                    "GRANT SELECT ON SECTORS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON PEOPLE_AND_PROF TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON MANAG_AND_SECT TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON SECTOR_AND_BOSS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON PROFESSIONS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON MANAGEMENTS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON OBJECTS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON ESTIMATE TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON TECHNIQUES TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON SCHEDULES TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON BRIGADE_AND_EMPL TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON BRIGADE_AND_MAN TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON TYPES_OF_JOBS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON FACT_MATER TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON FACT_TECHN TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON FACT_WORK TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON ORGANIZATIONS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON ORGAN_AND_MANAG TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON THEOR_MATER TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON MATERIALS TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON \"US_AND_ROL\" TO \"18206_VALKOVA_DIRECTOR_ROLE\"",
+                    "GRANT SELECT ON \"ROLES\" TO \"18206_VALKOVA_DIRECTOR_ROLE\""
+            )
+    );
+
 
     public LoadTestDataUseCase(ArrayList<DataBaseRepository> repositoryArrayList, AnswerReceiver answerReceiver) {
         this.repositoryArrayList = repositoryArrayList;
@@ -111,7 +181,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось создать новую таблицу ")
-                                + currentRepository.getUITableName()
+                                        + currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
@@ -128,7 +198,7 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                         JDBCConnection.getConnection().rollback();
                         answerReceiver.onAnswerError(
                                 Coder.encodingRUS("Не удалось создать триггер автоинкрементации id для ")
-                                + currentRepository.getUITableName()
+                                        + currentRepository.getUITableName()
                         );
                         JDBCConnection.getConnection().setAutoCommit(true);
                         return;
@@ -154,6 +224,45 @@ public class LoadTestDataUseCase implements NonParamUseCase {
                                 Coder.encodingRUS("Загружены тестовые данные для ") +
                                         currentRepository.getUITableName()
                         );
+                    }
+                }
+
+                for (String grant : managerGrants) {
+                    try {
+                        PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(grant);
+                        preStatement.execute();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        JDBCConnection.getConnection().rollback();
+                        answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось создать роль "));
+                        JDBCConnection.getConnection().setAutoCommit(true);
+                        return;
+                    }
+                }
+
+                for (String grant : chiefGrants) {
+                    try {
+                        PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(grant);
+                        preStatement.execute();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        JDBCConnection.getConnection().rollback();
+                        answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось создать роль "));
+                        JDBCConnection.getConnection().setAutoCommit(true);
+                        return;
+                    }
+                }
+
+                for (String grant : directorGrants) {
+                    try {
+                        PreparedStatement preStatement = JDBCConnection.getConnection().prepareStatement(grant);
+                        preStatement.execute();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        JDBCConnection.getConnection().rollback();
+                        answerReceiver.onAnswerError(Coder.encodingRUS("Не удалось создать роль "));
+                        JDBCConnection.getConnection().setAutoCommit(true);
+                        return;
                     }
                 }
 

@@ -34,8 +34,8 @@ public class OrganizationsAndManagementTableImpl extends BaseTable implements Da
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, organization_id int, management_id int, "
-                + " foreign key (organization_id)" + " references organizations (id) on delete cascade, "
-                + " foreign key (management_id)" + " references managements (id) on delete cascade)";
+                + " foreign key (organization_id)" + " references \"18206_VALKOVA\".organizations (id) on delete cascade, "
+                + " foreign key (management_id)" + " references \"18206_VALKOVA\".managements (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

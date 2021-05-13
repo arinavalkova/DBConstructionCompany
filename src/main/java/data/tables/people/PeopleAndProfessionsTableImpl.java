@@ -30,7 +30,7 @@ public class PeopleAndProfessionsTableImpl extends BaseTable implements DataBase
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, name varchar(20), profession_id int, " +
                 "foreign key (profession_id)" +
-                " references professions (id) on delete cascade)";
+                " references \"18206_VALKOVA\".professions (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

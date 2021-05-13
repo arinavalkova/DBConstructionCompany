@@ -45,7 +45,8 @@ public class AuthorizationViewModel implements DataReceiver, AnswerReceiver  {
     Map<Integer, String> rolesWindowMap = Stream.of(new Object[][] {
             { 0, "admin/allAdmin.fxml" },
             { 1, "manager.fxml" },
-            { 2, "chief.fxml" }
+            { 2, "chief.fxml" },
+            { 3, "queries.fxml" }
     }).collect(Collectors.toMap(data -> (Integer) data[0], data -> (String) data[1]));
 
     private void loadRoleWindow(int id) {

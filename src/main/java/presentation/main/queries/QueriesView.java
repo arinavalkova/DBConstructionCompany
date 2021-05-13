@@ -35,7 +35,7 @@ public class QueriesView implements View {
     void initialize()  {
         backButton.setOnAction(event -> {
             try {
-                SceneController.load("chief.fxml");
+                SceneController.load("authorization.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }

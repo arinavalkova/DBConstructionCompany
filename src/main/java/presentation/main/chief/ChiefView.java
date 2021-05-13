@@ -20,9 +20,6 @@ public class ChiefView {
     private Button reportsEditorButton;
 
     @FXML
-    private Button queriesButton;
-
-    @FXML
     void initialize() {
         initButtons();
     }
@@ -32,6 +29,5 @@ public class ChiefView {
         estimateEditingButton.setOnAction(event -> chiefViewModel.loadEstimateEditingWindow());
         schedulesEditorButton.setOnAction(event -> chiefViewModel.loadSchedulesEditingWindow());
         reportsEditorButton.setOnAction(event -> chiefViewModel.loadReportsEditingWindow());
-        queriesButton.setOnAction(event -> chiefViewModel.loadQueriesWindow());
     }
 }

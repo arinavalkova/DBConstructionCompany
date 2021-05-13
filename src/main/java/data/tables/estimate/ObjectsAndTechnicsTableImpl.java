@@ -33,9 +33,9 @@ public class ObjectsAndTechnicsTableImpl extends BaseTable implements DataBaseRe
         String sql = "CREATE TABLE " + getSQLTableName() +
                 " ( id int primary key, object_id int, technics_id int, count int, " +
                 "foreign key (object_id)" +
-                " references objects (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".objects (id) on delete cascade, " +
                 "foreign key (technics_id)" +
-                " references techniques (id) on delete cascade )";
+                " references \"18206_VALKOVA\".techniques (id) on delete cascade )";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

@@ -33,8 +33,8 @@ public class BossAndEmployeesTableImpl extends BaseTable implements DataBaseRepo
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + TABLE_NAME + " ( id int primary key, boss_id int, employee_id int, "
-                + " foreign key (boss_id)" + " references people_and_prof (id) on delete cascade, "
-                + " foreign key (employee_id)" + " references people_and_prof (id) on delete cascade)";
+                + " foreign key (boss_id)" + " references \"18206_VALKOVA\".people_and_prof (id) on delete cascade, "
+                + " foreign key (employee_id)" + " references \"18206_VALKOVA\".people_and_prof (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

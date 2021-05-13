@@ -36,11 +36,11 @@ public class SchedulesTableImpl extends BaseTable implements DataBaseRepository 
                 " ( id int primary key, type_of_work_id int, object_id int, start_date date," +
                 "end_date date, brigade_id int," +
                 "foreign key (type_of_work_id)" +
-                " references types_of_jobs (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".types_of_jobs (id) on delete cascade, " +
                 "foreign key (object_id)" +
-                " references objects (id) on delete cascade, " +
+                " references \"18206_VALKOVA\".objects (id) on delete cascade, " +
                 "foreign key (brigade_id)" +
-                " references brigade_and_man (id) on delete cascade " +
+                " references \"18206_VALKOVA\".brigade_and_man (id) on delete cascade " +
                 ")";
         try {
             return executeQuery(sql) != null;

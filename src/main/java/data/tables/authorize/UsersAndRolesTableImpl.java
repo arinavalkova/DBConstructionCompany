@@ -32,7 +32,7 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, " +
                 "user_name varchar(40), password varchar(40), role_id int, " +
                 "foreign key (role_id)" +
-                " references roles (id) on delete cascade)";
+                " references \"18206_VALKOVA\".roles (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {
@@ -64,6 +64,12 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
             return false;
         }
         if (!insertRow((new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA_MANAGER"), "manager", 1)))) {
+            return false;
+        }
+        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA_CHIEF"), "chief", 2))) {
+            return false;
+        }
+        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA_DIRECTOR"), "director", 3))) {
             return false;
         }
         return true;

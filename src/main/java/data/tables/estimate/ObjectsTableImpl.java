@@ -30,7 +30,7 @@ public class ObjectsTableImpl extends BaseTable implements DataBaseRepository {
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, name varchar(20), sector_id int, " +
                 "foreign key (sector_id)" +
-                " references sectors (id) on delete cascade)";
+                " references \"18206_VALKOVA\".sectors (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

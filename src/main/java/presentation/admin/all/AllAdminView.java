@@ -27,6 +27,9 @@ public class AllAdminView implements View {
     private TextField userNameField;
 
     @FXML
+    private TextField passwordField;
+
+    @FXML
     private TextField roleIdField;
 
     @FXML
@@ -56,7 +59,7 @@ public class AllAdminView implements View {
         addButton.setOnAction(event -> {
             allAdminViewModel.addNewUser(
                     userNameField.getText(),
-
+                    passwordField.getText(),
                     Integer.parseInt(roleIdField.getText())
             );
             userNameField.setText("");

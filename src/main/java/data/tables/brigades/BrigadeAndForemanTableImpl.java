@@ -34,7 +34,7 @@ public class BrigadeAndForemanTableImpl extends BaseTable implements DataBaseRep
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, name varchar(20), foreman_id int, " +
                 "foreign key (foreman_id)" +
-                " references people_and_prof (id) on delete cascade)";
+                " references \"18206_VALKOVA\".people_and_prof (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

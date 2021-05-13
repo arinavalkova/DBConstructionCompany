@@ -34,8 +34,8 @@ public class ManagementsAndSectorsTableImpl extends BaseTable implements DataBas
     @Override
     public boolean createTable() {
         String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, management_id int, sector_id int, "
-                + " foreign key (management_id)" + " references managements (id) on delete cascade, "
-                + " foreign key (sector_id)" + " references sectors (id) on delete cascade)";
+                + " foreign key (management_id)" + " references \"18206_VALKOVA\".managements (id) on delete cascade, "
+                + " foreign key (sector_id)" + " references \"18206_VALKOVA\".sectors (id) on delete cascade)";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {

@@ -17,7 +17,8 @@ public class ShowTableView implements View {
     private final ArrayList<String> classFieldsNames;
     private final ArrayList<String> columnNames;
     private final String tableName;
-    private final int tableHeight;
+    private final Integer tableHeight;
+    private final Integer tableWidth;
 
     private ArrayList<TableColumn<Object, Type>> columns = new ArrayList<>();
 
@@ -32,11 +33,24 @@ public class ShowTableView implements View {
 
     public ShowTableView(
             DataBaseRepository repository,
+            int tableHeight, int tableWidth) {
+        this.classFieldsNames = repository.getFieldNames();
+        this.columnNames = repository.getColumnNames();
+        this.tableName = repository.getUITableName();
+        this.tableHeight = tableHeight;
+        this.tableWidth = tableWidth;
+
+        this.showTableViewModel = new ShowTableViewModel(repository);
+    }
+
+    public ShowTableView(
+            DataBaseRepository repository,
             int tableHeight) {
         this.classFieldsNames = repository.getFieldNames();
         this.columnNames = repository.getColumnNames();
         this.tableName = repository.getUITableName();
         this.tableHeight = tableHeight;
+        this.tableWidth = null;
 
         this.showTableViewModel = new ShowTableViewModel(repository);
     }
@@ -47,6 +61,9 @@ public class ShowTableView implements View {
         tableNameLabel.setText(tableName);
         table.itemsProperty().bind(showTableViewModel.getRowProperty());
         table.setMaxHeight(tableHeight);
+        if (tableWidth != null) {
+            table.setMinWidth(tableWidth);
+        }
 
         int i = 0;
         for (String fieldName : classFieldsNames) {

@@ -64,6 +64,9 @@ public class RolesTableImpl extends BaseTable implements DataBaseRepository {
         if (!insertRow(new RolesRow(0, Coder.encodingRUS("Заведующий")))) {
             return false;
         }
+        if (!insertRow(new RolesRow(0, Coder.encodingRUS("Директор")))) {
+            return false;
+        }
         return true;
     }
 
