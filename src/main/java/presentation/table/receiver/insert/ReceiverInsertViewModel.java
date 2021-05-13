@@ -22,7 +22,7 @@ public class ReceiverInsertViewModel implements DataReceiver, AnswerReceiver {
     private final GetRowsUseCase getRowsUseCase;
     private final InsertRowUseCase insertRowUseCase;
     private final DeleteRowUseCase deleteRowUseCase;
-    private final Property<ObservableList<Row>> rowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> rowProperty = new SimpleObjectProperty<>();
 
     public ReceiverInsertViewModel(DataBaseRepository sourceRepository, DataBaseRepository destinationRepository) {
         this.sourceRepository = sourceRepository;
@@ -32,17 +32,17 @@ public class ReceiverInsertViewModel implements DataReceiver, AnswerReceiver {
         this.getRowsUseCase = new GetRowsUseCase(sourceRepository, this, rowProperty);
     }
 
-    public Property<ObservableList<Row>> getRowProperty() {
+    public Property<ObservableList<Object>> getRowProperty() {
         return rowProperty;
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 
@@ -50,13 +50,15 @@ public class ReceiverInsertViewModel implements DataReceiver, AnswerReceiver {
         getRowsUseCase.invoke();
     }
 
-    public void acceptAction(Row row) {
+    public void acceptAction(Object object) {
+        Row row = (Row) object;
         insertRowUseCase.invoke(row);
         deleteRowUseCase.invoke(row.getId());
         getRowsUseCase.invoke();
     }
 
-    public void rejectAction(Row row) {
+    public void rejectAction(Object object) {
+        Row row = (Row) object;
         deleteRowUseCase.invoke(row.getId());
         getRowsUseCase.invoke();
     }

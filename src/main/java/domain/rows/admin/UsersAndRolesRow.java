@@ -8,18 +8,25 @@ public class UsersAndRolesRow implements Row {
 
     private final int id;
     private final String userName;
+    private final String password;
     private final int roleId;
 
-    public UsersAndRolesRow(int id, String userName, int roleId) {
+    public UsersAndRolesRow(int id, String userName, String password, int roleId) {
         this.id = id;
         this.userName = userName;
+        this.password = password;
         this.roleId = roleId;
     }
 
     public UsersAndRolesRow(ArrayList<String> list) {
         this.id = Integer.parseInt(list.get(0));
         this.userName = list.get(1);
-        this.roleId = Integer.parseInt(list.get(2));
+        this.password = list.get(2);
+        this.roleId = Integer.parseInt(list.get(3));
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override

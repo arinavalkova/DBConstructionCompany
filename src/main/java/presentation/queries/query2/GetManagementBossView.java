@@ -16,13 +16,13 @@ public class GetManagementBossView implements View {
     private final GetManagementBossViewModel getManagementBossViewModel = new GetManagementBossViewModel();
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfManagementColumn;
+    private TableColumn<Object, String> nameOfManagementColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfBossColumn;
+    private TableColumn<Object, String> nameOfBossColumn;
 
     @FXML
     private Button backButton;

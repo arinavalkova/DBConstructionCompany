@@ -16,13 +16,13 @@ public class ReceiverInsertView implements View {
     private Label label;
 
     @FXML
-    private TableView<Row> table;
+    private TableView<Object> table;
 
     @FXML
-    private TableColumn<Row, Integer> firstColumn;
+    private TableColumn<Object, Integer> firstColumn;
 
     @FXML
-    private TableColumn<Row, String> secondColumn;
+    private TableColumn<Object, String> secondColumn;
 
     @FXML
     private Button loadDataButton;
@@ -61,11 +61,11 @@ public class ReceiverInsertView implements View {
     private void initButtons() {
         loadDataButton.setOnAction(event -> receiverInsertViewModel.loadData());
         acceptButton.setOnAction(event -> {
-            Row row = table.getSelectionModel().selectedItemProperty().get();
+            Object row = table.getSelectionModel().selectedItemProperty().get();
             receiverInsertViewModel.acceptAction(row);
         });
         rejectButton.setOnAction(event -> {
-            Row row = table.getSelectionModel().selectedItemProperty().get();
+            Object row = table.getSelectionModel().selectedItemProperty().get();
             receiverInsertViewModel.rejectAction(row);
         });
         receiverInsertViewModel.loadData();

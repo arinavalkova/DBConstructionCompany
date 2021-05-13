@@ -19,10 +19,10 @@ public class ShowTableView implements View {
     private final String tableName;
     private final int tableHeight;
 
-    private ArrayList<TableColumn<Row, Type>> columns = new ArrayList<>();
+    private ArrayList<TableColumn<Object, Type>> columns = new ArrayList<>();
 
     @FXML
-    private TableView<Row> table;
+    private TableView<Object> table;
 
     @FXML
     private Label tableNameLabel;
@@ -50,7 +50,7 @@ public class ShowTableView implements View {
 
         int i = 0;
         for (String fieldName : classFieldsNames) {
-            TableColumn<Row, Type> tableColumn = new TableColumn<>();
+            TableColumn<Object, Type> tableColumn = new TableColumn<>();
             tableColumn.setCellValueFactory(new PropertyValueFactory<>(fieldName));
             columns.add(tableColumn);
             tableColumn.setText(columnNames.get(i));

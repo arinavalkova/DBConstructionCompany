@@ -3,6 +3,7 @@ package presentation.main.authorization.roles;
 import domain.AnswerReceiver;
 import domain.DataReceiver;
 import domain.rows.Row;
+import domain.rows.queries.UserAndRoleRow;
 import domain.usecases.nonParameterized.queries.GetUsersAndRolesUseCase;
 import domain.usecases.parameterized.AuthorizeRoleUseCase;
 import javafx.application.Platform;
@@ -22,7 +23,7 @@ import java.util.stream.Stream;
 
 public class SqlAuthorizationViewModel implements DataReceiver, AnswerReceiver {
 
-    private final Property<ObservableList<Row>> listProperty = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final Property<ObservableList<Object>> listProperty = new SimpleListProperty<>(FXCollections.observableArrayList());
     private final GetUsersAndRolesUseCase getUsersAndRolesUseCase = new GetUsersAndRolesUseCase(this, listProperty);
     private final AuthorizeRoleUseCase authorizeRoleUseCase = new AuthorizeRoleUseCase(this);
 
@@ -32,7 +33,7 @@ public class SqlAuthorizationViewModel implements DataReceiver, AnswerReceiver {
         return answerProperty;
     }
 
-    public Property<ObservableList<Row>> getListProperty() {
+    public Property<ObservableList<Object>> getListProperty() {
         return listProperty;
     }
 
@@ -41,19 +42,19 @@ public class SqlAuthorizationViewModel implements DataReceiver, AnswerReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 
-    public void authorize(Row value) {
+    public void authorize(Object value) {
         Thread thread = new Thread(() -> {
             authorizeRoleUseCase.invoke(value);
-            loadRoleWindow(value);
+            loadRoleWindow((Row) value);
         });
         thread.start();
     }

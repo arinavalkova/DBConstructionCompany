@@ -1,21 +1,21 @@
 
-Z	java:S106s"9Replace this use of System.out or System.err by a logger.(‰œ¼ãşÿÿÿÿ8Œ›ÂûŒ/
-•
-java:S1319Y"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(‰ã¾šıÿÿÿÿ8¼³ç¶Œ/
-
-java:S1319_"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(œü÷¤8Ê‚é·Œ/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
-•
-java:S1319S"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒàÿÜúÿÿÿÿ8èßŞ¶Œ/
-•
-java:S1319h"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(öÀ’×şÿÿÿÿ8©Å¥ÉŒ/
-L
-java:S1066"/Merge this if statement with the enclosing one.(à”ï8‰ëúŒ/
-V	java:S106"9Replace this use of System.out or System.err by a logger.(Ô£Â€8Ó˜½ûŒ/
-”
-java:S1319p"rThe type of the "rowList" object should be an interface such as "List" rather than the implementation "ArrayList".(ø×îîşÿÿÿÿ8ñˆ›úŒ/
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ÿ›´ø‹/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8Ÿ›´ø‹/
+
+java:S1319"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(œü÷¤8Ê‚é·Œ/
+e
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(éÏõ¯üÿÿÿÿ8Ÿ›´ø‹/
+“
+java:S1319"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(‰ã¾šıÿÿÿÿ8¼³ç¶Œ/
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(°Ö°8Ÿ›´ø‹/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ô£Â€8Ó˜½ûŒ/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(‰œ¼ãşÿÿÿÿ8Œ›ÂûŒ/
+’
+java:S1319"rThe type of the "rowList" object should be an interface such as "List" rather than the implementation "ArrayList".(ø×îîşÿÿÿÿ8ñˆ›úŒ/
+“
+java:S1319"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(ÒàÿÜúÿÿÿÿ8èßŞ¶Œ/
+J
+java:S1066"/Merge this if statement with the enclosing one.(à”ï8‰ëúŒ/
+e
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²¤¥şÿÿÿÿ8Ÿ›´ø‹/
+“
+java:S1319"sThe type of the "rowLines" object should be an interface such as "List" rather than the implementation "ArrayList".(öÀ’×şÿÿÿÿ8©Å¥ÉŒ/

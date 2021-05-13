@@ -149,8 +149,6 @@ M
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 w
 G.idea/sonarlint/issuestore/4/1/41dc8a82d1ca221571613bc743c05367cbe0da5c,b\c\bc8893dad9f8d49c5e4bd0390b8da6b429b1734e
-U
-%src/main/resources/authorization.fxml,6\b\6b15158fc351428637abce6fa2e85646bb0ab54d
 Y
 )src/main/resources/customTableEditor.fxml,f\5\f54ef19ab97f292c83a933f4c1a159b0f9d7100e
 m
@@ -319,3 +317,17 @@ M
 src/main/resources/chief.fxml,2\f\2f19ce50ab8da791d8e7691235738249f5e70a2d
 O
 src/main/resources/manager.fxml,f\9\f94594930b9a37f436a97a23a9536f63c12fe0af
+u
+Esrc/main/java/domain/usecases/parameterized/AuthorizeRoleUseCase.java,f\4\f4863fb0cf94eb3b2a98ac8afca531e2675369d3
+ƒ
+Ssrc/main/java/domain/usecases/nonParameterized/queries/GetUsersAndRolesUseCase.java,0\8\0839badd3bf3800ba0c90b5dde72e2fefcf6781e
+X
+(src/main/resources/sqlAuthorization.fxml,0\5\053c091d9035e806ace12ca5744541c4e978c88e
+}
+Msrc/main/java/presentation/main/authorization/roles/SqlAuthorizationView.java,e\e\ee79084f81cc479fb7902fc06940cee76459b83d
+e
+5src/main/java/domain/rows/queries/UserAndRoleRow.java,3\d\3d4a7b177eb548b8bf93d295c17c8d88fc5e54ee
+‚
+Rsrc/main/java/presentation/main/authorization/roles/SqlAuthorizationViewModel.java,5\3\53308a181364049c89b5b1fc90809bb8985fccca
+{
+Ksrc/main/java/domain/usecases/parameterized/GetRoleIdByUserNameUseCase.java,9\f\9f5e9a23c46b0ca63276f7714c9eba98db8637d8

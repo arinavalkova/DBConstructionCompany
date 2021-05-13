@@ -19,22 +19,22 @@ public class GetObjectTechnicsView implements View {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @FXML
-    private TableView<Row> objectsTable;
+    private TableView<Object> objectsTable;
 
     @FXML
-    private TableColumn<Row, Integer> objectIdColumn;
+    private TableColumn<Object, Integer> objectIdColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfObjectColumn;
+    private TableColumn<Object, String> nameOfObjectColumn;
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfTechnicsColumn;
+    private TableColumn<Object, String> nameOfTechnicsColumn;
 
     @FXML
-    private TableColumn<Row, Integer> countOfTechnicsColumn;
+    private TableColumn<Object, Integer> countOfTechnicsColumn;
 
     @FXML
     private Button backButton;
@@ -65,7 +65,7 @@ public class GetObjectTechnicsView implements View {
         });
 
         queryButton.setOnAction(event -> {
-            Row row = objectsTable.getSelectionModel().selectedItemProperty().get();
+            Object row = objectsTable.getSelectionModel().selectedItemProperty().get();
             String firstDate = formatter.format(firstDatePicker.getValue());
             String secondDate = formatter.format(secondDatePicker.getValue());
             getObjectTechnicsViewModel.executeQuery(row, firstDate, secondDate);

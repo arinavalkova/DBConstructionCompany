@@ -18,16 +18,16 @@ import java.util.ArrayList;
 public class GetUsersAndRolesUseCase implements NonParamUseCase {
 
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
-    public GetUsersAndRolesUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetUsersAndRolesUseCase(DataReceiver dataReceiver, Property<ObservableList<Object>> property) {
         this.dataReceiver = dataReceiver;
         this.property = property;
     }
 
     @Override
     public Object invoke() {
-        String sql = "SELECT USER_NAME, ROLE_ID, NAME AS ROLE_NAME\n" +
+        String sql = "SELECT USER_NAME,PASSWORD, ROLE_ID, NAME AS ROLE_NAME\n" +
                 "FROM US_AND_ROL\n" +
                 "         inner join ROLES R on US_AND_ROL.ROLE_ID = R.ID";
         ResultSet resultSet;
@@ -43,6 +43,7 @@ public class GetUsersAndRolesUseCase implements NonParamUseCase {
                 if (!resultSet.next()) break;
                 rowArrayList.add(new UserAndRoleRow(
                         resultSet.getString("user_name"),
+                        resultSet.getString("password"),
                         resultSet.getInt("role_id"),
                         resultSet.getString("role_name"))
                 );

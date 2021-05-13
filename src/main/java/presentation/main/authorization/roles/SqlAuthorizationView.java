@@ -1,6 +1,7 @@
 package presentation.main.authorization.roles;
 
 import domain.rows.Row;
+import domain.rows.queries.UserAndRoleRow;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -12,7 +13,7 @@ public class SqlAuthorizationView implements View {
     private final SqlAuthorizationViewModel sqlAuthorizationViewModel = new SqlAuthorizationViewModel();
 
     @FXML
-    private ChoiceBox<Row> userChoiceBox;
+    private ChoiceBox<Object> userChoiceBox;
 
     @FXML
     private Button button;

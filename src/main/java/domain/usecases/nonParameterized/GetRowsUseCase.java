@@ -14,12 +14,12 @@ public class GetRowsUseCase implements NonParamUseCase {
 
     private final DataBaseRepository dataBaseRepository;
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
     public GetRowsUseCase(
             DataBaseRepository dataBaseRepository,
             DataReceiver dataReceiver,
-            Property<ObservableList<Row>> property) {
+            Property<ObservableList<Object>> property) {
         this.dataBaseRepository = dataBaseRepository;
         this.dataReceiver = dataReceiver;
         this.property = property;

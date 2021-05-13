@@ -13,14 +13,14 @@ import java.util.List;
 
 public class GetManagementBossViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> resultRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> resultRowProperty = new SimpleObjectProperty<>();
 
     private final GetManagementBossQueryUseCase getManagementAndBossQueryUseCase = new GetManagementBossQueryUseCase(
             this,
             resultRowProperty
     );
 
-    public Property<ObservableList<Row>> getResultRowProperty() {
+    public Property<ObservableList<Object>> getResultRowProperty() {
         return resultRowProperty;
     }
 
@@ -29,12 +29,12 @@ public class GetManagementBossViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

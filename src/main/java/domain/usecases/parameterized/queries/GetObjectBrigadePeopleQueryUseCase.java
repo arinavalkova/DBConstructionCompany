@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class GetObjectBrigadePeopleQueryUseCase implements ParamUseCase {
 
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
-    public GetObjectBrigadePeopleQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetObjectBrigadePeopleQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Object>> property) {
         this.dataReceiver = dataReceiver;
         this.property = property;
     }

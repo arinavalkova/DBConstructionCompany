@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class GetObjectsAndSchedulesQueryUseCase implements ParamUseCase {
 
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
-    public GetObjectsAndSchedulesQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetObjectsAndSchedulesQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Object>> property) {
         this.dataReceiver = dataReceiver;
         this.property = property;
     }

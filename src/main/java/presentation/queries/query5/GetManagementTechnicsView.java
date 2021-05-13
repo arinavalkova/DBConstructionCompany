@@ -18,22 +18,22 @@ public class GetManagementTechnicsView implements View {
     private final GetManagementTechnicsViewModel getManagementTechnicsViewModel = new GetManagementTechnicsViewModel();
 
     @FXML
-    private TableView<Row> managementTable;
+    private TableView<Object> managementTable;
 
     @FXML
-    private TableColumn<Row, Integer> managementIdColumn;
+    private TableColumn<Object, Integer> managementIdColumn;
 
     @FXML
-    private TableColumn<Row, String> managementNameColumn;
+    private TableColumn<Object, String> managementNameColumn;
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfTechnicsColumn;
+    private TableColumn<Object, String> nameOfTechnicsColumn;
 
     @FXML
-    private TableColumn<Row, Integer> countOfTechnicsColumn;
+    private TableColumn<Object, Integer> countOfTechnicsColumn;
 
     @FXML
     private Button backButton;
@@ -62,7 +62,7 @@ public class GetManagementTechnicsView implements View {
 
     private void initActions() {
         managementTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
+            TableRow<Object> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 ManagementsRow managementsRow = (ManagementsRow) row.getItem();
                 if (managementsRow != null) {

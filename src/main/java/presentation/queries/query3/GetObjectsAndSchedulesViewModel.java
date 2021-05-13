@@ -15,8 +15,8 @@ import java.util.List;
 
 public class GetObjectsAndSchedulesViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> managementsRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<Row>> resultRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> managementsRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> resultRowProperty = new SimpleObjectProperty<>();
 
     private final GetRowsUseCase getManagementRowsUseCase = new GetRowsUseCase(
             new ManagementsTableImpl(),
@@ -30,11 +30,11 @@ public class GetObjectsAndSchedulesViewModel implements DataReceiver {
             resultRowProperty
     );
 
-    public Property<ObservableList<Row>> getManagementsRowProperty() {
+    public Property<ObservableList<Object>> getManagementsRowProperty() {
         return managementsRowProperty;
     }
 
-    public Property<ObservableList<Row>> getResultRowProperty() {
+    public Property<ObservableList<Object>> getResultRowProperty() {
         return resultRowProperty;
     }
 
@@ -47,12 +47,12 @@ public class GetObjectsAndSchedulesViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

@@ -15,8 +15,8 @@ import java.util.List;
 
 public class GetBrigadeAndEmployeeViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> objectsRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<Row>> resultRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> objectsRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> resultRowProperty = new SimpleObjectProperty<>();
 
     private final GetRowsUseCase getObjectsRowUseCase = new GetRowsUseCase(
             new ObjectsTableImpl(),
@@ -31,11 +31,11 @@ public class GetBrigadeAndEmployeeViewModel implements DataReceiver {
             resultRowProperty
     );
 
-    public Property<ObservableList<Row>> getObjectsRowProperty() {
+    public Property<ObservableList<Object>> getObjectsRowProperty() {
         return objectsRowProperty;
     }
 
-    public Property<ObservableList<Row>> getResultRowProperty() {
+    public Property<ObservableList<Object>> getResultRowProperty() {
         return resultRowProperty;
     }
 
@@ -48,12 +48,12 @@ public class GetBrigadeAndEmployeeViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

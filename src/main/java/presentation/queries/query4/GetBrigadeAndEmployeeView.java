@@ -19,22 +19,22 @@ public class GetBrigadeAndEmployeeView implements View {
     private final GetBrigadeAndEmployeeViewModel getBrigadeAndEmployeeViewModel = new GetBrigadeAndEmployeeViewModel();
 
     @FXML
-    private TableView<Row> objectTable;
+    private TableView<Object> objectTable;
 
     @FXML
-    private TableColumn<Row, Integer> objectIdColumn;
+    private TableColumn<Object, Integer> objectIdColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfObjectColumn;
+    private TableColumn<Object, String> nameOfObjectColumn;
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfBrigadeColumn;
+    private TableColumn<Object, String> nameOfBrigadeColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfEmployeeColumn;
+    private TableColumn<Object, String> nameOfEmployeeColumn;
 
     @FXML
     private Button backButton;
@@ -63,7 +63,7 @@ public class GetBrigadeAndEmployeeView implements View {
 
     private void initActions() {
         objectTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
+            TableRow<Object> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 ObjectsRow objectsRow = (ObjectsRow) row.getItem();
                 if (objectsRow != null) {

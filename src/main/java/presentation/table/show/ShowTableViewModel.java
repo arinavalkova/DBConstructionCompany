@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ShowTableViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> rowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> rowProperty = new SimpleObjectProperty<>();
 
     private final GetRowsUseCase getRowsUseCase;
 
@@ -23,7 +23,7 @@ public class ShowTableViewModel implements DataReceiver {
         this.getRowsUseCase = new GetRowsUseCase(dataBaseRepository, this, rowProperty);
     }
 
-    public Property<ObservableList<Row>> getRowProperty() {
+    public Property<ObservableList<Object>> getRowProperty() {
         return rowProperty;
     }
 
@@ -32,12 +32,12 @@ public class ShowTableViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

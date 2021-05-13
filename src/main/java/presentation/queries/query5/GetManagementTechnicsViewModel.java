@@ -18,8 +18,8 @@ import java.util.List;
 
 public class GetManagementTechnicsViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> managementRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<Row>> resultRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> managementRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> resultRowProperty = new SimpleObjectProperty<>();
 
     private final GetRowsUseCase getManagementsRowUseCase = new GetRowsUseCase(
             new ManagementsTableImpl(),
@@ -34,11 +34,11 @@ public class GetManagementTechnicsViewModel implements DataReceiver {
                     resultRowProperty
             );
 
-    public Property<ObservableList<Row>> getManagementRowProperty() {
+    public Property<ObservableList<Object>> getManagementRowProperty() {
         return managementRowProperty;
     }
 
-    public Property<ObservableList<Row>> getResultRowProperty() {
+    public Property<ObservableList<Object>> getResultRowProperty() {
         return resultRowProperty;
     }
 
@@ -51,12 +51,12 @@ public class GetManagementTechnicsViewModel implements DataReceiver {
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

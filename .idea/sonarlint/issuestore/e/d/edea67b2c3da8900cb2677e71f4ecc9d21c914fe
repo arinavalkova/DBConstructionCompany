@@ -1,0 +1,10 @@
+
+D
+java:S1128"'Remove this unused import 'data.Coder'.(‚¾ªô8ñðÇŒ–/
+U
+java:S3878-"8Remove this array creation and simply pass the elements.(ïÊº™8Øì£‹–/
+w
+java:S1128
+"URemove this unused import 'domain.usecases.parameterized.GetRoleIdByUserNameUseCase'.(Å¹®¨øÿÿÿÿ8®ñäŒ–/
+R
+java:S1128"0Remove this unused import 'data.JDBCConnection'.(ˆÿ€Ðýÿÿÿÿ8ñðÇŒ–/

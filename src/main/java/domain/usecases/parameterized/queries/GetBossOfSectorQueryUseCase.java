@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class GetBossOfSectorQueryUseCase implements ParamUseCase {
 
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
-    public GetBossOfSectorQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetBossOfSectorQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Object>> property) {
         this.dataReceiver = dataReceiver;
         this.property =property;
     }

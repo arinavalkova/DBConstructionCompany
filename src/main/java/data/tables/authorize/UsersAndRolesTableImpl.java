@@ -5,7 +5,6 @@ import data.Coder;
 import domain.DataBaseRepository;
 import domain.rows.Row;
 import domain.rows.admin.UsersAndRolesRow;
-import domain.rows.brigades.BrigadeAndForemanRow;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +18,8 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
     public boolean insertRow(Row row) {
         UsersAndRolesRow usersAndRolesRow = (UsersAndRolesRow) row;
         String sql = "insert into " + getSQLTableName() + " values(" + usersAndRolesRow.getId()
-                + ", '" + usersAndRolesRow.getUserName() + "', " + usersAndRolesRow.getRoleId() + " )";
+                + ", '" + usersAndRolesRow.getUserName() + "', '" + usersAndRolesRow.getPassword() + "', " +
+                usersAndRolesRow.getRoleId() + " )";
         try {
             return executeQuery(sql) != null;
         } catch (SQLException throwables) {
@@ -29,7 +29,8 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
 
     @Override
     public boolean createTable() {
-        String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, user_name varchar(20), role_id int, " +
+        String sql = "CREATE TABLE " + getSQLTableName() + " ( id int primary key, " +
+                "user_name varchar(20), password varchar(20), role_id int, " +
                 "foreign key (role_id)" +
                 " references roles (id) on delete cascade)";
         try {
@@ -59,13 +60,7 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
 
     @Override
     public boolean loadTestData() {
-        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Василий"), 0))) {
-            return false;
-        }
-        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Дмитрий"), 1))) {
-            return false;
-        }
-        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("Екатерина"), 2))) {
+        if (!insertRow(new UsersAndRolesRow(0, Coder.encodingRUS("18206_VALKOVA"), "nar&Alex", 0))) {
             return false;
         }
         return true;
@@ -122,6 +117,7 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
                 Arrays.asList(
                         "Id",
                         Coder.encodingRUS("ФИО"),
+                        Coder.encodingRUS("Пароль"),
                         Coder.encodingRUS("id роли")
                 )
         );
@@ -130,14 +126,14 @@ public class UsersAndRolesTableImpl extends BaseTable implements DataBaseReposit
     @Override
     public ArrayList<String> getFieldNames() {
         return new ArrayList<>(
-                Arrays.asList("id", "userName", "roleId")
+                Arrays.asList("id", "userName", "password", "roleId")
         );
     }
 
     @Override
     public ArrayList<String> getSQLFieldNames() {
         return new ArrayList<>(
-                Arrays.asList("id", "user_name", "role_id")
+                Arrays.asList("id", "user_name", "password", "role_id")
         );
     }
 }

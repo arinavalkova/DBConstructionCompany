@@ -19,28 +19,28 @@ public class GetObjectsAndSchedulesView implements View {
     private final GetObjectsAndSchedulesViewModel getObjectsAndSchedulesViewModel = new GetObjectsAndSchedulesViewModel();
 
     @FXML
-    private TableView<Row> managementTable;
+    private TableView<Object> managementTable;
 
     @FXML
-    private TableColumn<Row, Integer> managementsIdColumn;
+    private TableColumn<Object, Integer> managementsIdColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfManagementColumn;
+    private TableColumn<Object, String> nameOfManagementColumn;
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfObjectColumn;
+    private TableColumn<Object, String> nameOfObjectColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfTypeOfWorkColumn;
+    private TableColumn<Object, String> nameOfTypeOfWorkColumn;
 
     @FXML
-    private TableColumn<Row, String> startDateColumn;
+    private TableColumn<Object, String> startDateColumn;
 
     @FXML
-    private TableColumn<Row, String> endDateColumn;
+    private TableColumn<Object, String> endDateColumn;
 
     @FXML
     private Button backButton;
@@ -69,7 +69,7 @@ public class GetObjectsAndSchedulesView implements View {
 
     private void initActions() {
         managementTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
+            TableRow<Object> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 ManagementsRow managementsRow = (ManagementsRow) row.getItem();
                 if (managementsRow != null) {

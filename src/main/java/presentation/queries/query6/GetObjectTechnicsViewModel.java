@@ -17,8 +17,8 @@ import java.util.List;
 
 public class GetObjectTechnicsViewModel implements DataReceiver {
 
-    private final Property<ObservableList<Row>> objectRowProperty = new SimpleObjectProperty<>();
-    private final Property<ObservableList<Row>> resultRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> objectRowProperty = new SimpleObjectProperty<>();
+    private final Property<ObservableList<Object>> resultRowProperty = new SimpleObjectProperty<>();
 
     private final GetRowsUseCase getObjectRowUseCase = new GetRowsUseCase(
             new ObjectsTableImpl(),
@@ -33,11 +33,11 @@ public class GetObjectTechnicsViewModel implements DataReceiver {
                     resultRowProperty
             );
 
-    public Property<ObservableList<Row>> getObjectRowProperty() {
+    public Property<ObservableList<Object>> getObjectRowProperty() {
         return objectRowProperty;
     }
 
-    public Property<ObservableList<Row>> getResultRowProperty() {
+    public Property<ObservableList<Object>> getResultRowProperty() {
         return resultRowProperty;
     }
 
@@ -45,17 +45,17 @@ public class GetObjectTechnicsViewModel implements DataReceiver {
         getObjectRowUseCase.invoke();
     }
 
-    public void executeQuery(Row row, String firstDate, String secondDate) {
+    public void executeQuery(Object row, String firstDate, String secondDate) {
         getObjectTechnicsQueryUseCase.invoke(row, firstDate, secondDate);
     }
 
     @Override
-    public void onDataSuccess(Object object, Property<ObservableList<Row>> property) {
+    public void onDataSuccess(Object object, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList((List<Row>) object)));
     }
 
     @Override
-    public void onDataError(String answer, Property<ObservableList<Row>> property) {
+    public void onDataError(String answer, Property<ObservableList<Object>> property) {
         Platform.runLater(() -> property.setValue(FXCollections.observableArrayList()));
     }
 }

@@ -31,6 +31,9 @@ public class JDBCConnection {
     }
 
     public static Connection getConnection() {
+        if (connection == null) {
+            establishJDBCConnection("18206_VALKOVA", "nar&Alex");
+        }
         return connection;
     }
 }

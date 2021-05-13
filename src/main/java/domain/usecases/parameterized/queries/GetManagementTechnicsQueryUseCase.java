@@ -19,9 +19,9 @@ public class GetManagementTechnicsQueryUseCase implements ParamUseCase {
 
 
     private final DataReceiver dataReceiver;
-    private final Property<ObservableList<Row>> property;
+    private final Property<ObservableList<Object>> property;
 
-    public GetManagementTechnicsQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Row>> property) {
+    public GetManagementTechnicsQueryUseCase(DataReceiver dataReceiver, Property<ObservableList<Object>> property) {
         this.dataReceiver = dataReceiver;
         this.property = property;
     }

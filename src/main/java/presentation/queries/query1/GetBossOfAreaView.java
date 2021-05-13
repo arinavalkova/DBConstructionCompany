@@ -19,31 +19,31 @@ public class GetBossOfAreaView implements View {
     private final GetBossOfAreaViewModel getBossOfAreaViewModel = new GetBossOfAreaViewModel();
 
     @FXML
-    private TableView<Row> managementTable;
+    private TableView<Object> managementTable;
 
     @FXML
-    private TableColumn<Row, Integer> managementsIdColumn;
+    private TableColumn<Object, Integer> managementsIdColumn;
 
     @FXML
-    private TableColumn<Row, String> nameOfManagementColumn;
+    private TableColumn<Object, String> nameOfManagementColumn;
 
     @FXML
-    private TableView<Row> sectorsTable;
+    private TableView<Object> sectorsTable;
 
     @FXML
-    private TableColumn<Row, Integer> sectorsIdColumn;
+    private TableColumn<Object, Integer> sectorsIdColumn;
 
     @FXML
-    private TableColumn<Row, String> sectorsNameColumn;
+    private TableColumn<Object, String> sectorsNameColumn;
 
     @FXML
-    private TableView<Row> resultTable;
+    private TableView<Object> resultTable;
 
     @FXML
-    private TableColumn<Row, String> nameOfResultColumn;
+    private TableColumn<Object, String> nameOfResultColumn;
 
     @FXML
-    private TableColumn<Row, String> professionOfResultColumn;
+    private TableColumn<Object, String> professionOfResultColumn;
 
     @FXML
     private Button backButton;
@@ -73,7 +73,7 @@ public class GetBossOfAreaView implements View {
 
     private void initActions() {
         managementTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
+            TableRow<Object> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 ManagementsRow managementsRow = (ManagementsRow) row.getItem();
                 if (managementsRow != null) {
@@ -84,7 +84,7 @@ public class GetBossOfAreaView implements View {
         });
 
         sectorsTable.setRowFactory( tv -> {
-            TableRow<Row> row = new TableRow<>();
+            TableRow<Object> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 SectorsRow sectorsRow = (SectorsRow) row.getItem();
                 if (sectorsRow != null) {
